@@ -1,0 +1,26 @@
+export const customers = [
+  {
+    id: "1024",
+    name: "Steve Johnson",
+    email: "steve@example.com",
+    phone: "+44 7700 900123",
+    jobs: "4 Jobs",
+    status: "Active",
+  },
+  {
+    id: "1025",
+    name: "Laura Smith",
+    email: "laura@example.com",
+    phone: "+44 7700 900456",
+    jobs: "2 Jobs",
+    status: "Pending",
+  },
+  {
+    id: "1026",
+    name: "Michael Brown",
+    email: "michael@example.com",
+    phone: "+44 7700 900789",
+    jobs: "1 Job",
+    status: "Active",
+  },
+];

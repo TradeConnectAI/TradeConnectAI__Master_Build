@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Boiler Service",
+        "materials": "Service kit, cleaning tools",
+        "duration": "1 hour",
+        "description": "Full boiler service including safety checks."
+    },
+    {
+        "title": "Radiator Install",
+        "materials": "Radiator, valves, pipework",
+        "duration": "2 hours",
+        "description": "Install new radiator and connect to system."
+    }
+]

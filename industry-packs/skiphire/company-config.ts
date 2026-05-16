@@ -1,0 +1,1 @@
+heroImage: "/industry-packs/skiphire/hero.jpg"
