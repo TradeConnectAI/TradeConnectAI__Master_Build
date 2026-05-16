@@ -1,0 +1,78 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id
+  name      String?
+  email     String   @unique
+  role      String   @default("agent")
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+
+  // Added in later migrations
+  isTrial            Boolean   @default(false)
+  stripeCustomerId   String?   @unique
+  subscriptionStatus String?
+  trialEnds          DateTime?
+
+  // Relations
+  leads      Lead[]      @relation("UserLeads")
+  workspaces Workspace[]
+}
+
+model Lead {
+  id           String   @id
+  source       String
+  name         String?
+  contact      String?
+  message      String
+  postcode     String?
+  jobType      String?
+  status       String   @default("new")
+  assignedToId String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime
+
+  assignedTo User? @relation("UserLeads", fields: [assignedToId], references: [id])
+  job        Job?
+}
+
+model Job {
+  id        String    @id
+  leadId    String    @unique
+  dateTime  DateTime?
+  notes     String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime
+
+  lead Lead @relation(fields: [leadId], references: [id])
+}
+
+model Booking {
+  id        String   @id
+  title     String
+  date      DateTime @db.Timestamp(3)
+  createdAt DateTime @default(now()) @db.Timestamp(3)
+}
+
+model Trial {
+  id        String   @id
+  startedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+}
+
+model Workspace {
+  id        String   @id
+  name      String
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+
+  user User @relation(fields: [userId], references: [id])
+}
