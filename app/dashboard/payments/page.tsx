@@ -1,4 +1,4 @@
-export default function PaymentsPage() {
+﻿export default function PaymentsPage() {
     return (
         <main className="min-h-screen bg-[#020817] text-white">
             <div className="flex">
@@ -8,7 +8,7 @@ export default function PaymentsPage() {
                             TradeConnectAI
                         </h1>
                         <p className="mt-2 text-sm text-white/50">
-                            AI Operations Platform
+                            AI toolbox
                         </p>
                     </div>
 
@@ -60,7 +60,7 @@ export default function PaymentsPage() {
                         </button>
                     </div>
 
-                    <div className="grid gap-6 md:grid-cols-3">
+                    <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
                         <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
                             <p className="text-sm text-white/50">Paid This Month</p>
                             <p className="mt-4 text-5xl font-black text-blue-400">£4.2k</p>
@@ -109,3 +109,4 @@ export default function PaymentsPage() {
         </main>
     );
 }
+

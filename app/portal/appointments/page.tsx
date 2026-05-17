@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import PortalHeader from "../PortalHeader";
 import SectionCard from "@/components/ui/SectionCard";
 
@@ -53,7 +53,7 @@ export default function PortalAppointmentsPage() {
                                     </span>
                                 </div>
 
-                                <div className="mt-5 grid gap-3 text-sm text-slate-300 md:grid-cols-2">
+                                <div className="mt-5 grid gap-3 text-sm text-slate-300 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2">
                                     <div className="rounded-xl bg-slate-900 p-4">
                                         <p className="text-slate-500">Date</p>
                                         <p className="mt-1 font-medium text-white">

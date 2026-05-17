@@ -1,0 +1,78 @@
+﻿export const calls = [
+  {
+    id: "CALL-2048",
+    caller: "Sarah Jenkins",
+    phone: "07700 900123",
+    trade: "Plumbing",
+    issue: "Leaking kitchen sink",
+    postcode: "CF23 8AB",
+    urgency: "Today",
+    intentScore: 92,
+    status: "Booked",
+    outcome: "Job created",
+    estimatedValue: "£180 - £260",
+    tyreKicker: false,
+  },
+  {
+    id: "CALL-2049",
+    caller: "Unknown Caller",
+    phone: "Withheld",
+    trade: "Electrical",
+    issue: "Asked for cheapest price only",
+    postcode: "Outside area",
+    urgency: "Unclear",
+    intentScore: 22,
+    status: "Rejected",
+    outcome: "Filtered as low intent",
+    estimatedValue: "£0",
+    tyreKicker: true,
+  },
+  {
+    id: "CALL-2050",
+    caller: "Mark Evans",
+    phone: "07700 900456",
+    trade: "Gas",
+    issue: "Boiler not firing",
+    postcode: "CF14 2AA",
+    urgency: "Emergency",
+    intentScore: 98,
+    status: "Escalated",
+    outcome: "Engineer notified",
+    estimatedValue: "£220 - £420",
+    tyreKicker: false,
+  },
+  {
+    id: "CALL-2051",
+    caller: "Priya Shah",
+    phone: "07700 900789",
+    trade: "Roofing",
+    issue: "Loose tiles after wind",
+    postcode: "CF11 9LP",
+    urgency: "This week",
+    intentScore: 86,
+    status: "Booked",
+    outcome: "Survey booked",
+    estimatedValue: "£350 - £900",
+    tyreKicker: false,
+  }
+];
+
+export const callStats = {
+  answeredToday: 38,
+  bookingsMade: 14,
+  tyreKickersFiltered: 11,
+  estimatedRevenue: "£4,850",
+  missedCallsRecovered: 7,
+  urgentEscalations: 3,
+};
+
+export const callFlow = [
+  "Call received",
+  "AI greeting played",
+  "Customer issue captured",
+  "Postcode checked",
+  "Intent scored",
+  "Booking offered",
+  "Confirmation sent",
+  "Job created"
+];

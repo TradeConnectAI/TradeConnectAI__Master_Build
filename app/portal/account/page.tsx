@@ -1,4 +1,4 @@
-import PortalHeader from "../PortalHeader";
+﻿import PortalHeader from "../PortalHeader";
 import SectionCard from "@/components/ui/SectionCard";
 
 export default function PortalAccountPage() {
@@ -11,7 +11,7 @@ export default function PortalAccountPage() {
                     title="Customer Details"
                     subtitle="Customer profile and contact information"
                 >
-                    <div className="grid gap-4 md:grid-cols-2">
+                    <div className="grid gap-4 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2">
                         <div className="rounded-xl bg-slate-950 p-4">
                             <p className="text-sm text-slate-500">Name</p>
                             <p className="mt-1 font-medium text-white">Steve Johnson</p>
@@ -49,7 +49,7 @@ export default function PortalAccountPage() {
                     title="Portal Preferences"
                     subtitle="How the customer receives updates"
                 >
-                    <div className="grid gap-4 md:grid-cols-3">
+                    <div className="grid gap-4 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
                         {["Email Updates", "SMS Reminders", "Invoice Alerts"].map(
                             (setting) => (
                                 <div

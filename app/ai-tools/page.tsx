@@ -1,66 +1,58 @@
-export default function AIToolsPage() {
-    const tools = [
-        {
-            name: "AI Quote Generator",
-            href: "/dashboard/ai/quote",
-        },
-        {
-            name: "AI Job Sheet Creator",
-            href: "/dashboard/ai/jobsheet",
-        },
-        {
-            name: "AI Customer Reply",
-            href: "/dashboard/ai/reply",
-        },
-        {
-            name: "AI Lead Assistant",
-            href: "/dashboard/ai/quote",
-        },
-        {
-            name: "AI Marketing Writer",
-            href: "/dashboard/ai/quote",
-        },
-        {
-            name: "AI Follow-up Generator",
-            href: "/dashboard/ai/quote",
-        },
-    ];
+﻿import Link from "next/link";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import RealImageCard from "@/components/RealImageCard";
+import { tradeImages } from "@/components/tradeImages";
 
-    return (
-        <main className="min-h-screen bg-black text-white p-10">
-            <div className="max-w-6xl mx-auto">
-                <h1 className="text-5xl font-bold mb-4">
-                    TradeConnectAI
-                </h1>
+const tools = [
+  {
+    title: "AI Call Helper",
+    text: "Captures enquiries and turns calls into clear job notes.",
+    image: tradeImages.phone,
+    href: "/ai-call-demo",
+  },
+  {
+    title: "Job Toolbox",
+    text: "Keeps jobs, quotes, reminders and follow-ups in one clearer place.",
+    image: tradeImages.tools,
+    href: "/operations",
+  },
+  {
+    title: "Customer Updates",
+    text: "Helps customers stay informed so they chase less.",
+    image: tradeImages.engineer,
+    href: "/customer-portal",
+  },
+];
 
-                <p className="text-gray-400 mb-10 text-lg">
-                    AI powered tools for trades businesses.
-                </p>
+export default function AiToolsPage() {
+  return (
+    <main className="min-h-screen bg-slate-950 text-white">
+      <SiteHeader />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {tools.map((tool) => (
-                        <div
-                            key={tool.name}
-                            className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-cyan-500 transition"
-                        >
-                            <h2 className="text-xl font-semibold mb-3">
-                                {tool.name}
-                            </h2>
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <p className="text-sm font-bold uppercase tracking-wider text-cyan-300">
+          Toolbox
+        </p>
 
-                            <p className="text-gray-400 mb-5">
-                                Generate professional outputs instantly using AI.
-                            </p>
+        <h1 className="mt-4 max-w-4xl text-5xl font-black md:text-7xl">
+          Practical AI tools for busy trade days.
+        </h1>
 
-                            <a
-                                href={tool.href}
-                                className="inline-block bg-cyan-500 hover:bg-cyan-400 text-black px-4 py-2 rounded-xl font-medium"
-                            >
-                                Open Tool
-                            </a>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </main>
-    );
+        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+          Not flashy tech for the sake of it. Useful helpers for calls, jobs, follow-ups and customers.
+        </p>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {tools.map((tool) => (
+            <Link key={tool.title} href={tool.href}>
+              <RealImageCard title={tool.title} text={tool.text} image={tool.image} />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <SiteFooter />
+    </main>
+  );
 }

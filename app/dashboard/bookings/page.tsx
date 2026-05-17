@@ -1,4 +1,4 @@
-export default function BookingsPage() {
+﻿export default function BookingsPage() {
     return (
         <main className="min-h-screen bg-[#020817] text-white">
             <div className="flex">
@@ -12,7 +12,7 @@ export default function BookingsPage() {
                         </h1>
 
                         <p className="mt-2 text-sm text-white/50">
-                            AI Operations Platform
+                            AI toolbox
                         </p>
                     </div>
 
@@ -94,7 +94,7 @@ export default function BookingsPage() {
                     </div>
 
                     {/* BOOKINGS GRID */}
-                    <div className="grid gap-6 lg:grid-cols-2">
+                    <div className="grid gap-6 lg:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2">
 
                         {[
                             {
@@ -154,7 +154,7 @@ export default function BookingsPage() {
 
                                 </div>
 
-                                <div className="mt-6 grid gap-4 md:grid-cols-2">
+                                <div className="mt-6 grid gap-4 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2">
 
                                     <div className="rounded-2xl bg-[#0b1220] p-4">
                                         <p className="text-sm text-white/40">
@@ -201,3 +201,4 @@ export default function BookingsPage() {
         </main>
     );
 }
+

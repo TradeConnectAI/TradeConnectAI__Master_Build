@@ -1,4 +1,4 @@
-import PortalHeader from "../PortalHeader";
+﻿import PortalHeader from "../PortalHeader";
 import SectionCard from "@/components/ui/SectionCard";
 
 export default function PortalDocumentsPage() {
@@ -17,7 +17,7 @@ export default function PortalDocumentsPage() {
                     title="Secure Documents"
                     subtitle="Invoices, certificates and job reports"
                 >
-                    <div className="grid gap-4 lg:grid-cols-3">
+                    <div className="grid gap-4 lg:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
                         {documents.map((file) => (
                             <div key={file} className="rounded-xl bg-slate-950 p-5">
                                 <p className="text-lg font-semibold">{file}</p>

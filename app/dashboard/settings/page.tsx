@@ -1,4 +1,4 @@
-export default function SettingsPage() {
+﻿export default function SettingsPage() {
     return (
         <main className="min-h-screen bg-[#020817] text-white">
             <div className="flex">
@@ -8,7 +8,7 @@ export default function SettingsPage() {
                             TradeConnectAI
                         </h1>
                         <p className="mt-2 text-sm text-white/50">
-                            AI Operations Platform
+                            AI toolbox
                         </p>
                     </div>
 
@@ -53,7 +53,7 @@ export default function SettingsPage() {
                         </p>
                     </div>
 
-                    <div className="grid gap-8 xl:grid-cols-2">
+                    <div className="grid gap-8 xl:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2">
                         <div className="rounded-[32px] border border-white/10 bg-white/5 p-6">
                             <h3 className="text-2xl font-black">Business Profile</h3>
 
@@ -104,7 +104,7 @@ export default function SettingsPage() {
                                 ].map((item) => (
                                     <div
                                         key={item}
-                                        className="flex items-center justify-between rounded-2xl bg-[#0b1220] p-4"
+                                        className="flex flex-wrap items-center justify-between rounded-2xl bg-[#0b1220] p-4"
                                     >
                                         <span className="font-semibold text-white/80">{item}</span>
                                         <span className="rounded-full bg-green-500/20 px-3 py-1 text-sm font-bold text-green-300">
@@ -127,7 +127,7 @@ export default function SettingsPage() {
                                 ].map(([name, status]) => (
                                     <div
                                         key={name}
-                                        className="flex items-center justify-between rounded-2xl bg-[#0b1220] p-4"
+                                        className="flex flex-wrap items-center justify-between rounded-2xl bg-[#0b1220] p-4"
                                     >
                                         <span className="font-semibold text-white/80">{name}</span>
                                         <span className="rounded-full bg-blue-500/20 px-3 py-1 text-sm font-bold text-blue-300">
@@ -143,3 +143,4 @@ export default function SettingsPage() {
         </main>
     );
 }
+

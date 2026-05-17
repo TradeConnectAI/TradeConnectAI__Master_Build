@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import DashboardShell from "@/components/dashboard/DashboardShell";
 import DashboardPageHeader from "@/components/dashboard/DashboardPageHeader";
@@ -28,7 +28,7 @@ export default function CustomersPage() {
                             key={customer.id}
                             className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6"
                         >
-                            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                            <div className="flex flex-col gap-6 lg:flex-col md:flex-col lg:flex-row lg:items-center lg:justify-between">
                                 <div>
                                     <p className="text-sm text-slate-400">
                                         Customer #{customer.id}
@@ -69,3 +69,4 @@ export default function CustomersPage() {
         </DashboardShell>
     );
 }
+

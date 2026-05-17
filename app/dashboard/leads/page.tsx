@@ -1,4 +1,4 @@
-export default function LeadsPage() {
+﻿export default function LeadsPage() {
     return (
         <main className="min-h-screen bg-[#020817] text-white">
             <div className="flex">
@@ -8,7 +8,7 @@ export default function LeadsPage() {
                             TradeConnectAI
                         </h1>
                         <p className="mt-2 text-sm text-white/50">
-                            AI Operations Platform
+                            AI toolbox
                         </p>
                     </div>
 
@@ -68,7 +68,7 @@ export default function LeadsPage() {
                         </a>
                     </div>
 
-                    <div className="grid gap-6 xl:grid-cols-3">
+                    <div className="grid gap-6 xl:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
                         <div className="space-y-5 xl:col-span-2">
                             {[
                                 {
@@ -119,7 +119,7 @@ export default function LeadsPage() {
                                         </span>
                                     </div>
 
-                                    <div className="grid gap-4 md:grid-cols-3">
+                                    <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
                                         <div className="rounded-2xl bg-[#0b1220] p-4">
                                             <p className="text-sm text-white/40">Urgency</p>
                                             <p className="mt-2 font-bold text-blue-300">
@@ -199,3 +199,4 @@ export default function LeadsPage() {
         </main>
     );
 }
+

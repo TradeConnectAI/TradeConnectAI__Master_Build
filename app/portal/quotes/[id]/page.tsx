@@ -1,4 +1,4 @@
-import PortalHeader from "../../PortalHeader";
+﻿import PortalHeader from "../../PortalHeader";
 import SectionCard from "@/components/ui/SectionCard";
 
 export default function PortalQuoteDetailPage() {

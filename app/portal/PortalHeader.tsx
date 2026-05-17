@@ -1,4 +1,4 @@
-export default function PortalHeader({
+﻿export default function PortalHeader({
     title,
     subtitle,
 }: {

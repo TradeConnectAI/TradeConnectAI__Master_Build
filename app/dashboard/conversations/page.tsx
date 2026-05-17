@@ -1,4 +1,4 @@
-export default function ConversationsPage() {
+﻿export default function ConversationsPage() {
     return (
         <main className="min-h-screen bg-[#020817] text-white">
             <div className="flex">
@@ -8,7 +8,7 @@ export default function ConversationsPage() {
                             TradeConnectAI
                         </h1>
                         <p className="mt-2 text-sm text-white/50">
-                            AI Operations Platform
+                            AI toolbox
                         </p>
                     </div>
 
@@ -53,7 +53,7 @@ export default function ConversationsPage() {
                         </a>
                     </div>
 
-                    <div className="grid gap-8 xl:grid-cols-3">
+                    <div className="grid gap-8 xl:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
                         <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl xl:col-span-2">
                             <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-5">
                                 <div>
@@ -70,42 +70,42 @@ export default function ConversationsPage() {
 
                             <div className="space-y-5">
                                 <div className="flex justify-end">
-                                    <div className="max-w-[80%] rounded-3xl rounded-br-md bg-blue-500 px-5 py-4">
+                                    <div className="max-w-full lg:w-auto rounded-3xl rounded-br-md bg-blue-500 px-5 py-4">
                                         Need an emergency electrician in Cardiff tonight.
                                         <p className="mt-2 text-xs text-blue-100/70">Customer • 18:42</p>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-start">
-                                    <div className="max-w-[80%] rounded-3xl rounded-bl-md border border-white/10 bg-[#0b1220] px-5 py-4">
+                                    <div className="max-w-full lg:w-auto rounded-3xl rounded-bl-md border border-white/10 bg-[#0b1220] px-5 py-4">
                                         Hi 👋 We can help with that. Is this residential or commercial?
                                         <p className="mt-2 text-xs text-white/40">TradeConnectAI • 18:42</p>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-end">
-                                    <div className="max-w-[80%] rounded-3xl rounded-br-md bg-blue-500 px-5 py-4">
+                                    <div className="max-w-full lg:w-auto rounded-3xl rounded-br-md bg-blue-500 px-5 py-4">
                                         Residential. Power keeps tripping downstairs.
                                         <p className="mt-2 text-xs text-blue-100/70">Customer • 18:43</p>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-start">
-                                    <div className="max-w-[80%] rounded-3xl rounded-bl-md border border-white/10 bg-[#0b1220] px-5 py-4">
+                                    <div className="max-w-full lg:w-auto rounded-3xl rounded-bl-md border border-white/10 bg-[#0b1220] px-5 py-4">
                                         Thanks — we’ve got availability tonight between 7pm–9pm. What’s the property postcode?
                                         <p className="mt-2 text-xs text-white/40">TradeConnectAI • 18:43</p>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-end">
-                                    <div className="max-w-[80%] rounded-3xl rounded-br-md bg-blue-500 px-5 py-4">
+                                    <div className="max-w-full lg:w-auto rounded-3xl rounded-br-md bg-blue-500 px-5 py-4">
                                         CF10 1AA
                                         <p className="mt-2 text-xs text-blue-100/70">Customer • 18:44</p>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-start">
-                                    <div className="max-w-[80%] rounded-3xl rounded-bl-md border border-white/10 bg-[#0b1220] px-5 py-4">
+                                    <div className="max-w-full lg:w-auto rounded-3xl rounded-bl-md border border-white/10 bg-[#0b1220] px-5 py-4">
                                         Perfect. I’ve flagged this as urgent and sent it to the engineer. We can hold 7:30pm for you.
                                         <p className="mt-2 text-xs text-white/40">TradeConnectAI • 18:44</p>
                                     </div>
@@ -164,3 +164,4 @@ export default function ConversationsPage() {
         </main>
     );
 }
+

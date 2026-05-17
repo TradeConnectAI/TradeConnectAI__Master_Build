@@ -1,4 +1,4 @@
-import DashboardShell from "@/components/dashboard/DashboardShell";
+﻿import DashboardShell from "@/components/dashboard/DashboardShell";
 import DashboardPageHeader from "@/components/dashboard/DashboardPageHeader";
 import PageContainer from "@/components/dashboard/PageContainer";
 import BackButton from "@/components/dashboard/BackButton";
@@ -23,7 +23,7 @@ export default function AnalyticsPage() {
                     description="Track revenue, win rate, lead sources and operational trends."
                 />
 
-                <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <div className="mt-8 grid gap-6 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2 xl:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                     {analyticsStats.map((stat) => (
                         <div
                             key={stat.label}
@@ -42,7 +42,7 @@ export default function AnalyticsPage() {
                     ))}
                 </div>
 
-                <div className="mt-8 grid gap-6 xl:grid-cols-2">
+                <div className="mt-8 grid gap-6 xl:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2">
                     <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
                         <p className="text-sm text-slate-400">Revenue Trend</p>
 
@@ -80,7 +80,7 @@ export default function AnalyticsPage() {
                             {leadChannels.map((channel) => (
                                 <div
                                     key={channel.name}
-                                    className="flex items-center justify-between rounded-2xl border border-slate-800 bg-slate-950/70 p-5"
+                                    className="flex flex-wrap items-center justify-between rounded-2xl border border-slate-800 bg-slate-950/70 p-5"
                                 >
                                     <span className="font-medium text-white">
                                         {channel.name}
@@ -98,3 +98,4 @@ export default function AnalyticsPage() {
         </DashboardShell>
     );
 }
+

@@ -1,81 +1,58 @@
-import DashboardShell from "@/components/dashboard/DashboardShell";
-import DashboardPageHeader from "@/components/dashboard/DashboardPageHeader";
-import PageContainer from "@/components/dashboard/PageContainer";
-import BackButton from "@/components/dashboard/BackButton";
+﻿import Link from "next/link";
 
-import { aiAutomations, aiSuggestions } from "@/data/mock/ai";
+export default function AIDashboardPage() {
+  const tools = [
+    {
+      title: "Quote Generator",
+      text: "Create a clean quote draft from a short job description.",
+      href: "/dashboard/ai/quote",
+    },
+    {
+      title: "Job Sheet Creator",
+      text: "Turn job notes into a simple professional job sheet.",
+      href: "/dashboard/ai/jobsheet",
+    },
+    {
+      title: "Customer Reply",
+      text: "Generate fast customer responses and follow-ups.",
+      href: "/dashboard/ai/reply",
+    },
+  ];
 
-export default function AIAssistantPage() {
-    return (
-        <DashboardShell>
-            <PageContainer>
-                <div className="mb-6">
-                    <BackButton />
-                </div>
+  return (
+    <main className="min-h-screen bg-slate-950 px-4 py-8 text-white">
+      <div className="mx-auto w-full max-w-5xl">
+        <Link href="/dashboard" className="inline-flex rounded-xl border border-cyan-400/40 bg-cyan-400/10 px-5 py-3 font-bold text-cyan-300 hover:bg-cyan-400/20">
+          ← Back to Dashboard
+        </Link>
 
-                <DashboardPageHeader
-                    eyebrow="AI Assistant"
-                    title="Trade AI Copilot"
-                    description="Automate customer messages, quote follow-ups, job sheets, reminders and admin tasks."
-                />
+        <section className="mt-6 rounded-3xl border border-cyan-400/20 bg-cyan-400/10 p-6 md:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.35em] text-cyan-300">
+            AI Tools
+          </p>
 
-                <div className="mt-8 grid gap-6 xl:grid-cols-3">
-                    <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 xl:col-span-2">
-                        <p className="text-sm text-slate-400">AI Command Centre</p>
+          <h1 className="mt-4 text-4xl font-black md:text-6xl">
+            Trade AI Copilot
+          </h1>
 
-                        <h2 className="mt-1 text-2xl font-semibold text-white">
-                            What should the AI do?
-                        </h2>
+          <p className="mt-4 max-w-2xl text-lg text-slate-300">
+            Demo tools for quotes, job sheets, customer replies, and admin support.
+          </p>
+        </section>
 
-                        <textarea
-                            className="mt-6 min-h-40 w-full rounded-2xl border border-slate-700 bg-slate-950/70 p-4 text-sm text-white outline-none"
-                            placeholder="Example: Follow up all quotes older than 3 days..."
-                        />
-
-                        <button className="mt-4 rounded-xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950">
-                            Run AI Task
-                        </button>
-                    </div>
-
-                    <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
-                        <p className="text-sm text-slate-400">Suggested Actions</p>
-
-                        <h2 className="mt-1 text-2xl font-semibold text-white">
-                            Quick Automations
-                        </h2>
-
-                        <div className="mt-6 space-y-3">
-                            {aiAutomations.map((item) => (
-                                <button
-                                    key={item}
-                                    className="w-full rounded-2xl border border-slate-800 bg-slate-950/70 p-4 text-left text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white"
-                                >
-                                    {item}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                <div className="mt-8 rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
-                    <p className="text-sm text-slate-400">AI Activity</p>
-
-                    <h2 className="mt-1 text-2xl font-semibold text-white">
-                        Recent AI Suggestions
-                    </h2>
-
-                    <div className="mt-6 space-y-4">
-                        {aiSuggestions.map((item) => (
-                            <div
-                                key={item}
-                                className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4 text-slate-300"
-                            >
-                                {item}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </PageContainer>
-        </DashboardShell>
-    );
+        <section className="mt-6 grid gap-5 md:grid-cols-3">
+          {tools.map((tool) => (
+            <Link key={tool.title} href={tool.href} className="block rounded-3xl border border-white/10 bg-white/[0.04] p-6 hover:border-cyan-400/40 hover:bg-white/[0.06]">
+              <h2 className="text-2xl font-black">{tool.title}</h2>
+              <p className="mt-3 text-slate-300">{tool.text}</p>
+              <p className="mt-5 text-sm font-bold uppercase tracking-[0.2em] text-cyan-300">
+                Open Tool
+              </p>
+            </Link>
+          ))}
+        </section>
+      </div>
+    </main>
+  );
 }
+
