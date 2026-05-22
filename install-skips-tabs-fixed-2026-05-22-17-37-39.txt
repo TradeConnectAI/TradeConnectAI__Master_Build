@@ -1,0 +1,17 @@
+﻿/install-skips-demo
+/install-skips-demo/admin
+/install-skips-demo/book
+/install-skips-demo/customer-form
+/install-skips-demo/customer-ticket
+/install-skips-demo/dashboard
+/install-skips-demo/driver
+/install-skips-demo/drivers
+/install-skips-demo/live-map
+/install-skips-demo/map
+/install-skips-demo/operations
+/install-skips-demo/payments
+/install-skips-demo/permits
+/install-skips-demo/skip-operations
+/install-skips-demo/skip-ticket
+/install-skips-demo/ticket
+/install-skips-demo/webchat
