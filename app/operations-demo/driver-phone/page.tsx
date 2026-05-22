@@ -3,38 +3,28 @@
 export default function Page(){
   return (
     <main className="min-h-screen bg-black p-6 text-white">
-      <Link href="/install-skips-demo" className="font-bold text-orange-400">
-        ← Back to Dashboard
-      </Link>
+      <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
 
-      <section className="mt-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-        <h1 className="text-4xl font-black">Driver Phone</h1>
-        <p className="mt-2 max-w-2xl text-slate-400">
-          Mobile job sheet view for the driver with delivery, pickup and customer notes.
-        </p>
-
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {["Live", "Assigned", "Completed"].map((item, index) => (
-            <div key={item} className="rounded-2xl bg-black p-5">
-              <p className="text-slate-400">{item}</p>
-              <p className="mt-2 text-3xl font-black">{12 + index}</p>
-            </div>
-          ))}
+      <div className="mx-auto mt-6 max-w-sm rounded-[2rem] border border-white/10 bg-slate-950 p-5 shadow-2xl">
+        <div className="text-center">
+          <h1 className="text-3xl font-black">Driver Phone</h1>
+          <p className="text-slate-400">Dean Horgan • SK08</p>
         </div>
 
-        <div className="mt-6 space-y-3">
-          {[
-            "8 Yard Skip - Barry - Dean Horgan",
-            "Grab Hire - Penarth - Vehicle GH02",
-            "Collection - Cardiff - Due 14:30",
-            "Aggregates - Dinas Powys - Paid"
-          ].map((job) => (
-            <div key={job} className="rounded-2xl border border-white/10 bg-black p-4">
-              {job}
-            </div>
-          ))}
+        <div className="mt-6 rounded-3xl bg-orange-500 p-5">
+          <p className="text-sm font-bold">NEXT JOB</p>
+          <h2 className="mt-1 text-2xl font-black">8 Yard Skip</h2>
+          <p>12 Harbour Road, Barry</p>
+          <p className="mt-2">Deliver by 10:30</p>
         </div>
-      </section>
+
+        <div className="mt-4 grid gap-3">
+          <button className="rounded-2xl bg-white/[0.08] p-4 font-bold">Accept Job</button>
+          <button className="rounded-2xl bg-white/[0.08] p-4 font-bold">Navigate</button>
+          <button className="rounded-2xl bg-white/[0.08] p-4 font-bold">Upload Photo</button>
+          <button className="rounded-2xl bg-emerald-500 p-4 font-bold">Complete Job</button>
+        </div>
+      </div>
     </main>
   );
 }

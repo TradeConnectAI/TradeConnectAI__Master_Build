@@ -1,40 +1,30 @@
 ﻿import Link from "next/link";
 
+const drivers = [
+  ["Dean Horgan", "SK08", "Driving", "3h 25m", "13:20"],
+  ["Mark Lewis", "GH02", "Loading", "2h 05m", "12:45"],
+  ["Ryan Cole", "SK11", "Returning", "4h 10m", "Break now"],
+];
+
 export default function Page(){
   return (
     <main className="min-h-screen bg-black p-6 text-white">
-      <Link href="/install-skips-demo" className="font-bold text-orange-400">
-        ← Back to Dashboard
-      </Link>
+      <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+      <h1 className="mt-6 text-4xl font-black">Drivers</h1>
+      <p className="mt-2 text-slate-400">Live driver status, vehicles, tacho and breaks.</p>
 
-      <section className="mt-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-        <h1 className="text-4xl font-black">Drivers</h1>
-        <p className="mt-2 max-w-2xl text-slate-400">
-          Live driver status, vehicle, hours, breaks and assigned work.
-        </p>
-
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {["Live", "Assigned", "Completed"].map((item, index) => (
-            <div key={item} className="rounded-2xl bg-black p-5">
-              <p className="text-slate-400">{item}</p>
-              <p className="mt-2 text-3xl font-black">{12 + index}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-6 space-y-3">
-          {[
-            "8 Yard Skip - Barry - Dean Horgan",
-            "Grab Hire - Penarth - Vehicle GH02",
-            "Collection - Cardiff - Due 14:30",
-            "Aggregates - Dinas Powys - Paid"
-          ].map((job) => (
-            <div key={job} className="rounded-2xl border border-white/10 bg-black p-4">
-              {job}
-            </div>
-          ))}
-        </div>
-      </section>
+      <div className="mt-6 grid gap-4 md:grid-cols-3">
+        {drivers.map(([name, vehicle, status, driven, breakDue]) => (
+          <div key={name} className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+            <h2 className="text-2xl font-black">{name}</h2>
+            <p className="mt-2 text-orange-300">{vehicle}</p>
+            <p className="mt-4">Status: <b>{status}</b></p>
+            <p>Driven today: <b>{driven}</b></p>
+            <p>Break: <b>{breakDue}</b></p>
+            <button className="mt-5 w-full rounded-2xl bg-orange-500 p-3 font-bold">View route</button>
+          </div>
+        ))}
+      </div>
     </main>
   );
 }
