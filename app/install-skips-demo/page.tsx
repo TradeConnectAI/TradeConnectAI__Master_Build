@@ -481,8 +481,14 @@ export default function InstallSkipsDemoPage() {
         {tab === "Live Map" && (
           <section className="grid gap-6 lg:grid-cols-3">
             <div className="relative min-h-[620px] overflow-hidden rounded-3xl border border-orange-500/20 bg-zinc-950 p-6 lg:col-span-2">
-              <div className="absolute inset-0 opacity-30">
-                <div className="h-full w-full bg-[linear-gradient(to_right,#f97316_1px,transparent_1px),linear-gradient(to_bottom,#f97316_1px,transparent_1px)] bg-[size:64px_64px]" />
+              <div className="absolute inset-0">
+                <iframe
+                  title="Barry Wales satellite map"
+                  src="https://www.google.com/maps?q=Barry,Wales&z=13&t=k&output=embed"
+                  className="h-full w-full border-0 opacity-60 grayscale"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/45" />
               </div>
 
               <div className="absolute inset-0 opacity-20">
@@ -867,3 +873,4 @@ function Grid({
     </section>
   );
 }
+
