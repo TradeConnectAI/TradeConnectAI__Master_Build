@@ -8,9 +8,9 @@ export default function Page(){
       </Link>
 
       <section className="mt-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-        <h1 className="text-4xl font-black">Live Map</h1>
+        <h1 className="text-4xl font-black">Revenue</h1>
         <p className="mt-2 max-w-2xl text-slate-400">
-          Fake live map view for lorries, skips, deliveries and collections.
+          Payments, invoices, daily takings and outstanding balances.
         </p>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
