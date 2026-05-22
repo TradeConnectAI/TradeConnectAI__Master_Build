@@ -1,10 +1,33 @@
-const stats = [
-  ["Revenue", "ï¿½4,820", "+18% today", "ï¿½"],
+const fs = require("fs");
+const path = require("path");
+const { execSync } = require("child_process");
+
+const root = process.cwd();
+const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+
+function backup(file) {
+  if (fs.existsSync(file)) {
+    fs.copyFileSync(file, `${file}.backup-${stamp}`);
+    console.log("Backup:", path.relative(root, file));
+  }
+}
+
+function write(file, content) {
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  backup(file);
+  fs.writeFileSync(file, content, "utf8");
+  console.log("Written:", path.relative(root, file));
+}
+
+write(
+  path.join(root, "app", "install-skips-demo", "page.tsx"),
+`const stats = [
+  ["Revenue", "£4,820", "+18% today", "£"],
   ["Jobs", "21", "6 live now", "J"],
   ["Skips Out", "38", "12 due back", "S"],
   ["Drivers", "6", "4 on road", "D"],
   ["Collections", "14", "8 complete", "C"],
-  ["Invoices", "18", "ï¿½3,410 paid", "I"],
+  ["Invoices", "18", "£3,410 paid", "I"],
 ];
 
 const liveJobs = [
@@ -137,7 +160,7 @@ export default function InstallSkipsDemoPage() {
               <div>
                 <h2 className="text-lg font-black">Barry Dispatch Live</h2>
                 <p className="text-sm text-slate-400">
-                  6 lorries active ï¿½ 38 skips out ï¿½ 14 collections
+                  6 lorries active · 38 skips out · 14 collections
                 </p>
               </div>
               <span className="w-fit rounded-full bg-orange-500/15 px-3 py-1 text-xs font-bold text-orange-300">
@@ -187,7 +210,7 @@ export default function InstallSkipsDemoPage() {
                         <p className="font-black">{driver}</p>
                         <p className="text-sm text-slate-400">{job}</p>
                       </div>
-                      <span className={`rounded-full px-3 py-1 text-xs font-bold ${colour}`}>
+                      <span className={\`rounded-full px-3 py-1 text-xs font-bold \${colour}\`}>
                         {status}
                       </span>
                     </div>
@@ -244,7 +267,7 @@ export default function InstallSkipsDemoPage() {
                     </p>
                     <h3 className="mt-1 text-lg font-black">{job.customer}</h3>
                   </div>
-                  <span className={`rounded-full px-3 py-1 text-xs font-bold ${job.colour}`}>
+                  <span className={\`rounded-full px-3 py-1 text-xs font-bold \${job.colour}\`}>
                     {job.time}
                   </span>
                 </div>
@@ -267,3 +290,30 @@ export default function InstallSkipsDemoPage() {
     </main>
   );
 }
+`
+);
+
+write(
+  path.join(root, "app", "skips-demo", "page.tsx"),
+`export { default } from "../install-skips-demo/page";
+`
+);
+
+fs.rmSync(path.join(root, ".next"), { recursive: true, force: true });
+
+console.log("Running build...");
+execSync("npm run build", { stdio: "inherit" });
+
+console.log("Build passed.");
+
+try {
+  execSync("git add .", { stdio: "inherit" });
+  execSync('git commit -m "Match install skips orange branding"', { stdio: "inherit" });
+  execSync("git push", { stdio: "inherit" });
+  console.log("Pushed to GitHub.");
+} catch {
+  console.log("Nothing to commit or git failed. Showing status:");
+  execSync("git status", { stdio: "inherit" });
+}
+
+console.log("DONE. Test /install-skips-demo?v=orangebrand");
