@@ -57,13 +57,13 @@ const modules = [
 
 export default function InstallSkipsDemoHome() {
   return (
-    <main className="min-h-screen bg-[#020704] text-white">
+    <main className="min-h-screen install-skip-bg text-white">
       <InstallSkipsDemoNav />
 
       <section className="mx-auto max-w-[1800px] px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
-          <div className="overflow-hidden rounded-[2.5rem] border border-emerald-300/20 bg-gradient-to-br from-emerald-400/20 via-white/[0.05] to-black p-6 shadow-2xl shadow-black/40 sm:p-10">
-            <p className="text-sm font-black uppercase tracking-[0.32em] text-emerald-200">
+          <div className="overflow-hidden rounded-[2.5rem] border border-yellow-300/25 bg-gradient-to-br from-emerald-400/20 via-white/[0.05] to-black p-6 shadow-2xl shadow-black/40 sm:p-10">
+            <p className="text-sm font-black uppercase tracking-[0.32em] text-yellow-200">
               Install Integrated Skips Limited Demo
             </p>
 
@@ -80,7 +80,7 @@ export default function InstallSkipsDemoHome() {
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href="/install-skips-demo/book"
-                className="rounded-2xl bg-emerald-400 px-6 py-4 text-sm font-black text-black shadow-xl shadow-emerald-950/50 hover:bg-emerald-300"
+                className="rounded-2xl bg-yellow-300 px-6 py-4 text-sm font-black text-black shadow-xl shadow-emerald-950/50 hover:bg-white"
               >
                 Start Customer Booking
               </Link>
@@ -99,8 +99,8 @@ export default function InstallSkipsDemoHome() {
             </div>
           </div>
 
-          <aside className="rounded-[2.5rem] border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-black/30 sm:p-8">
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-emerald-300">
+          <aside className="rounded-[2.5rem] border border-white/10 bg-white/[0.075] p-6 shadow-2xl shadow-black/30 sm:p-8">
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-yellow-300">
               Live Demo Snapshot
             </p>
             <h2 className="mt-3 text-3xl font-black">Today’s Control Board</h2>
@@ -127,11 +127,11 @@ export default function InstallSkipsDemoHome() {
             <Link
               key={label}
               href="/install-skips-demo/operations"
-              className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-5 shadow-xl shadow-black/20 hover:border-emerald-300/50 hover:bg-emerald-400/10"
+              className="rounded-[1.75rem] border border-white/10 bg-white/[0.085] p-5 shadow-xl shadow-black/20 hover:border-yellow-300/60 hover:bg-yellow-300/10"
             >
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{label}</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-slate-300">{label}</p>
               <p className="mt-2 text-4xl font-black">{value}</p>
-              <p className="mt-2 text-xs leading-5 text-slate-400">{note}</p>
+              <p className="mt-2 text-xs leading-5 text-slate-300">{note}</p>
             </Link>
           ))}
         </div>
@@ -141,14 +141,14 @@ export default function InstallSkipsDemoHome() {
             <Link
               key={module.href}
               href={module.href}
-              className="group rounded-[2.25rem] border border-white/10 bg-white/[0.055] p-6 shadow-2xl shadow-black/20 transition hover:-translate-y-1 hover:border-emerald-300/50 hover:bg-emerald-400/10"
+              className="group rounded-[2.25rem] border border-white/10 bg-white/[0.08] p-6 shadow-2xl shadow-black/20 transition hover:-translate-y-1 hover:border-yellow-300/60 hover:bg-yellow-300/10"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <div className="text-4xl">{module.icon}</div>
                   <h2 className="mt-4 text-3xl font-black">{module.title}</h2>
                 </div>
-                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-2 text-xs font-black text-emerald-200">
+                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-2 text-xs font-black text-yellow-200">
                   CLICKABLE
                 </span>
               </div>
@@ -157,7 +157,7 @@ export default function InstallSkipsDemoHome() {
                 {module.text}
               </p>
 
-              <span className="mt-6 inline-flex rounded-2xl bg-white px-5 py-3 text-sm font-black text-black group-hover:bg-emerald-300">
+              <span className="mt-6 inline-flex rounded-2xl bg-white px-5 py-3 text-sm font-black text-black group-hover:bg-white">
                 {module.button}
               </span>
             </Link>
@@ -167,4 +167,5 @@ export default function InstallSkipsDemoHome() {
     </main>
   );
 }
+
 

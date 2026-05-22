@@ -13,12 +13,12 @@ const messages = [
 
 export default function WebchatPage() {
   return (
-    <main className="min-h-screen bg-[#06110d] text-white">
+    <main className="min-h-screen install-skip-bg text-white">
       <InstallSkipsDemoNav />
 
       <section className="mx-auto max-w-[1200px] px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6">
-          <p className="text-sm font-black uppercase tracking-[0.28em] text-emerald-300">AI Webchat Demo</p>
+        <div className="rounded-[2rem] border border-white/10 bg-white/[0.075] p-6">
+          <p className="text-sm font-black uppercase tracking-[0.28em] text-yellow-300">AI Webchat Demo</p>
           <h1 className="mt-2 text-4xl font-black">AI Books the Skip</h1>
           <p className="mt-3 text-sm leading-6 text-slate-300">
             A realistic fake conversation showing the AI checking permit need, contents,
@@ -28,15 +28,15 @@ export default function WebchatPage() {
 
         <div className="mt-6 space-y-4">
           {messages.map(([who, text], index) => (
-            <div key={`${who}-${index}`} className={`rounded-3xl border border-white/10 p-4 ${who === "AI" ? "bg-emerald-400/10" : "bg-white/[0.05]"}`}>
-              <p className="text-xs font-black uppercase tracking-widest text-emerald-300">{who}</p>
+            <div key={`${who}-${index}`} className={`rounded-3xl border border-white/10 p-4 ${who === "AI" ? "bg-yellow-300/10" : "bg-white/[0.075]"}`}>
+              <p className="text-xs font-black uppercase tracking-widest text-yellow-300">{who}</p>
               <p className="mt-2 text-sm leading-6 text-slate-100">{text}</p>
             </div>
           ))}
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/install-skips-demo/book" className="rounded-2xl bg-emerald-400 px-5 py-4 text-sm font-black text-black hover:bg-emerald-300">
+          <Link href="/install-skips-demo/book" className="rounded-2xl bg-yellow-300 px-5 py-4 text-sm font-black text-black hover:bg-white">
             Convert to Booking
           </Link>
           <Link href="/install-skips-demo/operations" className="rounded-2xl border border-white/15 px-5 py-4 text-sm font-black text-white hover:bg-white/10">
@@ -47,4 +47,5 @@ export default function WebchatPage() {
     </main>
   );
 }
+
 

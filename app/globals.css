@@ -91,3 +91,20 @@ body {
 .tc-hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* install-skips-colour-system */
+.install-skip-bg {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(250, 204, 21, 0.16), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.18), transparent 30%),
+    linear-gradient(135deg, #020704 0%, #071008 45%, #0b1608 100%);
+}
+
+.install-skip-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.install-skip-yellow-glow {
+  box-shadow: 0 0 0 1px rgba(250,204,21,0.22), 0 22px 60px rgba(0,0,0,0.35);
+}

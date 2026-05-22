@@ -71,12 +71,12 @@ const stats = [
 
 export default function SkipOperationsPage() {
   return (
-    <main className="min-h-screen bg-[#06110d] text-white">
+    <main className="min-h-screen install-skip-bg text-white">
       <InstallSkipsDemoNav />
 
       <section className="mx-auto max-w-[1800px] px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6">
-          <p className="text-sm font-black uppercase tracking-[0.28em] text-emerald-300">Live Skip Locations</p>
+        <div className="rounded-[2rem] border border-white/10 bg-white/[0.075] p-6">
+          <p className="text-sm font-black uppercase tracking-[0.28em] text-yellow-300">Live Skip Locations</p>
           <h1 className="mt-2 text-4xl font-black">Skip Location + Paperwork Dashboard</h1>
           <p className="mt-3 text-sm leading-6 text-slate-300">
             Track every skip, customer site, driver, permit status, contents note,
@@ -86,8 +86,8 @@ export default function SkipOperationsPage() {
 
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
           {stats.map(([label, value]) => (
-            <div key={label} className="rounded-3xl border border-white/10 bg-white/[0.06] p-4">
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{label}</p>
+            <div key={label} className="rounded-3xl border border-white/10 bg-white/[0.085] p-4">
+              <p className="text-xs font-bold uppercase tracking-widest text-slate-300">{label}</p>
               <p className="mt-2 text-3xl font-black">{value}</p>
             </div>
           ))}
@@ -95,10 +95,10 @@ export default function SkipOperationsPage() {
 
         <div className="mt-6 grid gap-4 lg:grid-cols-2">
           {skips.map((skip) => (
-            <article key={skip.id} className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-5">
+            <article key={skip.id} className="rounded-[2rem] border border-white/10 bg-white/[0.075] p-5">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <p className="text-sm font-black text-emerald-300">{skip.id}</p>
+                  <p className="text-sm font-black text-yellow-300">{skip.id}</p>
                   <h2 className="mt-1 text-2xl font-black">{skip.size} Skip</h2>
                   <p className="mt-1 text-sm text-slate-300">{skip.customer}</p>
                 </div>
@@ -115,14 +115,14 @@ export default function SkipOperationsPage() {
                   ["Load / Flag", `${skip.load} · ${skip.flag}`],
                 ].map(([label, value]) => (
                   <div key={label} className="rounded-2xl bg-black/25 p-3">
-                    <p className="text-slate-400">{label}</p>
+                    <p className="text-slate-300">{label}</p>
                     <p className="mt-1 font-bold">{value}</p>
                   </div>
                 ))}
               </div>
 
               <div className="mt-5 flex flex-wrap gap-2">
-                <Link href="/install-skips-demo/skip-ticket" className="rounded-2xl bg-emerald-400 px-4 py-3 text-sm font-black text-black hover:bg-emerald-300">
+                <Link href="/install-skips-demo/skip-ticket" className="rounded-2xl bg-yellow-300 px-4 py-3 text-sm font-black text-black hover:bg-white">
                   Open Digital Skip Ticket
                 </Link>
                 <Link href="/install-skips-demo/drivers" className="rounded-2xl border border-white/15 px-4 py-3 text-sm font-bold text-white hover:bg-white/10">
@@ -139,4 +139,5 @@ export default function SkipOperationsPage() {
     </main>
   );
 }
+
 
