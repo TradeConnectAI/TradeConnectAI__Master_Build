@@ -1,0 +1,13 @@
+﻿# Complete Options Beta Routes
+
+Login:
+https://www.tradeconnectai.co.uk/complete-options-login
+
+Dashboard:
+https://www.tradeconnectai.co.uk/complete-options-demo
+
+Demo password:
+complete2026
+
+Environment variable option on Vercel:
+COMPLETE_OPTIONS_PASSWORD=complete2026
