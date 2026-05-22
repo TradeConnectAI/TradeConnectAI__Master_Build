@@ -118,11 +118,78 @@ const skipStock = [
   { size: "12 yard", available: 4, out: 3 },
 ];
 
+const mapPins = [
+  {
+    label: "SCANIA 340",
+    type: "truck",
+    icon: "TRK",
+    detail: "Mike - Barry delivery",
+    top: "18%",
+    left: "22%",
+    colour: "bg-orange-500",
+  },
+  {
+    label: "IVECO EuroCargo",
+    type: "truck",
+    icon: "TRK",
+    detail: "Tom - Cardiff route",
+    top: "42%",
+    left: "58%",
+    colour: "bg-orange-500",
+  },
+  {
+    label: "Grab 1",
+    type: "truck",
+    icon: "GRB",
+    detail: "Gareth - Penarth collection",
+    top: "64%",
+    left: "48%",
+    colour: "bg-orange-500",
+  },
+  {
+    label: "6 yard skip",
+    type: "skip",
+    icon: "6YD",
+    detail: "Claire Jenkins - permit check",
+    top: "30%",
+    left: "72%",
+    colour: "bg-yellow-400",
+  },
+  {
+    label: "12 yard exchange",
+    type: "exchange",
+    icon: "EXC",
+    detail: "Vale Roofing - due 15:00",
+    top: "72%",
+    left: "28%",
+    colour: "bg-blue-500",
+  },
+  {
+    label: "Collection due",
+    type: "collection",
+    icon: "COL",
+    detail: "Cardiff Bay - unassigned",
+    top: "52%",
+    left: "36%",
+    colour: "bg-red-500",
+  },
+  {
+    label: "Permit warning",
+    type: "permit",
+    icon: "PER",
+    detail: "Roadside permit active",
+    top: "38%",
+    left: "40%",
+    colour: "bg-red-500",
+  },
+];
+
 export default function InstallSkipsDemoPage() {
   const [tab, setTab] = useState("Jobs");
   const [jobs, setJobs] = useState(jobsStart);
   const [selectedJob, setSelectedJob] = useState(jobsStart[0]);
   const [selectedDriver, setSelectedDriver] = useState(drivers[0]);
+  const [selectedPin, setSelectedPin] = useState(mapPins[0]);
   const [paid, setPaid] = useState<number[]>([1, 4]);
   const [sent, setSent] = useState<number[]>([1, 4]);
   const [completed, setCompleted] = useState<number[]>([]);
@@ -142,7 +209,9 @@ export default function InstallSkipsDemoPage() {
       completed: completed.length,
       collections: jobs.filter((job) => job.type === "Collection").length,
       exchanges: jobs.filter((job) => job.type === "Exchange").length,
-      permits: jobs.filter((job) => job.permit.toLowerCase().includes("permit")).length,
+      permits: jobs.filter((job) =>
+        job.permit.toLowerCase().includes("permit")
+      ).length,
       skipsOut: skipStock.reduce((sum, skip) => sum + skip.out, 0),
       skipsAvailable: skipStock.reduce((sum, skip) => sum + skip.available, 0),
     };
@@ -193,6 +262,9 @@ export default function InstallSkipsDemoPage() {
     });
 
     setJobs(updated);
+
+    const fresh = updated.find((job) => job.id === selectedJob.id);
+    if (fresh) setSelectedJob(fresh);
   }
 
   function togglePaid(id: number) {
@@ -242,7 +314,7 @@ export default function InstallSkipsDemoPage() {
             </div>
           </div>
 
-          <h1 className="mt-12 max-w-5xl text-5xl font-black tracking-tight md:text-7xl">
+          <h1 className="mt-12 max-w-[1100px] text-4xl font-black leading-[0.95] tracking-tight md:text-6xl">
             Skip hire control room with AI booking, permits, payments and driver dispatch.
           </h1>
 
@@ -251,6 +323,24 @@ export default function InstallSkipsDemoPage() {
             checks availability, organises permits, assigns drivers, sends tasks to phones,
             tracks TACO-style driver hours and hands complex work to a real person.
           </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            {[
+              ["Book Skip", "Jobs"],
+              ["Driver Board", "Drivers"],
+              ["Collections", "Collections"],
+              ["Live Map", "Live Map"],
+              ["Revenue", "Payments"],
+            ].map(([label, target]) => (
+              <button
+                key={label}
+                onClick={() => setTab(target)}
+                className="rounded-full border border-orange-500 bg-black/70 px-6 py-4 font-black text-orange-400 hover:bg-orange-500 hover:text-black"
+              >
+                {label}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -279,6 +369,24 @@ export default function InstallSkipsDemoPage() {
           ))}
         </section>
 
+        <section className="rounded-3xl border border-orange-500/20 bg-zinc-950 p-5">
+          <p className="font-black text-orange-400">LIVE OPERATIONS</p>
+          <div className="mt-3 grid gap-3 md:grid-cols-4">
+            <button onClick={() => setTab("Live Map")} className="rounded-2xl bg-black p-4 text-left hover:ring-2 hover:ring-orange-500">
+              SCANIA 340 delivering Barry
+            </button>
+            <button onClick={() => setTab("Collections")} className="rounded-2xl bg-black p-4 text-left hover:ring-2 hover:ring-orange-500">
+              2 collections due today
+            </button>
+            <button onClick={() => setTab("Payments")} className="rounded-2xl bg-black p-4 text-left hover:ring-2 hover:ring-orange-500">
+              £{stats.paidRevenue.toLocaleString()} paid today
+            </button>
+            <button onClick={() => setTab("Driver Phone")} className="rounded-2xl bg-black p-4 text-left hover:ring-2 hover:ring-orange-500">
+              {stats.sent} jobs sent to phones
+            </button>
+          </div>
+        </section>
+
         <nav className="flex flex-wrap gap-2 rounded-3xl border border-orange-500/20 bg-zinc-950 p-3">
           {[
             "Jobs",
@@ -288,6 +396,7 @@ export default function InstallSkipsDemoPage() {
             "Payments",
             "Permits",
             "Skips",
+            "Live Map",
             "AI Handover",
           ].map((item) => (
             <button
@@ -366,6 +475,123 @@ export default function InstallSkipsDemoPage() {
               onComplete={() => completeJob(selectedJob.id)}
               onAssign={(driver) => assignDriver(selectedJob.id, driver)}
             />
+          </section>
+        )}
+
+        {tab === "Live Map" && (
+          <section className="grid gap-6 lg:grid-cols-3">
+            <div className="relative min-h-[620px] overflow-hidden rounded-3xl border border-orange-500/20 bg-zinc-950 p-6 lg:col-span-2">
+              <div className="absolute inset-0 opacity-30">
+                <div className="h-full w-full bg-[linear-gradient(to_right,#f97316_1px,transparent_1px),linear-gradient(to_bottom,#f97316_1px,transparent_1px)] bg-[size:64px_64px]" />
+              </div>
+
+              <div className="absolute inset-0 opacity-20">
+                <div className="absolute left-[16%] top-[22%] h-32 w-48 rounded-full border border-orange-500" />
+                <div className="absolute left-[52%] top-[36%] h-40 w-64 rounded-full border border-orange-500" />
+                <div className="absolute left-[28%] top-[62%] h-36 w-56 rounded-full border border-orange-500" />
+              </div>
+
+              <div className="relative z-10 flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h2 className="text-3xl font-black">Live fleet and skip map</h2>
+                  <p className="mt-2 text-zinc-400">
+                    Fake live positions for demo only. Lorries, skips, permits and collections.
+                  </p>
+                </div>
+
+                <div className="rounded-full bg-orange-500 px-4 py-2 font-black text-black">
+                  South Wales Ops View
+                </div>
+              </div>
+
+              {mapPins.map((pin) => (
+                <button
+                  key={pin.label}
+                  className="absolute z-20 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-black/90 p-3 text-left shadow-xl ring-1 ring-orange-500/30 transition hover:scale-110 hover:ring-orange-400"
+                  style={{ top: pin.top, left: pin.left }}
+                  onClick={() => setSelectedPin(pin)}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`flex h-10 w-10 items-center justify-center rounded-full ${pin.colour} text-xs font-black text-black`}
+                    >
+                      {pin.icon}
+                    </span>
+                    <div>
+                      <p className="font-black text-white">{pin.label}</p>
+                      <p className="text-xs text-zinc-400">{pin.detail}</p>
+                    </div>
+                  </div>
+                </button>
+              ))}
+
+              <div className="absolute bottom-6 left-6 right-6 z-10 rounded-2xl border border-orange-500/20 bg-black/80 p-4">
+                <div className="grid gap-3 md:grid-cols-4">
+                  <div>
+                    <p className="text-sm text-zinc-500">Lorries moving</p>
+                    <p className="text-2xl font-black text-orange-400">3</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-zinc-500">Skips out</p>
+                    <p className="text-2xl font-black text-orange-400">
+                      {stats.skipsOut}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-zinc-500">Collections due</p>
+                    <p className="text-2xl font-black text-orange-400">
+                      {stats.collections}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-zinc-500">Permit alerts</p>
+                    <p className="text-2xl font-black text-orange-400">
+                      {stats.permits}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <aside className="rounded-3xl border border-orange-500/20 bg-zinc-950 p-6">
+              <h2 className="text-3xl font-black">Map activity</h2>
+
+              <div className="mt-5 rounded-2xl bg-black p-5">
+                <p className="text-2xl font-black text-orange-400">
+                  {selectedPin.label}
+                </p>
+                <p className="mt-2 text-zinc-300">{selectedPin.detail}</p>
+                <p className="mt-2 text-sm text-zinc-500">
+                  Type: {selectedPin.type}
+                </p>
+              </div>
+
+              <div className="mt-5 space-y-3">
+                {[
+                  "SCANIA 340 is 12 minutes from Barry Builders.",
+                  "IVECO route has space for one extra 6 yard delivery.",
+                  "Grab 1 needs break check before next job.",
+                  "Cardiff Bay collection is still unassigned.",
+                  "AI suggests moving Cardiff Bay to Tom.",
+                  "Permit warning active for roadside skip.",
+                ].map((event) => (
+                  <button
+                    key={event}
+                    onClick={() => setTab("Collections")}
+                    className="w-full rounded-2xl bg-black p-4 text-left text-zinc-300 hover:ring-2 hover:ring-orange-500"
+                  >
+                    {event}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setTab("Collections")}
+                className="mt-5 w-full rounded-full bg-orange-500 px-4 py-3 font-black text-black"
+              >
+                Open collections planner
+              </button>
+            </aside>
           </section>
         )}
 
