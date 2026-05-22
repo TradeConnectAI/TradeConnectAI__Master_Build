@@ -1,163 +1,209 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+:root {
+  color-scheme: dark;
 }
 
+html,
 body {
   margin: 0;
   padding: 0;
-  background: #020617;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-}
-
-html{
-overflow:hidden;
-}
-
-body{
-overflow:hidden;
-background:#030712;
-}
-
-::-webkit-scrollbar{
-width:8px;
-}
-
-::-webkit-scrollbar-thumb{
-background:#ff5b00;
-border-radius:99px;
-}
-
-.dashboard-card{
-border-radius:24px;
-backdrop-filter:blur(12px);
-}
-
-.hero-control{
-max-height:72vh;
-overflow:auto;
-}
-
-.sidebar-control{
-overflow-y:auto;
-max-height:100vh;
-}
-
-
-/* Install Skips dashboard visibility fix */
-.install-dashboard-shell {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.install-dashboard-main {
-  height: 100vh;
-  overflow-y: auto;
-}
-
-.install-hero-compact {
-  max-height: 300px;
-  overflow: hidden;
-}
-
-
-/* ===== MOBILE EMERGENCY FIX ===== */
-html, body {
   width: 100%;
   max-width: 100%;
+  min-height: 100%;
   overflow-x: hidden;
+  background: #020617;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  max-width: 100%;
 }
 
-img, video, iframe, canvas, svg {
+img,
+video,
+iframe,
+canvas,
+svg {
   max-width: 100%;
   height: auto;
 }
 
-main, section, div {
+main,
+section,
+article,
+aside,
+header,
+footer,
+nav,
+div {
   min-width: 0;
 }
 
-table {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-}
-
-button, a {
+a,
+button {
   touch-action: manipulation;
 }
 
+table {
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+input,
+select,
+textarea,
+button {
+  font-size: 16px;
+}
+
+/* ===== MOBILE FIRST RESCUE MODE ===== */
 @media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+
   body {
     font-size: 15px;
   }
 
   main {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    width: 100% !important;
+    padding: 16px !important;
   }
 
-  .grid {
+  header,
+  nav {
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+
+  .grid,
+  [class*="grid-cols-"],
+  [class*="md:grid-cols-"],
+  [class*="lg:grid-cols-"],
+  [class*="xl:grid-cols-"] {
+    display: grid !important;
     grid-template-columns: 1fr !important;
   }
 
-  .md\:grid-cols-2,
-  .md\:grid-cols-3,
-  .md\:grid-cols-4,
-  .md\:grid-cols-5,
-  .md\:grid-cols-6,
-  .lg\:grid-cols-2,
-  .lg\:grid-cols-3,
-  .lg\:grid-cols-4 {
-    grid-template-columns: 1fr !important;
+  .flex,
+  [class*="md:flex"],
+  [class*="lg:flex"] {
+    flex-wrap: wrap !important;
   }
 
-  .flex {
-    flex-wrap: wrap;
+  .hidden-mobile {
+    display: none !important;
+  }
+
+  [class*="w-["],
+  [class*="min-w-"],
+  [class*="max-w-"],
+  .w-screen,
+  .min-w-full {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  [class*="h-["] {
+    max-height: none !important;
   }
 
   .text-4xl,
   .text-5xl,
   .text-6xl,
-  .text-7xl {
+  .text-7xl,
+  .text-8xl {
     font-size: 2rem !important;
     line-height: 2.35rem !important;
   }
 
+  .text-3xl {
+    font-size: 1.65rem !important;
+    line-height: 2rem !important;
+  }
+
+  .p-6,
   .p-8,
   .p-10,
   .p-12 {
     padding: 1rem !important;
   }
 
+  .px-6,
+  .px-8,
+  .px-10,
+  .px-12 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .py-8,
+  .py-10,
+  .py-12,
+  .py-16,
+  .py-20 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .gap-6,
+  .gap-8,
+  .gap-10,
+  .gap-12 {
+    gap: 1rem !important;
+  }
+
   .rounded-3xl {
     border-radius: 1.25rem !important;
   }
 
-  nav,
-  header {
+  button,
+  a {
     max-width: 100%;
-    overflow-x: auto;
+    white-space: normal !important;
   }
 
-  nav a,
-  header a,
-  button {
-    white-space: nowrap;
+  /* Sidebar becomes top scrolling tabs */
+  aside {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow-x: auto !important;
   }
-}
 
-/* Fix fake dashboards/cards overflowing */
-.card,
-.dashboard,
-.panel {
-  max-width: 100%;
-  overflow: hidden;
+  aside nav,
+  aside div {
+    width: 100% !important;
+  }
+
+  /* Dashboard cards */
+  .dashboard,
+  .panel,
+  .card,
+  .map,
+  .stats,
+  .jobs,
+  .drivers {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* Fake map sections need phone-safe height */
+  .map,
+  [class*="map"],
+  [class*="Map"] {
+    min-height: 360px !important;
+    height: auto !important;
+  }
 }
