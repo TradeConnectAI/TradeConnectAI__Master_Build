@@ -1,10 +1,10 @@
 const stats = [
-  ["Revenue", "�4,820", "+18% today", "�", "from-emerald-400 to-lime-300"],
-  ["Jobs", "21", "6 live now", "J", "from-blue-400 to-cyan-300"],
-  ["Skips Out", "38", "12 due back", "S", "from-yellow-300 to-orange-300"],
-  ["Drivers", "6", "4 on road", "D", "from-purple-400 to-pink-300"],
-  ["Collections", "14", "8 complete", "C", "from-teal-300 to-emerald-300"],
-  ["Invoices", "18", "�3,410 paid", "I", "from-orange-300 to-red-300"],
+  ["Revenue", "�4,820", "+18% today"],
+  ["Jobs", "21", "6 live now"],
+  ["Skips Out", "38", "12 due back"],
+  ["Drivers", "6", "4 on road"],
+  ["Collections", "14", "8 complete"],
+  ["Invoices", "18", "�3,410 paid"],
 ];
 
 const liveJobs = [
@@ -15,7 +15,6 @@ const liveJobs = [
     status: "Driver assigned",
     driver: "Dean Horgan",
     time: "10:30",
-    colour: "bg-emerald-400/15 text-emerald-300",
   },
   {
     ref: "SK-1049",
@@ -24,7 +23,6 @@ const liveJobs = [
     status: "Permit check",
     driver: "Pending",
     time: "11:15",
-    colour: "bg-yellow-400/15 text-yellow-300",
   },
   {
     ref: "SK-1050",
@@ -33,94 +31,62 @@ const liveJobs = [
     status: "Payment taken",
     driver: "Rhys P",
     time: "12:00",
-    colour: "bg-blue-400/15 text-blue-300",
   },
 ];
 
 const driverTasks = [
-  ["Dean Horgan", "SK-1048", "On route", "Driving 2h 10m", "bg-emerald-400/15 text-emerald-300"],
-  ["Rhys P", "SK-1050", "Loading", "Break due 13:00", "bg-blue-400/15 text-blue-300"],
-  ["Carl M", "SK-1039", "Collection", "Driving 1h 25m", "bg-purple-400/15 text-purple-300"],
+  ["Dean Horgan", "SK-1048", "On route", "Driving 2h 10m"],
+  ["Rhys P", "SK-1050", "Loading", "Break due 13:00"],
+  ["Carl M", "SK-1039", "Collection", "Driving 1h 25m"],
 ];
-
-function LogoMark() {
-  return (
-    <div className="flex items-center gap-3">
-      <div className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-yellow-300 via-lime-300 to-emerald-500 shadow-lg shadow-emerald-500/20">
-        <div className="absolute inset-1 rounded-xl border border-slate-950/20" />
-        <span className="text-2xl font-black text-slate-950">IS</span>
-      </div>
-
-      <div>
-        <p className="text-sm font-black uppercase tracking-[0.2em] text-yellow-300">
-          Install
-        </p>
-        <p className="-mt-1 text-xl font-black tracking-tight text-white">
-          Integrated Skips
-        </p>
-      </div>
-    </div>
-  );
-}
 
 export default function InstallSkipsDemoPage() {
   return (
-    <main className="min-h-screen bg-[#030712] text-white">
+    <main className="min-h-screen bg-slate-950 text-white">
       <section className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-5 sm:px-6 lg:px-8">
-        <header className="overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-2xl shadow-black/30">
-          <div className="h-2 bg-gradient-to-r from-yellow-300 via-lime-300 to-emerald-500" />
+        <header className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-black/30">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-emerald-300">
+                Install Integrated Skips Demo
+              </p>
+              <h1 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
+                Live Skip Dispatch Map
+              </h1>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
+                AI-powered skip booking, permits, driver allocation, payments,
+                collections and customer updates in one mobile-friendly dashboard.
+              </p>
+            </div>
 
-          <div className="p-5">
-            <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-              <div className="space-y-4">
-                <LogoMark />
-
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.28em] text-emerald-300">
-                    Live branded demo dashboard
-                  </p>
-                  <h1 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
-                    Live Skip Dispatch Map
-                  </h1>
-                  <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
-                    AI-powered skip booking, permits, driver allocation, payments,
-                    collections and customer updates in one mobile-friendly dashboard.
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 sm:flex">
-                <a
-                  href="/book-skip"
-                  className="rounded-2xl bg-gradient-to-r from-yellow-300 to-emerald-400 px-4 py-3 text-center text-sm font-black text-slate-950 shadow-lg shadow-emerald-400/20"
-                >
-                  Book Skip
-                </a>
-                <a
-                  href="/operations-demo"
-                  className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-center text-sm font-bold text-white"
-                >
-                  Operations
-                </a>
-              </div>
+            <div className="grid grid-cols-2 gap-3 sm:flex">
+              <a
+                href="/book-skip"
+                className="rounded-2xl bg-emerald-400 px-4 py-3 text-center text-sm font-black text-slate-950 shadow-lg shadow-emerald-400/20"
+              >
+                Book Skip
+              </a>
+              <a
+                href="/operations-demo"
+                className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-center text-sm font-bold text-white"
+              >
+                Operations
+              </a>
             </div>
           </div>
         </header>
 
         <section className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-6">
-          {stats.map(([label, value, note, icon, gradient]) => (
+          {stats.map(([label, value, note]) => (
             <div
               key={label}
-              className="rounded-3xl border border-white/10 bg-slate-900/90 p-4 shadow-xl shadow-black/20"
+              className="rounded-3xl border border-white/10 bg-slate-900/80 p-4"
             >
-              <div className={`grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br ${gradient} text-sm font-black text-slate-950`}>
-                {icon}
-              </div>
-              <p className="mt-4 text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
                 {label}
               </p>
               <p className="mt-2 text-2xl font-black">{value}</p>
-              <p className="mt-1 text-xs font-bold text-emerald-300">{note}</p>
+              <p className="mt-1 text-xs text-emerald-300">{note}</p>
             </div>
           ))}
         </section>
@@ -156,8 +122,8 @@ export default function InstallSkipsDemoPage() {
                 Permit
               </div>
 
-              <div className="absolute bottom-4 left-4 right-4 rounded-3xl border border-white/10 bg-black/50 p-4 backdrop-blur">
-                <p className="text-sm font-black text-yellow-300">AI dispatch note</p>
+              <div className="absolute bottom-4 left-4 right-4 rounded-3xl border border-white/10 bg-black/40 p-4 backdrop-blur">
+                <p className="text-sm font-black">AI dispatch note</p>
                 <p className="mt-1 text-sm text-slate-300">
                   Customer needs an 8 yard general waste skip. AI checked
                   availability, flagged permit required, assigned Dean, and sent
@@ -171,7 +137,7 @@ export default function InstallSkipsDemoPage() {
             <div className="rounded-3xl border border-white/10 bg-slate-900 p-4">
               <h2 className="text-lg font-black">Jobs sent to drivers</h2>
               <div className="mt-4 space-y-3">
-                {driverTasks.map(([driver, job, status, taco, colour]) => (
+                {driverTasks.map(([driver, job, status, taco]) => (
                   <div
                     key={driver}
                     className="rounded-2xl border border-white/10 bg-white/[0.04] p-4"
@@ -181,7 +147,7 @@ export default function InstallSkipsDemoPage() {
                         <p className="font-black">{driver}</p>
                         <p className="text-sm text-slate-400">{job}</p>
                       </div>
-                      <span className={`rounded-full px-3 py-1 text-xs font-bold ${colour}`}>
+                      <span className="rounded-full bg-blue-400/15 px-3 py-1 text-xs font-bold text-blue-300">
                         {status}
                       </span>
                     </div>
@@ -238,7 +204,7 @@ export default function InstallSkipsDemoPage() {
                     </p>
                     <h3 className="mt-1 text-lg font-black">{job.customer}</h3>
                   </div>
-                  <span className={`rounded-full px-3 py-1 text-xs font-bold ${job.colour}`}>
+                  <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-bold text-emerald-300">
                     {job.time}
                   </span>
                 </div>
