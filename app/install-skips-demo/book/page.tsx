@@ -15,7 +15,7 @@ export default function BookSkipPage() {
     <main className="min-h-screen bg-[#06110d] text-white">
       <InstallSkipsDemoNav />
 
-      <section className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-[1400px] px-4 py-8 sm:px-6 lg:px-8">
         <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6">
           <p className="text-sm font-black uppercase tracking-[0.28em] text-emerald-300">Customer Booking</p>
           <h1 className="mt-2 text-4xl font-black">Book a Skip or Grab Hire</h1>
@@ -64,3 +64,4 @@ export default function BookSkipPage() {
     </main>
   );
 }
+

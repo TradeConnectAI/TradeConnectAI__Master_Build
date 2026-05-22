@@ -22,7 +22,7 @@ export default function OperationsPage() {
     <main className="min-h-screen bg-[#06110d] text-white">
       <InstallSkipsDemoNav />
 
-      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-[1800px] px-4 py-8 sm:px-6 lg:px-8">
         <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6">
           <p className="text-sm font-black uppercase tracking-[0.28em] text-emerald-300">Operations Dashboard</p>
           <h1 className="mt-2 text-4xl font-black">Dean Horgan Admin View</h1>
@@ -92,3 +92,4 @@ export default function OperationsPage() {
     </main>
   );
 }
+
