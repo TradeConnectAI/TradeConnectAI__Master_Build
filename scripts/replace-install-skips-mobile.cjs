@@ -1,10 +1,40 @@
-const stats = [
-  ["Revenue", "ï¿½4,820", "+18% today"],
+const fs = require("fs");
+const path = require("path");
+const { execSync } = require("child_process");
+
+const root = process.cwd();
+const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+
+function ensureDir(p) {
+  fs.mkdirSync(p, { recursive: true });
+}
+
+function backup(file) {
+  if (fs.existsSync(file)) {
+    fs.copyFileSync(file, `${file}.backup-${stamp}`);
+    console.log("Backup:", path.relative(root, file));
+  }
+}
+
+function write(file, content) {
+  ensureDir(path.dirname(file));
+  backup(file);
+  fs.writeFileSync(file, content, "utf8");
+  console.log("Written:", path.relative(root, file));
+}
+
+console.log("?? Replacing broken mobile demo pages...");
+
+// 1. Replace broken install skips demo with proper mobile-first page
+write(
+  path.join(root, "app", "install-skips-demo", "page.tsx"),
+`const stats = [
+  ["Revenue", "£4,820", "+18% today"],
   ["Jobs", "21", "6 live now"],
   ["Skips Out", "38", "12 due back"],
   ["Drivers", "6", "4 on road"],
   ["Collections", "14", "8 complete"],
-  ["Invoices", "18", "ï¿½3,410 paid"],
+  ["Invoices", "18", "£3,410 paid"],
 ];
 
 const liveJobs = [
@@ -97,7 +127,7 @@ export default function InstallSkipsDemoPage() {
               <div>
                 <h2 className="text-lg font-black">Barry Dispatch Live</h2>
                 <p className="text-sm text-slate-400">
-                  6 lorries active ï¿½ 38 skips out ï¿½ 14 collections
+                  6 lorries active · 38 skips out · 14 collections
                 </p>
               </div>
               <span className="w-fit rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-bold text-emerald-300">
@@ -226,3 +256,184 @@ export default function InstallSkipsDemoPage() {
     </main>
   );
 }
+`
+);
+
+// 2. Replace bad UTF-8 appointments page with clean valid TSX
+write(
+  path.join(root, "app", "customer-demo", "appointments", "page.tsx"),
+`const appointments = [
+  ["Today", "10:30", "Skip delivery", "8 Yard General Waste", "Confirmed"],
+  ["Today", "14:00", "Collection", "Hardcore skip", "Driver assigned"],
+  ["Tomorrow", "09:15", "Grab hire", "Aggregates delivery", "Awaiting payment"],
+];
+
+export default function CustomerAppointmentsPage() {
+  return (
+    <main className="min-h-screen bg-slate-950 text-white">
+      <section className="mx-auto w-full max-w-5xl px-4 py-6">
+        <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-300">
+            Customer Portal
+          </p>
+          <h1 className="mt-3 text-3xl font-black">Appointments</h1>
+          <p className="mt-2 text-sm text-slate-400">
+            Your upcoming deliveries, collections and site visits.
+          </p>
+        </div>
+
+        <div className="mt-5 grid grid-cols-1 gap-3">
+          {appointments.map(([day, time, title, detail, status]) => (
+            <article
+              key={day + time + title}
+              className="rounded-3xl border border-white/10 bg-slate-900 p-4"
+            >
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-sm font-bold text-emerald-300">
+                    {day} · {time}
+                  </p>
+                  <h2 className="mt-1 text-xl font-black">{title}</h2>
+                  <p className="mt-1 text-sm text-slate-400">{detail}</p>
+                </div>
+                <span className="w-fit rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-slate-200">
+                  {status}
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="/customer-demo"
+            className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-center text-sm font-bold"
+          >
+            Back to portal
+          </a>
+          <a
+            href="/book-skip"
+            className="rounded-2xl bg-emerald-400 px-4 py-3 text-center text-sm font-black text-slate-950"
+          >
+            Book another job
+          </a>
+        </div>
+      </section>
+    </main>
+  );
+}
+`
+);
+
+// 3. Add friendly redirect route if people open /skips-demo
+write(
+  path.join(root, "app", "skips-demo", "page.tsx"),
+`export { default } from "../install-skips-demo/page";
+`
+);
+
+// 4. Ensure globals stays sane
+write(
+  path.join(root, "app", "globals.css"),
+`@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: #020617;
+  color: white;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+iframe,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+main,
+section,
+article,
+aside,
+header,
+footer,
+nav,
+div {
+  min-width: 0;
+}
+
+input,
+select,
+textarea,
+button {
+  font-size: 16px;
+}
+
+table,
+pre,
+code {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .w-screen,
+  .min-w-full {
+    width: 100%;
+    min-width: 0;
+  }
+
+  nav {
+    overflow-x: auto;
+  }
+}
+`
+);
+
+// 5. Clear build cache
+fs.rmSync(path.join(root, ".next"), { recursive: true, force: true });
+
+console.log("?? Running build...");
+execSync("npm run build", { stdio: "inherit" });
+
+console.log("? Build passed");
+
+console.log("?? Committing and pushing...");
+try {
+  execSync("git add .", { stdio: "inherit" });
+  execSync('git commit -m "Replace install skips demo with mobile-first dashboard"', { stdio: "inherit" });
+  execSync("git push", { stdio: "inherit" });
+  console.log("?? Pushed to GitHub");
+} catch (err) {
+  console.log("Git had nothing to commit or push failed. Showing status:");
+  execSync("git status", { stdio: "inherit" });
+}
+
+console.log("?? Done. Wait for Vercel deploy, then test /install-skips-demo on your phone.");
