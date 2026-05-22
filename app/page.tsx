@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import RealImageCard from "@/components/RealImageCard";
@@ -71,7 +71,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <div className="mt-5 grid gap-4 sm:grid-cols-1 md:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-black/30 p-5">
                 <div className="text-3xl font-black text-cyan-300">43</div>
                 <div className="mt-2 text-sm text-slate-300">Calls captured</div>

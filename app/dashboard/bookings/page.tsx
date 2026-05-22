@@ -1,10 +1,10 @@
-﻿export default function BookingsPage() {
+export default function BookingsPage() {
     return (
-        <main className="min-h-screen bg-[#020817] text-white">
+        <main className="min-min-min-h-screen bg-[#020817] text-white">
             <div className="flex">
 
                 {/* SIDEBAR */}
-                <aside className="hidden min-h-screen w-72 border-r border-white/10 bg-[#061226] p-6 lg:block">
+                <aside className="hidden min-min-min-h-screen w-72 border-r border-white/10 bg-[#061226] p-6 lg:block">
 
                     <div className="mb-12">
                         <h1 className="text-2xl font-black text-blue-400">
@@ -94,12 +94,12 @@
                     </div>
 
                     {/* BOOKINGS GRID */}
-                    <div className="grid gap-6 lg:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2">
+                    <div className="grid gap-6 lg:grid-cols-1 md:grid-cols-2">
 
                         {[
                             {
                                 title: "Fuse Board Investigation",
-                                time: "Today • 7:00pm",
+                                time: "Today � 7:00pm",
                                 location: "Cardiff",
                                 engineer: "Steve",
                                 status: "Confirmed",
@@ -107,7 +107,7 @@
 
                             {
                                 title: "Leak Investigation",
-                                time: "Tomorrow • 10:30am",
+                                time: "Tomorrow � 10:30am",
                                 location: "Newport",
                                 engineer: "Lewis",
                                 status: "Scheduled",
@@ -115,7 +115,7 @@
 
                             {
                                 title: "Bathroom Renovation Quote",
-                                time: "Friday • 2:00pm",
+                                time: "Friday � 2:00pm",
                                 location: "Bristol",
                                 engineer: "Steve",
                                 status: "Pending",
@@ -123,7 +123,7 @@
 
                             {
                                 title: "Emergency Boiler Repair",
-                                time: "Saturday • 8:00am",
+                                time: "Saturday � 8:00am",
                                 location: "Swansea",
                                 engineer: "Mike",
                                 status: "Urgent",
@@ -154,7 +154,7 @@
 
                                 </div>
 
-                                <div className="mt-6 grid gap-4 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2">
+                                <div className="mt-6 grid gap-4 md:grid-cols-1 md:grid-cols-2">
 
                                     <div className="rounded-2xl bg-[#0b1220] p-4">
                                         <p className="text-sm text-white/40">
@@ -201,4 +201,6 @@
         </main>
     );
 }
+
+
 

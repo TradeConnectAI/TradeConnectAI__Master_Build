@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export default function DashboardPage() {
   const stats = [
@@ -47,7 +47,7 @@ export default function DashboardPage() {
           </p>
         </div>
 
-        <section className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <section className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {stats.map((item) => (
             <div
               key={item.title}
@@ -144,7 +144,7 @@ export default function DashboardPage() {
         <section className="mt-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6">
           <h2 className="text-2xl font-black">Quick Demo Actions</h2>
 
-          <div className="mt-5 grid gap-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-5 grid gap-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             <Link href="/dashboard/ai/quote" className="rounded-2xl bg-cyan-400 px-5 py-4 text-center font-bold text-slate-950 hover:bg-cyan-300">
               Generate Quote
             </Link>

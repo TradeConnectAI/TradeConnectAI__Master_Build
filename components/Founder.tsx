@@ -33,7 +33,7 @@ export default function Founder() {
                 {/* RIGHT */}
                 <div className="rounded-[32px] border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
 
-                    <div className="grid gap-6 sm:grid-cols-2">
+                    <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
 
                         <div className="rounded-2xl bg-[#0b1220] p-6">
                             <div className="text-4xl font-black text-blue-400">

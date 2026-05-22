@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import RealImageCard from "@/components/RealImageCard";
@@ -27,7 +27,7 @@ const tools = [
 
 export default function AiToolsPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-min-min-h-screen bg-slate-950 text-white">
       <SiteHeader />
 
       <section className="mx-auto max-w-7xl px-6 py-20">
@@ -43,7 +43,7 @@ export default function AiToolsPage() {
           Not flashy tech for the sake of it. Useful helpers for calls, jobs, follow-ups and customers.
         </p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-1 md:grid-cols-3">
           {tools.map((tool) => (
             <Link key={tool.title} href={tool.href}>
               <RealImageCard title={tool.title} text={tool.text} image={tool.image} />
@@ -56,3 +56,5 @@ export default function AiToolsPage() {
     </main>
   );
 }
+
+

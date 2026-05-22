@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { calls, callStats, callFlow } from "@/data/mock/calls";
 
 export default function AIReceptionPage() {
@@ -24,7 +24,7 @@ export default function AIReceptionPage() {
           </div>
         </div>
 
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+        <section className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
           <Stat title="Calls answered" value={callStats.answeredToday} />
           <Stat title="Bookings made" value={callStats.bookingsMade} />
           <Stat title="Tyre kickers filtered" value={callStats.tyreKickersFiltered} />

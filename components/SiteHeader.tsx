@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 const nav = [
   { label: "AI Call Helper", href: "/ai-call-demo" },
@@ -19,7 +19,7 @@ export default function SiteHeader() {
 
         <nav className="order-3 flex w-full gap-3 overflow-x-auto text-sm md:order-2 md:w-auto md:items-center md:gap-5 md:overflow-visible">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="whitespace-nowrap text-slate-300 hover:text-white">
+            <Link key={item.href} href={item.href} className="whitespace-normal md:whitespace-nowrap text-slate-300 hover:text-white">
               {item.label}
             </Link>
           ))}

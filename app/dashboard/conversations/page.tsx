@@ -1,8 +1,8 @@
-﻿export default function ConversationsPage() {
+export default function ConversationsPage() {
     return (
-        <main className="min-h-screen bg-[#020817] text-white">
+        <main className="min-min-min-h-screen bg-[#020817] text-white">
             <div className="flex">
-                <aside className="hidden min-h-screen w-72 border-r border-white/10 bg-[#061226] p-6 lg:block">
+                <aside className="hidden min-min-min-h-screen w-72 border-r border-white/10 bg-[#061226] p-6 lg:block">
                     <div className="mb-12">
                         <h1 className="text-2xl font-black text-blue-400">
                             TradeConnectAI
@@ -49,17 +49,17 @@
                             href="/dashboard/leads"
                             className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3 font-bold text-white hover:bg-white/10"
                         >
-                            ← Back To Leads
+                            ? Back To Leads
                         </a>
                     </div>
 
-                    <div className="grid gap-8 xl:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
+                    <div className="grid gap-8 xl:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 md:grid-cols-3">
                         <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl xl:col-span-2">
                             <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-5">
                                 <div>
                                     <h3 className="text-2xl font-black">Mark Williams</h3>
                                     <p className="mt-1 text-sm text-white/50">
-                                        Cardiff • Residential • Web Chat
+                                        Cardiff � Residential � Web Chat
                                     </p>
                                 </div>
 
@@ -72,42 +72,42 @@
                                 <div className="flex justify-end">
                                     <div className="max-w-full lg:w-auto rounded-3xl rounded-br-md bg-blue-500 px-5 py-4">
                                         Need an emergency electrician in Cardiff tonight.
-                                        <p className="mt-2 text-xs text-blue-100/70">Customer • 18:42</p>
+                                        <p className="mt-2 text-xs text-blue-100/70">Customer � 18:42</p>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-start">
                                     <div className="max-w-full lg:w-auto rounded-3xl rounded-bl-md border border-white/10 bg-[#0b1220] px-5 py-4">
-                                        Hi 👋 We can help with that. Is this residential or commercial?
-                                        <p className="mt-2 text-xs text-white/40">TradeConnectAI • 18:42</p>
+                                        Hi ?? We can help with that. Is this residential or commercial?
+                                        <p className="mt-2 text-xs text-white/40">TradeConnectAI � 18:42</p>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-end">
                                     <div className="max-w-full lg:w-auto rounded-3xl rounded-br-md bg-blue-500 px-5 py-4">
                                         Residential. Power keeps tripping downstairs.
-                                        <p className="mt-2 text-xs text-blue-100/70">Customer • 18:43</p>
+                                        <p className="mt-2 text-xs text-blue-100/70">Customer � 18:43</p>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-start">
                                     <div className="max-w-full lg:w-auto rounded-3xl rounded-bl-md border border-white/10 bg-[#0b1220] px-5 py-4">
-                                        Thanks — we’ve got availability tonight between 7pm–9pm. What’s the property postcode?
-                                        <p className="mt-2 text-xs text-white/40">TradeConnectAI • 18:43</p>
+                                        Thanks � we�ve got availability tonight between 7pm�9pm. What�s the property postcode?
+                                        <p className="mt-2 text-xs text-white/40">TradeConnectAI � 18:43</p>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-end">
                                     <div className="max-w-full lg:w-auto rounded-3xl rounded-br-md bg-blue-500 px-5 py-4">
                                         CF10 1AA
-                                        <p className="mt-2 text-xs text-blue-100/70">Customer • 18:44</p>
+                                        <p className="mt-2 text-xs text-blue-100/70">Customer � 18:44</p>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-start">
                                     <div className="max-w-full lg:w-auto rounded-3xl rounded-bl-md border border-white/10 bg-[#0b1220] px-5 py-4">
-                                        Perfect. I’ve flagged this as urgent and sent it to the engineer. We can hold 7:30pm for you.
-                                        <p className="mt-2 text-xs text-white/40">TradeConnectAI • 18:44</p>
+                                        Perfect. I�ve flagged this as urgent and sent it to the engineer. We can hold 7:30pm for you.
+                                        <p className="mt-2 text-xs text-white/40">TradeConnectAI � 18:44</p>
                                     </div>
                                 </div>
                             </div>
@@ -164,4 +164,6 @@
         </main>
     );
 }
+
+
 

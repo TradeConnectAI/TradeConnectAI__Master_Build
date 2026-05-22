@@ -15,13 +15,13 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   background: #020617;
-  color: white;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 img,
@@ -49,13 +49,6 @@ button {
   touch-action: manipulation;
 }
 
-input,
-select,
-textarea,
-button {
-  font-size: 16px;
-}
-
 table {
   width: 100%;
   display: block;
@@ -63,70 +56,66 @@ table {
   white-space: nowrap;
 }
 
-pre,
-code {
-  max-width: 100%;
-  overflow-x: auto;
+input,
+select,
+textarea,
+button {
+  font-size: 16px;
 }
 
+/* ===== MOBILE FIRST RESCUE MODE ===== */
 @media (max-width: 768px) {
   html,
   body {
-    width: 100% !important;
-    max-width: 100% !important;
     overflow-x: hidden !important;
+  }
+
+  body {
+    font-size: 15px;
   }
 
   main {
     width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 14px !important;
-    padding-right: 14px !important;
+    padding: 16px !important;
   }
 
-  section,
-  article,
   header,
-  footer,
-  nav,
-  aside,
-  div {
-    max-width: 100% !important;
-  }
-
-  .container {
+  nav {
     width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 14px !important;
-    padding-right: 14px !important;
+    overflow-x: auto !important;
   }
 
   .grid,
   [class*="grid-cols-"],
-  [class*="sm:grid-cols-"],
   [class*="md:grid-cols-"],
   [class*="lg:grid-cols-"],
-  [class*="xl:grid-cols-"],
-  [class*="2xl:grid-cols-"] {
+  [class*="xl:grid-cols-"] {
+    display: grid !important;
     grid-template-columns: 1fr !important;
   }
 
   .flex,
-  [class*="sm:flex"],
   [class*="md:flex"],
-  [class*="lg:flex"],
-  [class*="xl:flex"] {
+  [class*="lg:flex"] {
     flex-wrap: wrap !important;
   }
 
+  .hidden-mobile {
+    display: none !important;
+  }
+
   [class*="w-["],
-  [class*="min-w-["],
-  [class*="max-w-["],
+  [class*="min-w-"],
+  [class*="max-w-"],
   .w-screen,
   .min-w-full {
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
+  }
+
+  [class*="h-["] {
+    max-height: none !important;
   }
 
   .text-4xl,
@@ -146,18 +135,14 @@ code {
   .p-6,
   .p-8,
   .p-10,
-  .p-12,
-  .p-14,
-  .p-16 {
+  .p-12 {
     padding: 1rem !important;
   }
 
   .px-6,
   .px-8,
   .px-10,
-  .px-12,
-  .px-14,
-  .px-16 {
+  .px-12 {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
@@ -166,8 +151,7 @@ code {
   .py-10,
   .py-12,
   .py-16,
-  .py-20,
-  .py-24 {
+  .py-20 {
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
   }
@@ -179,53 +163,47 @@ code {
     gap: 1rem !important;
   }
 
+  .rounded-3xl {
+    border-radius: 1.25rem !important;
+  }
+
   button,
   a {
+    max-width: 100%;
     white-space: normal !important;
   }
 
-  nav {
-    overflow-x: auto !important;
-  }
-
-  nav a,
-  nav button {
-    white-space: nowrap !important;
-  }
-
+  /* Sidebar becomes top scrolling tabs */
   aside {
     position: relative !important;
     width: 100% !important;
     height: auto !important;
-    min-height: auto !important;
     max-height: none !important;
     overflow-x: auto !important;
   }
 
+  aside nav,
+  aside div {
+    width: 100% !important;
+  }
+
+  /* Dashboard cards */
   .dashboard,
   .panel,
   .card,
   .map,
   .stats,
   .jobs,
-  .drivers,
-  .revenue,
-  .quotes,
-  .invoices {
+  .drivers {
     width: 100% !important;
-    max-width: 100% !important;
     overflow: hidden !important;
   }
 
+  /* Fake map sections need phone-safe height */
   .map,
   [class*="map"],
   [class*="Map"] {
-    min-height: 340px !important;
+    min-height: 360px !important;
     height: auto !important;
-  }
-
-  .desktop-only,
-  .hidden-on-mobile {
-    display: none !important;
   }
 }

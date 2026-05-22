@@ -1,11 +1,11 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export default function ToolPage() {
   return (
-    <main className="min-h-screen bg-slate-950 px-4 py-8 text-white">
+    <main className="min-min-min-h-screen bg-slate-950 px-4 py-8 text-white">
       <div className="mx-auto w-full max-w-4xl">
         <Link href="/dashboard/ai" className="text-cyan-300 font-bold">
-          ← Back to AI Customer Replys
+          ? Back to AI Customer Replys
         </Link>
 
         <section className="mt-6 rounded-3xl border border-cyan-400/20 bg-cyan-400/10 p-6 md:p-8">
@@ -36,4 +36,6 @@ export default function ToolPage() {
     </main>
   );
 }
+
+
 

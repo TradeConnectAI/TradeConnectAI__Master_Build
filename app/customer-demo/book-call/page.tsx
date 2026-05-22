@@ -1,6 +1,6 @@
-﻿export default function BookCallPage() {
+export default function BookCallPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white p-6">
+    <main className="min-min-min-h-screen bg-slate-950 text-white p-6">
       <div className="max-w-3xl mx-auto space-y-6">
         <div>
           <p className="text-cyan-300 font-semibold">Customer Demo</p>
@@ -44,4 +44,6 @@ function Field({ label, placeholder }: { label: string; placeholder: string }) {
     </label>
   );
 }
+
+
 

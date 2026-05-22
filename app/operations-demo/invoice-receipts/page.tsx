@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 const invoice = {
   number: "INV-2026-1048",
@@ -155,7 +155,7 @@ export default function InvoiceReceiptsPage() {
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
               <h2 className="text-xl font-bold">Actions</h2>
 
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <div className="mt-5 grid gap-3 sm:grid-cols-1 md:grid-cols-2">
                 {[
                   "Send invoice",
                   "Send receipt",

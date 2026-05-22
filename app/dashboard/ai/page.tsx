@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export default function AIDashboardPage() {
   const tools = [
@@ -20,10 +20,10 @@ export default function AIDashboardPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-slate-950 px-4 py-8 text-white">
+    <main className="min-min-min-h-screen bg-slate-950 px-4 py-8 text-white">
       <div className="mx-auto w-full max-w-5xl">
         <Link href="/dashboard" className="inline-flex rounded-xl border border-cyan-400/40 bg-cyan-400/10 px-5 py-3 font-bold text-cyan-300 hover:bg-cyan-400/20">
-          ← Back to Dashboard
+          ? Back to Dashboard
         </Link>
 
         <section className="mt-6 rounded-3xl border border-cyan-400/20 bg-cyan-400/10 p-6 md:p-8">
@@ -40,7 +40,7 @@ export default function AIDashboardPage() {
           </p>
         </section>
 
-        <section className="mt-6 grid gap-5 md:grid-cols-3">
+        <section className="mt-6 grid gap-5 md:grid-cols-1 md:grid-cols-3">
           {tools.map((tool) => (
             <Link key={tool.title} href={tool.href} className="block rounded-3xl border border-white/10 bg-white/[0.04] p-6 hover:border-cyan-400/40 hover:bg-white/[0.06]">
               <h2 className="text-2xl font-black">{tool.title}</h2>
@@ -55,4 +55,6 @@ export default function AIDashboardPage() {
     </main>
   );
 }
+
+
 

@@ -19,7 +19,7 @@ const quotes = [
 
 export default function QuotesPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white md:flex">
+    <main className="min-min-min-h-screen bg-slate-950 text-white md:flex">
       <DemoSidebar />
 
       <section className="flex-1 p-6 md:p-10">
@@ -73,3 +73,4 @@ export default function QuotesPage() {
     </main>
   );
 }
+

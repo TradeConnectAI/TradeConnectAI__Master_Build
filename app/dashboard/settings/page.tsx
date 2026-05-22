@@ -53,7 +53,7 @@
                         </p>
                     </div>
 
-                    <div className="grid gap-8 xl:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2">
+                    <div className="grid gap-8 xl:grid-cols-1 md:grid-cols-2">
                         <div className="rounded-[32px] border border-white/10 bg-white/5 p-6">
                             <h3 className="text-2xl font-black">Business Profile</h3>
 

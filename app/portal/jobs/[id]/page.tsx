@@ -1,4 +1,4 @@
-﻿import PortalHeader from "../../PortalHeader";
+import PortalHeader from "../../PortalHeader";
 import SectionCard from "@/components/ui/SectionCard";
 
 export default function PortalJobDetailPage() {
@@ -44,7 +44,7 @@ export default function PortalJobDetailPage() {
                     title="Job Timeline"
                     subtitle="Progress updates visible to the customer"
                 >
-                    <div className="grid gap-4 md:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="grid gap-4 md:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                         {timeline.map((step, index) => (
                             <div key={step} className="rounded-xl bg-slate-950 p-5">
                                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-400 text-sm font-bold text-slate-950">

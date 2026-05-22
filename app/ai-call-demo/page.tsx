@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 const calls = [
   {
@@ -32,7 +32,7 @@ const calls = [
 
 export default function AICallDemoPage() {
   return (
-    <main className="min-h-screen bg-slate-950 px-6 py-10 text-white">
+    <main className="min-min-min-h-screen bg-slate-950 px-6 py-10 text-white">
       <div className="mx-auto max-w-6xl space-y-8">
         <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 shadow-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-300">
@@ -66,7 +66,7 @@ export default function AICallDemoPage() {
           </div>
         </div>
 
-        <section className="grid gap-5 md:grid-cols-3">
+        <section className="grid gap-5 md:grid-cols-1 md:grid-cols-3">
           {calls.map((call) => (
             <article
               key={call.customer}
@@ -96,7 +96,7 @@ export default function AICallDemoPage() {
         <section className="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
           <h2 className="text-2xl font-bold">Live call flow</h2>
 
-          <div className="mt-6 grid gap-4 md:grid-cols-4">
+          <div className="mt-6 grid gap-4 md:grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
             {[
               "AI answers call",
               "Customer explains job",
@@ -119,3 +119,5 @@ export default function AICallDemoPage() {
 }
 
 // deploy refresh 2026-05-22 06:38:46
+
+

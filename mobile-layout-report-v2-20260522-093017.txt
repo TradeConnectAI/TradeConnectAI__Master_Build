@@ -1,0 +1,162 @@
+TradeConnectAI Mobile Layout Report V2 - 20260522-093017
+
+
+=== w-\[[0-9]+px\] ===
+C:\DEV\TradeConnectAI_fixed\app\book-skip\page.tsx:212: <div className="fixed bottom-24 right-6 w-[360px] max-w-[calc(100vw-3rem)] overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-2xl">
+C:\DEV\TradeConnectAI_fixed\components\inbox\ConversationList.tsx:28: <span className="text-xs text-slate-500 truncate max-w-[160px]">
+C:\DEV\TradeConnectAI_fixed\components\Hero.tsx:23: className="mb-6 w-[180px] md:w-[260px] h-auto object-contain"
+
+=== min-w-\[[0-9]+px\] ===
+
+=== max-w-\[[0-9]+px\] ===
+C:\DEV\TradeConnectAI_fixed\components\inbox\ConversationList.tsx:28: <span className="text-xs text-slate-500 truncate max-w-[160px]">
+
+=== grid-cols-6 ===
+C:\DEV\TradeConnectAI_fixed\app\install-skips-demo\page.tsx:9: <section className="mt-6 grid gap-4 md:grid-cols-6">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\calls\page.tsx:27: <section className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+C:\DEV\TradeConnectAI_fixed\app\globals.backup.perfect-mobile.css:115: .md\:grid-cols-6,
+
+=== grid-cols-7 ===
+
+=== grid-cols-8 ===
+
+=== h-screen ===
+C:\DEV\TradeConnectAI_fixed\app\ai-call-demo\page.tsx:35: <main className="min-min-min-h-screen bg-slate-950 px-6 py-10 text-white">
+C:\DEV\TradeConnectAI_fixed\app\ai-receptionist\page.tsx:27: <main className="min-min-min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\ai-tools\page.tsx:30: <main className="min-min-min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\book-skip\page.tsx:33: <main className="min-min-min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\customer-demo\appointments\page.tsx:5: <main className="min-min-min-h-screen bg-slate-950 px-4 py-10 text-white">
+C:\DEV\TradeConnectAI_fixed\app\customer-demo\book-call\page.tsx:3: <main className="min-min-min-h-screen bg-slate-950 text-white p-6">
+C:\DEV\TradeConnectAI_fixed\app\customer-demo\invoices\page.tsx:24: <main className="min-min-min-h-screen bg-slate-950 text-white md:flex">
+C:\DEV\TradeConnectAI_fixed\app\customer-demo\messages\page.tsx:26: <main className="min-min-min-h-screen bg-slate-950 text-white md:flex">
+C:\DEV\TradeConnectAI_fixed\app\customer-demo\quotes\page.tsx:22: <main className="min-min-min-h-screen bg-slate-950 text-white md:flex">
+C:\DEV\TradeConnectAI_fixed\app\customer-demo\page.tsx:12: <main className="min-min-min-h-screen bg-slate-950 text-white md:flex">
+C:\DEV\TradeConnectAI_fixed\app\customer-portal\page.tsx:16: <main className="min-min-min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\ai\jobsheet\page.tsx:5: <main className="min-min-min-h-screen bg-slate-950 px-4 py-8 text-white">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\ai\quote\page.tsx:5: <main className="min-min-min-h-screen bg-slate-950 px-4 py-8 text-white">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\ai\reply\page.tsx:5: <main className="min-min-min-h-screen bg-slate-950 px-4 py-8 text-white">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\ai\page.tsx:23: <main className="min-min-min-h-screen bg-slate-950 px-4 py-8 text-white">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\bookings\page.tsx:3: <main className="min-min-min-h-screen bg-[#020817] text-white">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\bookings\page.tsx:7: <aside className="hidden min-min-min-h-screen w-72 border-r border-white/10 bg-[#061226] p-6 lg:block">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\conversations\page.tsx:3: <main className="min-min-min-h-screen bg-[#020817] text-white">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\conversations\page.tsx:5: <aside className="hidden min-min-min-h-screen w-72 border-r border-white/10 bg-[#061226] p-6 lg:block">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\leads\page.tsx:3: <main className="min-h-screen bg-[#020817] text-white">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\leads\page.tsx:5: <aside className="hidden min-h-screen w-72 border-r border-white/10 bg-[#061226] p-6 lg:block">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\payments\page.tsx:3: <main className="min-h-screen bg-[#020817] text-white">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\payments\page.tsx:5: <aside className="hidden min-h-screen w-72 border-r border-white/10 bg-[#061226] p-6 lg:block">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\settings\page.tsx:3: <main className="min-h-screen bg-[#020817] text-white">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\settings\page.tsx:5: <aside className="hidden min-h-screen w-72 border-r border-white/10 bg-[#061226] p-6 lg:block">
+C:\DEV\TradeConnectAI_fixed\app\dashboard\page.tsx:33: <main className="min-h-screen bg-slate-950 px-4 py-8 text-white">
+C:\DEV\TradeConnectAI_fixed\app\industries\electricians\page.tsx:7: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\industries\hvac\page.tsx:7: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\industries\plumbers\page.tsx:7: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\install-skips-demo\page.tsx:3: <main className="min-h-screen bg-black p-6 text-white">
+C:\DEV\TradeConnectAI_fixed\app\login\page.tsx:5: <main className="min-h-screen bg-slate-950 px-4 py-16 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations\page.tsx:27: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\ai\jobsheet\page.tsx:5: <main className="min-h-screen bg-slate-950 px-4 py-10 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\ai\quote\page.tsx:5: <main className="min-h-screen bg-slate-950 px-4 py-10 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\ai\reply\page.tsx:5: <main className="min-h-screen bg-slate-950 px-4 py-10 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\ai-webchat\page.tsx:36: <main className="min-h-screen bg-slate-950 p-6 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\analytics\page.tsx:18: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\analytics\page.tsx:19: <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\bookings\page.tsx:18: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\bookings\page.tsx:19: <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\calls\live\page.tsx:7: <main className="min-h-screen bg-slate-950 text-white p-6">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\calls\settings\page.tsx:14: <main className="min-h-screen bg-slate-950 text-white p-6">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\calls\transcripts\page.tsx:5: <main className="min-h-screen bg-slate-950 text-white p-6">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\calls\page.tsx:6: <main className="min-h-screen bg-slate-950 text-white p-6">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\collections\page.tsx:11: <main className="min-h-screen bg-black p-6 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\conversations\page.tsx:18: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\conversations\page.tsx:19: <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\customers\page.tsx:18: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\customers\page.tsx:19: <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\driver-jobs\page.tsx:11: <main className="min-h-screen bg-black p-6 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\driver-phone\page.tsx:5: <main className="min-h-screen bg-black p-6 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\drivers\page.tsx:11: <main className="min-h-screen bg-black p-6 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\invoice-receipts\page.tsx:22: <main className="min-h-screen bg-slate-950 p-6 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\invoices\page.tsx:18: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\invoices\page.tsx:19: <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\leads\page.tsx:18: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\leads\page.tsx:19: <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\map\page.tsx:5: <main className="min-h-screen bg-black p-6 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\payments\page.tsx:18: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\payments\page.tsx:19: <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\quotes\page.tsx:18: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\quotes\page.tsx:19: <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\revenue\page.tsx:11: <main className="min-h-screen bg-black p-6 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\settings\page.tsx:18: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\settings\page.tsx:19: <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\page.tsx:38: <main className="min-h-screen bg-slate-950 p-6 text-white">
+C:\DEV\TradeConnectAI_fixed\app\portal\dashboard\page.tsx:21: <main className="min-h-screen bg-slate-950 px-4 py-8 text-white">
+C:\DEV\TradeConnectAI_fixed\app\portal\layout.tsx:9: <main className="flex min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\portal\page.tsx:32: <main className="min-h-screen bg-slate-950 px-4 py-8 text-white">
+C:\DEV\TradeConnectAI_fixed\app\pricing\page.tsx:32: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\quote-creator\page.tsx:14: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\app\skips-demo\page.tsx:38: <main className="min-h-screen bg-slate-950 px-6 py-10 text-white">
+C:\DEV\TradeConnectAI_fixed\app\test-ai\page.tsx:28: <main className="min-h-screen bg-black text-white p-10">
+C:\DEV\TradeConnectAI_fixed\app\page.tsx:27: <main className="min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\components\dashboard\DashboardShell.tsx:10: <main className="flex min-h-screen bg-slate-950 text-white">
+C:\DEV\TradeConnectAI_fixed\components\dashboard\page.tsx:3: <main className="min-h-screen bg-[#020817] text-white">
+C:\DEV\TradeConnectAI_fixed\components\dashboard\page.tsx:5: <aside className="hidden min-h-screen w-72 border-r border-white/10 bg-[#061226] p-6 lg:block">
+C:\DEV\TradeConnectAI_fixed\components\DemoSidebar.tsx:19: <aside className="min-h-screen w-full border-r border-slate-800 bg-slate-950 p-5 text-white md:w-72">
+C:\DEV\TradeConnectAI_fixed\components\Hero.tsx:7: <section className="relative min-h-screen overflow-hidden bg-[#020817] px-6 py-10 text-white md:px-12 lg:px-20">
+
+=== fixed ===
+C:\DEV\TradeConnectAI_fixed\app\book-skip\page.tsx:206: className="fixed bottom-6 right-6 rounded-full bg-cyan-400 px-5 py-3 font-bold text-slate-950 shadow-xl"
+C:\DEV\TradeConnectAI_fixed\app\book-skip\page.tsx:212: <div className="fixed bottom-24 right-6 w-[360px] max-w-[calc(100vw-3rem)] overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-2xl">
+C:\DEV\TradeConnectAI_fixed\components\ChatWidget.tsx:34: className="fixed bottom-6 right-6 bg-blue-600 text-white px-5 py-3 rounded-full shadow-lg"
+C:\DEV\TradeConnectAI_fixed\components\ChatWidget.tsx:40: <div className="fixed bottom-20 right-6 w-80 bg-white shadow-xl border rounded-xl p-4 flex flex-col">
+
+=== absolute ===
+C:\DEV\TradeConnectAI_fixed\app\ai-receptionist\page.tsx:34: className="absolute inset-0 h-full w-full object-cover"
+C:\DEV\TradeConnectAI_fixed\app\ai-receptionist\page.tsx:36: <div className="absolute inset-0 bg-black/72" />
+C:\DEV\TradeConnectAI_fixed\app\customer-portal\page.tsx:20: <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1800&auto=format&fit=crop" alt="Customer phone update" className="absolute inset-0 h-full w-full object-cover" />
+C:\DEV\TradeConnectAI_fixed\app\customer-portal\page.tsx:21: <div className="absolute inset-0 bg-black/70" />
+C:\DEV\TradeConnectAI_fixed\app\install-skips-demo\page.tsx:36: className={`absolute ${pos} rounded-2xl bg-orange-500 px-4 py-2 font-black shadow-2xl`}
+C:\DEV\TradeConnectAI_fixed\app\install-skips-demo\page.tsx:42: <div className="absolute bottom-5 left-5 rounded-2xl bg-black/75 p-4">
+C:\DEV\TradeConnectAI_fixed\app\operations\page.tsx:34: className="absolute inset-0 h-full w-full object-cover"
+C:\DEV\TradeConnectAI_fixed\app\operations\page.tsx:36: <div className="absolute inset-0 bg-black/75" />
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\map\page.tsx:18: <div key={name} className={`absolute ${pos} rounded-full bg-orange-500 px-4 py-2 font-black shadow-xl`}>
+C:\DEV\TradeConnectAI_fixed\app\portal\PortalSidebar.tsx:69: <div className="absolute bottom-0 w-72 border-t border-slate-800 p-6">
+C:\DEV\TradeConnectAI_fixed\app\quote-creator\page.tsx:21: className="absolute inset-0 h-full w-full object-cover"
+C:\DEV\TradeConnectAI_fixed\app\quote-creator\page.tsx:23: <div className="absolute inset-0 bg-black/75" />
+C:\DEV\TradeConnectAI_fixed\app\page.tsx:31: <img src={tradeImages.engineer} alt="Engineer working" className="absolute inset-0 h-full w-full object-cover" />
+C:\DEV\TradeConnectAI_fixed\app\page.tsx:32: <div className="absolute inset-0 bg-black/72" />
+C:\DEV\TradeConnectAI_fixed\components\Features.tsx:15: <div className="absolute right-0 top-20 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl" />
+C:\DEV\TradeConnectAI_fixed\components\FounderNoteSection.tsx:9: className="absolute inset-0 h-full w-full object-cover"
+C:\DEV\TradeConnectAI_fixed\components\FounderNoteSection.tsx:11: <div className="absolute inset-0 bg-black/25" />
+C:\DEV\TradeConnectAI_fixed\components\Hero.tsx:10: <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.12),transparent_30%)]" />
+C:\DEV\TradeConnectAI_fixed\components\PictureShowcase.tsx:36: <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,23,42,1),rgba(30,41,59,0.95),rgba(8,47,73,0.45))]" />
+C:\DEV\TradeConnectAI_fixed\components\PictureShowcase.tsx:37: <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/10 bg-black/25 p-4">
+C:\DEV\TradeConnectAI_fixed\components\Pricing.tsx:57: <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-blue-500 px-5 py-2 text-sm font-bold uppercase tracking-[0.2em]">
+C:\DEV\TradeConnectAI_fixed\components\RealImageCard.tsx:12: <img src={image} alt={title} className="absolute inset-0 h-full w-full object-cover" />
+C:\DEV\TradeConnectAI_fixed\components\RealImageCard.tsx:13: <div className="absolute inset-0 bg-black/35" />
+C:\DEV\TradeConnectAI_fixed\components\RealImageCard.tsx:15: <div className="absolute left-4 top-4 rounded-full bg-cyan-400 px-3 py-1 text-xs font-bold text-slate-950">
+C:\DEV\TradeConnectAI_fixed\components\RealWorldSection.tsx:41: className="absolute inset-0 h-full w-full object-cover"
+C:\DEV\TradeConnectAI_fixed\components\RealWorldSection.tsx:44: <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/10" />
+C:\DEV\TradeConnectAI_fixed\components\TradeRealitySection.tsx:35: <img src={item.image} alt={item.title} className="absolute inset-0 h-full w-full object-cover" />
+C:\DEV\TradeConnectAI_fixed\components\TradeRealitySection.tsx:36: <div className="absolute inset-0 bg-black/25" />
+
+=== whitespace-nowrap ===
+C:\DEV\TradeConnectAI_fixed\components\SiteHeader.tsx:22: <Link key={item.href} href={item.href} className="whitespace-normal md:whitespace-nowrap text-slate-300 hover:text-white">
+
+=== overflow-hidden ===
+C:\DEV\TradeConnectAI_fixed\app\ai-receptionist\page.tsx:30: <section className="relative overflow-hidden border-b border-slate-800">
+C:\DEV\TradeConnectAI_fixed\app\book-skip\page.tsx:212: <div className="fixed bottom-24 right-6 w-[360px] max-w-[calc(100vw-3rem)] overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-2xl">
+C:\DEV\TradeConnectAI_fixed\app\customer-demo\page.tsx:36: <div className="mt-6 h-3 overflow-hidden rounded-full bg-slate-800">
+C:\DEV\TradeConnectAI_fixed\app\customer-portal\page.tsx:19: <section className="relative overflow-hidden border-b border-slate-800">
+C:\DEV\TradeConnectAI_fixed\app\install-skips-demo\page.tsx:26: <div className="relative h-[620px] overflow-hidden rounded-3xl border border-orange-500/20 bg-[radial-gradient(circle_at_25%_25%,#14532d,transparent_22%),radial-gradient(circle_at_70%_65%,#1d4ed8,transparent_18%),linear-gradient(135deg,#111827,#020617)]">
+C:\DEV\TradeConnectAI_fixed\app\operations\page.tsx:30: <section className="relative overflow-hidden border-b border-slate-800">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\invoice-receipts\page.tsx:93: <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200">
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\map\page.tsx:10: <div className="relative h-[520px] overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_30%_30%,#14532d,transparent_25%),radial-gradient(circle_at_70%_60%,#1d4ed8,transparent_20%),linear-gradient(135deg,#111827,#020617)]">
+C:\DEV\TradeConnectAI_fixed\app\quote-creator\page.tsx:17: <section className="relative overflow-hidden border-b border-slate-800">
+C:\DEV\TradeConnectAI_fixed\app\page.tsx:30: <section className="relative overflow-hidden border-b border-slate-800">
+C:\DEV\TradeConnectAI_fixed\components\bookings\BookingList.tsx:19: <div className="border border-slate-200 rounded-lg bg-white overflow-hidden">
+C:\DEV\TradeConnectAI_fixed\components\ui\DataTable.tsx:13: <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
+C:\DEV\TradeConnectAI_fixed\components\FounderNoteSection.tsx:4: <div className="mx-auto grid max-w-7xl gap-8 overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900 lg:grid-cols-2">
+C:\DEV\TradeConnectAI_fixed\components\Hero.tsx:7: <section className="relative min-h-screen overflow-hidden bg-[#020817] px-6 py-10 text-white md:px-12 lg:px-20">
+C:\DEV\TradeConnectAI_fixed\components\LiveDemo.tsx:7: className="relative overflow-hidden bg-[#030b18] px-6 py-24 text-white md:px-12 lg:px-20"
+C:\DEV\TradeConnectAI_fixed\components\PictureShowcase.tsx:34: <div key={card.title} className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.035]">
+C:\DEV\TradeConnectAI_fixed\components\RealImageCard.tsx:10: <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/80">
+C:\DEV\TradeConnectAI_fixed\components\RealWorldSection.tsx:34: className="overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900"
+C:\DEV\TradeConnectAI_fixed\components\TradeRealitySection.tsx:33: <div key={item.title} className="overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900">

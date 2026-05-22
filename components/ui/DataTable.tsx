@@ -12,7 +12,7 @@ export default function DataTable({ columns, rows }: DataTableProps) {
     return (
         <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
             <div className="overflow-x-auto">
-                <table className="w-full min-w-[700px] text-left text-sm">
+                <table className="w-full min-w-full max-w-2xl text-left text-sm">
                     <thead className="border-b border-slate-800 bg-slate-950 text-slate-400">
                         <tr>
                             {columns.map((column) => (
