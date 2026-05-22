@@ -1,116 +1,119 @@
 ﻿import Link from "next/link";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import RealImageCard from "@/components/RealImageCard";
-import { tradeImages } from "@/components/tradeImages";
 
-const examples = [
+const calls = [
   {
-    title: "Plumber call",
-    trade: "Plumbing",
-    issue: "Boiler leaking under pressure",
-    customer: "Sarah Collins",
-    result: "Urgent job captured. Follow-up ready.",
-    image: tradeImages.plumber,
+    customer: "Sarah Mitchell",
+    trade: "Kitchen leak",
+    time: "08:14 AM",
+    duration: "2m 14s",
+    status: "Booked",
+    summary:
+      "Customer reported a leak under the kitchen sink. AI collected address, urgency, access notes and booked a same-day visit.",
   },
   {
-    title: "Electrician call",
-    trade: "Electrical",
-    issue: "Fuse board tripping repeatedly",
     customer: "Mark Evans",
-    result: "Safety issue flagged. Same-day callback suggested.",
-    image: tradeImages.electrician,
+    trade: "Boiler issue",
+    time: "09:02 AM",
+    duration: "3m 02s",
+    status: "Quote sent",
+    summary:
+      "Customer asked about a boiler repair. AI captured make, fault notes, photos request and sent a follow-up quote message.",
+  },
+  {
+    customer: "Jenny Roberts",
+    trade: "Emergency callout",
+    time: "10:37 AM",
+    duration: "1m 46s",
+    status: "Urgent",
+    summary:
+      "Customer had water coming through a ceiling. AI flagged it as urgent, notified the engineer and prepared a job card.",
   },
 ];
 
-export default function AiCallDemoPage() {
+export default function AICallDemoPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
-      <SiteHeader />
-
-      <section className="relative overflow-hidden border-b border-slate-800">
-        <img src={tradeImages.phone} alt="Phone call demo" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-black/75" />
-
-        <div className="relative mx-auto max-w-7xl px-6 py-20">
-          <p className="text-sm font-bold uppercase tracking-wider text-cyan-300">
-            AI Call Demo
+    <main className="min-h-screen bg-slate-950 px-6 py-10 text-white">
+      <div className="mx-auto max-w-6xl space-y-8">
+        <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 shadow-2xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-300">
+            AI Call Helper Demo
           </p>
 
-          <h1 className="mt-4 max-w-4xl text-5xl font-black leading-tight md:text-7xl">
-            Hear how a missed call becomes a useful job note.
+          <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
+            See how TradeConnectAI handles missed calls.
           </h1>
 
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            A realistic preview of how TradeConnectAI could capture a call, understand the job and give you something useful to act on.
+          <p className="mt-5 max-w-3xl text-lg text-slate-300">
+            This demo shows how an AI receptionist could answer trade calls,
+            collect job details, spot urgent work and keep customers updated
+            while you are on the tools.
           </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/operations-demo"
+              className="rounded-full bg-blue-500 px-5 py-3 font-semibold text-white hover:bg-blue-400"
+            >
+              Open operations demo
+            </Link>
+
+            <Link
+              href="/customer-demo"
+              className="rounded-full border border-white/15 px-5 py-3 font-semibold text-white hover:bg-white/10"
+            >
+              View customer demo
+            </Link>
+          </div>
         </div>
-      </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-6 lg:grid-cols-2">
-          {examples.map((example) => (
-            <div key={example.title} className="overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900">
-              <div className="relative h-64">
-                <img src={example.image} alt={example.title} className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-black/35" />
+        <section className="grid gap-5 md:grid-cols-3">
+          {calls.map((call) => (
+            <article
+              key={call.customer}
+              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-sm text-slate-400">{call.time}</p>
+                  <h2 className="mt-2 text-xl font-bold">{call.trade}</h2>
+                  <p className="mt-1 text-slate-300">{call.customer}</p>
+                </div>
+
+                <span className="rounded-full bg-blue-500/20 px-3 py-1 text-sm font-semibold text-blue-200">
+                  {call.status}
+                </span>
               </div>
 
-              <div className="p-6">
-                <div className="text-sm font-bold uppercase tracking-wider text-cyan-300">
-                  {example.trade}
-                </div>
+              <p className="mt-4 text-sm text-slate-400">
+                Duration: {call.duration}
+              </p>
 
-                <h2 className="mt-3 text-3xl font-black">{example.title}</h2>
-
-                <div className="mt-6 rounded-2xl border border-slate-800 bg-slate-950 p-5">
-                  <div className="mb-3 flex items-center justify-between">
-                    <div className="font-bold">Fake call audio preview</div>
-                    <div className="rounded-full bg-emerald-400/15 px-3 py-1 text-xs text-emerald-300">
-                      Demo
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <button className="rounded-full bg-cyan-400 px-5 py-3 font-bold text-slate-950">
-                      ▶ Play
-                    </button>
-
-                    <div className="h-2 flex-1 overflow-hidden rounded-full bg-slate-800">
-                      <div className="h-full w-2/3 rounded-full bg-cyan-400" />
-                    </div>
-
-                    <div className="text-sm text-slate-400">00:42</div>
-                  </div>
-
-                  <p className="mt-4 text-sm leading-6 text-slate-400">
-                    Audio file placeholder. We can wire this to generated audio or uploaded MP3 samples later.
-                  </p>
-                </div>
-
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-slate-800 bg-slate-950 p-4">
-                    <div className="text-xs text-slate-500">Customer</div>
-                    <div className="mt-1 font-bold">{example.customer}</div>
-                  </div>
-
-                  <div className="rounded-2xl border border-slate-800 bg-slate-950 p-4">
-                    <div className="text-xs text-slate-500">Issue</div>
-                    <div className="mt-1 font-bold">{example.issue}</div>
-                  </div>
-                </div>
-
-                <div className="mt-4 rounded-2xl border border-cyan-400/20 bg-cyan-400/10 p-4">
-                  <div className="text-xs text-cyan-300">AI result</div>
-                  <div className="mt-1 font-bold">{example.result}</div>
-                </div>
-              </div>
-            </div>
+              <p className="mt-4 text-slate-300">{call.summary}</p>
+            </article>
           ))}
-        </div>
-      </section>
+        </section>
 
-      <SiteFooter />
+        <section className="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <h2 className="text-2xl font-bold">Live call flow</h2>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-4">
+            {[
+              "AI answers call",
+              "Customer explains job",
+              "AI captures details",
+              "Job appears in dashboard",
+            ].map((step, index) => (
+              <div
+                key={step}
+                className="rounded-2xl border border-white/10 bg-slate-900/70 p-4"
+              >
+                <p className="text-sm text-blue-300">Step {index + 1}</p>
+                <p className="mt-2 font-semibold">{step}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
