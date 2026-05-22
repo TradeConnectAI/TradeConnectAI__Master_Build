@@ -1,68 +1,85 @@
-﻿import DemoSidebar from "@/components/DemoSidebar";
+﻿import Link from "next/link";
 
-const stats = [
-  { label: "Jobs Today", value: "17" },
-  { label: "People Out Working", value: "6/8" },
-  { label: "Calls Captured", value: "43" },
-  { label: "Quotes Followed Up", value: "£12,480" },
-];
-
-const jobs = [
-  { customer: "Sarah Collins", job: "Boiler leak", status: "On the way", time: "09:20" },
-  { customer: "Mark Evans", job: "Fuse board fault", status: "Quote waiting", time: "10:45" },
-  { customer: "Amira Patel", job: "Bathroom pipework", status: "In progress", time: "12:10" },
-  { customer: "James Walker", job: "Emergency callout", status: "Needs attention", time: "13:30" },
+const modules = [
+  {
+    title: "AI Webchat Booking",
+    href: "/operations-demo/ai-webchat",
+    desc: "AI books skips, checks permit needs, confirms availability and takes payment.",
+  },
+  {
+    title: "Invoices & Receipts",
+    href: "/operations-demo/invoice-receipts",
+    desc: "Generate invoices, receipts, payment records and customer confirmations.",
+  },
+  {
+    title: "Driver Jobs",
+    href: "/operations-demo/driver-jobs",
+    desc: "Send job tasks to driver phones with route, notes and tacho awareness.",
+  },
+  {
+    title: "Collections",
+    href: "/operations-demo/collections",
+    desc: "Track skip collections, driver assignment and overdue pickups.",
+  },
+  {
+    title: "Live Map",
+    href: "/operations-demo/map",
+    desc: "Fake live map view for skips, lorries, collections and deliveries.",
+  },
+  {
+    title: "Revenue Dashboard",
+    href: "/operations-demo/revenue",
+    desc: "Daily bookings, revenue, skips out, lorries out and payments.",
+  },
 ];
 
 export default function OperationsDemoPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white md:flex">
-      <DemoSidebar />
+    <main className="min-h-screen bg-slate-950 p-6 text-white">
+      <div className="mx-auto max-w-7xl space-y-8">
+        <div>
+          <p className="text-sm font-semibold text-blue-300">
+            Install Integrated Skips Demo
+          </p>
+          <h1 className="text-4xl font-bold tracking-tight">
+            Operations Control Room
+          </h1>
+          <p className="mt-3 max-w-3xl text-slate-300">
+            A clickable demo showing AI booking, payments, permits, driver jobs,
+            collections, invoices and skip movements.
+          </p>
+        </div>
 
-      <section className="flex-1 p-6 md:p-10">
-        <p className="text-sm font-bold uppercase tracking-wider text-cyan-300">
-          Business Demo
-        </p>
-
-        <h1 className="mt-2 text-4xl font-black md:text-5xl">
-          A practical view of the working day.
-        </h1>
-
-        <p className="mt-3 max-w-3xl leading-8 text-slate-400">
-          See jobs, missed calls, customer updates, quotes and reminders without digging through messages everywhere.
-        </p>
-
-        <div className="mt-8 grid gap-5 md:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
-              <div className="text-3xl font-black text-cyan-300">{stat.value}</div>
-              <div className="mt-1 text-sm text-slate-400">{stat.label}</div>
+        <section className="grid gap-4 md:grid-cols-4">
+          {[
+            ["Revenue today", "£4,820"],
+            ["Skips out", "38"],
+            ["Lorries out", "6"],
+            ["Jobs booked", "21"],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-3xl border border-white/10 bg-white/5 p-5">
+              <p className="text-sm text-slate-400">{label}</p>
+              <p className="mt-2 text-3xl font-bold">{value}</p>
             </div>
           ))}
-        </div>
+        </section>
 
-        <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
-          <h2 className="text-xl font-black">Today’s jobs</h2>
-
-          <div className="mt-5 space-y-3">
-            {jobs.map((job) => (
-              <div key={`${job.customer}-${job.time}`} className="rounded-2xl border border-slate-800 bg-slate-950 p-4">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <div className="font-bold">{job.customer}</div>
-                    <div className="text-sm text-slate-400">{job.job}</div>
-                  </div>
-
-                  <div className="text-right">
-                    <div className="text-sm text-cyan-300">{job.status}</div>
-                    <div className="text-xs text-slate-500">{job.time}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {modules.map((module) => (
+            <Link
+              key={module.href}
+              href={module.href}
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:bg-white/10"
+            >
+              <h2 className="text-xl font-bold">{module.title}</h2>
+              <p className="mt-3 text-slate-300">{module.desc}</p>
+              <p className="mt-5 text-sm font-semibold text-blue-300">
+                Open module →
+              </p>
+            </Link>
+          ))}
+        </section>
+      </div>
     </main>
   );
 }
