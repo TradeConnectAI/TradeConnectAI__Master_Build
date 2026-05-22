@@ -54,8 +54,8 @@ export default function InstallSkipsDemoPage() {
                 Live Skip Dispatch Map
               </h1>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
-                AI-powered skip booking, permits, driver allocation, payments,
-                collections and customer updates in one mobile-friendly dashboard.
+                Mobile-ready AI operations dashboard showing skip bookings, permits,
+                driver allocation, collections, payments and customer updates.
               </p>
             </div>
 
@@ -125,9 +125,8 @@ export default function InstallSkipsDemoPage() {
               <div className="absolute bottom-4 left-4 right-4 rounded-3xl border border-white/10 bg-black/40 p-4 backdrop-blur">
                 <p className="text-sm font-black">AI dispatch note</p>
                 <p className="mt-1 text-sm text-slate-300">
-                  Customer needs an 8 yard general waste skip. AI checked
-                  availability, flagged permit required, assigned Dean, and sent
-                  payment link.
+                  Customer needs an 8 yard general waste skip. AI checked availability,
+                  flagged permit required, assigned Dean, and sent payment link.
                 </p>
               </div>
             </div>

@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   color-scheme: dark;
@@ -56,14 +58,13 @@ code {
 }
 
 @media (max-width: 768px) {
-  html,
-  body {
-    overflow-x: hidden;
-  }
-
   main {
     width: 100%;
     max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
   }
 
   .w-screen,
