@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import InstallSkipsDemoNav from "@/components/InstallSkipsDemoNav";
+import InstallSkipsLogo from "@/components/InstallSkipsLogo";
 
 const stats = [
   ["Revenue Today", "£4,820", "Card payments, account jobs and new bookings"],
@@ -63,6 +64,10 @@ export default function InstallSkipsDemoHome() {
       <section className="mx-auto max-w-[1800px] px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
           <div className="overflow-hidden rounded-[2.5rem] border border-yellow-300/25 bg-gradient-to-br from-emerald-400/20 via-white/[0.05] to-black p-6 shadow-2xl shadow-black/40 sm:p-10">
+            <div className="mb-6">
+              <InstallSkipsLogo />
+            </div>
+
             <p className="text-sm font-black uppercase tracking-[0.32em] text-yellow-200">
               Install Integrated Skips Limited Demo
             </p>
@@ -167,5 +172,6 @@ export default function InstallSkipsDemoHome() {
     </main>
   );
 }
+
 
 
