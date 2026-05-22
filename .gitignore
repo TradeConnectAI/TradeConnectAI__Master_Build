@@ -7,3 +7,7 @@ node_modules
 .vercel
 
 backup-*
+
+_local_backups/
+
+TradeConnectAI_backups/
