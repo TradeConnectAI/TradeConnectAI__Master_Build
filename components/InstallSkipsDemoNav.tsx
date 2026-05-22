@@ -19,16 +19,18 @@ const navItems = [
 export default function InstallSkipsDemoNav() {
   return (
     <header className="sticky top-0 z-50 border-b border-yellow-300/20 bg-[#071008]/95 shadow-2xl shadow-black/40 backdrop-blur">
-      <div className="mx-auto max-w-[1800px] px-4 py-4 sm:px-6 lg:px-8">
-        <div className="mb-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mx-auto max-w-[1800px] px-4 py-5 sm:px-6 lg:px-8">
+        <div className="mb-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <InstallSkipsLogo />
 
-          <Link
-            href="/install-skips-demo"
-            className="hidden rounded-2xl border border-yellow-300/30 bg-yellow-300/10 px-4 py-2 text-xs font-black text-yellow-200 hover:bg-yellow-300 hover:text-black lg:inline-flex"
-          >
-            Control Room
-          </Link>
+          <div className="hidden rounded-2xl border border-yellow-300/30 bg-yellow-300/10 px-5 py-3 text-right lg:block">
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-yellow-200">
+              AI Demo Control Room
+            </p>
+            <p className="mt-1 text-sm font-black text-white">
+              Waste disposal · Skip hire · Grab hire
+            </p>
+          </div>
         </div>
 
         <nav className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
