@@ -1,4 +1,27 @@
-const sidebar = [
+const fs = require("fs");
+const path = require("path");
+const { execSync } = require("child_process");
+
+const root = process.cwd();
+const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+
+function backup(file) {
+  if (fs.existsSync(file)) {
+    fs.copyFileSync(file, `${file}.backup-${stamp}`);
+    console.log("Backup:", path.relative(root, file));
+  }
+}
+
+function write(file, content) {
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  backup(file);
+  fs.writeFileSync(file, content, "utf8");
+  console.log("Written:", path.relative(root, file));
+}
+
+write(
+  path.join(root, "app", "install-skips-demo", "page.tsx"),
+`const sidebar = [
   "Dashboard",
   "Jobs",
   "Collections",
@@ -15,9 +38,9 @@ const sidebar = [
 ];
 
 const stats = [
-  ["Revenue", "ï¿½1,515", "Today"],
-  ["Paid", "ï¿½645", "Today"],
-  ["Unpaid", "ï¿½870", "Outstanding"],
+  ["Revenue", "£1,515", "Today"],
+  ["Paid", "£645", "Today"],
+  ["Unpaid", "£870", "Outstanding"],
   ["Jobs", "5", "Today"],
   ["Driver Sends", "2", "Today"],
   ["Permits", "4", "Active"],
@@ -40,9 +63,9 @@ const tabs = [
 ];
 
 const payments = [
-  ["BB", "Barry Builders Ltd", "INV-1025", "Paid", "ï¿½275.00", "Today"],
-  ["CJ", "Claire Jenkins", "INV-1024", "Paid", "ï¿½165.00", "Today"],
-  ["RM", "Rhys Morgan", "INV-1023", "Unpaid", "ï¿½360.00", "Due 23 May"],
+  ["BB", "Barry Builders Ltd", "INV-1025", "Paid", "£275.00", "Today"],
+  ["CJ", "Claire Jenkins", "INV-1024", "Paid", "£165.00", "Today"],
+  ["RM", "Rhys Morgan", "INV-1023", "Unpaid", "£360.00", "Due 23 May"],
 ];
 
 const jobs = [
@@ -54,7 +77,7 @@ const jobs = [
 const liveOps = [
   "SCANIA 340 delivering Barry",
   "2 collections due today",
-  "ï¿½645 paid today",
+  "£645 paid today",
   "2 jobs sent to phones",
 ];
 
@@ -173,7 +196,7 @@ export default function InstallSkipsDemoPage() {
                 </p>
 
                 <div className="mt-6 flex gap-2 overflow-x-auto pb-1">
-                  {["Book Skip ??", "Driver Board", "Collections", "Live Map", "ï¿½ Revenue"].map((item) => (
+                  {["Book Skip ??", "Driver Board", "Collections", "Live Map", "£ Revenue"].map((item) => (
                     <a
                       key={item}
                       href="#"
@@ -257,7 +280,7 @@ export default function InstallSkipsDemoPage() {
                       <div className="min-w-0">
                         <p className="truncate font-black">{name}</p>
                         <p className="text-xs text-slate-400 sm:text-sm">
-                          {invoice} ï¿½{" "}
+                          {invoice} ·{" "}
                           <span className={status === "Paid" ? "text-green-400" : "text-red-400"}>
                             {status}
                           </span>
@@ -301,7 +324,7 @@ export default function InstallSkipsDemoPage() {
           </section>
 
           <section className="mt-5 rounded-3xl border border-white/10 bg-white/[0.03] p-4 sm:p-5">
-            <h2 className="text-xl font-black sm:text-2xl">Todayï¿½s Jobs</h2>
+            <h2 className="text-xl font-black sm:text-2xl">Today’s Jobs</h2>
             <div className="mt-4 grid grid-cols-1 gap-3 xl:grid-cols-3">
               {jobs.map(([ref, customer, type, driver, time, status]) => (
                 <article key={ref} className="rounded-2xl bg-black/35 p-4">
@@ -336,3 +359,114 @@ export default function InstallSkipsDemoPage() {
     </main>
   );
 }
+`
+);
+
+write(
+  path.join(root, "app", "skips-demo", "page.tsx"),
+`export { default } from "../install-skips-demo/page";
+`
+);
+
+write(
+  path.join(root, "app", "globals.css"),
+`@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: #000;
+  color: white;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+iframe,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+main,
+section,
+article,
+aside,
+header,
+footer,
+nav,
+div {
+  min-width: 0;
+}
+
+input,
+select,
+textarea,
+button {
+  font-size: 16px;
+}
+
+table,
+pre,
+code {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  main {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .w-screen,
+  .min-w-full {
+    width: 100%;
+    min-width: 0;
+  }
+}
+`
+);
+
+fs.rmSync(path.join(root, ".next"), { recursive: true, force: true });
+
+console.log("Running build...");
+execSync("npm run build", { stdio: "inherit" });
+
+console.log("Build passed.");
+
+try {
+  execSync("git add .", { stdio: "inherit" });
+  execSync('git commit -m "Make install skips demo mobile perfect"', { stdio: "inherit" });
+  execSync("git push", { stdio: "inherit" });
+  console.log("Pushed to GitHub.");
+} catch {
+  console.log("Nothing to commit or git failed. Showing status:");
+  execSync("git status", { stdio: "inherit" });
+}
+
+console.log("DONE. Clean demo URL remains https://www.tradeconnectai.co.uk/install-skips-demo");

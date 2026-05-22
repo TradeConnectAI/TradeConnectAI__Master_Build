@@ -11,7 +11,7 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  background: #000;
+  background: #020617;
   color: white;
 }
 
@@ -55,11 +55,6 @@ code {
   overflow-x: auto;
 }
 
-a,
-button {
-  touch-action: manipulation;
-}
-
 @media (max-width: 768px) {
   html,
   body {
@@ -75,5 +70,9 @@ button {
   .min-w-full {
     width: 100%;
     min-width: 0;
+  }
+
+  nav {
+    overflow-x: auto;
   }
 }
