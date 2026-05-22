@@ -75,8 +75,8 @@ export default function InstallSkipsDemo() {
             </div>
 
             <div className="rounded-2xl bg-black p-4">
-              <p className="font-bold">SN Steven Neilson</p>
-              <p className="text-sm text-slate-400">Admin</p>
+              <p className="font-bold">Dean Horgan</p>
+              <p className="text-sm text-slate-400">Operations Manager</p>
             </div>
           </div>
         </aside>
@@ -375,3 +375,4 @@ function Settings() {
     </div>
   );
 }
+
