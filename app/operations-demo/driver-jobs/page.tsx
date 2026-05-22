@@ -11,15 +11,10 @@ export default function Page(){
     <main className="min-h-screen bg-black p-6 text-white">
       <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
       <h1 className="mt-6 text-4xl font-black">Driver Jobs</h1>
-
       <div className="mt-6 space-y-4">
-        {jobs.map(([time, type, skip, area, driver]) => (
-          <div key={time + area} className="grid gap-4 rounded-3xl border border-white/10 bg-white/[0.04] p-5 md:grid-cols-5">
-            <b>{time}</b>
-            <span className="text-orange-300">{type}</span>
-            <span>{skip}</span>
-            <span>{area}</span>
-            <span>{driver}</span>
+        {jobs.map(([time,type,skip,area,driver]) => (
+          <div key={time} className="grid gap-4 rounded-3xl border border-white/10 bg-white/[0.04] p-5 md:grid-cols-5">
+            <b>{time}</b><span className="text-orange-300">{type}</span><span>{skip}</span><span>{area}</span><span>{driver}</span>
           </div>
         ))}
       </div>

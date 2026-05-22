@@ -11,17 +11,14 @@ export default function Page(){
     <main className="min-h-screen bg-black p-6 text-white">
       <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
       <h1 className="mt-6 text-4xl font-black">Drivers</h1>
-      <p className="mt-2 text-slate-400">Live driver status, vehicles, tacho and breaks.</p>
-
       <div className="mt-6 grid gap-4 md:grid-cols-3">
-        {drivers.map(([name, vehicle, status, driven, breakDue]) => (
+        {drivers.map(([name,vehicle,status,driven,breakDue]) => (
           <div key={name} className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
             <h2 className="text-2xl font-black">{name}</h2>
             <p className="mt-2 text-orange-300">{vehicle}</p>
             <p className="mt-4">Status: <b>{status}</b></p>
             <p>Driven today: <b>{driven}</b></p>
             <p>Break: <b>{breakDue}</b></p>
-            <button className="mt-5 w-full rounded-2xl bg-orange-500 p-3 font-bold">View route</button>
           </div>
         ))}
       </div>
