@@ -16,12 +16,11 @@ export default function PlumbersPage() {
         </p>
         <div className="mt-8 flex gap-4">
           <Link href="/operations-demo" className="rounded-full bg-cyan-400 px-6 py-3 font-bold text-slate-950">Try the demo</Link>
-          <Link href="/ai-call-demo" className="rounded-full border border-white/15 px-6 py-3 font-bold text-white">AI Receptionist</Link>
+          <Link href="/ai-receptionist" className="rounded-full border border-white/15 px-6 py-3 font-bold text-white">AI Receptionist</Link>
         </div>
       </section>
       <SiteFooter />
     </main>
   );
 }
-
 

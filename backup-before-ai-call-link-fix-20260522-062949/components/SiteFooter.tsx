@@ -15,7 +15,7 @@ export default function SiteFooter() {
         <div>
           <div className="font-bold text-white">Toolbox</div>
           <div className="mt-4 space-y-3 text-sm text-slate-400">
-            <Link href="/ai-call-demo" className="block hover:text-white">AI Call Helper</Link>
+            <Link href="/ai-receptionist" className="block hover:text-white">AI Call Helper</Link>
             <Link href="/operations" className="block hover:text-white">Job Toolbox</Link>
             <Link href="/quote-creator" className="block hover:text-white">Quote Creator</Link>
             <Link href="/customer-portal" className="block hover:text-white">Customer Updates</Link>
@@ -44,4 +44,3 @@ export default function SiteFooter() {
     </footer>
   );
 }
-

@@ -1,7 +1,7 @@
 ﻿import Link from "next/link";
 
 const nav = [
-  { label: "AI Call Helper", href: "/ai-call-demo" },
+  { label: "AI Call Helper", href: "/ai-receptionist" },
   { label: "Job Toolbox", href: "/operations" },
   { label: "Quote Creator", href: "/quote-creator" },
   { label: "Customer Updates", href: "/customer-portal" },
@@ -32,4 +32,3 @@ export default function SiteHeader() {
     </header>
   );
 }
-
