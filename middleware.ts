@@ -8,11 +8,7 @@ export function middleware(request: NextRequest) {
   }
 
   const username = process.env.INSTALL_DEMO_USER || "install";
-  const password = process.env.INSTALL_DEMO_PASSWORD;
-
-  if (!password) {
-    return new NextResponse("Demo password not configured", { status: 500 });
-  }
+  const password = process.env.INSTALL_DEMO_PASSWORD || "install2026";
 
   const authHeader = request.headers.get("authorization");
 
