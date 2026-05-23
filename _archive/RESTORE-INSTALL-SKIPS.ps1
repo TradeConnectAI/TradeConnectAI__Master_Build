@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = "Stop"
 
 $Root = "C:\DEV\TradeConnectAI_fixed"
-$ArchiveDir = "C:\DEV\TradeConnectAI_fixed\_archive\install-skips-demo-2026-05-23-021056"
+$ArchiveDir = "C:\DEV\TradeConnectAI_fixed\_archive\install-skips-demo-2026-05-23-021139"
 $TargetDir = Join-Path $Root "app\install-skips-demo"
 
 if (!(Test-Path $ArchiveDir)) {
