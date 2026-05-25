@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const calls = [
   {
@@ -40,7 +40,7 @@ export default function AICallDemoPage() {
           </p>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
-            See how TradeConnectAI handles missed calls.
+            See how Trade Connect AI handles missed calls.
           </h1>
 
           <p className="mt-5 max-w-3xl text-lg text-slate-300">
@@ -119,5 +119,6 @@ export default function AICallDemoPage() {
 }
 
 // deploy refresh 2026-05-22 06:38:46
+
 
 

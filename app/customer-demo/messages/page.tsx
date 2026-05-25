@@ -1,15 +1,15 @@
-import DemoSidebar from "@/components/DemoSidebar";
+﻿import DemoSidebar from "@/components/DemoSidebar";
 
 const messages = [
   {
-    from: "TradeConnectAI",
+    from: "Trade Connect AI",
     text: "Your engineer has been assigned and is preparing to leave.",
     time: "08:46",
     type: "system",
   },
   {
     from: "Tom Hughes",
-    text: "I’m on my way now. ETA is around 09:55.",
+    text: "Iâ€™m on my way now. ETA is around 09:55.",
     time: "09:20",
     type: "trade",
   },
@@ -69,4 +69,5 @@ export default function MessagesPage() {
     </main>
   );
 }
+
 

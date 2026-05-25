@@ -4,44 +4,46 @@ import Link from "next/link";
 type TradeConnectLogoProps = {
   href?: string;
   className?: string;
-  imageClassName?: string;
-  compact?: boolean;
+  variant?: "nav" | "hero" | "compact";
 };
 
 export default function TradeConnectLogo({
   href = "/",
   className = "",
-  imageClassName = "",
-  compact = false,
+  variant = "nav",
 }: TradeConnectLogoProps) {
+  const isHero = variant === "hero";
+  const isCompact = variant === "compact";
+
   return (
     <Link
       href={href}
-      aria-label="TradeConnectAI home"
-      className={`group inline-flex items-center gap-3 rounded-2xl border border-cyan-300/15 bg-slate-950/55 px-3 py-2 shadow-[0_0_30px_rgba(34,211,238,0.10)] backdrop-blur-xl transition hover:border-cyan-300/35 hover:bg-slate-900/75 ${className}`}
+      aria-label="Trade Connect AI home"
+      className={[
+        "group relative inline-flex items-center overflow-hidden rounded-2xl border border-cyan-300/15",
+        "bg-slate-950/70 shadow-[0_0_36px_rgba(34,211,238,0.12)] backdrop-blur-xl",
+        "transition hover:border-cyan-300/35 hover:bg-slate-900/80",
+        isHero ? "px-5 py-4" : "px-3 py-2",
+        className,
+      ].join(" ")}
     >
-      <span className="relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-xl border border-white/10 bg-white/8 shadow-inner">
-        <span className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-transparent to-blue-500/20" />
-        <Image
-          src="/brand/tradeconnect-logo.jpeg"
-          alt=""
-          width={80}
-          height={80}
-          priority
-          className={`relative h-8 w-8 rounded-lg object-cover object-left ${imageClassName}`}
-        />
-      </span>
+      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.16),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.06),transparent_45%)]" />
+      <span className="pointer-events-none absolute inset-x-4 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-300/35 to-transparent" />
 
-      {!compact && (
-        <span className="leading-tight">
-          <span className="block text-sm font-black tracking-tight text-white">
-            TradeConnect<span className="text-cyan-300">AI</span>
-          </span>
-          <span className="block text-[10px] font-medium uppercase tracking-[0.22em] text-cyan-100/55">
-            Trades assistant
-          </span>
-        </span>
-      )}
+      <Image
+        src="/brand/tradeconnect-logo.jpeg"
+        alt="Trade Connect AI"
+        width={isHero ? 460 : 260}
+        height={isHero ? 180 : 100}
+        priority
+        className={[
+          "relative z-10 h-auto w-auto object-contain",
+          isHero ? "max-h-28 max-w-[280px] sm:max-w-[360px]" : "max-h-12 max-w-[190px]",
+          isCompact ? "max-h-10 max-w-[150px]" : "",
+        ].join(" ")}
+      />
+
+      <span className="sr-only">Trade Connect AI</span>
     </Link>
   );
 }

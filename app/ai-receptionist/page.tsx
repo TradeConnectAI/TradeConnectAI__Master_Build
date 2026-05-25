@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import RealImageCard from "@/components/RealImageCard";
@@ -41,11 +41,11 @@ export default function AiReceptionistPage() {
           </p>
 
           <h1 className="mt-4 max-w-4xl text-5xl font-black leading-tight md:text-7xl">
-            For the calls you miss while you�re doing the job.
+            For the calls you miss while youï¿½re doing the job.
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            When you�re on the tools, driving or dealing with a customer, TradeConnectAI helps capture enquiries so they don�t vanish into voicemail.
+            When youï¿½re on the tools, driving or dealing with a customer, Trade Connect AI helps capture enquiries so they donï¿½t vanish into voicemail.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -66,7 +66,7 @@ export default function AiReceptionistPage() {
         </h2>
 
         <p className="mt-4 max-w-3xl leading-8 text-slate-300">
-          Small businesses don�t need tech theatre. They need the basics handled when they�re too busy to answer.
+          Small businesses donï¿½t need tech theatre. They need the basics handled when theyï¿½re too busy to answer.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-1 md:grid-cols-3">
@@ -85,5 +85,6 @@ export default function AiReceptionistPage() {
     </main>
   );
 }
+
 
 

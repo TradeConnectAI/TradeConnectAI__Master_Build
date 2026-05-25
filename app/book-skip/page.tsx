@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -151,12 +151,12 @@ export default function BookSkipPage() {
             <h2 className="text-xl font-bold">Live Estimate</h2>
 
             <div className="mt-4 space-y-3 text-sm">
-              <Row label={`${skipSize} Skip / Service`} value={`�${skipPrice}`} />
-              <Row label="Permit / Access Check" value={`�${permit}`} />
-              <Row label="VAT" value={`�${vat}`} />
+              <Row label={`${skipSize} Skip / Service`} value={`ï¿½${skipPrice}`} />
+              <Row label="Permit / Access Check" value={`ï¿½${permit}`} />
+              <Row label="VAT" value={`ï¿½${vat}`} />
 
               <div className="border-t border-white/10 pt-3">
-                <Row label="Total" value={`�${total}`} big />
+                <Row label="Total" value={`ï¿½${total}`} big />
               </div>
             </div>
           </div>
@@ -179,7 +179,7 @@ export default function BookSkipPage() {
             <p className="mt-2 text-sm text-slate-300">{aiStatus}</p>
 
             <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-              <Stat label="Revenue Today" value="�8,940" />
+              <Stat label="Revenue Today" value="ï¿½8,940" />
               <Stat label="Skips Out" value="32" />
               <Stat label="Drivers Active" value="8" />
               <Stat label="Permits" value="4" />
@@ -211,7 +211,7 @@ export default function BookSkipPage() {
       {chatOpen && (
         <div className="fixed bottom-24 right-6 w-[360px] max-w-[calc(100vw-3rem)] overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-2xl">
           <div className="bg-cyan-400 px-5 py-4 text-slate-950">
-            <p className="font-bold">TradeConnectAI Assistant</p>
+            <p className="font-bold">Trade Connect AI Assistant</p>
             <p className="text-xs font-semibold">? Online</p>
           </div>
 
@@ -225,7 +225,7 @@ export default function BookSkipPage() {
             </Bubble>
 
             <Bubble who="AI">
-              I�m checking vehicle availability, driver schedules, permit rules, skip stock and aggregate delivery slots now.
+              Iï¿½m checking vehicle availability, driver schedules, permit rules, skip stock and aggregate delivery slots now.
             </Bubble>
 
             <Bubble who="AI">
@@ -235,7 +235,7 @@ export default function BookSkipPage() {
             <Bubble who="Customer">Road outside the property.</Bubble>
 
             <Bubble who="AI">
-              No problem. Permit likely required. Estimate: Skip �275, Permit �40, VAT �63. Total �378.
+              No problem. Permit likely required. Estimate: Skip ï¿½275, Permit ï¿½40, VAT ï¿½63. Total ï¿½378.
             </Bubble>
 
             <Bubble who="AI">
@@ -333,5 +333,6 @@ function Bubble({
     </div>
   );
 }
+
 
 

@@ -5,7 +5,7 @@ export default function CompleteOptionsBetaPage() {
   return (
     <CompleteOptionsShell
       title="Operations dashboard"
-      subtitle="A live-feeling control room for calls, customers, jobs, quotes and follow-ups. Built to show how TradeConnectAI keeps Complete Options moving while the team is on the tools."
+      subtitle="A live-feeling control room for calls, customers, jobs, quotes and follow-ups. Built to show how Trade Connect AI keeps Complete Options moving while the team is on the tools."
     >
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {betaStats.map((stat) => (
@@ -109,3 +109,4 @@ export default function CompleteOptionsBetaPage() {
     </CompleteOptionsShell>
   );
 }
+

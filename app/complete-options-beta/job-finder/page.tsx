@@ -5,7 +5,7 @@ export default function JobFinderPage() {
   return (
     <CompleteOptionsShell
       title="Job finder"
-      subtitle="A demo of how TradeConnectAI could surface possible local work from enquiries, planning signals and public lead sources."
+      subtitle="A demo of how Trade Connect AI could surface possible local work from enquiries, planning signals and public lead sources."
     >
       <section className="grid gap-4">
         {jobFinderLeads.map((lead) => (
@@ -42,3 +42,4 @@ export default function JobFinderPage() {
     </CompleteOptionsShell>
   );
 }
+

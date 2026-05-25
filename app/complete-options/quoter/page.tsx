@@ -210,7 +210,7 @@ export default function JobQuoterPage() {
       <header className="border-b border-white/10 bg-slate-950 px-5 py-6">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
-            Complete Options · TradeConnectAI
+            Complete Options · Trade Connect AI
           </p>
           <h1 className="mt-2 text-4xl font-black">Job Quoter</h1>
           <p className="mt-3 max-w-3xl text-slate-400">
@@ -446,3 +446,4 @@ export default function JobQuoterPage() {
     </main>
   );
 }
+

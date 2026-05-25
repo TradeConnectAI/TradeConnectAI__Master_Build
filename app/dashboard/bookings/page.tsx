@@ -1,4 +1,4 @@
-export default function BookingsPage() {
+﻿export default function BookingsPage() {
     return (
         <main className="min-min-min-h-screen bg-[#020817] text-white">
             <div className="flex">
@@ -8,7 +8,7 @@ export default function BookingsPage() {
 
                     <div className="mb-12">
                         <h1 className="text-2xl font-black text-blue-400">
-                            TradeConnectAI
+                            Trade Connect AI
                         </h1>
 
                         <p className="mt-2 text-sm text-white/50">
@@ -99,7 +99,7 @@ export default function BookingsPage() {
                         {[
                             {
                                 title: "Fuse Board Investigation",
-                                time: "Today � 7:00pm",
+                                time: "Today ï¿½ 7:00pm",
                                 location: "Cardiff",
                                 engineer: "Steve",
                                 status: "Confirmed",
@@ -107,7 +107,7 @@ export default function BookingsPage() {
 
                             {
                                 title: "Leak Investigation",
-                                time: "Tomorrow � 10:30am",
+                                time: "Tomorrow ï¿½ 10:30am",
                                 location: "Newport",
                                 engineer: "Lewis",
                                 status: "Scheduled",
@@ -115,7 +115,7 @@ export default function BookingsPage() {
 
                             {
                                 title: "Bathroom Renovation Quote",
-                                time: "Friday � 2:00pm",
+                                time: "Friday ï¿½ 2:00pm",
                                 location: "Bristol",
                                 engineer: "Steve",
                                 status: "Pending",
@@ -123,7 +123,7 @@ export default function BookingsPage() {
 
                             {
                                 title: "Emergency Boiler Repair",
-                                time: "Saturday � 8:00am",
+                                time: "Saturday ï¿½ 8:00am",
                                 location: "Swansea",
                                 engineer: "Mike",
                                 status: "Urgent",
@@ -201,6 +201,7 @@ export default function BookingsPage() {
         </main>
     );
 }
+
 
 
 

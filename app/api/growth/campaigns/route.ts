@@ -16,7 +16,7 @@ type CampaignBody = {
 function brandName(tenant?: string) {
   if (tenant === "install-skips") return "Install Skips";
   if (tenant === "complete-options") return "Complete Options";
-  return "TradeConnectAI";
+  return "Trade Connect AI";
 }
 
 function buildAssets(body: CampaignBody) {
@@ -121,3 +121,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
 }
+

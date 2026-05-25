@@ -206,7 +206,7 @@ export default function CompleteOptionsPage() {
             </div>
             <div>
               <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
-                TradeConnectAI beta demo
+                Trade Connect AI beta demo
               </p>
               <h1 className="text-3xl font-black tracking-tight sm:text-4xl">
                 Complete Options Operations Hub
@@ -261,7 +261,7 @@ export default function CompleteOptionsPage() {
                   Calls become jobs. Jobs become quotes. Customers stay updated.
                 </h2>
                 <p className="mt-4 max-w-3xl text-base leading-8 text-slate-300">
-                  Complete Options uses TradeConnectAI to answer missed calls, capture job details,
+                  Complete Options uses Trade Connect AI to answer missed calls, capture job details,
                   build quotes, assign work, and send customer updates without the office becoming
                   a paper tornado.
                 </p>
@@ -526,3 +526,4 @@ export default function CompleteOptionsPage() {
     </main>
   );
 }
+
