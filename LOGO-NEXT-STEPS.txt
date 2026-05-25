@@ -1,0 +1,19 @@
+﻿Logo has been added here:
+
+public/brand/tradeconnect-logo.jpeg
+
+Reusable component created here:
+
+components/TradeConnectLogo.tsx
+
+Use it in any header/navbar/page with:
+
+import TradeConnectLogo from "@/components/TradeConnectLogo";
+
+Then add:
+
+<TradeConnectLogo />
+
+Smaller version:
+
+<TradeConnectLogo imageClassName="h-9 w-auto" />
