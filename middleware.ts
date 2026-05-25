@@ -1,43 +1,39 @@
-﻿import { NextRequest, NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+const protectedPaths = [
+  "/complete-options-beta",
+  "/complete-options-demo",
+  "/complete-options-login",
+];
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
+  const { pathname } = request.nextUrl;
 
-  if (!pathname.startsWith("/demo")) {
+  const shouldProtect = protectedPaths.some((path) =>
+    pathname === path || pathname.startsWith(`${path}/`)
+  );
+
+  if (!shouldProtect) {
     return NextResponse.next();
   }
 
-  const username = process.env.INSTALL_DEMO_USER || "install";
-  const password = process.env.INSTALL_DEMO_PASSWORD || "install2026";
+  const authCookie = request.cookies.get("complete_options_auth")?.value;
 
-  const authHeader = request.headers.get("authorization");
-
-  if (!authHeader || !authHeader.startsWith("Basic ")) {
-    return new NextResponse("Authentication required", {
-      status: 401,
-      headers: {
-        "WWW-Authenticate": 'Basic realm="TradeConnectAI Demo"',
-      },
-    });
-  }
-
-  const encoded = authHeader.split(" ")[1];
-  const decoded = atob(encoded);
-  const [givenUser, givenPassword] = decoded.split(":");
-
-  if (givenUser === username && givenPassword === password) {
+  if (authCookie === "true") {
     return NextResponse.next();
   }
 
-  return new NextResponse("Invalid username or password", {
-    status: 401,
-    headers: {
-      "WWW-Authenticate": 'Basic realm="TradeConnectAI Demo"',
-    },
-  });
+  const loginUrl = new URL("/complete-options-login", request.url);
+  loginUrl.searchParams.set("next", pathname);
+
+  return NextResponse.redirect(loginUrl);
 }
 
 export const config = {
-  matcher: ["/demo/:path*"],
+  matcher: [
+    "/complete-options-beta/:path*",
+    "/complete-options-demo/:path*",
+    "/complete-options-login",
+  ],
 };
-
