@@ -12,10 +12,10 @@ const navItems = [
 export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-cyan-300/10 bg-[#020817]/95 backdrop-blur-2xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-6 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-5 py-4 sm:px-8">
         <TradeConnectLogo variant="nav" />
 
-        <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-semibold text-slate-300 lg:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-7 text-sm font-semibold text-slate-300 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
