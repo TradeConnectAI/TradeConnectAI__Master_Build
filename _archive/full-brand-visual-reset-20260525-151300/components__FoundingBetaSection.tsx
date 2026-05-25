@@ -1,7 +1,9 @@
+﻿import BrandWatermark from "@/components/BrandWatermark";
 
 export default function FoundingBetaSection() {
   return (
     <section className="relative overflow-hidden mx-auto max-w-7xl px-6 py-16 text-white">
+      <BrandWatermark position="card" />
       <div className="rounded-[1.5rem] border border-cyan-400/20 bg-cyan-400/10 p-8 md:p-10">
         <p className="text-sm font-bold text-cyan-300">Early Beta Access</p>
 

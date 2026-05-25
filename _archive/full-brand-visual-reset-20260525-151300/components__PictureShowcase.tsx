@@ -1,3 +1,4 @@
+﻿import BrandWatermark from "@/components/BrandWatermark";
 
 export default function PictureShowcase() {
   const cards = [
@@ -20,6 +21,7 @@ export default function PictureShowcase() {
 
   return (
     <section className="relative overflow-hidden mx-auto max-w-7xl px-6 py-16 text-white">
+      <BrandWatermark position="card" />
       <div className="mb-8">
         <p className="text-sm font-bold text-cyan-300">Built for real working days</p>
         <h2 className="mt-3 max-w-4xl text-4xl font-black md:text-5xl">

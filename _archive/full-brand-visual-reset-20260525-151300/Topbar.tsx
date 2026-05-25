@@ -1,4 +1,4 @@
-import TradeConnectLogo from "@/components/TradeConnectLogo";
+﻿import TradeConnectLogo from "@/components/TradeConnectLogo";
 
 // components/dashboard/Topbar.tsx
 "use client";
