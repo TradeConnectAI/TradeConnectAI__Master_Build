@@ -1,9 +1,89 @@
-import Link from "next/link";
+﻿const fs = require("fs");
+const path = require("path");
 
-const logoPath = "/brand/tradeconnect-logo-clean.png";
-const heroImage = "/install-assets/install-lorries.webp";
-const cardImageOne = "/install-assets/install-lorries.webp";
-const cardImageTwo = "/install-assets/install-lorries.webp";
+const publicDir = "public";
+
+function walk(dir) {
+  if (!fs.existsSync(dir)) return [];
+  let out = [];
+
+  for (const item of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, item.name);
+    if (item.isDirectory()) out = out.concat(walk(full));
+    if (item.isFile()) out.push(full);
+  }
+
+  return out;
+}
+
+function toPublicPath(file) {
+  return "/" + file.replace(/^public[\\/]/, "").replace(/\\/g, "/");
+}
+
+const imageExts = new Set([".png", ".jpg", ".jpeg", ".webp", ".svg"]);
+const allAssets = walk(publicDir).filter((file) =>
+  imageExts.has(path.extname(file).toLowerCase())
+);
+
+const logoCandidates = allAssets.filter((file) => {
+  const lower = file.toLowerCase();
+  return (
+    lower.includes("logo") ||
+    lower.includes("tradeconnect") ||
+    lower.includes("trade-connect") ||
+    lower.includes("tca")
+  );
+});
+
+const photoCandidates = allAssets.filter((file) => {
+  const lower = file.toLowerCase();
+
+  if (lower.endsWith(".svg")) return false;
+
+  return (
+    lower.includes("trade") ||
+    lower.includes("trades") ||
+    lower.includes("builder") ||
+    lower.includes("plumb") ||
+    lower.includes("electric") ||
+    lower.includes("van") ||
+    lower.includes("engineer") ||
+    lower.includes("job") ||
+    lower.includes("worker") ||
+    lower.includes("tools") ||
+    lower.includes("site") ||
+    lower.includes("install")
+  );
+});
+
+const nonLogoPhotos = photoCandidates.filter((file) => {
+  const lower = file.toLowerCase();
+  return !lower.includes("logo");
+});
+
+const fallbackPhotos = allAssets.filter((file) => {
+  const lower = file.toLowerCase();
+  return !lower.endsWith(".svg") && !lower.includes("logo");
+});
+
+const logo = logoCandidates[0] ? toPublicPath(logoCandidates[0]) : "";
+const heroImages = (nonLogoPhotos.length ? nonLogoPhotos : fallbackPhotos)
+  .slice(0, 4)
+  .map(toPublicPath);
+
+const heroImage = heroImages[0] || "";
+const cardImageOne = heroImages[1] || heroImage;
+const cardImageTwo = heroImages[2] || heroImage;
+
+console.log("Logo found:", logo || "No logo found");
+console.log("Images found:", heroImages.length ? heroImages.join(", ") : "No photos found");
+
+const page = `import Link from "next/link";
+
+const logoPath = ${JSON.stringify(logo)};
+const heroImage = ${JSON.stringify(heroImage)};
+const cardImageOne = ${JSON.stringify(cardImageOne)};
+const cardImageTwo = ${JSON.stringify(cardImageTwo)};
 
 const features = [
   {
@@ -36,7 +116,7 @@ export default function HomePage() {
         {heroImage ? (
           <div
             className="absolute inset-0 -z-20 bg-cover bg-center opacity-45"
-            style={{ backgroundImage: `url(${heroImage})` }}
+            style={{ backgroundImage: \`url(\${heroImage})\` }}
           />
         ) : null}
 
@@ -209,3 +289,6 @@ export default function HomePage() {
     </main>
   );
 }
+`;
+
+fs.writeFileSync("app/page.tsx", page, "utf8");
