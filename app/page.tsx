@@ -54,9 +54,21 @@ const activity = [
 ];
 
 const pricing = [
-  ["Starter", "£49/mo", "Sole traders testing AI calls and customer updates."],
-  ["Trade Pro", "£99/mo", "Small teams needing calls, quotes, jobs and customer updates."],
-  ["Managed Setup", "£249 setup + £149/mo", "Done-for-you setup, scripts, workflows and onboarding."],
+  [
+    "Founding Beta",
+    "Free",
+    "For the first 15 suitable trade businesses that sign up and give honest feedback.",
+  ],
+  [
+    "What we ask",
+    "Feedback",
+    "Use the beta, test the workflows, and tell us what would actually help your trade business day to day.",
+  ],
+  [
+    "After beta",
+    "Paid plans later",
+    "Pricing will open after the founding beta once the product is shaped around real trade businesses.",
+  ],
 ];
 
 const trust = [
@@ -127,7 +139,7 @@ export default function HomePage({
                 href="/book-demo"
                 className="w-full rounded-full bg-white px-6 py-4 text-center text-sm font-black text-slate-950 shadow-2xl shadow-black/30 sm:w-auto"
               >
-                Request beta access
+                Claim free beta spot
               </Link>
               <Link
                 href="/operations-demo"
@@ -438,6 +450,18 @@ export default function HomePage({
           </h2>
         </div>
 
+        <div className="mt-6 rounded-[2rem] border border-emerald-300/30 bg-emerald-300/10 p-6 text-emerald-100">
+          <p className="text-sm font-black uppercase tracking-[0.2em]">
+            Limited founding beta
+          </p>
+          <p className="mt-2 text-lg font-black text-white">
+            Only 15 founding beta places are available.
+          </p>
+          <p className="mt-2 text-sm leading-6 text-emerald-100/85">
+            No payment during the founding beta. In return, we ask for honest feedback on calls, jobs, quotes and customer updates.
+          </p>
+        </div>
+
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {pricing.map(([plan, price, text]) => (
             <div
@@ -451,7 +475,7 @@ export default function HomePage({
                 href="/book-demo"
                 className="mt-6 inline-flex rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950"
               >
-                Request beta access
+                Claim free beta spot
               </a>
             </div>
           ))}
@@ -507,7 +531,7 @@ export default function HomePage({
             </div>
             <textarea name="help" rows={4} placeholder="What do you need help with most?" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
             <button type="submit" className="rounded-full bg-cyan-300 px-6 py-4 text-sm font-black text-slate-950">
-              Request beta access
+              Claim free beta spot
             </button>
           </form>
         </div>
