@@ -1,6 +1,4 @@
-﻿import BrandWatermark from "@/components/BrandWatermark";
-
-"use client";
+﻿"use client";
 
 export default function RealWorldSection() {
   const sections = [
@@ -28,8 +26,7 @@ export default function RealWorldSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-16 text-white">
-      <BrandWatermark position="card" />
+    <section className="bg-slate-950 py-16 text-white">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
         {sections.map((section) => (
           <div
@@ -65,4 +62,3 @@ export default function RealWorldSection() {
     </section>
   );
 }
-

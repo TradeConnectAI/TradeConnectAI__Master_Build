@@ -1,12 +1,10 @@
-﻿import BrandWatermark from "@/components/BrandWatermark";
-import Image from "next/image";
+﻿import Image from "next/image";
 
 const calendlyLink = "https://calendly.com/stevenneilsonvoda/30min";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden relative min-h-screen overflow-hidden bg-[#020817] px-6 py-10 text-white md:px-12 lg:px-20">
-      <BrandWatermark position="hero" />
+    <section className="relative min-h-screen overflow-hidden bg-[#020817] px-6 py-10 text-white md:px-12 lg:px-20">
 
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.12),transparent_30%)]" />
@@ -105,4 +103,3 @@ export default function Hero() {
     </section>
   );
 }
-

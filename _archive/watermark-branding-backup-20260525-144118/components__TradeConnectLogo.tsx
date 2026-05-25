@@ -24,9 +24,8 @@ export default function TradeConnectLogo({
         width={280}
         height={110}
         priority
-        className={`h-10 w-auto rounded-xl object-contain shadow-[0_0_24px_rgba(56,189,248,0.18)] ring-1 ring-white/10 md:h-11 ${imageClassName}`}
+        className={`h-12 w-auto object-contain ${imageClassName}`}
       />
     </Link>
   );
 }
-

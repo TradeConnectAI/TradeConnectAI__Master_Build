@@ -1,6 +1,4 @@
-﻿import BrandWatermark from "@/components/BrandWatermark";
-
-export default function TradeRealitySection() {
+﻿export default function TradeRealitySection() {
   const items = [
     {
       title: "A customer calls while you’re mid-job",
@@ -20,8 +18,7 @@ export default function TradeRealitySection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 px-6 py-16 text-white">
-      <BrandWatermark position="card" />
+    <section className="bg-slate-950 px-6 py-16 text-white">
       <div className="mx-auto max-w-7xl">
         <p className="text-sm font-bold uppercase tracking-wider text-cyan-300">
           Real working days
@@ -50,4 +47,3 @@ export default function TradeRealitySection() {
     </section>
   );
 }
-
