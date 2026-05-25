@@ -208,3 +208,260 @@ main section:first-of-type {
     touch-action: manipulation;
   }
 }
+
+/* ------------------------------------------------------------
+   TradeConnectAI mobile polish
+   Keeps landing pages, demos and admin pages readable on phones
+------------------------------------------------------------ */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Stop long words, emails, URLs and IDs from breaking mobile width */
+p,
+span,
+a,
+div,
+li,
+td,
+th,
+button,
+input,
+textarea,
+select {
+  overflow-wrap: anywhere;
+}
+
+/* Better tap targets */
+a,
+button {
+  touch-action: manipulation;
+}
+
+/* Mobile layout rescue */
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  main {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  section,
+  header,
+  footer {
+    max-width: 100%;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: clamp(2.75rem, 14vw, 4.5rem) !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 9vw, 3.25rem) !important;
+    line-height: 1 !important;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 6vw, 1.75rem) !important;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  /* Header/nav safety */
+  header {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    gap: 0.75rem !important;
+  }
+
+  header img {
+    max-height: 56px !important;
+    width: auto !important;
+  }
+
+  header nav {
+    display: none !important;
+  }
+
+  header a[href="/book-demo"],
+  header a[href="/operations-demo"],
+  header a[href="/ai-call-demo"] {
+    padding: 0.85rem 1rem !important;
+    font-size: 0.85rem !important;
+    white-space: nowrap;
+  }
+
+  /* Stack all major grids */
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce huge desktop spacing */
+  .px-8 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .py-16 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .pt-16 {
+    padding-top: 2.5rem !important;
+  }
+
+  .pb-24 {
+    padding-bottom: 4rem !important;
+  }
+
+  .mt-14 {
+    margin-top: 2.5rem !important;
+  }
+
+  .mt-10 {
+    margin-top: 2rem !important;
+  }
+
+  /* Cards/buttons */
+  .rounded-\[2rem\],
+  .rounded-\[1\.5rem\],
+  .rounded-3xl {
+    border-radius: 1.35rem !important;
+  }
+
+  .p-8,
+  .p-7,
+  .p-6 {
+    padding: 1.15rem !important;
+  }
+
+  .gap-10,
+  .gap-8 {
+    gap: 1.5rem !important;
+  }
+
+  /* Button rows should stack neatly */
+  .flex {
+    min-width: 0;
+  }
+
+  .flex.flex-wrap a,
+  .flex.flex-wrap button {
+    max-width: 100%;
+  }
+
+  main a.rounded-full,
+  main button.rounded-full {
+    text-align: center;
+  }
+
+  /* Forms */
+  input,
+  textarea,
+  select {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 16px !important; /* prevents iPhone zoom */
+  }
+
+  form {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Demo/admin tables/cards */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  article,
+  aside {
+    max-width: 100%;
+  }
+
+  /* Hide floating decorative cards that crush mobile */
+  .absolute.-bottom-8,
+  .absolute.-right-4,
+  .absolute.-bottom-6,
+  .absolute.-right-6 {
+    display: none !important;
+  }
+
+  /* Hero image cards on mobile */
+  main img[alt="Trade team dashboard"],
+  main img[alt="Customer update dashboard"],
+  main img[alt="TradeConnectAI"],
+  main img[alt="Engineer working"] {
+    object-fit: contain;
+  }
+
+  /* Prevent giant visual cards overpowering mobile */
+  .h-72,
+  .h-96 {
+    height: auto !important;
+    min-height: 180px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  h1 {
+    font-size: clamp(2.35rem, 15vw, 3.6rem) !important;
+  }
+
+  header {
+    align-items: flex-start !important;
+  }
+
+  header img {
+    max-height: 48px !important;
+  }
+
+  .text-6xl,
+  .text-7xl,
+  .text-8xl {
+    font-size: clamp(2.5rem, 15vw, 4rem) !important;
+  }
+
+  .text-5xl {
+    font-size: clamp(2.25rem, 12vw, 3rem) !important;
+  }
+
+  .text-4xl {
+    font-size: clamp(1.9rem, 10vw, 2.6rem) !important;
+  }
+
+  main a.rounded-full,
+  main button.rounded-full {
+    width: 100%;
+    justify-content: center;
+  }
+}
