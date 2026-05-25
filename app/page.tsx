@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const logoPath = "/brand/tradeconnect-logo-clean.png";
-const heroImage = "/install-assets/install-lorries.webp";
-const cardImageOne = "/install-assets/install-lorries.webp";
-const cardImageTwo = "/install-assets/install-lorries.webp";
+const heroImage = "";
+const cardImageOne = "";
+const cardImageTwo = "";
 
 const features = [
   {
