@@ -1,0 +1,26 @@
+﻿<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="900" fill="#020817"/>
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <rect x="140" y="110" width="1120" height="680" rx="54" fill="#0f172a" opacity="0.88"/>
+  <rect x="210" y="185" width="410" height="520" rx="36" fill="#111827"/>
+  <rect x="680" y="185" width="500" height="120" rx="28" fill="#111827"/>
+  <rect x="680" y="345" width="500" height="120" rx="28" fill="#111827"/>
+  <rect x="680" y="505" width="500" height="120" rx="28" fill="#111827"/>
+  <circle cx="300" cy="285" r="58" fill="#22d3ee"/>
+  <rect x="250" y="370" width="260" height="48" rx="24" fill="#334155"/>
+  <rect x="250" y="450" width="310" height="36" rx="18" fill="#1e293b"/>
+  <rect x="250" y="515" width="220" height="36" rx="18" fill="#1e293b"/>
+  <path d="M745 245h350M745 405h330M745 565h280" stroke="#67e8f9" stroke-width="32" stroke-linecap="round"/>
+  <circle cx="1110" cy="245" r="34" fill="#dcfce7"/>
+  <circle cx="1110" cy="405" r="34" fill="#fef3c7"/>
+  <circle cx="1110" cy="565" r="34" fill="#dcfce7"/>
+  <text x="210" y="815" fill="#f8fafc" font-family="Arial, sans-serif" font-size="58" font-weight="900">Clear customer updates</text>
+  <text x="210" y="865" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" font-weight="700">Less chasing, more trust, better service</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="900">
+      <stop stop-color="#082f49"/>
+      <stop offset="0.5" stop-color="#020817"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+</svg>

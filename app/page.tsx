@@ -1,25 +1,22 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const logoPath = "/brand/tradeconnect-logo-clean.png";
-const heroImage = "";
-const cardImageOne = "";
-const cardImageTwo = "";
 
 const features = [
   {
     title: "AI Call Helper",
-    text: "Answers missed calls, captures the job details and keeps enquiries from disappearing into voicemail.",
+    text: "Answers missed calls, captures job details and turns enquiries into organised work.",
     href: "/ai-call-demo",
   },
   {
     title: "Job Toolbox",
-    text: "Keep jobs, customers, quotes, invoices and updates in one practical dashboard.",
+    text: "Manage jobs, customers, quotes, invoices and follow-ups from one practical dashboard.",
     href: "/operations-demo",
   },
   {
     title: "Customer Updates",
-    text: "Give customers clear updates without endless chasing calls and repeated messages.",
-    href: "/customer-demo",
+    text: "Keep customers informed with clear updates, ETAs, quote approvals and job progress.",
+    href: "/customer-portal",
   },
 ];
 
@@ -33,28 +30,16 @@ export default function HomePage() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#020817] text-white">
       <section className="relative isolate min-h-screen">
-        {heroImage ? (
-          <div
-            className="absolute inset-0 -z-20 bg-cover bg-center opacity-45"
-            style={{ backgroundImage: `url(${heroImage})` }}
-          />
-        ) : null}
-
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.28),transparent_34%),linear-gradient(90deg,rgba(2,8,23,0.96),rgba(2,8,23,0.78),rgba(2,8,23,0.92))]" />
+        <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.26),transparent_34%),radial-gradient(circle_at_80%_30%,rgba(59,130,246,0.20),transparent_32%),linear-gradient(135deg,#020817,#07111f_45%,#020817)]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(2,8,23,0.96),rgba(2,8,23,0.76),rgba(2,8,23,0.94))]" />
 
         <header className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-5 md:px-8">
           <Link href="/" className="flex items-center gap-3">
-            {logoPath ? (
-              <img
-                src={logoPath}
-                alt="TradeConnectAI"
-                className="h-14 w-auto rounded-2xl object-contain md:h-16"
-              />
-            ) : (
-              <div className="rounded-2xl border border-cyan-300/30 bg-cyan-300/10 px-4 py-3 text-xl font-black text-cyan-200">
-                TradeConnectAI
-              </div>
-            )}
+            <img
+              src={logoPath}
+              alt="TradeConnectAI"
+              className="h-14 w-auto rounded-2xl object-contain md:h-16"
+            />
           </Link>
 
           <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/10 p-1 text-sm font-semibold text-slate-200 backdrop-blur md:flex">
@@ -129,60 +114,38 @@ export default function HomePage() {
 
           <section className="relative">
             <div className="rounded-[2rem] border border-white/15 bg-white/10 p-4 shadow-2xl shadow-cyan-950/40 backdrop-blur">
-              <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950">
-                {cardImageOne ? (
-                  <img
-                    src={cardImageOne}
-                    alt="Trade team at work"
-                    className="h-56 w-full object-cover opacity-90 md:h-72"
-                  />
-                ) : (
-                  <div className="h-56 bg-cyan-300/10 md:h-72" />
-                )}
+              <div className="rounded-[1.5rem] border border-white/10 bg-slate-950 p-6">
+                <p className="text-sm font-bold uppercase tracking-[0.22em] text-cyan-300">
+                  Live job captured
+                </p>
+                <h2 className="mt-3 text-3xl font-black">
+                  Emergency call logged
+                </h2>
 
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-sm font-bold uppercase tracking-[0.22em] text-cyan-300">
-                        Live job captured
-                      </p>
-                      <h2 className="mt-3 text-3xl font-black">
-                        Emergency call logged
-                      </h2>
+                <div className="mt-6 grid gap-3">
+                  {[
+                    "Customer details captured",
+                    "Job card created",
+                    "Quote ready to send",
+                    "Customer update prepared",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-slate-200"
+                    >
+                      {item}
                     </div>
-                    <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-sm font-bold text-emerald-300">
-                      New
-                    </span>
-                  </div>
+                  ))}
+                </div>
 
-                  <div className="mt-6 grid gap-3">
-                    {[
-                      "Customer details captured",
-                      "Job card created",
-                      "Quote ready to send",
-                      "Customer update prepared",
-                    ].map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-slate-200"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
+                <div className="mt-6 rounded-3xl border border-cyan-300/20 bg-cyan-300/10 p-5">
+                  <p className="text-sm text-cyan-100">
+                    Built for plumbers, electricians, builders, landscapers,
+                    cleaners, decorators and small trade teams.
+                  </p>
                 </div>
               </div>
             </div>
-
-            {cardImageTwo ? (
-              <div className="absolute -bottom-8 -right-4 hidden w-56 overflow-hidden rounded-3xl border border-white/15 bg-white/10 p-2 shadow-2xl shadow-black/30 backdrop-blur md:block">
-                <img
-                  src={cardImageTwo}
-                  alt="Trade business work"
-                  className="h-36 w-full rounded-2xl object-cover"
-                />
-              </div>
-            ) : null}
           </section>
         </div>
       </section>
