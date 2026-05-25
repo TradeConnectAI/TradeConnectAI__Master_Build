@@ -61,7 +61,7 @@ export default async function AdminLeadsPage() {
             </h1>
             <p className="mt-4 max-w-3xl text-slate-400">
               View beta demo requests from the website. Leads are emailed now,
-              and this dashboard will store them when Vercel KV is connected.
+              and this dashboard will store them when Supabase is connected.
             </p>
           </div>
 
@@ -86,8 +86,7 @@ export default async function AdminLeadsPage() {
             <h2 className="text-2xl font-black">Storage not connected yet</h2>
             <p className="mt-3 text-sm leading-6">
               Lead emails are working. To save leads here permanently, connect
-              Vercel KV or Upstash Redis and add KV_REST_API_URL plus
-              KV_REST_API_TOKEN in Vercel environment variables.
+              Supabase and add NEXT_PUBLIC_SUPABASE_URL plus SUPABASE_SERVICE_ROLE_KEY in Vercel environment variables.
             </p>
           </div>
         ) : null}
@@ -164,3 +163,4 @@ export default async function AdminLeadsPage() {
     </main>
   );
 }
+
