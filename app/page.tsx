@@ -95,14 +95,14 @@ export default function HomePage({
             <a href="#how" className="rounded-full px-4 py-2 hover:bg-white/10">How it works</a>
             <a href="#trades" className="rounded-full px-4 py-2 hover:bg-white/10">Trades</a>
             <a href="#pricing" className="rounded-full px-4 py-2 hover:bg-white/10">Pricing</a>
-            <a href="#beta" className="rounded-full px-4 py-2 hover:bg-white/10">Beta</a>
+            <a href="/book-demo" className="rounded-full px-4 py-2 hover:bg-white/10">Beta</a>
           </nav>
 
           <Link
-            href="/operations-demo"
+            href="/book-demo"
             className="rounded-full bg-cyan-300 px-5 py-3 text-sm font-black text-slate-950 shadow-xl shadow-cyan-950/30"
           >
-            View demo
+            Book demo
           </Link>
         </header>
 
@@ -124,10 +124,10 @@ export default function HomePage({
 
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
-                href="/ai-call-demo"
+                href="/book-demo"
                 className="rounded-full bg-white px-6 py-4 text-sm font-black text-slate-950 shadow-2xl shadow-black/30"
               >
-                Try AI call demo
+                Request beta access
               </Link>
               <Link
                 href="/operations-demo"
@@ -350,7 +350,7 @@ export default function HomePage({
               <p className="mt-4 text-4xl font-black text-cyan-200">{price}</p>
               <p className="mt-4 text-sm leading-6 text-slate-400">{text}</p>
               <a
-                href="#beta"
+                href="/book-demo"
                 className="mt-6 inline-flex rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950"
               >
                 Request beta access
