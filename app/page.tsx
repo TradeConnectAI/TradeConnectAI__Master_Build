@@ -7,7 +7,7 @@ import { tradeImages } from "@/components/tradeImages";
 const cards = [
   {
     title: "Missed calls",
-    text: "Capture the enquiry when you’re on the tools, driving or already with a customer.",
+    text: "Capture the enquiry when youâ€™re on the tools, driving or already with a customer.",
     image: tradeImages.phone,
   },
   {
@@ -24,7 +24,7 @@ const cards = [
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-h-[calc(100vh-96px)] bg-slate-950 text-white">
       <SiteHeader />
 
       <section className="relative overflow-hidden border-b border-slate-800">
@@ -46,7 +46,7 @@ export default function HomePage() {
             </p>
 
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-400">
-              Built from an engineer’s perspective for real working days that rarely go to plan.
+              Built from an engineerâ€™s perspective for real working days that rarely go to plan.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -64,7 +64,7 @@ export default function HomePage() {
             <div className="rounded-3xl border border-white/10 bg-black/30 p-6">
               <div className="text-sm font-bold text-cyan-300">Latest enquiry</div>
               <p className="mt-3 text-2xl font-black leading-tight text-white">
-                “Boiler leaking. Need someone today if possible.”
+                â€œBoiler leaking. Need someone today if possible.â€
               </p>
               <p className="mt-4 text-sm leading-6 text-slate-300">
                 Customer details captured. Urgency marked. Follow-up ready.
@@ -92,7 +92,7 @@ export default function HomePage() {
         </p>
 
         <h2 className="mt-4 max-w-4xl text-4xl font-black md:text-6xl">
-          Small businesses don’t need more tech noise. They need practical help.
+          Small businesses donâ€™t need more tech noise. They need practical help.
         </h2>
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -108,7 +108,7 @@ export default function HomePage() {
             Early beta
           </p>
           <h2 className="mt-4 max-w-4xl text-4xl font-black md:text-5xl">
-            I’m looking for 15-30 sole traders and small businesses to help shape this.
+            Iâ€™m looking for 15-30 sole traders and small businesses to help shape this.
           </h2>
           <p className="mt-6 max-w-3xl leading-8 text-slate-300">
             Early users get a lifetime founding-user benefit for helping build TradeConnectAI around real trade work, not boardroom guesses.
