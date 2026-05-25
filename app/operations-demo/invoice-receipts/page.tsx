@@ -6,7 +6,7 @@ const invoice = {
   customer: "John Davies",
   address: "12 Harbour Road, Barry, CF62",
   service: "8 Yard Mixed Waste Skip",
-  access check: "Council access check included",
+  accessCheck: "Council access check included",
   delivery: "Today 10:30",
   collection: "Friday 14:00",
   subtotal: 245,

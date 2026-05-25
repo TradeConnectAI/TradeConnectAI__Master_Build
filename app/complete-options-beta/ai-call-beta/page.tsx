@@ -19,7 +19,7 @@ type Booking = {
   wasteType: string;
   jobsize: string;
   dateWanted: string;
-  access check: string;
+  accessCheck: string;
   access: string;
   notes: string;
 };
@@ -32,7 +32,7 @@ const emptyBooking: Booking = {
   wasteType: "",
   jobsize: "",
   dateWanted: "",
-  access check: "",
+  accessCheck: "",
   access: "",
   notes: "",
 };
@@ -173,11 +173,11 @@ function extractBooking(prev: Booking, text: string): Booking {
     }
   }
 
-  if (!next.access check) {
+  if (!next.accessCheck) {
     if (containsAny(t, ["road", "street", "pavement", "access check"]))
-      next.access check = "May need access check";
+      next.accessCheck = "May need access check";
     else if (containsAny(t, ["drive", "driveway", "private land", "garden", "yard"]))
-      next.access check = "Private land / likely no access check";
+      next.accessCheck = "Private land / likely no access check";
   }
 
   if (!next.access) {

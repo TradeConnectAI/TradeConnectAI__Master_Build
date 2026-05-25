@@ -11,7 +11,7 @@ type Booking = {
   wasteType?: string;
   jobsize?: string;
   dateWanted?: string;
-  access check?: string;
+  accessCheck?: string;
   access?: string;
   notes?: string;
 };
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
       waste_type: booking.wasteType || null,
       skip_size: booking.jobsize || null,
       date_wanted: booking.dateWanted || null,
-      access check: booking.access check || null,
+      accessCheck: booking.access check || null,
       access: booking.access || null,
       notes: booking.notes || null,
       transcript,
@@ -81,7 +81,7 @@ export async function POST(request: Request) {
       waste_type: booking.wasteType || "Not captured",
       postcode: booking.postcode || "Not captured",
       date_wanted: booking.dateWanted || "Not captured",
-      access check: booking.access check || "Not captured",
+      accessCheck: booking.access check || "Not captured",
       access: booking.access || "None captured",
       notes: booking.notes || "",
     };

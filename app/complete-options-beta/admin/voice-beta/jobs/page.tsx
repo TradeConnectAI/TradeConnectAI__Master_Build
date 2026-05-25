@@ -14,7 +14,7 @@ type BetaJob = {
   waste_type: string | null;
   postcode: string | null;
   date_wanted: string | null;
-  access check: string | null;
+  accessCheck: string | null;
   access: string | null;
   notes: string | null;
 };

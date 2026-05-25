@@ -18,8 +18,8 @@ export default function BookSkipPage() {
   const [chatOpen, setChatOpen] = useState(true);
 
   const skipPrice = skipPrices[jobsize];
-  const access check = location === "Road access check Required" ? 40 : 0;
-  const subtotal = skipPrice + access check;
+  const accessCheck = location === "Road access check Required" ? 40 : 0;
+  const subtotal = skipPrice + accessCheck;
   const vat = Math.round(subtotal * 0.2);
   const total = subtotal + vat;
 
