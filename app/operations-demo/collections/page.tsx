@@ -4,7 +4,7 @@ const followUps = [
   ["Leaking tap repair", "Barry", "Due 11:30", "Dean Horgan"],
   ["Kitchen socket issue", "Cardiff", "Overdue", "Mark Lewis"],
   ["Urgent boiler visit", "Penarth", "Due 14:00", "Ryan Cole"],
-  ["Bathroom quote follow-up", "Newport", "Tomorrow", "Sarah Jones"],
+  ["Bathroom quote follow up", "Newport", "Tomorrow", "Sarah Jones"],
 ];
 
 export default function FollowUpsPage() {
@@ -14,7 +14,7 @@ export default function FollowUpsPage() {
         ← Back to operations
       </Link>
 
-      <h1 className="mt-6 text-4xl font-black">Job Follow-ups</h1>
+      <h1 className="mt-6 text-4xl font-black">Job Follow ups</h1>
       <p className="mt-3 max-w-2xl text-slate-400">
         Track open work, customer updates, return visits, parts needed and completed tasks.
       </p>
@@ -35,3 +35,4 @@ export default function FollowUpsPage() {
     </main>
   );
 }
+

@@ -21,12 +21,12 @@ const modules = [
   {
     title: "Team Tasks",
     text: "Send clear job tasks to workers with customer details, notes, routes and status updates.",
-    href: "/operations-demo/team member-jobs",
+    href: "/operations-demo/driver-jobs",
   },
   {
-    title: "Job Follow-ups",
+    title: "Job Follow ups",
     text: "Track open work, customer updates, return visits, parts needed and completed tasks.",
-    href: "/operations-demo/follow-ups",
+    href: "/operations-demo/collections",
   },
   {
     title: "Live Job Map",
@@ -151,3 +151,5 @@ export default function OperationsDemoPage() {
     </main>
   );
 }
+
+
