@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 
 const calendlyLink = "https://calendly.com/stevenneilsonvoda/30min";
 
@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="mb-20 flex flex-col items-center justify-center text-center">
 
           <Image
-            src="/logo.png"
+            src="/brand/tradeconnect-logo.jpeg"
             alt="TradeConnectAI"
             width={260}
             height={260}
@@ -60,7 +60,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-blue-500 px-8 py-4 text-base md:text-lg font-bold text-white no-underline shadow-xl shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-400"
             >
-              Book A Demo →
+              Book A Demo â†’
             </a>
 
             {/* HOW IT WORKS */}
