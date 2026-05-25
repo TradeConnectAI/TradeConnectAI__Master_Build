@@ -3,7 +3,7 @@
 const messages = [
   {
     from: "customer",
-    text: "Hi, I need a skip for General job in Barry. Maybe 8 yard.",
+    text: "Hi, I need a job for General job in Barry. Maybe 8 yard.",
   },
   {
     from: "ai",
@@ -15,11 +15,11 @@ const messages = [
   },
   {
     from: "ai",
-    text: "Great. An 8 yard skip is usually right for that. I’ve checked availability and we can deliver today between 10:30 and 12:00.",
+    text: "Great. An 8 yard job is usually right for that. I’ve checked availability and we can deliver today between 10:30 and 12:00.",
   },
   {
     from: "ai",
-    text: "Because this is going on the road, I’ve added a council access check check. The system will flag it to the office if approval is needed.",
+    text: "Because this is going on the road, I’ve added a council job detail check. The system will flag it to the office if approval is needed.",
   },
   {
     from: "customer",
@@ -27,7 +27,7 @@ const messages = [
   },
   {
     from: "ai",
-    text: "Yes. The total is £294 including VAT. Once paid, I’ll send the receipt and job details to the driver phone app.",
+    text: "Yes. The total is £294 including VAT. Once paid, I’ll send the receipt and job details to the team phone app.",
   },
 ];
 
@@ -44,8 +44,8 @@ export default function AIWebchatPage() {
               AI job booking Webchat
             </h1>
             <p className="mt-2 max-w-3xl text-slate-300">
-              Customer asks for a skip. AI checks waste type, access check needs, availability,
-              payment and driver scheduling.
+              Customer asks for a job. AI checks waste type, job detail needs, availability,
+              payment and team member scheduling.
             </p>
           </div>
 
@@ -64,12 +64,12 @@ export default function AIWebchatPage() {
             <div className="mt-5 space-y-4">
               {[
                 ["Waste type", "Mixed General job"],
-                ["Skip size", "8 yard skip"],
+                ["Job size", "8 yard job"],
                 ["Location", "Barry, South Wales"],
-                ["access check", "Road access check check required"],
+                ["job detail", "Road job detail check required"],
                 ["Delivery slot", "Today 10:30 - 12:00"],
                 ["Payment", "£294 inc VAT"],
-                ["Driver", "Dean Horgan"],
+                ["Team Member", "Dean Horgan"],
                 ["Status", "Ready to dispatch"],
               ].map(([label, value]) => (
                 <div
