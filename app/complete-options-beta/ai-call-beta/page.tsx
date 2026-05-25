@@ -67,10 +67,10 @@ const questions: { key: keyof Booking; label: string; prompt: string }[] = [
     prompt: "What day would you ideally like delivery or collection?",
   },
   {
-    key: "access check",
-    label: "access check",
+    key: "accessCheck",
+    label: "Access check",
     prompt:
-      "Will the skip go on private land like a driveway, or on the road where a access check may be needed?",
+      "Will the skip go on private land like a driveway, or on the road where an access check may be needed?",
   },
   {
     key: "access",

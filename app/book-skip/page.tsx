@@ -151,8 +151,8 @@ export default function BookSkipPage() {
             <h2 className="text-xl font-bold">Live Estimate</h2>
 
             <div className="mt-4 space-y-3 text-sm">
-              <Row label={`${jobsize} Skip / Service`} value={`'${skipPrice}`} />
-              <Row label="Access Check" value={`'${access check}`} />
+              <Row label={`${jobsize} Service`} value={`'${skipPrice}`} />
+              <Row label="Access Check" value={`'${accessCheck}`} />
               <Row label="VAT" value={`'${vat}`} />
 
               <div className="border-t border-white/10 pt-3">

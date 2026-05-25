@@ -51,7 +51,7 @@ export async function POST(request: Request) {
       waste_type: booking.wasteType || null,
       skip_size: booking.jobsize || null,
       date_wanted: booking.dateWanted || null,
-      accessCheck: booking.access check || null,
+      accessCheck: booking.accessCheck || null,
       access: booking.access || null,
       notes: booking.notes || null,
       transcript,
@@ -81,7 +81,7 @@ export async function POST(request: Request) {
       waste_type: booking.wasteType || "Not captured",
       postcode: booking.postcode || "Not captured",
       date_wanted: booking.dateWanted || "Not captured",
-      accessCheck: booking.access check || "Not captured",
+      accessCheck: booking.accessCheck || "Not captured",
       access: booking.access || "None captured",
       notes: booking.notes || "",
     };

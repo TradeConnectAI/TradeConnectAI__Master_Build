@@ -5,7 +5,7 @@ const invoice = {
   date: "22 May 2026",
   customer: "John Davies",
   address: "12 Harbour Road, Barry, CF62",
-  service: "8 Yard Mixed Waste Skip",
+  service: "Priority site clearance job",
   accessCheck: "Council access check included",
   delivery: "Today 10:30",
   collection: "Friday 14:00",
@@ -99,7 +99,7 @@ export default function InvoiceReceiptsPage() {
                 <div className="grid grid-cols-[1fr_120px] p-4">
                   <div>
                     <p className="font-bold">{invoice.service}</p>
-                    <p className="text-sm text-slate-600">{invoice.access check}</p>
+                    <p className="text-sm text-slate-600">{invoice.accessCheck}</p>
                     <p className="text-sm text-slate-600">
                       Includes delivery, collection and waste transfer record.
                     </p>

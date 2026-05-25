@@ -146,7 +146,7 @@ export default function VoiceBetaJobsPage() {
                 <Info label="Waste" value={job.waste_type} />
                 <Info label="Postcode" value={job.postcode} />
                 <Info label="Date wanted" value={job.date_wanted} />
-                <Info label="access check" value={job.access check} />
+                <Info label="Access check" value={job.accessCheck} />
                 <Info label="Access" value={job.access} />
                 <Info label="Phone" value={job.phone} />
               </div>
