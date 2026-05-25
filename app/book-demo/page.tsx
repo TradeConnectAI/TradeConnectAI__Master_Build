@@ -55,6 +55,18 @@ export default function BookDemoPage() {
               We&apos;ll use that to shape the demo around your real day-to-day work.
             </p>
 
+            <div className="mt-6 rounded-[2rem] border border-emerald-300/30 bg-emerald-300/10 p-6">
+              <p className="text-sm font-black uppercase tracking-[0.22em] text-emerald-100">
+                First 15 companies go free
+              </p>
+              <h2 className="mt-3 text-3xl font-black">
+                Founding beta access in exchange for honest feedback.
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-emerald-100/85">
+                No payment during the founding beta for the first 15 trade businesses accepted. Try the workflow, tell us what works, and help shape the product.
+              </p>
+            </div>
+
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {[
                 ["Best for", "Sole traders and small trade teams"],
@@ -110,6 +122,11 @@ export default function BookDemoPage() {
               className="mt-7 grid gap-4"
             >
               <input type="hidden" name="source" value="book-demo" />
+              <input
+                type="hidden"
+                name="offer"
+                value="Founding beta: free for first 15 companies in exchange for feedback"
+              />
 
               <div className="grid gap-4 md:grid-cols-2">
                 <label className="grid gap-2 text-sm font-bold text-slate-300">
@@ -222,11 +239,11 @@ export default function BookDemoPage() {
                 type="submit"
                 className="rounded-full bg-cyan-300 px-6 py-4 text-sm font-black text-slate-950 shadow-xl shadow-cyan-950/40"
               >
-                Send beta request
+                Claim free beta spot
               </button>
 
               <p className="text-xs leading-5 text-slate-500">
-                This is a beta enquiry form. No payment is taken here.
+                This is a founding beta enquiry form. No payment is taken here. Free access is limited to the first 15 suitable trade businesses that agree to give feedback.
               </p>
             </form>
           </section>

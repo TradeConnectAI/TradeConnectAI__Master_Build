@@ -15,12 +15,11 @@ export default function ThanksPage() {
         </p>
 
         <h1 className="mt-6 text-5xl font-black tracking-[-0.05em]">
-          Thanks. Your request has been captured.
+          Thanks. Your beta request has been captured.
         </h1>
 
         <p className="mt-5 text-lg leading-8 text-slate-300">
-          We&apos;ll review the details and use them to shape a practical demo
-          around your trade business workflow.
+          We&apos;ll review the details and, if you are one of the first 15 suitable trade businesses, we&apos;ll contact you about free founding beta access in exchange for honest feedback.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-3">

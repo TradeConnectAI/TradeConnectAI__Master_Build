@@ -357,10 +357,10 @@ export default function HomePage({
       <section id="pricing" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-            Founding beta pricing
+            Founding beta offer
           </p>
           <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] md:text-6xl">
-            Simple pricing while the beta grows.
+            Free access for the first 15 companies.
           </h2>
         </div>
 
@@ -409,8 +409,7 @@ export default function HomePage({
               Want to try it with your trade business?
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-300">
-              Tell us what you do and what you need help with. We will use the
-              beta to shape the workflows around real trade businesses.
+              Tell us what you do and what you need help with. The first 15 trade businesses that sign up and give honest feedback get beta access free.
             </p>
 
             {betaThanks ? (
