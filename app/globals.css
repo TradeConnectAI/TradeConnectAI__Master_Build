@@ -108,3 +108,103 @@ body {
 .install-skip-yellow-glow {
   box-shadow: 0 0 0 1px rgba(250,204,21,0.22), 0 22px 60px rgba(0,0,0,0.35);
 }
+
+
+/* ------------------------------------------------------------
+   TradeConnectAI polish pass - header, logo, hero and mobile
+------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+header,
+nav {
+  box-sizing: border-box;
+}
+
+.tradeconnect-header,
+.site-header,
+header {
+  min-height: 88px;
+}
+
+header img,
+nav img {
+  max-height: 76px;
+  width: auto;
+}
+
+.hero,
+.home-hero,
+.tradeconnect-hero,
+main section:first-of-type {
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .hero,
+  .home-hero,
+  .tradeconnect-hero {
+    min-height: calc(100vh - 96px);
+    display: flex;
+    align-items: center;
+  }
+
+  .hero h1,
+  .home-hero h1,
+  .tradeconnect-hero h1,
+  main h1:first-of-type {
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+  }
+}
+
+@media (max-width: 899px) {
+  header,
+  nav {
+    min-height: 72px;
+  }
+
+  header img,
+  nav img {
+    max-height: 58px;
+  }
+
+  main h1:first-of-type {
+    font-size: clamp(3rem, 16vw, 5.5rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.05em;
+  }
+
+  .hero,
+  .home-hero,
+  .tradeconnect-hero {
+    padding-top: 32px !important;
+    padding-bottom: 48px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  header,
+  nav {
+    overflow-x: clip;
+  }
+
+  main {
+    overflow-x: hidden;
+  }
+
+  main h1:first-of-type {
+    font-size: clamp(2.8rem, 18vw, 4.8rem) !important;
+  }
+
+  a,
+  button {
+    touch-action: manipulation;
+  }
+}

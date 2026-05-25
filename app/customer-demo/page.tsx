@@ -22,7 +22,7 @@ export default function CustomerDemoPage() {
         </h1>
 
         <p className="mt-3 max-w-3xl leading-8 text-slate-400">
-          Customers can see what�s happening without constantly calling or messaging for updates.
+          Customers can see whatï¿½s happening without constantly calling or messaging for updates.
         </p>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-1 md:grid-cols-3">
@@ -45,7 +45,7 @@ export default function CustomerDemoPage() {
             <h3 className="mt-2 text-2xl font-black">Tom Hughes</h3>
             <p className="mt-2 text-slate-300">Heating engineer</p>
             <p className="mt-4 rounded-2xl bg-slate-950 p-4 text-sm text-slate-300">
-              �I�m on my way now. I�ll check the leak first and confirm parts before any work starts.�
+              ï¿½Iï¿½m on my way now. Iï¿½ll check the leak first and confirm parts before any work starts.ï¿½
             </p>
           </div>
         </div>

@@ -23,7 +23,7 @@ export default function CustomerPortalPage() {
         <div className="relative mx-auto max-w-7xl px-6 py-20">
           <p className="text-sm font-bold uppercase tracking-wider text-cyan-300">Customer Updates</p>
           <h1 className="mt-4 max-w-4xl text-5xl font-black leading-tight md:text-7xl">
-            Customers don�t mind delays. They mind silence.
+            Customers donï¿½t mind delays. They mind silence.
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             Give customers clear updates on bookings, ETAs, quotes, invoices and job progress without endless chasing calls.
@@ -41,7 +41,7 @@ export default function CustomerPortalPage() {
           {features.map((feature) => (
             <div key={feature} className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
               <h2 className="text-xl font-black text-white">{feature}</h2>
-              <p className="mt-3 text-sm leading-6 text-slate-400">Small updates that make your business feel organised and professional.</p>
+              <p className="mt-3 text-sm leading-6 text-slate-400">Automatic job updates that make your business feel organised before you even pick up the phone.</p>
             </div>
           ))}
         </div>

@@ -1,124 +1,121 @@
-﻿import Link from "next/link";
-
-const calls = [
+const callSteps = [
   {
-    customer: "Sarah Mitchell",
-    trade: "Kitchen leak",
-    time: "08:14 AM",
-    duration: "2m 14s",
-    status: "Booked",
-    summary:
-      "Customer reported a leak under the kitchen sink. AI collected address, urgency, access notes and booked a same-day visit.",
+    time: "08:42",
+    title: "Missed call captured",
+    text: "Customer calls while the trader is on a job. The AI answers instantly and asks what they need.",
   },
   {
-    customer: "Mark Evans",
-    trade: "Boiler issue",
-    time: "09:02 AM",
-    duration: "3m 02s",
-    status: "Quote sent",
-    summary:
-      "Customer asked about a boiler repair. AI captured make, fault notes, photos request and sent a follow-up quote message.",
+    time: "08:43",
+    title: "Job details collected",
+    text: "The AI captures name, address, issue, urgency, access notes and preferred time.",
   },
   {
-    customer: "Jenny Roberts",
-    trade: "Emergency callout",
-    time: "10:37 AM",
-    duration: "1m 46s",
-    status: "Urgent",
-    summary:
-      "Customer had water coming through a ceiling. AI flagged it as urgent, notified the engineer and prepared a job card.",
+    time: "08:44",
+    title: "Job created",
+    text: "A new job card appears in the dashboard ready to accept, quote or assign.",
+  },
+  {
+    time: "08:45",
+    title: "Customer updated",
+    text: "Customer receives a professional confirmation message so they know they have been heard.",
   },
 ];
 
-export default function AICallDemoPage() {
+const transcript = [
+  ["Customer", "Hi, I need someone to look at a leak under the kitchen sink."],
+  ["AI", "No problem. Is water currently coming through or is it contained?"],
+  ["Customer", "It is contained, but getting worse."],
+  ["AI", "Got it. I will mark that as urgent. What is the best address and contact number?"],
+  ["Customer", "14 Harbour View, Barry. This number is fine."],
+  ["AI", "Thanks. I have logged the job and someone will confirm the slot shortly."],
+];
+
+export default function Page() {
   return (
-    <main className="min-min-min-h-screen bg-slate-950 px-6 py-10 text-white">
-      <div className="mx-auto max-w-6xl space-y-8">
-        <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 shadow-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-300">
+    <main className="min-h-screen bg-[#020817] text-white">
+      <section className="mx-auto grid max-w-7xl gap-8 px-5 py-10 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-16">
+        <div>
+          <p className="inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-200">
             AI Call Helper Demo
           </p>
 
-          <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
-            See how Trade Connect AI handles missed calls.
+          <h1 className="mt-6 max-w-4xl text-5xl font-black leading-[0.95] tracking-[-0.05em] md:text-7xl">
+            See how missed calls become booked jobs.
           </h1>
 
-          <p className="mt-5 max-w-3xl text-lg text-slate-300">
-            This demo shows how an AI receptionist could answer trade calls,
-            collect job details, spot urgent work and keep customers updated
-            while you are on the tools.
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            This demo shows the practical flow for a small trade business:
+            answer the call, collect the job details, create the task and keep
+            the customer updated.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/operations-demo"
-              className="rounded-full bg-blue-500 px-5 py-3 font-semibold text-white hover:bg-blue-400"
-            >
-              Open operations demo
-            </Link>
-
-            <Link
-              href="/customer-demo"
-              className="rounded-full border border-white/15 px-5 py-3 font-semibold text-white hover:bg-white/10"
-            >
-              View customer demo
-            </Link>
-          </div>
-        </div>
-
-        <section className="grid gap-5 md:grid-cols-1 md:grid-cols-3">
-          {calls.map((call) => (
-            <article
-              key={call.customer}
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-sm text-slate-400">{call.time}</p>
-                  <h2 className="mt-2 text-xl font-bold">{call.trade}</h2>
-                  <p className="mt-1 text-slate-300">{call.customer}</p>
-                </div>
-
-                <span className="rounded-full bg-blue-500/20 px-3 py-1 text-sm font-semibold text-blue-200">
-                  {call.status}
-                </span>
-              </div>
-
-              <p className="mt-4 text-sm text-slate-400">
-                Duration: {call.duration}
-              </p>
-
-              <p className="mt-4 text-slate-300">{call.summary}</p>
-            </article>
-          ))}
-        </section>
-
-        <section className="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
-          <h2 className="text-2xl font-bold">Live call flow</h2>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {[
-              "AI answers call",
-              "Customer explains job",
-              "AI captures details",
-              "Job appears in dashboard",
-            ].map((step, index) => (
+              ["Answer rate", "100%"],
+              ["Average capture time", "90 sec"],
+              ["Jobs logged today", "14"],
+              ["Customer updates sent", "22"],
+            ].map(([label, value]) => (
               <div
-                key={step}
-                className="rounded-2xl border border-white/10 bg-slate-900/70 p-4"
+                key={label}
+                className="rounded-3xl border border-white/10 bg-white/[0.05] p-5 shadow-2xl shadow-cyan-950/20"
               >
-                <p className="text-sm text-blue-300">Step {index + 1}</p>
-                <p className="mt-2 font-semibold">{step}</p>
+                <p className="text-sm text-slate-400">{label}</p>
+                <p className="mt-2 text-3xl font-black text-white">{value}</p>
               </div>
             ))}
           </div>
-        </section>
-      </div>
+        </div>
+
+        <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-cyan-950/40">
+          <div className="rounded-[1.5rem] border border-cyan-400/20 bg-black/40 p-5">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-sm text-slate-400">Live call</p>
+                <h2 className="text-2xl font-black">Kitchen sink leak</h2>
+              </div>
+              <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-sm font-bold text-emerald-300">
+                Captured
+              </span>
+            </div>
+
+            <div className="mt-6 space-y-3">
+              {transcript.map(([speaker, line], index) => (
+                <div
+                  key={`${speaker}-${index}`}
+                  className={`rounded-2xl border p-4 ${
+                    speaker === "AI"
+                      ? "border-cyan-400/20 bg-cyan-400/10"
+                      : "border-white/10 bg-white/[0.05]"
+                  }`}
+                >
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
+                    {speaker}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-slate-100">{line}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 pb-16 md:px-8">
+        <div className="grid gap-4 md:grid-cols-4">
+          {callSteps.map((step) => (
+            <div
+              key={step.title}
+              className="rounded-3xl border border-white/10 bg-white/[0.04] p-5"
+            >
+              <p className="text-sm font-black text-cyan-300">{step.time}</p>
+              <h3 className="mt-3 text-xl font-black">{step.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-400">
+                {step.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
-
-// deploy refresh 2026-05-22 06:38:46
-
-
-
