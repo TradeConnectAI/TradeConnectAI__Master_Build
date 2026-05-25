@@ -51,8 +51,8 @@ export default function BookDemoPage() {
             </h1>
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-              Tell us your trade, team size and what causes the most admin pain.
-              We&apos;ll use that to shape the demo around your real day-to-day work.
+              Tell us your trade, team size and what happens when you are out working.
+              We&apos;ll shape the demo around the real moments where calls, quotes and updates usually get missed.
             </p>
 
             <div className="mt-6 rounded-[2rem] border border-emerald-300/30 bg-emerald-300/10 p-6">
@@ -226,11 +226,11 @@ export default function BookDemoPage() {
               </fieldset>
 
               <label className="grid gap-2 text-sm font-bold text-slate-300">
-                What is the biggest problem right now?
+                What gets missed when you are out working?
                 <textarea
                   name="help"
                   rows={5}
-                  placeholder="Example: I miss calls while working, forget to follow up quotes, and customers chase me for updates..."
+                  placeholder="Example: I miss calls while driving or on jobs, forget quote follow-ups after work, and customers chase for updates..."
                   className="rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-white outline-none ring-cyan-300/30 placeholder:text-slate-600 focus:ring-4"
                 />
               </label>
