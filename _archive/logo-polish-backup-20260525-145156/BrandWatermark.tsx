@@ -9,17 +9,17 @@ export default function BrandWatermark({
 }: BrandWatermarkProps) {
   const positionClass =
     position === "hero"
-      ? "right-[-90px] top-16 w-[340px] opacity-[0.035] md:right-[-30px] md:top-10 md:w-[520px]"
+      ? "right-[-40px] top-10 w-[280px] opacity-[0.07] md:right-10 md:w-[420px]"
       : position === "card"
-        ? "right-5 bottom-5 w-36 opacity-[0.045] md:w-48"
-        : "right-4 bottom-4 w-28 opacity-[0.055] md:w-36";
+        ? "right-4 bottom-4 w-32 opacity-[0.08] md:w-40"
+        : "right-4 bottom-4 w-24 opacity-[0.10] md:w-32";
 
   return (
     <img
       src="/brand/tradeconnect-logo.jpeg"
       alt=""
       aria-hidden="true"
-      className={`pointer-events-none absolute z-0 select-none object-contain grayscale contrast-125 saturate-0 mix-blend-screen blur-[0.2px] ${positionClass} ${className}`}
+      className={`pointer-events-none absolute z-0 select-none rounded-2xl object-contain mix-blend-screen saturate-75 ${positionClass} ${className}`}
     />
   );
 }

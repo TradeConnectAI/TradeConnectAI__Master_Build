@@ -1,5 +1,4 @@
-﻿import TradeConnectLogo from "@/components/TradeConnectLogo";
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const nav = [
   { label: "AI Call Helper", href: "/ai-call-demo" },
@@ -14,7 +13,7 @@ export default function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/95 px-4 py-4 text-white backdrop-blur md:px-6">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
         <Link href="/" className="block">
-          <TradeConnectLogo />
+          <img src="/brand/tradeconnect-logo.jpeg" alt="TradeConnectAI" className="h-10 w-auto object-contain" />
           <div className="text-xs text-slate-400">Your AI toolbox for busy trade days</div>
         </Link>
 
@@ -33,6 +32,5 @@ export default function SiteHeader() {
     </header>
   );
 }
-
 
 

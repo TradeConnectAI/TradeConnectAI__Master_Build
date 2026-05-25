@@ -1,5 +1,4 @@
-﻿import TradeConnectLogo from "@/components/TradeConnectLogo";
-import BrandWatermark from "@/components/BrandWatermark";
+﻿import BrandWatermark from "@/components/BrandWatermark";
 import Image from "next/image";
 
 const calendlyLink = "https://calendly.com/stevenneilsonvoda/30min";
@@ -106,5 +105,4 @@ export default function Hero() {
     </section>
   );
 }
-
 

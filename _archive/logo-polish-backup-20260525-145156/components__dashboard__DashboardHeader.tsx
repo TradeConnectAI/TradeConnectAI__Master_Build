@@ -1,5 +1,4 @@
-﻿import TradeConnectLogo from "@/components/TradeConnectLogo";
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function DashboardHeader() {
     return (
@@ -40,4 +39,3 @@ export default function DashboardHeader() {
         </header>
     );
 }
-
