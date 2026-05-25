@@ -3,13 +3,13 @@
 const collections = [
   ["8 Yard Skip", "Barry", "Due 11:30", "Dean Horgan"],
   ["6 Yard Skip", "Cardiff", "Overdue", "Mark Lewis"],
-  ["Hardcore Skip", "Penarth", "Due 14:00", "Ryan Cole"],
+  ["Urgent job Skip", "Penarth", "Due 14:00", "Ryan Cole"],
 ];
 
 export default function Page(){
   return (
     <main className="min-h-screen bg-black p-6 text-white">
-      <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+      <Link href="/install-jobs-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
       <h1 className="mt-6 text-4xl font-black">Collections</h1>
       <div className="mt-6 space-y-4">
         {collections.map(([skip,area,time,driver]) => (

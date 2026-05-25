@@ -3,13 +3,13 @@
 const jobs = [
   ["10:30", "Deliver", "8 Yard Skip", "Barry", "Dean Horgan"],
   ["12:15", "Collect", "6 Yard Skip", "Cardiff", "Mark Lewis"],
-  ["14:00", "Deliver", "Hardcore Skip", "Penarth", "Ryan Cole"],
+  ["14:00", "Deliver", "Urgent job Skip", "Penarth", "Ryan Cole"],
 ];
 
 export default function Page(){
   return (
     <main className="min-h-screen bg-black p-6 text-white">
-      <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+      <Link href="/install-jobs-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
       <h1 className="mt-6 text-4xl font-black">Driver Jobs</h1>
       <div className="mt-6 space-y-4">
         {jobs.map(([time,type,skip,area,driver]) => (

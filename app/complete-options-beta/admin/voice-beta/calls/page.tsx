@@ -22,7 +22,7 @@ type BetaCall = {
   waste_type: string | null;
   skip_size: string | null;
   date_wanted: string | null;
-  permit: string | null;
+  access check: string | null;
   access: string | null;
   notes: string | null;
   transcript: Message[];

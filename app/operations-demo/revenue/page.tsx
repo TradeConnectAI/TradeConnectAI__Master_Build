@@ -9,7 +9,7 @@ const invoices = [
 export default function Page(){
   return (
     <main className="min-h-screen bg-black p-6 text-white">
-      <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+      <Link href="/install-jobs-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
       <h1 className="mt-6 text-4xl font-black">Revenue</h1>
       <div className="mt-6 grid gap-4 md:grid-cols-4">
         {[["Today","£4,820"],["Paid","£3,940"],["Outstanding","£880"],["Invoices","18"]].map(([a,b]) => (

@@ -17,9 +17,9 @@ type Booking = {
   service: string;
   postcode: string;
   wasteType: string;
-  skipSize: string;
+  jobsize: string;
   dateWanted: string;
-  permit: string;
+  access check: string;
   access: string;
   notes: string;
 };
@@ -30,9 +30,9 @@ const emptyBooking: Booking = {
   service: "",
   postcode: "",
   wasteType: "",
-  skipSize: "",
+  jobsize: "",
   dateWanted: "",
-  permit: "",
+  access check: "",
   access: "",
   notes: "",
 };
@@ -42,10 +42,10 @@ const questions: { key: keyof Booking; label: string; prompt: string }[] = [
     key: "service",
     label: "Service",
     prompt:
-      "Thanks. Are you after a skip, grab hire, waste removal, aggregates, or something else?",
+      "Thanks. Are you after a skip, trade services, site clearance, materials, or something else?",
   },
   {
-    key: "skipSize",
+    key: "jobsize",
     label: "Skip size",
     prompt:
       "What size skip do you need? For example, 4 yard, 6 yard, 8 yard, or 12 yard. If you are not sure, tell me roughly what you are clearing.",
@@ -54,7 +54,7 @@ const questions: { key: keyof Booking; label: string; prompt: string }[] = [
     key: "wasteType",
     label: "Waste type",
     prompt:
-      "What type of waste is it? General waste, hardcore, soil, green waste, wood, mixed builders waste, or something else?",
+      "What type of waste is it? General job, Urgent job, soil, green waste, wood, mixed builders waste, or something else?",
   },
   {
     key: "postcode",
@@ -67,10 +67,10 @@ const questions: { key: keyof Booking; label: string; prompt: string }[] = [
     prompt: "What day would you ideally like delivery or collection?",
   },
   {
-    key: "permit",
-    label: "Permit",
+    key: "access check",
+    label: "access check",
     prompt:
-      "Will the skip go on private land like a driveway, or on the road where a permit may be needed?",
+      "Will the skip go on private land like a driveway, or on the road where a access check may be needed?",
   },
   {
     key: "access",
@@ -117,24 +117,24 @@ function extractBooking(prev: Booking, text: string): Booking {
   const raw = clean(text);
 
   if (!next.service) {
-    if (containsAny(t, ["skip", "skips"])) next.service = "Skip hire";
-    else if (containsAny(t, ["grab", "grab hire"])) next.service = "Grab hire";
-    else if (containsAny(t, ["waste removal", "rubbish", "clearance"]))
-      next.service = "Waste removal";
-    else if (containsAny(t, ["aggregate", "aggregates", "stone", "sand"]))
-      next.service = "Aggregates delivery";
+    if (containsAny(t, ["skip", "jobs"])) next.service = "trade service";
+    else if (containsAny(t, ["grab", "trade services"])) next.service = "trade services";
+    else if (containsAny(t, ["site clearance", "rubbish", "clearance"]))
+      next.service = "site clearance";
+    else if (containsAny(t, ["aggregate", "materials", "stone", "sand"]))
+      next.service = "materials delivery";
   }
 
-  if (!next.skipSize) {
+  if (!next.jobsize) {
     const sizeMatch = t.match(/\b(2|3|4|5|6|8|10|12|14|16)\s*(yard|yd|yards)?\b/);
     if (sizeMatch && containsAny(t, ["yard", "yd", "skip", "ton", "tonne"])) {
-      next.skipSize = `${sizeMatch[1]} yard`;
+      next.jobsize = `${sizeMatch[1]} yard`;
     }
   }
 
   if (!next.wasteType) {
-    if (containsAny(t, ["hardcore", "rubble", "brick", "concrete"]))
-      next.wasteType = "Hardcore / rubble";
+    if (containsAny(t, ["Urgent job", "rubble", "brick", "concrete"]))
+      next.wasteType = "Urgent job / rubble";
     else if (containsAny(t, ["soil", "earth", "dirt"]))
       next.wasteType = "Soil";
     else if (containsAny(t, ["green", "garden", "branches"]))
@@ -173,11 +173,11 @@ function extractBooking(prev: Booking, text: string): Booking {
     }
   }
 
-  if (!next.permit) {
-    if (containsAny(t, ["road", "street", "pavement", "permit"]))
-      next.permit = "May need permit";
+  if (!next.access check) {
+    if (containsAny(t, ["road", "street", "pavement", "access check"]))
+      next.access check = "May need access check";
     else if (containsAny(t, ["drive", "driveway", "private land", "garden", "yard"]))
-      next.permit = "Private land / likely no permit";
+      next.access check = "Private land / likely no access check";
   }
 
   if (!next.access) {
@@ -256,7 +256,7 @@ export default function FreeAiCallBetaPage() {
       id: uid("msg"),
       role: "assistant",
       text:
-        "Thanks for calling Complete Options beta. I can help capture a skip hire, grab hire, waste removal, or aggregates enquiry. Tell me what you need help with today.",
+        "Thanks for calling Complete Options beta. I can help capture a trade service, trade services, site clearance, or materials enquiry. Tell me what you need help with today.",
       at: nowTime(),
     },
   ]);
@@ -349,7 +349,7 @@ export default function FreeAiCallBetaPage() {
 
     if (completionScore(updated) >= 100) {
       reply =
-        "Brilliant, I have enough to send this to the office for review. I will mark it as ready for confirmation. The team can check availability, price, permit needs, and call back if needed.";
+        "Brilliant, I have enough to send this to the office for review. I will mark it as ready for confirmation. The team can check availability, price, access check needs, and call back if needed.";
     } else if (q) {
       reply = q.prompt;
     } else {
@@ -403,7 +403,7 @@ export default function FreeAiCallBetaPage() {
         id: uid("msg"),
         role: "assistant",
         text:
-          "New call started. Tell me what service you need: skip hire, grab hire, waste removal, or aggregates.",
+          "New call started. Tell me what service you need: trade service, trade services, site clearance, or materials.",
         at: nowTime(),
       },
     ]);

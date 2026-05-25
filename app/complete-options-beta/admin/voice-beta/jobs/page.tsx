@@ -14,7 +14,7 @@ type BetaJob = {
   waste_type: string | null;
   postcode: string | null;
   date_wanted: string | null;
-  permit: string | null;
+  access check: string | null;
   access: string | null;
   notes: string | null;
 };
@@ -146,7 +146,7 @@ export default function VoiceBetaJobsPage() {
                 <Info label="Waste" value={job.waste_type} />
                 <Info label="Postcode" value={job.postcode} />
                 <Info label="Date wanted" value={job.date_wanted} />
-                <Info label="Permit" value={job.permit} />
+                <Info label="access check" value={job.access check} />
                 <Info label="Access" value={job.access} />
                 <Info label="Phone" value={job.phone} />
               </div>

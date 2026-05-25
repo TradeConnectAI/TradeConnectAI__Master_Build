@@ -9,9 +9,9 @@ type Booking = {
   service?: string;
   postcode?: string;
   wasteType?: string;
-  skipSize?: string;
+  jobsize?: string;
   dateWanted?: string;
-  permit?: string;
+  access check?: string;
   access?: string;
   notes?: string;
 };
@@ -49,9 +49,9 @@ export async function POST(request: Request) {
       service: booking.service || null,
       postcode: booking.postcode || null,
       waste_type: booking.wasteType || null,
-      skip_size: booking.skipSize || null,
+      skip_size: booking.jobsize || null,
       date_wanted: booking.dateWanted || null,
-      permit: booking.permit || null,
+      access check: booking.access check || null,
       access: booking.access || null,
       notes: booking.notes || null,
       transcript,
@@ -77,11 +77,11 @@ export async function POST(request: Request) {
       customer_name: booking.name || "Unknown customer",
       phone: booking.phone || "Not captured",
       service: booking.service || "Not captured",
-      skip_size: booking.skipSize || "Not captured",
+      skip_size: booking.jobsize || "Not captured",
       waste_type: booking.wasteType || "Not captured",
       postcode: booking.postcode || "Not captured",
       date_wanted: booking.dateWanted || "Not captured",
-      permit: booking.permit || "Not captured",
+      access check: booking.access check || "Not captured",
       access: booking.access || "None captured",
       notes: booking.notes || "",
     };

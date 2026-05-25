@@ -14,7 +14,7 @@ type CampaignBody = {
 };
 
 function brandName(tenant?: string) {
-  if (tenant === "install-skips") return "Install Skips";
+  if (tenant === "install-jobs") return "TradeConnectAI";
   if (tenant === "complete-options") return "Complete Options";
   return "Trade Connect AI";
 }

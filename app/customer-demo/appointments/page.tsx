@@ -1,7 +1,7 @@
 const appointments = [
-  ["Today", "10:30", "Skip delivery", "8 Yard General Waste", "Confirmed"],
-  ["Today", "14:00", "Collection", "Hardcore skip", "Driver assigned"],
-  ["Tomorrow", "09:15", "Grab hire", "Aggregates delivery", "Awaiting payment"],
+  ["Today", "10:30", "Skip delivery", "8 Yard General job", "Confirmed"],
+  ["Today", "14:00", "Collection", "Urgent job skip", "Driver assigned"],
+  ["Tomorrow", "09:15", "trade services", "materials delivery", "Awaiting payment"],
 ];
 
 export default function CustomerAppointmentsPage() {

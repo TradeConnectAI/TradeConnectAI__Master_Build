@@ -1,5 +1,5 @@
 ﻿import { redirect } from "next/navigation";
 
 export default function PublicVoiceBetaAdminRedirectPage() {
-  redirect("/install-skips-demo/admin/voice-beta");
+  redirect("/install-jobs-demo/admin/voice-beta");
 }

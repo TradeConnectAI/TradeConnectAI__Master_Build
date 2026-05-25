@@ -36,7 +36,7 @@ function scoreLead(body: LeadBody) {
 
   if (text.match(/urgent|asap|today|tomorrow|this week|immediate/)) score += 25;
   if (text.match(/builder|contractor|kitchen|bathroom|roof|landscap|renovation|clearance/)) score += 18;
-  if (text.match(/skip|waste|rubbish|grab|aggregate|hardcore|soil|builders waste/)) score += 18;
+  if (text.match(/skip|waste|rubbish|grab|aggregate|Urgent job|soil|builders waste/)) score += 18;
   if (body.phone) score += 8;
   if (body.email) score += 5;
   if (body.estimatedValue && body.estimatedValue !== "Unknown") score += 6;
@@ -47,10 +47,10 @@ function scoreLead(body: LeadBody) {
 function suggestedService(body: LeadBody) {
   const text = [body.leadType, body.jobType, body.notes].filter(Boolean).join(" ").toLowerCase();
 
-  if (text.match(/grab|soil|hardcore|muck away|loads/)) return "Grab hire";
-  if (text.match(/aggregate|sand|stone|type 1|mot/)) return "Aggregates delivery";
-  if (text.match(/clearance|rubbish|house clear|garden clear/)) return "Waste removal";
-  if (text.match(/skip|renovation|kitchen|bathroom|builder|roof/)) return "Skip hire";
+  if (text.match(/grab|soil|Urgent job|muck away|loads/)) return "trade services";
+  if (text.match(/aggregate|sand|stone|type 1|mot/)) return "materials delivery";
+  if (text.match(/clearance|rubbish|house clear|garden clear/)) return "site clearance";
+  if (text.match(/skip|renovation|kitchen|bathroom|builder|roof/)) return "trade service";
   return "Trade service follow-up";
 }
 

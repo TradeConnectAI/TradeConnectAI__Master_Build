@@ -13,19 +13,19 @@ const skipPrices: Record<string, number> = {
 
 export default function BookSkipPage() {
   const [step, setStep] = useState("form");
-  const [skipSize, setSkipSize] = useState("8 Yard");
-  const [location, setLocation] = useState("Road Permit Required");
+  const [jobsize, setjobsize] = useState("8 Yard");
+  const [location, setLocation] = useState("Road access check Required");
   const [chatOpen, setChatOpen] = useState(true);
 
-  const skipPrice = skipPrices[skipSize];
-  const permit = location === "Road Permit Required" ? 40 : 0;
-  const subtotal = skipPrice + permit;
+  const skipPrice = skipPrices[jobsize];
+  const access check = location === "Road access check Required" ? 40 : 0;
+  const subtotal = skipPrice + access check;
   const vat = Math.round(subtotal * 0.2);
   const total = subtotal + vat;
 
   const aiStatus = useMemo(() => {
     if (step === "form") return "Waiting for booking details";
-    if (step === "checking") return "Checking skips, grab hire, aggregates, permits and drivers";
+    if (step === "checking") return "Checking jobs, trade services, materials, access checks and drivers";
     return "Booking created and sent to driver";
   }, [step]);
 
@@ -34,12 +34,12 @@ export default function BookSkipPage() {
       <section className="border-b border-white/10 bg-slate-900/80 px-6 py-5">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <div>
-            <p className="text-sm text-cyan-300">Install Integrated Skips Demo</p>
-            <h1 className="text-2xl font-bold">Book Skips, Grab Hire & Aggregates</h1>
+            <p className="text-sm text-cyan-300">TradeConnectAI Operations Demo</p>
+            <h1 className="text-2xl font-bold">Book jobs, trade services & materials</h1>
           </div>
 
           <Link
-            href="/install-skips-demo"
+            href="/install-jobs-demo"
             className="rounded-full bg-white px-4 py-2 text-sm font-bold text-slate-950"
           >
             Back to Demo
@@ -52,7 +52,7 @@ export default function BookSkipPage() {
           <div className="mb-6">
             <h2 className="text-xl font-bold">Customer Booking Form</h2>
             <p className="text-sm text-slate-300">
-              AI checks permits, driver availability, skip stock, grab hire slots, aggregates and collections.
+              AI checks access checks, driver availability, team availability, trade services slots, materials and collections.
             </p>
           </div>
 
@@ -67,20 +67,20 @@ export default function BookSkipPage() {
             <label className="space-y-2">
               <span className="text-sm font-semibold">Service Required</span>
               <select className="w-full rounded-2xl border border-white/10 bg-slate-900 px-4 py-3">
-                <option>General Waste Skip</option>
-                <option>Hardcore Skip</option>
-                <option>Waste Removal Service</option>
-                <option>Grab Hire Service</option>
-                <option>Aggregates Delivery</option>
-                <option>Grab Hire + Aggregates Delivery</option>
+                <option>General job Skip</option>
+                <option>Urgent job Skip</option>
+                <option>site clearance Service</option>
+                <option>trade services Service</option>
+                <option>materials Delivery</option>
+                <option>trade services + materials Delivery</option>
               </select>
             </label>
 
             <label className="space-y-2">
               <span className="text-sm font-semibold">Skip Size</span>
               <select
-                value={skipSize}
-                onChange={(e) => setSkipSize(e.target.value)}
+                value={jobsize}
+                onChange={(e) => setjobsize(e.target.value)}
                 className="w-full rounded-2xl border border-white/10 bg-slate-900 px-4 py-3"
               >
                 {Object.keys(skipPrices).map((size) => (
@@ -89,7 +89,7 @@ export default function BookSkipPage() {
               </select>
             </label>
 
-            <Input label="Aggregates Type" placeholder="MOT Type 1 / Sand / Gravel / Topsoil" />
+            <Input label="materials Type" placeholder="MOT Type 1 / Sand / Gravel / Topsoil" />
             <Input label="Tonnes / Load Size" placeholder="Example: 8 tonnes" />
             <Input label="Delivery Date" placeholder="Monday AM" />
             <Input label="Collection Date" placeholder="Auto scheduled if skip" />
@@ -102,9 +102,9 @@ export default function BookSkipPage() {
                 className="w-full rounded-2xl border border-white/10 bg-slate-900 px-4 py-3"
               >
                 <option>Private Drive</option>
-                <option>Road Permit Required</option>
+                <option>Road access check Required</option>
                 <option>Site Access Required</option>
-                <option>Grab Lorry Access Required</option>
+                <option>Grab team Access Required</option>
               </select>
             </label>
 
@@ -138,8 +138,8 @@ export default function BookSkipPage() {
             <div className="mt-6 grid gap-3 rounded-3xl border border-cyan-400/30 bg-cyan-400/10 p-5 text-sm">
               <p>? Skip / service available</p>
               <p>? Driver and vehicle available</p>
-              <p>? Permit / access check started</p>
-              <p>? Aggregates stock checked</p>
+              <p>? access check / access check started</p>
+              <p>? materials stock checked</p>
               <p>? Job sent to driver phone</p>
               {step === "confirmed" && <p>?? Booking #SK-2048 confirmed</p>}
             </div>
@@ -151,8 +151,8 @@ export default function BookSkipPage() {
             <h2 className="text-xl font-bold">Live Estimate</h2>
 
             <div className="mt-4 space-y-3 text-sm">
-              <Row label={`${skipSize} Skip / Service`} value={`'${skipPrice}`} />
-              <Row label="Permit / Access Check" value={`'${permit}`} />
+              <Row label={`${jobsize} Skip / Service`} value={`'${skipPrice}`} />
+              <Row label="Access Check" value={`'${access check}`} />
               <Row label="VAT" value={`'${vat}`} />
 
               <div className="border-t border-white/10 pt-3">
@@ -165,12 +165,12 @@ export default function BookSkipPage() {
             <h2 className="text-xl font-bold">Services Covered</h2>
 
             <div className="mt-4 space-y-2 text-sm">
-              <p>?? General Waste Skips</p>
-              <p>?? Hardcore Skips</p>
-              <p>?? Waste Removal Service</p>
-              <p>?? Grab Hire Services</p>
-              <p>?? Aggregates Delivery</p>
-              <p>?? Delivery of Aggregates</p>
+              <p>?? General job jobs</p>
+              <p>?? Urgent job jobs</p>
+              <p>?? site clearance Service</p>
+              <p>?? trade services Services</p>
+              <p>?? materials Delivery</p>
+              <p>?? Delivery of materials</p>
             </div>
           </div>
 
@@ -180,9 +180,9 @@ export default function BookSkipPage() {
 
             <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
               <Stat label="Revenue Today" value="'8,940" />
-              <Stat label="Skips Out" value="32" />
+              <Stat label="jobs active" value="32" />
               <Stat label="Drivers Active" value="8" />
-              <Stat label="Permits" value="4" />
+              <Stat label="access checks" value="4" />
             </div>
           </div>
 
@@ -190,7 +190,7 @@ export default function BookSkipPage() {
             <h2 className="text-xl font-bold">Driver Phone Task</h2>
 
             <div className="mt-4 space-y-2 text-sm">
-              <p>?? Deliver / collect: {skipSize}</p>
+              <p>?? Deliver / collect: {jobsize}</p>
               <p>?? Barry, South Wales</p>
               <p>?? ETA: 08:20</p>
               <p>? Break remaining: 37 mins</p>
@@ -217,15 +217,15 @@ export default function BookSkipPage() {
 
           <div className="space-y-3 p-5 text-sm">
             <Bubble who="Customer">
-              Need an 8 yard skip in Barry Monday. Might need hardcore taken away too.
+              Need an 8 yard skip in Barry Monday. Might need Urgent job taken away too.
             </Bubble>
 
             <Bubble who="AI">
-              Morning ?? I can help with general waste skips, hardcore skips, waste removal, grab hire and aggregates delivery.
+              Morning ?? I can help with General job jobs, Urgent job jobs, site clearance, trade services and materials delivery.
             </Bubble>
 
             <Bubble who="AI">
-              I'm checking vehicle availability, driver schedules, permit rules, skip stock and aggregate delivery slots now.
+              I'm checking vehicle availability, driver schedules, access check rules, team availability and material delivery slots now.
             </Bubble>
 
             <Bubble who="AI">
@@ -235,7 +235,7 @@ export default function BookSkipPage() {
             <Bubble who="Customer">Road outside the property.</Bubble>
 
             <Bubble who="AI">
-              No problem. Permit likely required. Estimate: Skip '275, Permit '40, VAT '63. Total '378.
+              No problem. access check likely required. Estimate: Skip '275, access check '40, VAT '63. Total '378.
             </Bubble>
 
             <Bubble who="AI">

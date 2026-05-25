@@ -3,7 +3,7 @@
 export default function Page(){
   return (
     <main className="min-h-screen bg-black p-6 text-white">
-      <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+      <Link href="/install-jobs-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
       <div className="mx-auto mt-6 max-w-sm rounded-[2rem] border border-white/10 bg-slate-950 p-5">
         <h1 className="text-center text-3xl font-black">Driver Phone</h1>
         <p className="text-center text-slate-400">Dean Horgan • SK08</p>

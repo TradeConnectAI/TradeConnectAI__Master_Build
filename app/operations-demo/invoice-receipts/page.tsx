@@ -6,7 +6,7 @@ const invoice = {
   customer: "John Davies",
   address: "12 Harbour Road, Barry, CF62",
   service: "8 Yard Mixed Waste Skip",
-  permit: "Council permit included",
+  access check: "Council access check included",
   delivery: "Today 10:30",
   collection: "Friday 14:00",
   subtotal: 245,
@@ -14,7 +14,7 @@ const invoice = {
   total: 294,
   payment: "Card ending 4482",
   driver: "Dean Horgan",
-  vehicle: "Skip Lorry SK08",
+  vehicle: "Skip team SK08",
 };
 
 export default function InvoiceReceiptsPage() {
@@ -24,13 +24,13 @@ export default function InvoiceReceiptsPage() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold text-blue-300">
-              Install Integrated Skips Demo
+              TradeConnectAI Operations Demo
             </p>
             <h1 className="text-4xl font-bold tracking-tight">
               Invoice & Skip Receipt Generator
             </h1>
             <p className="mt-2 max-w-3xl text-slate-300">
-              AI creates invoices, skip receipts, payment confirmations, permit notes,
+              AI creates invoices, skip receipts, payment confirmations, access check notes,
               and driver-ready job records automatically.
             </p>
           </div>
@@ -70,9 +70,9 @@ export default function InvoiceReceiptsPage() {
                 </div>
 
                 <div className="text-right">
-                  <p className="font-black">Install Integrated Skips Ltd</p>
+                  <p className="font-black">TradeConnectAI Ltd</p>
                   <p className="text-slate-600">Barry, South Wales</p>
-                  <p className="text-slate-600">Skips, grab hire & aggregates</p>
+                  <p className="text-slate-600">jobs, trade services & materials</p>
                 </div>
               </div>
 
@@ -99,7 +99,7 @@ export default function InvoiceReceiptsPage() {
                 <div className="grid grid-cols-[1fr_120px] p-4">
                   <div>
                     <p className="font-bold">{invoice.service}</p>
-                    <p className="text-sm text-slate-600">{invoice.permit}</p>
+                    <p className="text-sm text-slate-600">{invoice.access check}</p>
                     <p className="text-sm text-slate-600">
                       Includes delivery, collection and waste transfer record.
                     </p>
@@ -145,7 +145,7 @@ export default function InvoiceReceiptsPage() {
                   AI customer message
                 </p>
                 <p className="mt-2 text-slate-100">
-                  Hi John, your skip booking is confirmed. Your invoice and receipt have
+                  Hi John, your job booking is confirmed. Your invoice and receipt have
                   been sent. Delivery is booked for today at 10:30. We’ll message again
                   when the driver is on route.
                 </p>

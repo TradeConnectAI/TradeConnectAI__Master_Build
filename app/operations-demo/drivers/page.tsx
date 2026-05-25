@@ -9,7 +9,7 @@ const drivers = [
 export default function Page(){
   return (
     <main className="min-h-screen bg-black p-6 text-white">
-      <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+      <Link href="/install-jobs-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
       <h1 className="mt-6 text-4xl font-black">Drivers</h1>
       <div className="mt-6 grid gap-4 md:grid-cols-3">
         {drivers.map(([name,vehicle,status,driven,breakDue]) => (

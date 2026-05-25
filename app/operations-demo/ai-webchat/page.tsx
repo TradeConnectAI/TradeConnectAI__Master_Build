@@ -3,15 +3,15 @@
 const messages = [
   {
     from: "customer",
-    text: "Hi, I need a skip for general waste in Barry. Maybe 8 yard.",
+    text: "Hi, I need a skip for General job in Barry. Maybe 8 yard.",
   },
   {
     from: "ai",
-    text: "No problem. I can help with that. Is it household waste, hardcore, soil, or mixed general waste?",
+    text: "No problem. I can help with that. Is it household waste, Urgent job, soil, or mixed General job?",
   },
   {
     from: "customer",
-    text: "Mixed general waste. It’s for a house clear out.",
+    text: "Mixed General job. It’s for a house clear out.",
   },
   {
     from: "ai",
@@ -19,7 +19,7 @@ const messages = [
   },
   {
     from: "ai",
-    text: "Because this is going on the road, I’ve added a council permit check. The system will flag it to the office if approval is needed.",
+    text: "Because this is going on the road, I’ve added a council access check check. The system will flag it to the office if approval is needed.",
   },
   {
     from: "customer",
@@ -38,13 +38,13 @@ export default function AIWebchatPage() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold text-blue-300">
-              Install Integrated Skips Demo
+              TradeConnectAI Operations Demo
             </p>
             <h1 className="text-4xl font-bold tracking-tight">
-              AI Skip Booking Webchat
+              AI job booking Webchat
             </h1>
             <p className="mt-2 max-w-3xl text-slate-300">
-              Customer asks for a skip. AI checks waste type, permit needs, availability,
+              Customer asks for a skip. AI checks waste type, access check needs, availability,
               payment and driver scheduling.
             </p>
           </div>
@@ -63,10 +63,10 @@ export default function AIWebchatPage() {
 
             <div className="mt-5 space-y-4">
               {[
-                ["Waste type", "Mixed general waste"],
+                ["Waste type", "Mixed General job"],
                 ["Skip size", "8 yard skip"],
                 ["Location", "Barry, South Wales"],
-                ["Permit", "Road permit check required"],
+                ["access check", "Road access check check required"],
                 ["Delivery slot", "Today 10:30 - 12:00"],
                 ["Payment", "£294 inc VAT"],
                 ["Driver", "Dean Horgan"],
