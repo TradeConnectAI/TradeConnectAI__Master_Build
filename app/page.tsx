@@ -53,7 +53,7 @@ const activity = [
   ["10:05", "Engineer assigned"],
 ];
 
-const pricing = [
+const Founding Beta = [
   [
     "Founding Beta",
     "Free",
@@ -67,7 +67,7 @@ const pricing = [
   [
     "After beta",
     "Paid plans later",
-    "Pricing will open after the founding beta once the product is shaped around real trade businesses.",
+    "Founding Beta will open after the founding beta once the product is shaped around real trade businesses.",
   ],
 ];
 
@@ -106,7 +106,7 @@ export default function HomePage({
           <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/10 p-1 text-sm font-semibold text-slate-200 backdrop-blur md:flex">
             <a href="#how" className="rounded-full px-4 py-2 hover:bg-white/10">How it works</a>
             <a href="#trades" className="rounded-full px-4 py-2 hover:bg-white/10">Trades</a>
-            <a href="#pricing" className="rounded-full px-4 py-2 hover:bg-white/10">Pricing</a>
+            <a href="#Founding Beta" className="rounded-full px-4 py-2 hover:bg-white/10">Founding Beta</a>
             <a href="/book-demo" className="rounded-full px-4 py-2 hover:bg-white/10">Beta</a>
           </nav>
 
@@ -440,7 +440,7 @@ export default function HomePage({
         </div>
       </section>
 
-      <section id="pricing" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+      <section id="Founding Beta" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
             Founding beta offer
@@ -463,7 +463,7 @@ export default function HomePage({
         </div>
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {pricing.map(([plan, price, text]) => (
+          {Founding Beta.map(([plan, price, text]) => (
             <div
               key={plan}
               className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-7"
@@ -539,6 +539,7 @@ export default function HomePage({
     </main>
   );
 }
+
 
 
 

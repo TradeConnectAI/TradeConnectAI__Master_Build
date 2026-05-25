@@ -9,7 +9,7 @@ export default function SiteFooter() {
           <p className="mt-4 text-sm leading-6 text-slate-400">
             A practical AI toolbox for sole traders and small trade businesses.
           </p>
-          <p className="mt-4 text-sm text-slate-500">info@tradeconnectai.co.uk</p>
+          <p className="mt-4 text-sm text-slate-500">info@TradeConnectAI.co.uk</p>
         </div>
 
         <div>
@@ -37,11 +37,13 @@ export default function SiteFooter() {
             <Link href="/operations-demo" className="block hover:text-white">Business Demo</Link>
             <Link href="/customer-demo" className="block hover:text-white">Customer Demo</Link>
             <Link href="/ai-call-demo" className="block hover:text-white">AI Call Demo</Link>
-            <Link href="/pricing" className="block hover:text-white">Beta Pricing</Link>
+            <Link href="/Founding Beta" className="block hover:text-white">Founding Beta</Link>
           </div>
         </div>
       </div>
     </footer>
   );
 }
+
+
 

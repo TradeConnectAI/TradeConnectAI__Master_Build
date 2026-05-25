@@ -1,4 +1,4 @@
-
+﻿
 export default function FoundingBetaSection() {
   return (
     <section className="relative overflow-hidden mx-auto max-w-7xl px-6 py-16 text-white">
@@ -6,7 +6,7 @@ export default function FoundingBetaSection() {
         <p className="text-sm font-bold text-cyan-300">Early Beta Access</p>
 
         <h2 className="mt-3 max-w-4xl text-4xl font-black md:text-5xl">
-          I’m looking for 15-30 sole traders and small businesses to help shape this.
+          Iâ€™m looking for 15-30 sole traders and small businesses to help shape this.
         </h2>
 
         <p className="mt-6 max-w-3xl text-lg text-slate-300">
@@ -14,7 +14,7 @@ export default function FoundingBetaSection() {
         </p>
 
         <p className="mt-4 max-w-3xl text-slate-300">
-          I’m an engineer myself, so this isn’t being guessed from a boardroom. I want feedback from the people who actually live this kind of work.
+          Iâ€™m an engineer myself, so this isnâ€™t being guessed from a boardroom. I want feedback from the people who actually live this kind of work.
         </p>
 
         <div className="mt-8 grid gap-5 md:grid-cols-3">
@@ -44,12 +44,13 @@ export default function FoundingBetaSection() {
           <a href="mailto:info@tradeconnectai.co.uk?subject=Founding Beta Access" className="rounded-full bg-cyan-400 px-6 py-3 font-bold text-slate-950">
             Ask about beta access
           </a>
-          <a href="/pricing" className="rounded-full border border-white/20 px-6 py-3 font-bold text-white">
-            See beta pricing
+          <a href="/Founding Beta" className="rounded-full border border-white/20 px-6 py-3 font-bold text-white">
+            See Founding Beta
           </a>
         </div>
       </div>
     </section>
   );
 }
+
 

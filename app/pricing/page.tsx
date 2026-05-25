@@ -16,7 +16,7 @@ const betaCards = [
   {
     title: "After beta",
     price: "Paid plans later",
-    text: "Pricing will open after the founding beta once the product is shaped around real trade businesses.",
+    text: "Founding Beta will open after the founding beta once the product is shaped around real trade businesses.",
   },
 ];
 
@@ -29,7 +29,7 @@ const feedbackAreas = [
   "What would make you pay for it later",
 ];
 
-export default function PricingPage() {
+export default function Founding BetaPage() {
   return (
     <main className="min-h-screen bg-[#020817] text-white">
       <SiteHeader />
@@ -127,3 +127,4 @@ export default function PricingPage() {
     </main>
   );
 }
+

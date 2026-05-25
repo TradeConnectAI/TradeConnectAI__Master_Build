@@ -1099,3 +1099,101 @@ button {
     font-size: 16px !important;
   }
 }
+
+/* ------------------------------------------------------------
+   Final mobile polish: TradeConnectAI
+   Keeps the founding beta funnel tidy on phones
+------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+  body {
+    background: #020817;
+  }
+
+  main {
+    max-width: 100vw;
+  }
+
+  header,
+  footer,
+  section {
+    max-width: 100%;
+  }
+
+  header {
+    position: relative;
+    z-index: 20;
+  }
+
+  header nav {
+    display: none !important;
+  }
+
+  header img {
+    max-height: 44px !important;
+  }
+
+  h1,
+  .text-8xl,
+  .text-7xl,
+  .text-6xl,
+  .text-5xl {
+    font-size: clamp(2.15rem, 10vw, 3rem) !important;
+    line-height: 0.94 !important;
+  }
+
+  h2,
+  .text-4xl {
+    font-size: clamp(1.7rem, 8vw, 2.25rem) !important;
+    line-height: 1.04 !important;
+  }
+
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .rounded-\[2rem\],
+  .rounded-3xl {
+    border-radius: 1.15rem !important;
+  }
+
+  .p-8,
+  .p-7,
+  .p-6,
+  .p-5 {
+    padding: 1rem !important;
+  }
+
+  .mt-14,
+  .mt-12,
+  .mt-10,
+  .mt-9,
+  .mt-8 {
+    margin-top: 1.5rem !important;
+  }
+
+  .gap-10,
+  .gap-8,
+  .gap-6,
+  .gap-5 {
+    gap: 1rem !important;
+  }
+
+  a.rounded-full,
+  button.rounded-full {
+    min-height: 44px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  span.rounded-full,
+  p.rounded-full {
+    white-space: nowrap !important;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}

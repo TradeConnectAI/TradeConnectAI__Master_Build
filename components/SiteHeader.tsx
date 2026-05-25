@@ -6,7 +6,7 @@ const navItems = [
   { label: "Job Toolbox", href: "/operations" },
   { label: "Quote Creator", href: "/quote-creator" },
   { label: "Customer Updates", href: "/customer-portal" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Founding Beta", href: "/Founding Beta" },
 ];
 
 export default function SiteHeader() {
@@ -40,3 +40,4 @@ export default function SiteHeader() {
     </header>
   );
 }
+
