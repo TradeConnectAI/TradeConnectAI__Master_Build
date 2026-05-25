@@ -1,0 +1,25 @@
+﻿
+Path                                                                      LineNumber Line                                                                                                   
+----                                                                      ---------- ----                                                                                                   
+C:\DEV\TradeConnectAI_fixed\app\admin\voice-beta\calls\page.tsx                    4   redirect("/install-skips-demo/admin/voice-beta/calls");                                              
+C:\DEV\TradeConnectAI_fixed\app\admin\voice-beta\jobs\page.tsx                     4   redirect("/install-skips-demo/admin/voice-beta/jobs");                                               
+C:\DEV\TradeConnectAI_fixed\app\admin\voice-beta\page.tsx                          4   redirect("/install-skips-demo/admin/voice-beta");                                                    
+C:\DEV\TradeConnectAI_fixed\app\ai-call-beta\page.tsx                              4   redirect("/install-skips-demo/ai-call-beta");                                                        
+C:\DEV\TradeConnectAI_fixed\app\api\growth\campaigns\route.ts                     17   if (tenant === "install-skips") return "Install Skips";                                              
+C:\DEV\TradeConnectAI_fixed\app\book-skip\page.tsx                                37             <p className="text-sm text-cyan-300">Install Integrated Skips Demo</p>                     
+C:\DEV\TradeConnectAI_fixed\app\book-skip\page.tsx                                42             href="/install-skips-demo"                                                                 
+C:\DEV\TradeConnectAI_fixed\app\complete-options\README.md                        11 /install-skips-demo                                                                                    
+C:\DEV\TradeConnectAI_fixed\app\complete-options\README.md                        13 Install Skips is archived in _archive and can be restored later.                                       
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\ai-webchat\page.tsx               41               Install Integrated Skips Demo                                                            
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\collections\page.tsx              12       <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\driver-jobs\page.tsx              12       <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\driver-phone\page.tsx              6       <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\drivers\page.tsx                  12       <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\invoice-receipts\page.tsx         27               Install Integrated Skips Demo                                                            
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\invoice-receipts\page.tsx         73                   <p className="font-black">Install Integrated Skips Ltd</p>                           
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\map\page.tsx                       6       <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\revenue\page.tsx                  12       <Link href="/install-skips-demo" className="font-bold text-orange-400">← Back to Dashboard</Link>
+C:\DEV\TradeConnectAI_fixed\app\operations-demo\page.tsx                          42             Install Integrated Skips Demo                                                              
+
+
+

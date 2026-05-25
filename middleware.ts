@@ -3,7 +3,7 @@
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  if (!pathname.startsWith("/install-skips-demo")) {
+  if (!pathname.startsWith("/demo")) {
     return NextResponse.next();
   }
 
@@ -16,7 +16,7 @@ export function middleware(request: NextRequest) {
     return new NextResponse("Authentication required", {
       status: 401,
       headers: {
-        "WWW-Authenticate": 'Basic realm="Install Skips Demo"',
+        "WWW-Authenticate": 'Basic realm="TradeConnectAI Demo"',
       },
     });
   }
@@ -32,11 +32,12 @@ export function middleware(request: NextRequest) {
   return new NextResponse("Invalid username or password", {
     status: 401,
     headers: {
-      "WWW-Authenticate": 'Basic realm="Install Skips Demo"',
+      "WWW-Authenticate": 'Basic realm="TradeConnectAI Demo"',
     },
   });
 }
 
 export const config = {
-  matcher: ["/install-skips-demo/:path*"],
+  matcher: ["/demo/:path*"],
 };
+
