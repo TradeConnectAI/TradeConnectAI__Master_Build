@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     .map((value) => String(value).trim())
     .filter(Boolean);
 
-  const lead: BetaLead = {
+  const offer = clean(formData.get("offer")) || "Founding beta: free for first 15 companies in exchange for feedback";`n`n  const lead: BetaLead = {
     id:
       typeof crypto !== "undefined" && "randomUUID" in crypto
         ? crypto.randomUUID()
@@ -51,14 +51,14 @@ export async function POST(request: Request) {
     "TradeConnectAI <leads@send.tradeconnectai.co.uk>";
 
   if (resendApiKey) {
-    const subject = `New TradeConnectAI beta lead - ${
+    const subject = `New free founding beta lead - ${
       lead.business || lead.name || "Website"
     }`;
 
     const html = `
       <div style="font-family:Arial,sans-serif;line-height:1.6;color:#0f172a">
         <h1>New TradeConnectAI beta lead</h1>
-        <p><strong>Source:</strong> ${escapeHtml(lead.source)}</p>
+        <p><strong>Source:</strong> ${escapeHtml(lead.source)}</p>`n        <p><strong>Offer:</strong> ${escapeHtml(offer)}</p>
         <p><strong>Name:</strong> ${escapeHtml(lead.name)}</p>
         <p><strong>Business:</strong> ${escapeHtml(lead.business)}</p>
         <p><strong>Trade:</strong> ${escapeHtml(lead.trade)}</p>
@@ -103,3 +103,4 @@ export async function POST(request: Request) {
     status: 303,
   });
 }
+
