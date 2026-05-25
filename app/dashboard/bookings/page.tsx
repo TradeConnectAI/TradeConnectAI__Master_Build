@@ -99,7 +99,7 @@
                         {[
                             {
                                 title: "Fuse Board Investigation",
-                                time: "Today ï¿½ 7:00pm",
+                                time: "Today ' 7:00pm",
                                 location: "Cardiff",
                                 engineer: "Steve",
                                 status: "Confirmed",
@@ -107,7 +107,7 @@
 
                             {
                                 title: "Leak Investigation",
-                                time: "Tomorrow ï¿½ 10:30am",
+                                time: "Tomorrow ' 10:30am",
                                 location: "Newport",
                                 engineer: "Lewis",
                                 status: "Scheduled",
@@ -115,7 +115,7 @@
 
                             {
                                 title: "Bathroom Renovation Quote",
-                                time: "Friday ï¿½ 2:00pm",
+                                time: "Friday ' 2:00pm",
                                 location: "Bristol",
                                 engineer: "Steve",
                                 status: "Pending",
@@ -123,7 +123,7 @@
 
                             {
                                 title: "Emergency Boiler Repair",
-                                time: "Saturday ï¿½ 8:00am",
+                                time: "Saturday ' 8:00am",
                                 location: "Swansea",
                                 engineer: "Mike",
                                 status: "Urgent",

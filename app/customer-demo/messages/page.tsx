@@ -9,7 +9,7 @@ const messages = [
   },
   {
     from: "Tom Hughes",
-    text: "Iâ€™m on my way now. ETA is around 09:55.",
+    text: "I'm on my way now. ETA is around 09:55.",
     time: "09:20",
     type: "trade",
   },

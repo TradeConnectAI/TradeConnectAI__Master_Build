@@ -27,7 +27,7 @@ export default function CustomerAppointmentsPage() {
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-sm font-bold text-emerald-300">
-                    {day} � {time}
+                    {day} ' {time}
                   </p>
                   <h2 className="mt-1 text-xl font-black">{title}</h2>
                   <p className="mt-1 text-sm text-slate-400">{detail}</p>
