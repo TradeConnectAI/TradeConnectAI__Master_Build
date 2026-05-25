@@ -465,3 +465,243 @@ button {
     justify-content: center;
   }
 }
+
+/* ------------------------------------------------------------
+   TradeConnectAI mobile compact override v2
+   Makes phone layout tighter, cleaner and less gigantic
+------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+
+  main {
+    overflow-x: hidden !important;
+  }
+
+  /* Compact page rhythm */
+  section {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .py-16,
+  .py-12,
+  .py-10 {
+    padding-top: 2.25rem !important;
+    padding-bottom: 2.25rem !important;
+  }
+
+  .pt-16,
+  .pt-12,
+  .pt-10,
+  .pt-8 {
+    padding-top: 1.75rem !important;
+  }
+
+  .pb-24,
+  .pb-16,
+  .pb-12 {
+    padding-bottom: 2.75rem !important;
+  }
+
+  .mt-14,
+  .mt-12,
+  .mt-10,
+  .mt-9,
+  .mt-8 {
+    margin-top: 1.5rem !important;
+  }
+
+  .gap-10,
+  .gap-8,
+  .gap-6,
+  .gap-5 {
+    gap: 1rem !important;
+  }
+
+  /* Much calmer mobile typography */
+  h1,
+  .text-8xl,
+  .text-7xl,
+  .text-6xl,
+  .text-5xl {
+    font-size: clamp(2.35rem, 10vw, 3.15rem) !important;
+    line-height: 0.96 !important;
+    letter-spacing: -0.05em !important;
+  }
+
+  h2,
+  .text-4xl {
+    font-size: clamp(1.85rem, 8vw, 2.45rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  h3,
+  .text-3xl,
+  .text-2xl {
+    font-size: clamp(1.35rem, 6vw, 1.85rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  p,
+  .text-xl,
+  .text-lg,
+  .text-base {
+    font-size: 0.98rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .text-sm {
+    font-size: 0.88rem !important;
+  }
+
+  /* Letter-spaced labels were too huge */
+  .tracking-\[0\.25em\],
+  .tracking-\[0\.22em\],
+  .tracking-\[0\.18em\] {
+    letter-spacing: 0.16em !important;
+    font-size: 0.78rem !important;
+  }
+
+  /* Compact cards */
+  .rounded-\[2rem\],
+  .rounded-\[1\.5rem\],
+  .rounded-3xl {
+    border-radius: 1.15rem !important;
+  }
+
+  .p-8,
+  .p-7,
+  .p-6,
+  .p-5 {
+    padding: 1rem !important;
+  }
+
+  .px-6,
+  .px-5,
+  .px-4 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .py-4,
+  .py-3 {
+    padding-top: 0.85rem !important;
+    padding-bottom: 0.85rem !important;
+  }
+
+  /* Stack grids cleanly */
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Header */
+  header {
+    min-height: auto !important;
+    padding-top: 0.85rem !important;
+    padding-bottom: 0.85rem !important;
+  }
+
+  header nav {
+    display: none !important;
+  }
+
+  header img {
+    max-height: 44px !important;
+    width: auto !important;
+  }
+
+  header a.rounded-full {
+    width: auto !important;
+    padding: 0.75rem 0.95rem !important;
+    font-size: 0.78rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* Buttons */
+  main a.rounded-full,
+  main button.rounded-full {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Fix time badges wrapping 09:42 into two lines */
+  .rounded-full,
+  span.rounded-full,
+  p.rounded-full {
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: keep-all !important;
+  }
+
+  /* Activity feed rows */
+  .flex.items-center.gap-4 {
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  .flex.items-center.gap-4 span.rounded-full {
+    flex-shrink: 0 !important;
+    min-width: 4.2rem !important;
+    text-align: center !important;
+  }
+
+  /* Stats/cards should not look like huge slabs */
+  .shadow-2xl {
+    box-shadow: none !important;
+  }
+
+  /* Images/visuals */
+  img {
+    max-width: 100% !important;
+  }
+
+  .h-72,
+  .h-96,
+  .h-44 {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* Forms */
+  input,
+  textarea,
+  select {
+    min-height: 44px !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  h1,
+  .text-8xl,
+  .text-7xl,
+  .text-6xl,
+  .text-5xl {
+    font-size: clamp(2.15rem, 10.5vw, 2.8rem) !important;
+  }
+
+  h2,
+  .text-4xl {
+    font-size: clamp(1.7rem, 8.5vw, 2.15rem) !important;
+  }
+
+  .p-8,
+  .p-7,
+  .p-6,
+  .p-5 {
+    padding: 0.95rem !important;
+  }
+
+  section {
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+  }
+}
