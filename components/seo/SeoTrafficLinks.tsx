@@ -16,9 +16,15 @@ export default function SeoTrafficLinks() {
         <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">
           Explore TradeConnectAI
         </p>
+
         <h2 className="mt-3 text-3xl font-black">
           AI tools built for real trade businesses
         </h2>
+
+        <p className="mt-3 max-w-2xl text-slate-300">
+          Find the right workflow for missed calls, job management, quote creation and customer updates.
+        </p>
+
         <div className="mt-6 grid gap-3 md:grid-cols-3">
           {links.map(([label, href]) => (
             <Link
