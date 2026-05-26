@@ -53,9 +53,9 @@ const activity = [
   ["10:05", "Engineer assigned"],
 ];
 
-const Founding Beta = [
+const foundingBeta = [
   [
-    "Founding Beta",
+    "foundingBeta",
     "Free",
     "For the first 15 suitable trade businesses that sign up and give honest feedback.",
   ],
@@ -67,7 +67,7 @@ const Founding Beta = [
   [
     "After beta",
     "Paid plans later",
-    "Founding Beta will open after the founding beta once the product is shaped around real trade businesses.",
+    "foundingBeta will open after the foundingBeta once the product is shaped around real trade businesses.",
   ],
 ];
 
@@ -106,7 +106,7 @@ export default function HomePage({
           <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/10 p-1 text-sm font-semibold text-slate-200 backdrop-blur md:flex">
             <a href="#how" className="rounded-full px-4 py-2 hover:bg-white/10">How it works</a>
             <a href="#trades" className="rounded-full px-4 py-2 hover:bg-white/10">Trades</a>
-            <a href="#Founding Beta" className="rounded-full px-4 py-2 hover:bg-white/10">Founding Beta</a>
+            <a href="#foundingBeta" className="rounded-full px-4 py-2 hover:bg-white/10">foundingBeta</a>
             <a href="/book-demo" className="rounded-full px-4 py-2 hover:bg-white/10">Beta</a>
           </nav>
 
@@ -278,7 +278,7 @@ export default function HomePage({
 
             <div className="mt-6 rounded-[2rem] border border-emerald-300/30 bg-emerald-300/10 p-6 text-emerald-100">
               <p className="text-sm font-black uppercase tracking-[0.2em]">
-                Founding beta
+                foundingBeta
               </p>
               <p className="mt-2 text-lg font-black text-white">
                 Free for the first 15 trade businesses that sign up and give honest feedback.
@@ -440,10 +440,10 @@ export default function HomePage({
         </div>
       </section>
 
-      <section id="Founding Beta" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+      <section id="foundingBeta" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-            Founding beta offer
+            foundingBeta offer
           </p>
           <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] md:text-6xl">
             Free access for the first 15 companies.
@@ -452,18 +452,18 @@ export default function HomePage({
 
         <div className="mt-6 rounded-[2rem] border border-emerald-300/30 bg-emerald-300/10 p-6 text-emerald-100">
           <p className="text-sm font-black uppercase tracking-[0.2em]">
-            Limited founding beta
+            Limited foundingBeta
           </p>
           <p className="mt-2 text-lg font-black text-white">
-            Only 15 founding beta places are available.
+            Only 15 foundingBeta places are available.
           </p>
           <p className="mt-2 text-sm leading-6 text-emerald-100/85">
-            No payment during the founding beta. In return, we ask for honest feedback on calls, jobs, quotes and customer updates.
+            No payment during the foundingBeta. In return, we ask for honest feedback on calls, jobs, quotes and customer updates.
           </p>
         </div>
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {Founding Beta.map(([plan, price, text]) => (
+          {foundingBeta.map(([plan, price, text]) => (
             <div
               key={plan}
               className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-7"
@@ -539,6 +539,9 @@ export default function HomePage({
     </main>
   );
 }
+
+
+
 
 
 

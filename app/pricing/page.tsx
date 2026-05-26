@@ -29,7 +29,7 @@ const feedbackAreas = [
   "What would make you pay for it later",
 ];
 
-export default function Founding BetaPage() {
+export default function FoundingBetaPage() {
   return (
     <main className="min-h-screen bg-[#020817] text-white">
       <SiteHeader />
@@ -127,5 +127,8 @@ export default function Founding BetaPage() {
     </main>
   );
 }
+
+
+
 
 

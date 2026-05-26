@@ -11,3 +11,5 @@ backup-*
 _local_backups/
 
 TradeConnectAI_backups/
+
+backups/
