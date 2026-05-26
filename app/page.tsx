@@ -1,4 +1,5 @@
-﻿import Link from "next/link";
+﻿import SeoTrafficLinks from "@/components/seo/SeoTrafficLinks";
+import Link from "next/link";
 
 const logoPath = "/brand/tradeconnect-logo-clean.png";
 const heroImage = "/homepage/trade-engineer-tools.svg";
@@ -539,6 +540,7 @@ export default function HomePage({
     </main>
   );
 }
+
 
 
 

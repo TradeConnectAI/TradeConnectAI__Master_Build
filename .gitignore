@@ -13,3 +13,7 @@ _local_backups/
 TradeConnectAI_backups/
 
 backups/
+
+build-fix-log-*.txt
+vercel-deploy-log-*.txt
+backups/
