@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CheckoutButton from "@/components/CheckoutButton";
 
 const logoPath = "/brand/tradeconnect-logo-clean.png";
 const heroImage = "/homepage/trade-engineer-tools.svg";
@@ -46,20 +47,20 @@ const activity = [
   ["09:48", "Customer text prepared"],
 ];
 
-// TODO(stripe): Wire real Stripe Checkout for £29 / £49 when STRIPE_* keys and checkout routes exist.
-// Package is installed but no checkout API is substantially set up — keep offer copy-only for now.
 const plans = [
   [
     "Starter",
+    "starter",
     "£29",
     "For a sole-trader plumber. Enquiry → job card → quote or customer text on your phone.",
   ],
   [
     "Growth",
+    "growth",
     "£49",
     "For a small 2-van plumbing team. Same core flow, a bit more room to organise jobs and updates.",
   ],
-];
+] as const;
 
 const trust = [
   "Built in the UK for sole-trader and 2-van plumbers",
@@ -71,12 +72,28 @@ const trust = [
 export default function HomePage({
   searchParams,
 }: {
-  searchParams?: { beta?: string };
+  searchParams?: { beta?: string; checkout?: string };
 }) {
   const leadThanks = searchParams?.beta === "thanks";
+  const checkoutSuccess = searchParams?.checkout === "success";
+  const checkoutCancelled = searchParams?.checkout === "cancelled";
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#020817] text-white">
+      {checkoutSuccess ? (
+        <div className="border-b border-emerald-300/30 bg-emerald-300/10 px-5 py-3 text-center text-sm font-bold text-emerald-100 md:px-8">
+          Checkout complete — thanks. We will confirm your plumber plan shortly.
+        </div>
+      ) : null}
+      {checkoutCancelled ? (
+        <div className="border-b border-amber-300/30 bg-amber-300/10 px-5 py-3 text-center text-sm font-bold text-amber-100 md:px-8">
+          Checkout cancelled. You can try again below or{" "}
+          <Link href="/book-demo" className="underline">
+            book a demo
+          </Link>
+          .
+        </div>
+      ) : null}
       <section className="relative isolate min-h-screen">
         <div
           className="absolute inset-0 -z-20 bg-cover bg-center opacity-75"
@@ -276,8 +293,8 @@ export default function HomePage({
                 £29 or £49 per month — no free founding-beta framing.
               </p>
               <p className="mt-2 text-sm leading-6 text-cyan-100/85">
-                {/* TODO(stripe): connect Checkout when keys + routes are ready */}
-                Checkout wiring is not live yet — request access and we will sort billing with you.
+                Self-serve Stripe checkout for Starter (£29) and Growth (£49). If keys are
+                missing, you can still book a demo.
               </p>
             </div>
           </div>
@@ -439,14 +456,13 @@ export default function HomePage({
             Plain £29 / £49 for plumbers.
           </h2>
           <p className="mt-4 text-sm leading-6 text-slate-400">
-            {/* TODO(stripe): Real Stripe Checkout not wired — keys/routes incomplete. */}
-            Self-serve Stripe checkout is not live yet. Use Get started and we will
-            confirm the plan with you.
+            Start Starter or Growth with Stripe Checkout. If billing is not configured yet,
+            you will be sent to book a demo instead.
           </p>
         </div>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {plans.map(([plan, price, text]) => (
+          {plans.map(([plan, planKey, price, text]) => (
             <div
               key={plan}
               className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-7"
@@ -457,12 +473,20 @@ export default function HomePage({
                 <span className="text-lg font-bold text-slate-400"> / month</span>
               </p>
               <p className="mt-4 text-sm leading-6 text-slate-400">{text}</p>
-              <Link
-                href="/book-demo"
-                className="mt-6 inline-flex rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950"
-              >
-                Get started
-              </Link>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <CheckoutButton
+                  plan={planKey}
+                  className="inline-flex rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950 disabled:opacity-70"
+                >
+                  Get started — {price}/mo
+                </CheckoutButton>
+                <Link
+                  href="/book-demo"
+                  className="inline-flex rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-black text-white"
+                >
+                  Book demo
+                </Link>
+              </div>
             </div>
           ))}
         </div>
@@ -509,7 +533,7 @@ export default function HomePage({
             method="post"
             className="grid gap-4 rounded-[1.5rem] border border-white/10 bg-slate-950/70 p-5"
           >
-            <input type="hidden" name="offer" value="Plumber plans: £29 / £49 per month (Stripe checkout TODO)" />
+            <input type="hidden" name="offer" value="Plumber plans: £29 / £49 per month (Stripe Checkout)" />
             <input name="name" required placeholder="Your name" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
             <input name="business" required placeholder="Business name" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
             <input name="trade" required defaultValue="Plumber" placeholder="Trade (plumber)" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
