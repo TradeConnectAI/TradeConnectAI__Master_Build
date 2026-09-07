@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export default function ThanksPage() {
   return (
@@ -11,15 +11,16 @@ export default function ThanksPage() {
         />
 
         <p className="mt-8 inline-flex rounded-full border border-emerald-300/30 bg-emerald-300/10 px-4 py-2 text-sm font-bold text-emerald-100">
-          Beta request received
+          Request received
         </p>
 
         <h1 className="mt-6 text-5xl font-black tracking-[-0.05em]">
-          Thanks. Your beta request has been captured.
+          Thanks. We&apos;ve got your details.
         </h1>
 
         <p className="mt-5 text-lg leading-8 text-slate-300">
-          We&apos;ll review the details and, if you are one of the first 15 suitable trade businesses, we&apos;ll contact you about free founding beta access in exchange for honest feedback.
+          We&apos;ll review your plumbing setup and contact you about the £29 or £49
+          plan. Self-serve Stripe checkout is not live yet — we&apos;ll confirm billing with you.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -40,4 +41,3 @@ export default function ThanksPage() {
     </main>
   );
 }
-

@@ -1,12 +1,10 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import TradeConnectLogo from "@/components/TradeConnectLogo";
 
 const navItems = [
-  { label: "AI Call Helper", href: "/ai-receptionist" },
-  { label: "Job Toolbox", href: "/operations" },
-  { label: "Quote Creator", href: "/quote-creator" },
-  { label: "Customer Updates", href: "/customer-portal" },
-  { label: "Founding Beta", href: "/Founding Beta" },
+  { label: "How it works", href: "/#how" },
+  { label: "Operations demo", href: "/operations-demo" },
+  { label: "Pricing", href: "/pricing" },
 ];
 
 export default function SiteHeader() {
@@ -31,14 +29,12 @@ export default function SiteHeader() {
         </nav>
 
         <Link
-          href="/demo"
+          href="/operations-demo"
           className="hidden shrink-0 rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-black text-slate-950 shadow-[0_0_24px_rgba(34,211,238,0.25)] transition hover:bg-cyan-300 sm:inline-flex"
         >
-          Try demo
+          Open demo
         </Link>
       </div>
     </header>
   );
 }
-
-

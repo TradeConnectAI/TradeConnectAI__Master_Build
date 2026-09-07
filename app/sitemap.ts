@@ -1,26 +1,21 @@
-﻿import type { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.tradeconnectai.co.uk";
 
+  // Launch surfaces only. Optional demos (/ai-call-demo, /customer-demo) omitted from sitemap.
   const routes = [
     "",
     "/pricing",
-    "/ai-call-demo",
-    "/customer-demo",
-    "/complete-options-beta",
-    "/ai-receptionist-for-trades",
-    "/missed-call-software",
-    "/trade-business-ai",
-    "/quote-generator-for-trades",
-    "/customer-updates-for-trades",
-    "/trade-job-management",
+    "/operations-demo",
+    "/book-demo",
+    "/industries/plumbers",
   ];
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: "weekly",
+    changeFrequency: "weekly" as const,
     priority: route === "" ? 1 : 0.8,
   }));
 }

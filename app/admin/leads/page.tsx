@@ -57,18 +57,18 @@ export default async function AdminLeadsPage() {
               TradeConnectAI Admin
             </p>
             <h1 className="mt-3 text-5xl font-black tracking-[-0.05em]">
-              Beta Leads
+              Leads
             </h1>
             <p className="mt-4 max-w-3xl text-slate-400">
-              View beta demo requests from the website. Leads are emailed and saved into Supabase.
+              View demo / access requests from the website. Leads are emailed and saved into Supabase.
             </p>
 
-            <div className="mt-5 rounded-3xl border border-emerald-300/30 bg-emerald-300/10 p-5 text-emerald-100">
+            <div className="mt-5 rounded-3xl border border-cyan-300/30 bg-cyan-300/10 p-5 text-cyan-100">
               <p className="text-sm font-black uppercase tracking-[0.2em]">
-                First 15 free beta places
+                Plumber plans £29 / £49
               </p>
               <p className="mt-2 text-sm leading-6">
-                Founding beta offer: free access for the first 15 suitable trade businesses that sign up and give honest feedback.
+                Public offer is paid only. Stripe self-serve checkout is not wired yet — confirm billing manually.
               </p>
             </div>
           </div>

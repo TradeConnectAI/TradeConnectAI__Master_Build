@@ -1,12 +1,19 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const password = String(body?.password || "");
 
-    const validPassword =
-      process.env.COMPLETE_OPTIONS_PASSWORD || "complete2026";
+    // Credentials must come from env — no hardcoded shipping defaults.
+    const validPassword = process.env.COMPLETE_OPTIONS_PASSWORD;
+
+    if (!validPassword) {
+      return NextResponse.json(
+        { ok: false, message: "Beta login is not configured." },
+        { status: 503 }
+      );
+    }
 
     if (password !== validPassword) {
       return NextResponse.json(

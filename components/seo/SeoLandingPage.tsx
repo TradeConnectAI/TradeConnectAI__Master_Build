@@ -36,7 +36,7 @@ export default function SeoLandingPage({
 
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
-            href="/complete-options-beta"
+            href="/operations-demo"
             className="rounded-2xl bg-blue-500 px-6 py-3 font-bold text-white hover:bg-blue-400"
           >
             View Live Demo
@@ -45,7 +45,7 @@ export default function SeoLandingPage({
             href="/pricing"
             className="rounded-2xl border border-white/15 px-6 py-3 font-bold text-white hover:bg-white/10"
           >
-            Founding Beta Offer
+            Pricing £29 / £49
           </Link>
         </div>
 
@@ -74,15 +74,16 @@ export default function SeoLandingPage({
         </section>
 
         <section className="mt-16 rounded-3xl bg-blue-500 p-8 text-white">
-          <h2 className="text-3xl font-black">First 15 companies get free beta access</h2>
+          <h2 className="text-3xl font-black">£29 / £49 for UK plumbers</h2>
           <p className="mt-3 max-w-2xl">
-            Try TradeConnectAI free in exchange for honest feedback while we shape the platform around real trade businesses.
+            Sole-trader and 2-van plumbing teams. Plain paid offer — no free founding-beta framing.
+            Stripe checkout is not live yet; get started and we will confirm billing.
           </p>
           <Link
             href="/pricing"
             className="mt-6 inline-block rounded-2xl bg-white px-6 py-3 font-black text-slate-950"
           >
-            Claim Beta Place
+            See pricing
           </Link>
         </section>
       </section>

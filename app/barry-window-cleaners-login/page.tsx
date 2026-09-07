@@ -9,8 +9,8 @@ function LoginForm() {
     return searchParams.get("redirect") || "/barry-window-cleaners-beta";
   }, [searchParams]);
 
-  const [username, setUsername] = useState("ethan");
-  const [password, setPassword] = useState("barry2026");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -72,7 +72,7 @@ function LoginForm() {
           value={username}
           onChange={(event) => setUsername(event.target.value)}
           className="mt-2 w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-white outline-none focus:border-cyan-300"
-          placeholder="ethan"
+          placeholder="Username"
           autoComplete="username"
         />
       </label>
@@ -83,7 +83,7 @@ function LoginForm() {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           className="mt-2 w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-white outline-none focus:border-cyan-300"
-          placeholder="barry2026"
+          placeholder="Password"
           type="password"
           autoComplete="current-password"
         />
@@ -104,8 +104,7 @@ function LoginForm() {
       </button>
 
       <div className="mt-5 rounded-2xl border border-white/10 bg-slate-950 p-4 text-xs text-slate-400">
-        Demo access: <span className="font-bold text-white">ethan</span> /{" "}
-        <span className="font-bold text-white">barry2026</span>
+        Private beta access. Credentials are not published on this page.
       </div>
     </form>
   );

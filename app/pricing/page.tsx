@@ -1,70 +1,55 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
-const betaCards = [
+// TODO(stripe): Wire real Stripe Checkout for these plans when STRIPE_* keys
+// and checkout API routes exist. stripe package is present; checkout is not.
+
+const planCards = [
   {
-    title: "Founding Beta",
-    price: "Free",
-    text: "For the first 15 suitable trade businesses that sign up and give honest feedback.",
+    title: "Starter",
+    price: "£29",
+    text: "Sole-trader UK plumber. Enquiry → job card → quote or customer text on your phone.",
   },
   {
-    title: "What we ask",
-    price: "Feedback",
-    text: "Use the beta, test the workflows, and tell us what would actually help your business day to day.",
-  },
-  {
-    title: "After beta",
-    price: "Paid plans later",
-    text: "Founding Beta will open after the founding beta once the product is shaped around real trade businesses.",
+    title: "Growth",
+    price: "£49",
+    text: "Small 2-van plumbing team. Same core flow with a bit more room to organise jobs and updates.",
   },
 ];
 
-const feedbackAreas = [
-  "AI call handling",
+const included = [
+  "Missed enquiry capture",
   "Job cards and notes",
-  "Quote workflow",
-  "Customer updates",
-  "Dashboard clarity",
-  "What would make you pay for it later",
+  "Quote draft workflow",
+  "Customer text updates",
+  "Phone-usable operations demo",
+  "Built for plumbers — not multi-trade",
 ];
 
-export default function FoundingBetaPage() {
+export default function PricingPage() {
   return (
     <main className="min-h-screen bg-[#020817] text-white">
       <SiteHeader />
 
       <section className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-20">
         <div className="max-w-4xl">
-          <p className="inline-flex rounded-full border border-emerald-300/30 bg-emerald-300/10 px-4 py-2 text-sm font-bold text-emerald-100">
-            Founding beta offer
+          <p className="inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-bold text-cyan-100">
+            Pricing for UK plumbers
           </p>
 
           <h1 className="mt-7 text-5xl font-black leading-[0.9] tracking-[-0.055em] md:text-7xl">
-            Free for the first 15 trade businesses.
+            Plain £29 / £49 — no free founding beta.
           </h1>
 
           <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-            TradeConnectAI is opening a founding beta. The first 15 suitable trade
-            businesses get free beta access in exchange for honest feedback.
+            One customer type: sole-trader and 2-van UK plumbers. Self-serve Stripe
+            checkout is not live yet — get started and we will confirm billing with you.
           </p>
         </div>
 
-        <div className="mt-10 rounded-[2rem] border border-emerald-300/30 bg-emerald-300/10 p-6 text-emerald-100">
-          <p className="text-sm font-black uppercase tracking-[0.2em]">
-            Limited founding beta
-          </p>
-          <p className="mt-2 text-xl font-black text-white">
-            No payment during the founding beta.
-          </p>
-          <p className="mt-2 text-sm leading-6 text-emerald-100/85">
-            In return, we ask for honest feedback on the AI call, job, quote and
-            customer update workflows so the product is built around real trade businesses.
-          </p>
-        </div>
-
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {betaCards.map((card) => (
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {planCards.map((card) => (
             <article
               key={card.title}
               className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-7"
@@ -72,6 +57,7 @@ export default function FoundingBetaPage() {
               <h2 className="text-2xl font-black">{card.title}</h2>
               <p className="mt-4 text-4xl font-black text-cyan-200">
                 {card.price}
+                <span className="text-lg font-bold text-slate-400"> / month</span>
               </p>
               <p className="mt-4 text-sm leading-6 text-slate-400">
                 {card.text}
@@ -83,20 +69,19 @@ export default function FoundingBetaPage() {
         <section className="mt-10 grid gap-6 rounded-[2rem] border border-cyan-300/20 bg-cyan-300/10 p-7 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-200">
-              What feedback means
+              What is included
             </p>
             <h2 className="mt-4 text-4xl font-black tracking-[-0.04em]">
-              Help shape something trades actually want.
+              The one launch flow that matters.
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-300">
-              The free founding beta is not a gimmick. It is an exchange: you get
-              early access, and we get honest feedback so the product becomes useful
-              before paid plans open.
+              Enquiry in → job card → quote or customer text. AI Call Demo and Customer
+              Portal routes stay available but are not launch requirements.
             </p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
-            {feedbackAreas.map((item) => (
+            {included.map((item) => (
               <div
                 key={item}
                 className="rounded-2xl border border-white/10 bg-black/25 p-4 text-sm font-bold text-slate-100"
@@ -112,7 +97,7 @@ export default function FoundingBetaPage() {
             href="/book-demo"
             className="rounded-full bg-white px-6 py-4 text-sm font-black text-slate-950"
           >
-            Claim free beta spot
+            Get started
           </Link>
           <Link
             href="/operations-demo"
@@ -127,8 +112,3 @@ export default function FoundingBetaPage() {
     </main>
   );
 }
-
-
-
-
-

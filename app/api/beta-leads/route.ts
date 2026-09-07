@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
   const offer =
     clean(formData.get("offer")) ||
-    "Founding beta: free for first 15 companies in exchange for feedback";
+    "Plumber plans: £29 / £49 per month (Stripe checkout TODO)";
 
   const lead: BetaLead = {
     id:
@@ -55,13 +55,13 @@ export async function POST(request: Request) {
     "TradeConnectAI <leads@send.tradeconnectai.co.uk>";
 
   if (resendApiKey) {
-    const subject = `New free founding beta lead - ${
+    const subject = `New plumber lead - ${
       lead.business || lead.name || "Website"
     }`;
 
     const html = `
       <div style="font-family:Arial,sans-serif;line-height:1.6;color:#0f172a">
-        <h1>New TradeConnectAI beta lead</h1>
+        <h1>New TradeConnectAI plumber lead</h1>
         <p><strong>Source:</strong> ${escapeHtml(lead.source)}</p>
         <p><strong>Offer:</strong> ${escapeHtml(offer)}</p>
         <p><strong>Name:</strong> ${escapeHtml(lead.name)}</p>

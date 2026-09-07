@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "TradeConnectAI | Practical AI toolbox for small trade businesses",
+  title: "TradeConnectAI | Job flow for UK plumbers",
   description:
-    "A practical AI toolbox for sole traders and small trade businesses. Capture missed calls, keep jobs organised and update customers.",
+    "For sole-trader and 2-van UK plumbers. Catch enquiries, create job cards, and send a quote or customer text from your phone.",
 };
 
 export default function RootLayout({
@@ -22,4 +22,3 @@ export default function RootLayout({
     </html>
   );
 }
-

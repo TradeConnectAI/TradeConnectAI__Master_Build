@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
@@ -6,8 +6,16 @@ export async function POST(request: Request) {
     const username = String(body?.username || "").trim();
     const password = String(body?.password || "").trim();
 
-    const validUser = process.env.BARRY_BETA_USER || "ethan";
-    const validPass = process.env.BARRY_BETA_PASSWORD || "barry2026";
+    // Credentials must come from env — no hardcoded shipping defaults.
+    const validUser = process.env.BARRY_BETA_USER;
+    const validPass = process.env.BARRY_BETA_PASSWORD;
+
+    if (!validUser || !validPass) {
+      return NextResponse.json(
+        { ok: false, message: "Beta login is not configured." },
+        { status: 503 }
+      );
+    }
 
     if (username !== validUser || password !== validPass) {
       return NextResponse.json(
