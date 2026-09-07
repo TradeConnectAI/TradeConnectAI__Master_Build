@@ -1,4 +1,8 @@
-// TODO(stripe): Wire real Stripe Checkout when STRIPE_* keys and checkout routes exist.
+"use client";
+
+import Link from "next/link";
+import CheckoutButton from "@/components/CheckoutButton";
+
 export default function Pricing() {
   return (
     <section
@@ -16,8 +20,8 @@ export default function Pricing() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg text-white/70">
-            Sole-trader and 2-van teams. Plain £29 / £49 — no free founding beta.
-            Stripe checkout is not live yet.
+            Sole-trader and 2-van teams. Plain £29 / £49. Stripe Checkout when
+            keys are set; otherwise book a demo.
           </p>
         </div>
 
@@ -43,12 +47,18 @@ export default function Pricing() {
               <div>✓ Customer texts</div>
             </div>
 
-            <a
-              href="/book-demo"
-              className="mt-10 flex w-full justify-center rounded-2xl border border-white/15 bg-white/10 px-6 py-4 font-bold text-white transition hover:bg-white/15"
+            <CheckoutButton
+              plan="starter"
+              className="mt-10 flex w-full justify-center rounded-2xl border border-white/15 bg-white/10 px-6 py-4 font-bold text-white transition hover:bg-white/15 disabled:opacity-70"
             >
-              Get started
-            </a>
+              Get started — £29/mo
+            </CheckoutButton>
+            <Link
+              href="/book-demo"
+              className="mt-3 flex w-full justify-center text-sm font-semibold text-white/70 hover:text-white"
+            >
+              Or book a demo
+            </Link>
           </div>
 
           <div className="relative rounded-[32px] border border-blue-500/40 bg-blue-500/10 p-8 backdrop-blur-xl shadow-2xl shadow-blue-500/20">
@@ -76,12 +86,18 @@ export default function Pricing() {
               <div>✓ Operations demo access</div>
             </div>
 
-            <a
-              href="/book-demo"
-              className="mt-10 flex w-full justify-center rounded-2xl bg-blue-500 px-6 py-4 font-bold text-white shadow-lg shadow-blue-500/30 transition hover:bg-blue-400"
+            <CheckoutButton
+              plan="growth"
+              className="mt-10 flex w-full justify-center rounded-2xl bg-blue-500 px-6 py-4 font-bold text-white shadow-lg shadow-blue-500/30 transition hover:bg-blue-400 disabled:opacity-70"
             >
-              Get started
-            </a>
+              Get started — £49/mo
+            </CheckoutButton>
+            <Link
+              href="/book-demo"
+              className="mt-3 flex w-full justify-center text-sm font-semibold text-white/70 hover:text-white"
+            >
+              Or book a demo
+            </Link>
           </div>
         </div>
       </div>
