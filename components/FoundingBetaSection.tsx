@@ -16,8 +16,7 @@ export default function FoundingBetaSection() {
         </p>
 
         <p className="mt-4 max-w-3xl text-slate-300">
-          {/* TODO(stripe): Wire Stripe Checkout when STRIPE_* keys and routes exist. */}
-          Self-serve checkout is not live yet. Get in touch and we will confirm the plan with you.
+          Start with Stripe Checkout on the homepage pricing, or request a demo if you prefer to talk first.
         </p>
 
         <div className="mt-8 grid gap-5 md:grid-cols-2">

@@ -2,9 +2,6 @@ import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
-// TODO(stripe): Wire real Stripe Checkout for these plans when STRIPE_* keys
-// and checkout API routes exist. stripe package is present; checkout is not.
-
 const planCards = [
   {
     title: "Starter",
@@ -43,8 +40,8 @@ export default function PricingPage() {
           </h1>
 
           <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-            One customer type: sole-trader and 2-van UK plumbers. Self-serve Stripe
-            checkout is not live yet — get started and we will confirm billing with you.
+            One customer type: sole-trader and 2-van UK plumbers. Stripe Checkout is
+            available for Starter £29 / Growth £49 — or book a demo if you prefer to talk first.
           </p>
         </div>
 

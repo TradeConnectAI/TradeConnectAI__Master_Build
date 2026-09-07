@@ -77,7 +77,7 @@ export default function SeoLandingPage({
           <h2 className="text-3xl font-black">£29 / £49 for UK plumbers</h2>
           <p className="mt-3 max-w-2xl">
             Sole-trader and 2-van plumbing teams. Plain paid offer — no free founding-beta framing.
-            Stripe checkout is not live yet; get started and we will confirm billing.
+            Start with Stripe Checkout on the homepage pricing, or request a demo.
           </p>
           <Link
             href="/pricing"

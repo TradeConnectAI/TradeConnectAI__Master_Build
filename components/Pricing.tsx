@@ -20,8 +20,8 @@ export default function Pricing() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg text-white/70">
-            Sole-trader and 2-van teams. Plain £29 / £49. Stripe Checkout when
-            keys are set; otherwise book a demo.
+            Sole-trader and 2-van teams. Plain £29 / £49. Stripe Checkout is
+            available for Starter and Growth — or book a demo if you prefer to talk first.
           </p>
         </div>
 
