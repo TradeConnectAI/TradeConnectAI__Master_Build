@@ -20,7 +20,7 @@ export default function ThanksPage() {
 
         <p className="mt-5 text-lg leading-8 text-slate-300">
           We&apos;ll review your plumbing setup and contact you about the £29 or £49
-          plan. Self-serve Stripe checkout is not live yet — we&apos;ll confirm billing with you.
+          plan. Prefer self-serve? Start with Stripe Checkout on the homepage pricing anytime.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-3">

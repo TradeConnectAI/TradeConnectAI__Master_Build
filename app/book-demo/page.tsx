@@ -57,8 +57,7 @@ export default function BookDemoPage() {
                 £29 Starter or £49 Growth — no free founding beta.
               </h2>
               <p className="mt-3 text-sm leading-6 text-cyan-100/85">
-                {/* TODO(stripe): Wire Stripe Checkout when keys + routes exist. */}
-                Self-serve Stripe checkout is not live yet. Request access and we will confirm billing with you.
+                Start with Stripe Checkout on the homepage pricing, or request a demo if you prefer to talk first.
               </p>
             </div>
 
@@ -236,7 +235,7 @@ export default function BookDemoPage() {
               </button>
 
               <p className="text-xs leading-5 text-slate-500">
-                Enquiry form only — no payment taken here. Plans are £29 or £49/month. Stripe self-serve checkout is not wired yet.
+                Enquiry form only — no payment taken here. Plans are £29 or £49/month. Prefer self-serve? Use Stripe Checkout on the homepage pricing.
               </p>
             </form>
           </section>
