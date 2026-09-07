@@ -129,7 +129,7 @@ export default function CompleteOptionsLoginPage() {
               </button>
 
               <div className="mt-5 rounded-2xl bg-white/5 p-4 text-xs leading-6 text-slate-300">
-                Demo password: <b className="text-cyan-200">complete2026</b>
+                Private beta access. Credentials are not published on this page.
               </div>
             </form>
           </div>

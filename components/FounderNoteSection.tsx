@@ -26,11 +26,11 @@
             </p>
 
             <p className="mt-4 leading-8 text-slate-300">
-              TradeConnectAI is being shaped with real sole traders and small businesses so it solves the problems that actually matter.
+              TradeConnectAI is being shaped for sole-trader and 2-van UK plumbers so it solves the problems that actually matter on the tools.
             </p>
 
-            <a href="mailto:info@tradeconnectai.co.uk?subject=Founding Beta Access" className="mt-8 inline-flex rounded-full bg-cyan-400 px-6 py-3 font-bold text-slate-950">
-              Join the early beta
+            <a href="/book-demo" className="mt-8 inline-flex rounded-full bg-cyan-400 px-6 py-3 font-bold text-slate-950">
+              Get started — from £29/mo
             </a>
           </div>
         </div>

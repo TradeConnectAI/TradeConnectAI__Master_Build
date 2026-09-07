@@ -1,17 +1,9 @@
-﻿export default function WhoItsForSection() {
-  const trades = [
-    "Plumbers",
-    "Electricians",
-    "Window cleaners",
-    "Roofers",
-    "Cleaners",
-    "Gardeners",
-    "Locksmiths",
-    "Property maintenance",
-    "Heating engineers",
-    "CCTV installers",
-    "Pest control",
-    "Mobile mechanics",
+export default function WhoItsForSection() {
+  const points = [
+    "Sole-trader plumbers",
+    "2-van plumbing teams",
+    "UK callout and boiler work",
+    "Missed-call recovery on the tools",
   ];
 
   return (
@@ -22,17 +14,18 @@
         </p>
 
         <h2 className="mt-4 max-w-4xl text-4xl font-black md:text-5xl">
-          For small service businesses where the phone, jobs and customers all need attention.
+          One customer type: sole-trader and 2-van UK plumbers.
         </h2>
 
         <p className="mt-5 max-w-3xl leading-8 text-slate-300">
-          It starts with trades, but the same problem exists across any business that takes calls, books jobs, sends quotes and keeps customers updated.
+          Launch messaging stays on plumbing only. Builders, landscapers, cleaners,
+          decorators and other multi-trade audiences are not the public pitch.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          {trades.map((trade) => (
-            <span key={trade} className="rounded-full border border-slate-700 bg-slate-950 px-4 py-2 text-sm text-slate-300">
-              {trade}
+          {points.map((item) => (
+            <span key={item} className="rounded-full border border-slate-700 bg-slate-950 px-4 py-2 text-sm text-slate-300">
+              {item}
             </span>
           ))}
         </div>

@@ -1,4 +1,3 @@
-﻿import SeoTrafficLinks from "@/components/seo/SeoTrafficLinks";
 import Link from "next/link";
 
 const logoPath = "/brand/tradeconnect-logo-clean.png";
@@ -7,76 +6,66 @@ const cardImageOne = "/homepage/trade-van-worker.svg";
 const cardImageTwo = "/homepage/trade-job-site.svg";
 
 const stats = [
-  ["Missed calls captured", "24/7"],
-  ["Jobs organised", "Fast"],
-  ["Customer updates", "Automatic"],
+  ["Missed calls", "Captured"],
+  ["Job cards", "Organised"],
+  ["Customer texts", "Ready to send"],
 ];
 
 const features = [
   {
-    title: "AI Call Helper",
-    text: "Answers missed calls, captures job details and turns enquiries into organised work.",
-    href: "/ai-call-demo",
+    title: "Enquiry in",
+    text: "A customer calls or messages while you are on a job. The details are caught so the lead does not disappear.",
   },
   {
-    title: "Job Toolbox",
-    text: "Manage jobs, customers, quotes, invoices and follow-ups from one practical dashboard.",
-    href: "/operations-demo",
+    title: "Job card",
+    text: "Name, address, issue and urgency land as a clear job card you can open on your phone.",
   },
   {
-    title: "Customer Updates",
-    text: "Keep customers informed with clear updates, ETAs, quote approvals and job progress.",
-    href: "/customer-portal",
+    title: "Quote or customer text",
+    text: "Draft a quote or send a short update from the same flow — built for a sole-trader or 2-van plumber day.",
   },
 ];
 
-const trades = [
-  ["Plumbers", "Capture urgent leaks, boiler jobs and follow-ups while you are on the tools."],
-  ["Electricians", "Log callouts, quote small works and keep customers updated on arrival times."],
-  ["Builders", "Organise enquiries, site visits, quote requests and job notes without drowning in messages."],
-  ["Landscapers", "Turn garden enquiries into booked visits, quotes and customer updates."],
-  ["Cleaners", "Handle recurring work, new enquiries, quote requests and reminders."],
-  ["Decorators", "Capture room details, access notes, photos and quote requests in one flow."],
+const plumberFocus = [
+  ["Sole trader / 2-van", "Built for UK plumbers running one or two vans — not a multi-trade platform."],
+  ["Leaks and boilers", "Capture urgent callouts, boiler jobs and follow-ups while you are on the tools."],
+  ["Phone-usable", "Check the job card, send a quote draft or customer text without sitting at a desk."],
 ];
 
 const steps = [
   ["1", "Customer calls or messages", "TradeConnectAI catches the enquiry while you are busy."],
-  ["2", "AI captures the job details", "Name, contact, address, issue, urgency and notes are organised."],
-  ["3", "Job appears in your dashboard", "You can quote, assign, update or follow up from one place."],
-  ["4", "Customer gets updates", "Professional messages keep people informed without extra admin."],
+  ["2", "Job card is created", "Name, contact, address, issue, urgency and notes are organised."],
+  ["3", "Quote or customer text", "Send a quote draft or a clear update from your phone."],
+  ["4", "You stay in control", "AI drafts; you check and send. No fake live phone AI claims."],
 ];
 
 const activity = [
-  ["09:42", "Missed call captured from Mrs Jenkins"],
-  ["09:44", "Job card created: leaking tap"],
-  ["09:46", "Quote draft generated"],
-  ["09:48", "Customer update sent"],
-  ["10:05", "Engineer assigned"],
+  ["09:42", "Missed call captured — leaking tap"],
+  ["09:44", "Job card created"],
+  ["09:46", "Quote draft ready to check"],
+  ["09:48", "Customer text prepared"],
 ];
 
-const foundingBeta = [
+// TODO(stripe): Wire real Stripe Checkout for £29 / £49 when STRIPE_* keys and checkout routes exist.
+// Package is installed but no checkout API is substantially set up — keep offer copy-only for now.
+const plans = [
   [
-    "foundingBeta",
-    "Free",
-    "For the first 15 suitable trade businesses that sign up and give honest feedback.",
+    "Starter",
+    "£29",
+    "For a sole-trader plumber. Enquiry → job card → quote or customer text on your phone.",
   ],
   [
-    "What we ask",
-    "Feedback",
-    "Use the beta, test the workflows, and tell us what would actually help your trade business day to day.",
-  ],
-  [
-    "After beta",
-    "Paid plans later",
-    "foundingBeta will open after the foundingBeta once the product is shaped around real trade businesses.",
+    "Growth",
+    "£49",
+    "For a small 2-van plumbing team. Same core flow, a bit more room to organise jobs and updates.",
   ],
 ];
 
 const trust = [
-  "Built in the UK for small trade businesses",
-  "No technical setup needed to understand the demo",
+  "Built in the UK for sole-trader and 2-van plumbers",
+  "One clear launch flow — not a multi-trade suite",
   "AI drafts, you stay in control",
-  "Human handover when the job needs judgement",
+  "Demo shows the workflow; live phone-AI is not claimed here",
 ];
 
 export default function HomePage({
@@ -84,7 +73,7 @@ export default function HomePage({
 }: {
   searchParams?: { beta?: string };
 }) {
-  const betaThanks = searchParams?.beta === "thanks";
+  const leadThanks = searchParams?.beta === "thanks";
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#020817] text-white">
@@ -106,47 +95,46 @@ export default function HomePage({
 
           <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/10 p-1 text-sm font-semibold text-slate-200 backdrop-blur md:flex">
             <a href="#how" className="rounded-full px-4 py-2 hover:bg-white/10">How it works</a>
-            <a href="#trades" className="rounded-full px-4 py-2 hover:bg-white/10">Trades</a>
-            <a href="#foundingBeta" className="rounded-full px-4 py-2 hover:bg-white/10">foundingBeta</a>
-            <a href="/book-demo" className="rounded-full px-4 py-2 hover:bg-white/10">Beta</a>
+            <a href="#pricing" className="rounded-full px-4 py-2 hover:bg-white/10">Pricing</a>
+            <Link href="/operations-demo" className="rounded-full px-4 py-2 hover:bg-white/10">Demo</Link>
           </nav>
 
           <Link
             href="/book-demo"
             className="rounded-full bg-cyan-300 px-4 py-3 text-xs font-black text-slate-950 shadow-xl shadow-cyan-950/30 sm:px-5 sm:text-sm"
           >
-            Book demo
+            Get started
           </Link>
         </header>
 
         <div className="mx-auto grid max-w-7xl items-start gap-8 px-4 pb-12 pt-6 sm:px-5 md:grid-cols-[1.05fr_0.95fr] md:items-center md:px-8 md:pb-24 md:pt-16">
           <section>
             <p className="inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-bold text-cyan-100 backdrop-blur">
-              AI receptionist and operations assistant for trade businesses
+              For sole-trader and 2-van UK plumbers
             </p>
 
             <h1 className="mt-6 max-w-5xl text-[3.35rem] font-black leading-[0.88] tracking-[-0.06em] text-white sm:text-6xl md:mt-7 md:text-8xl">
-              Stop missed calls becoming missed work.
+              Stop missed calls becoming missed jobs.
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg md:mt-7 md:text-xl">
-              TradeConnectAI helps small trade businesses answer enquiries,
-              organise jobs, create quotes and keep customers updated while the
-              team is out doing the work.
+              TradeConnectAI helps UK plumbers catch enquiries, turn them into
+              job cards, and send a quote or customer text — while you are still
+              on the tools.
             </p>
 
             <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap">
               <Link
-                href="/book-demo"
+                href="/operations-demo"
                 className="w-full rounded-full bg-white px-6 py-4 text-center text-sm font-black text-slate-950 shadow-2xl shadow-black/30 sm:w-auto"
               >
-                Claim free beta spot
+                Open operations demo
               </Link>
               <Link
-                href="/operations-demo"
+                href="/book-demo"
                 className="w-full rounded-full border border-white/20 bg-white/10 px-6 py-4 text-center text-sm font-black text-white backdrop-blur hover:bg-white/15 sm:w-auto"
               >
-                Open operations demo
+                Get started — from £29/mo
               </Link>
             </div>
 
@@ -165,17 +153,17 @@ export default function HomePage({
 
           <section className="rounded-[1.5rem] border border-cyan-300/20 bg-cyan-300/10 p-4 shadow-2xl shadow-cyan-950/20 md:hidden">
             <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
-              Demo snapshot
+              Launch flow
             </p>
             <h2 className="mt-3 text-2xl font-black text-white">
-              New enquiry captured
+              Enquiry → job card → quote or text
             </h2>
             <div className="mt-4 grid gap-2">
               {[
                 "Customer details saved",
                 "Job card created",
                 "Quote draft ready",
-                "Customer update prepared",
+                "Customer text prepared",
               ].map((item) => (
                 <div
                   key={item}
@@ -192,7 +180,7 @@ export default function HomePage({
               <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950">
                 <img
                   src={cardImageOne}
-                  alt="Trade team dashboard"
+                  alt="Plumber job dashboard"
                   className="h-72 w-full object-cover opacity-100 md:h-96"
                 />
 
@@ -200,7 +188,7 @@ export default function HomePage({
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-sm font-bold uppercase tracking-[0.22em] text-cyan-300">
-                        Live job captured
+                        Job captured
                       </p>
                       <h2 className="mt-3 text-3xl font-black">
                         Emergency call logged
@@ -216,7 +204,7 @@ export default function HomePage({
                       "Customer details captured",
                       "Job card created",
                       "Quote ready to send",
-                      "Customer update prepared",
+                      "Customer text prepared",
                     ].map((item) => (
                       <div
                         key={item}
@@ -233,7 +221,7 @@ export default function HomePage({
             <div className="absolute -bottom-8 -right-4 hidden w-56 overflow-hidden rounded-3xl border border-white/15 bg-white/10 p-2 shadow-2xl shadow-black/30 backdrop-blur md:block">
               <img
                 src={cardImageTwo}
-                alt="Customer update dashboard"
+                alt="Customer update on phone"
                 className="h-44 w-full rounded-2xl object-cover"
               />
             </div>
@@ -244,23 +232,26 @@ export default function HomePage({
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="grid gap-5 md:grid-cols-3">
           {features.map((feature) => (
-            <Link
+            <div
               key={feature.title}
-              href={feature.href}
-              className="group rounded-[2rem] border border-white/10 bg-white/[0.05] p-7 shadow-2xl shadow-slate-950/20 transition hover:-translate-y-1 hover:bg-white/[0.08]"
+              className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-7 shadow-2xl shadow-slate-950/20"
             >
               <h2 className="text-3xl font-black">{feature.title}</h2>
               <p className="mt-4 text-sm leading-7 text-slate-400">
                 {feature.text}
               </p>
-              <p className="mt-6 text-sm font-black text-cyan-300">
-                Open demo
-              </p>
-            </Link>
+            </div>
           ))}
         </div>
+        <div className="mt-8">
+          <Link
+            href="/operations-demo"
+            className="inline-flex rounded-full bg-cyan-300 px-6 py-4 text-sm font-black text-slate-950"
+          >
+            See the flow in the operations demo
+          </Link>
+        </div>
       </section>
-
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
@@ -272,20 +263,21 @@ export default function HomePage({
               You are on the tools. The office still needs to move.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-400">
-              Most trades do not lose work because they are bad at the job.
+              Most plumbers do not lose work because they are bad at the job.
               They lose it because the phone rings while they are driving,
-              measuring up, carrying materials, finishing a job or talking to a customer.
+              under a sink, finishing a boiler job or talking to a customer.
             </p>
 
-            <div className="mt-6 rounded-[2rem] border border-emerald-300/30 bg-emerald-300/10 p-6 text-emerald-100">
+            <div className="mt-6 rounded-[2rem] border border-cyan-300/30 bg-cyan-300/10 p-6 text-cyan-100">
               <p className="text-sm font-black uppercase tracking-[0.2em]">
-                foundingBeta
+                Simple pricing
               </p>
               <p className="mt-2 text-lg font-black text-white">
-                Free for the first 15 trade businesses that sign up and give honest feedback.
+                £29 or £49 per month — no free founding-beta framing.
               </p>
-              <p className="mt-2 text-sm leading-6 text-emerald-100/85">
-                Try it with realistic calls, job notes, quotes and customer updates before paid plans open.
+              <p className="mt-2 text-sm leading-6 text-cyan-100/85">
+                {/* TODO(stripe): connect Checkout when keys + routes are ready */}
+                Checkout wiring is not live yet — request access and we will sort billing with you.
               </p>
             </div>
           </div>
@@ -295,22 +287,22 @@ export default function HomePage({
               {
                 time: "08:14",
                 title: "Phone rings while driving to first job",
-                text: "AI captures the enquiry, customer name, address, trade needed and urgency.",
+                text: "Enquiry details are captured: customer name, address, issue and urgency.",
               },
               {
                 time: "09:37",
                 title: "Customer asks for an update while you are working",
-                text: "A clear update is prepared so they know what is happening without chasing again.",
+                text: "A short customer text is prepared so they know what is happening.",
               },
               {
                 time: "11:22",
                 title: "Quote request comes in during a job",
-                text: "The details are organised into a quote draft for you to check later.",
+                text: "Details are organised into a quote draft for you to check later.",
               },
               {
                 time: "14:05",
                 title: "Missed call becomes a job card",
-                text: "Instead of a voicemail disappearing, the lead lands in your dashboard ready to follow up.",
+                text: "Instead of a voicemail disappearing, the lead lands ready to follow up.",
               },
             ].map((item) => (
               <div
@@ -333,7 +325,6 @@ export default function HomePage({
           </div>
         </div>
       </section>
-
 
       <section id="how" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="max-w-3xl">
@@ -361,24 +352,23 @@ export default function HomePage({
         </div>
       </section>
 
-      <section id="trades" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+      <section id="plumbers" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-              Built for trades
+              One customer type
             </p>
             <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] md:text-6xl">
-              Practical help for busy teams.
+              Sole-trader and 2-van UK plumbers.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-400">
-              Start with one workflow, then build towards the full beta.
-              The aim is simple: fewer missed enquiries, less admin and better
-              customer communication.
+              Launch focus is plumbing only. Multi-trade messaging for builders,
+              landscapers, cleaners and decorators is parked — not the public pitch.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {trades.map(([title, text]) => (
+          <div className="grid gap-4 sm:grid-cols-1">
+            {plumberFocus.map(([title, text]) => (
               <div
                 key={title}
                 className="rounded-3xl border border-white/10 bg-white/[0.04] p-5"
@@ -395,10 +385,10 @@ export default function HomePage({
         <div className="grid gap-6 lg:grid-cols-[1fr_0.85fr]">
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
             <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-              Demo preview
+              Example day (illustrative)
             </p>
             <h2 className="mt-4 text-4xl font-black tracking-[-0.04em]">
-              Today&apos;s live activity.
+              What the flow looks like.
             </h2>
 
             <div className="mt-8 space-y-3">
@@ -418,22 +408,21 @@ export default function HomePage({
 
           <div className="rounded-[2rem] border border-cyan-300/20 bg-cyan-300/10 p-6">
             <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-200">
-              Demo stats
+              What you get
             </p>
             <div className="mt-8 grid gap-4">
               {[
-                ["Calls captured", "12"],
-                ["Jobs created", "8"],
-                ["Quotes sent", "5"],
-                ["Customer updates", "17"],
-                ["Estimated missed revenue saved", "£1,840"],
+                ["Core flow", "Enquiry → job → quote/text"],
+                ["Built for", "UK plumbers"],
+                ["Demo", "Operations demo"],
+                ["Pricing", "£29 / £49"],
               ].map(([label, value]) => (
                 <div
                   key={label}
                   className="rounded-2xl border border-white/10 bg-black/30 p-4"
                 >
                   <p className="text-sm text-slate-400">{label}</p>
-                  <p className="mt-1 text-3xl font-black">{value}</p>
+                  <p className="mt-1 text-2xl font-black">{value}</p>
                 </div>
               ))}
             </div>
@@ -441,43 +430,39 @@ export default function HomePage({
         </div>
       </section>
 
-      <section id="foundingBeta" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+      <section id="pricing" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-            foundingBeta offer
+            Pricing
           </p>
           <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] md:text-6xl">
-            Free access for the first 15 companies.
+            Plain £29 / £49 for plumbers.
           </h2>
-        </div>
-
-        <div className="mt-6 rounded-[2rem] border border-emerald-300/30 bg-emerald-300/10 p-6 text-emerald-100">
-          <p className="text-sm font-black uppercase tracking-[0.2em]">
-            Limited foundingBeta
-          </p>
-          <p className="mt-2 text-lg font-black text-white">
-            Only 15 foundingBeta places are available.
-          </p>
-          <p className="mt-2 text-sm leading-6 text-emerald-100/85">
-            No payment during the foundingBeta. In return, we ask for honest feedback on calls, jobs, quotes and customer updates.
+          <p className="mt-4 text-sm leading-6 text-slate-400">
+            {/* TODO(stripe): Real Stripe Checkout not wired — keys/routes incomplete. */}
+            Self-serve Stripe checkout is not live yet. Use Get started and we will
+            confirm the plan with you.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {foundingBeta.map(([plan, price, text]) => (
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {plans.map(([plan, price, text]) => (
             <div
               key={plan}
               className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-7"
             >
               <h3 className="text-2xl font-black">{plan}</h3>
-              <p className="mt-4 text-4xl font-black text-cyan-200">{price}</p>
+              <p className="mt-4 text-4xl font-black text-cyan-200">
+                {price}
+                <span className="text-lg font-bold text-slate-400"> / month</span>
+              </p>
               <p className="mt-4 text-sm leading-6 text-slate-400">{text}</p>
-              <a
+              <Link
                 href="/book-demo"
                 className="mt-6 inline-flex rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950"
               >
-                Claim free beta spot
-              </a>
+                Get started
+              </Link>
             </div>
           ))}
         </div>
@@ -498,22 +483,23 @@ export default function HomePage({
         </div>
       </section>
 
-      <section id="beta" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+      <section id="get-started" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="grid gap-8 rounded-[2rem] border border-cyan-300/20 bg-cyan-300/10 p-7 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-200">
-              Beta access
+              Get started
             </p>
             <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] md:text-6xl">
-              Want to try it with your trade business?
+              Running a plumbing van and drowning in missed calls?
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-300">
-              Tell us what you do and what you need help with. The first 15 trade businesses that sign up and give honest feedback get beta access free.
+              Tell us about your setup. Plans are £29 or £49 per month for
+              sole-trader and 2-van UK plumbers.
             </p>
 
-            {betaThanks ? (
+            {leadThanks ? (
               <div className="mt-6 rounded-3xl border border-emerald-300/30 bg-emerald-300/10 p-5 text-emerald-100">
-                Thanks. Your beta request has been captured.
+                Thanks. Your request has been captured.
               </div>
             ) : null}
           </div>
@@ -523,16 +509,17 @@ export default function HomePage({
             method="post"
             className="grid gap-4 rounded-[1.5rem] border border-white/10 bg-slate-950/70 p-5"
           >
+            <input type="hidden" name="offer" value="Plumber plans: £29 / £49 per month (Stripe checkout TODO)" />
             <input name="name" required placeholder="Your name" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
             <input name="business" required placeholder="Business name" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
-            <input name="trade" required placeholder="Trade, e.g. plumber, electrician, builder" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
+            <input name="trade" required defaultValue="Plumber" placeholder="Trade (plumber)" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
             <div className="grid gap-4 md:grid-cols-2">
               <input name="phone" placeholder="Phone" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
               <input name="email" type="email" required placeholder="Email" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
             </div>
             <textarea name="help" rows={4} placeholder="What do you need help with most?" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
             <button type="submit" className="rounded-full bg-cyan-300 px-6 py-4 text-sm font-black text-slate-950">
-              Claim free beta spot
+              Get started
             </button>
           </form>
         </div>
@@ -540,12 +527,3 @@ export default function HomePage({
     </main>
   );
 }
-
-
-
-
-
-
-
-
-

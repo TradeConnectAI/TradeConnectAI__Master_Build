@@ -17,3 +17,9 @@ backups/
 build-fix-log-*.txt
 vercel-deploy-log-*.txt
 backups/
+
+# Never ship beta login credential docs
+BARRY-BETA-LOGIN.txt
+COMPLETE_OPTIONS_BETA_ROUTES.txt
+*BETA-LOGIN*.txt
+*beta-login*.txt
