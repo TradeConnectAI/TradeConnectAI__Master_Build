@@ -12,7 +12,13 @@ export default function SiteFooter() {
           <p className="mt-4 text-sm leading-6 text-slate-400">
             Practical job flow for sole-trader and 2-van UK plumbers. From £29/mo.
           </p>
-          <p className="mt-4 text-sm text-slate-500">steven.neilson@tradeconnectai.co.uk</p>
+          <p className="mt-4 text-sm font-bold text-slate-300">Steve · TradeConnectAI</p>
+          <a
+            href="mailto:steven.neilson@tradeconnectai.co.uk"
+            className="mt-1 block text-sm text-cyan-200 underline underline-offset-4 hover:text-cyan-100"
+          >
+            steven.neilson@tradeconnectai.co.uk
+          </a>
         </div>
 
         <div>

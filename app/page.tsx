@@ -52,13 +52,13 @@ const plans = [
     "Starter",
     "starter",
     "£29",
-    "For a sole-trader plumber. Enquiry → job card → quote or customer text on your phone.",
+    "The core enquiry → job card → quote or customer-update workflow.",
   ],
   [
     "Growth",
     "growth",
     "£49",
-    "For a small 2-van plumbing team. Same core flow, a bit more room to organise jobs and updates.",
+    "Everything in Starter, plus TradeConnectAI captures and organises the incoming job details for you, reducing the admin you need to do yourself.",
   ],
 ] as const;
 
@@ -107,7 +107,6 @@ export default function HomePage({
           <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/10 p-1 text-sm font-semibold text-slate-200 backdrop-blur md:flex">
             <a href="#how" className="rounded-full px-4 py-2 hover:bg-white/10">How it works</a>
             <a href="#pricing" className="rounded-full px-4 py-2 hover:bg-white/10">Pricing</a>
-            <Link href="/operations-demo" className="rounded-full px-4 py-2 hover:bg-white/10">Demo</Link>
           </nav>
 
           <Link
@@ -136,10 +135,10 @@ export default function HomePage({
 
             <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap">
               <Link
-                href="/operations-demo"
+                href="#how"
                 className="w-full rounded-full bg-white px-6 py-4 text-center text-sm font-black text-slate-950 shadow-2xl shadow-black/30 sm:w-auto"
               >
-                Open operations demo
+                See how it works
               </Link>
               <Link
                 href="/book-demo"
@@ -256,10 +255,10 @@ export default function HomePage({
         </div>
         <div className="mt-8">
           <Link
-            href="/operations-demo"
+            href="#how"
             className="inline-flex rounded-full bg-cyan-300 px-6 py-4 text-sm font-black text-slate-950"
           >
-            See the flow in the operations demo
+            See how it works
           </Link>
         </div>
       </section>
@@ -513,6 +512,16 @@ export default function HomePage({
               Tell us about your setup. Plans are £29 or £49 per month for
               sole-trader and 2-van UK plumbers.
             </p>
+
+            <div className="mt-6 text-sm leading-6 text-slate-300">
+              <p className="font-bold text-white">Steve · TradeConnectAI</p>
+              <a
+                href="mailto:steven.neilson@tradeconnectai.co.uk"
+                className="text-cyan-200 underline underline-offset-4 hover:text-cyan-100"
+              >
+                steven.neilson@tradeconnectai.co.uk
+              </a>
+            </div>
 
             {leadThanks ? (
               <div className="mt-6 rounded-3xl border border-emerald-300/30 bg-emerald-300/10 p-5 text-emerald-100">
