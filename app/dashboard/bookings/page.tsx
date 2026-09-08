@@ -8,7 +8,7 @@
 
                     <div className="mb-12">
                         <h1 className="text-2xl font-black text-blue-400">
-                            Trade Connect AI
+                            TradeConnectAI
                         </h1>
 
                         <p className="mt-2 text-sm text-white/50">

@@ -1,14 +1,13 @@
 import Link from "next/link";
+import TradeConnectLogo from "@/components/TradeConnectLogo";
 
 export default function ThanksPage() {
   return (
     <main className="min-h-screen bg-[#020817] px-5 py-12 text-white">
       <section className="mx-auto max-w-3xl rounded-[2rem] border border-cyan-300/20 bg-cyan-300/10 p-8 text-center">
-        <img
-          src="/brand/tradeconnect-logo-clean.png"
-          alt="TradeConnectAI"
-          className="mx-auto h-16 w-auto rounded-2xl object-contain"
-        />
+        <div className="mx-auto flex justify-center">
+          <TradeConnectLogo variant="compact" className="mx-auto" />
+        </div>
 
         <p className="mt-8 inline-flex rounded-full border border-emerald-300/30 bg-emerald-300/10 px-4 py-2 text-sm font-bold text-emerald-100">
           Request received

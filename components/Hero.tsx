@@ -1,6 +1,5 @@
 ﻿import TradeConnectLogo from "@/components/TradeConnectLogo";
 import BrandWatermark from "@/components/BrandWatermark";
-import Image from "next/image";
 
 const calendlyLink = "https://calendly.com/stevenneilsonvoda/30min";
 
@@ -17,21 +16,10 @@ export default function Hero() {
         {/* TOP BRANDING */}
         <div className="mb-20 flex flex-col items-center justify-center text-center">
 
-          <Image
-            src="/brand/tradeconnect-logo.jpeg"
-            alt="TradeConnectAI"
-            width={260}
-            height={260}
-            priority
-            className="mb-6 w-[180px] md:w-[260px] h-auto object-contain"
-          />
+          <TradeConnectLogo variant="hero" className="mb-6" />
 
           <p className="text-sm md:text-xl font-semibold uppercase tracking-[0.6em] text-white">
-            FOR TRADES
-          </p>
-
-          <p className="mt-4 text-xs md:text-sm uppercase tracking-[0.35em] text-blue-300">
-            AI Receptionist For Busy Trades
+            AI POWERED. TRADE FOCUSED.
           </p>
 
         </div>

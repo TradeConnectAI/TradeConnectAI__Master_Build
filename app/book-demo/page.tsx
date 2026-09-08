@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import TradeConnectLogo from "@/components/TradeConnectLogo";
 
 const needs = [
   "Missed calls",
@@ -18,13 +19,7 @@ export default function BookDemoPage() {
     <main className="min-h-screen bg-[#020817] text-white">
       <section className="mx-auto max-w-7xl px-5 py-8 md:px-8">
         <header className="flex items-center justify-between gap-5">
-          <Link href="/" className="flex items-center gap-3">
-            <img
-              src="/brand/tradeconnect-logo-clean.png"
-              alt="TradeConnectAI"
-              className="h-14 w-auto rounded-2xl object-contain md:h-16"
-            />
-          </Link>
+          <TradeConnectLogo variant="nav" />
 
           <Link
             href="/operations-demo"

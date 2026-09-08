@@ -58,7 +58,7 @@ export default function CompleteOptionsLoginPage() {
 
               <div className="mt-10">
                 <p className="text-sm font-bold uppercase tracking-[0.35em] text-sky-500">
-                  Powered by Trade Connect AI
+                  Powered by TradeConnectAI
                 </p>
                 <h1 className="mt-4 text-4xl font-black tracking-tight text-[#0b4f9c] md:text-5xl">
                   Complete Options Beta Portal

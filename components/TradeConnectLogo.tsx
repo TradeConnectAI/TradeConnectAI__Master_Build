@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
 type TradeConnectLogoProps = {
@@ -7,6 +7,8 @@ type TradeConnectLogoProps = {
   variant?: "nav" | "hero" | "compact";
 };
 
+const SRC = "/brand/tradeconnect-logo-header.png";
+
 export default function TradeConnectLogo({
   href = "/",
   className = "",
@@ -14,20 +16,20 @@ export default function TradeConnectLogo({
 }: TradeConnectLogoProps) {
   const size =
     variant === "hero"
-      ? "h-24 w-[360px] sm:h-28 sm:w-[430px]"
+      ? "h-24 w-[280px] sm:h-28 sm:w-[340px]"
       : variant === "compact"
-        ? "h-10 w-[150px]"
-        : "h-14 w-[250px]";
+        ? "h-10 w-[140px]"
+        : "h-12 w-[200px] sm:h-14 sm:w-[240px]";
 
   return (
     <Link
       href={href}
-      aria-label="Trade Connect AI home"
+      aria-label="TradeConnectAI home"
       className={`relative block shrink-0 ${size} ${className}`}
     >
       <Image
-        src="/brand/tradeconnect-logo-clean.png"
-        alt="Trade Connect AI"
+        src={SRC}
+        alt="TradeConnectAI"
         fill
         priority
         sizes="(max-width: 768px) 180px, 260px"
