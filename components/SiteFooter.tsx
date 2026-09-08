@@ -6,10 +6,13 @@ export default function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
         <div>
           <div className="text-xl font-black">TradeConnectAI</div>
-          <p className="mt-4 text-sm leading-6 text-slate-400">
-            Practical job flow for sole-trader and 2-van UK plumbers.
+          <p className="mt-2 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300">
+            AI POWERED. TRADE FOCUSED.
           </p>
-          <p className="mt-4 text-sm text-slate-500">info@TradeConnectAI.co.uk</p>
+          <p className="mt-4 text-sm leading-6 text-slate-400">
+            Practical job flow for sole-trader and 2-van UK plumbers. From £29/mo.
+          </p>
+          <p className="mt-4 text-sm text-slate-500">steven.neilson@tradeconnectai.co.uk</p>
         </div>
 
         <div>

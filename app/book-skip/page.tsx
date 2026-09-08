@@ -211,7 +211,7 @@ export default function BookSkipPage() {
       {chatOpen && (
         <div className="fixed bottom-24 right-6 w-[360px] max-w-[calc(100vw-3rem)] overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-2xl">
           <div className="bg-cyan-400 px-5 py-4 text-slate-950">
-            <p className="font-bold">Trade Connect AI Assistant</p>
+            <p className="font-bold">TradeConnectAI Assistant</p>
             <p className="text-xs font-semibold">? Online</p>
           </div>
 

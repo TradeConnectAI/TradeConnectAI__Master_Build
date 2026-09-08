@@ -2,7 +2,7 @@
 
 const messages = [
   {
-    from: "Trade Connect AI",
+    from: "TradeConnectAI",
     text: "Your engineer has been assigned and is preparing to leave.",
     time: "08:46",
     type: "system",

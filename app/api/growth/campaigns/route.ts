@@ -16,7 +16,7 @@ type CampaignBody = {
 function brandName(tenant?: string) {
   if (tenant === "install-jobs") return "TradeConnectAI";
   if (tenant === "complete-options") return "Complete Options";
-  return "Trade Connect AI";
+  return "TradeConnectAI";
 }
 
 function buildAssets(body: CampaignBody) {

@@ -45,7 +45,7 @@ export default function AiReceptionistPage() {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            When you're on the tools, driving or dealing with a customer, Trade Connect AI helps capture enquiries so they don't vanish into voicemail.
+            When you're on the tools, driving or dealing with a customer, TradeConnectAI helps capture enquiries so they don't vanish into voicemail.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">

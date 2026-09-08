@@ -1,15 +1,18 @@
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import CheckoutButton from "@/components/CheckoutButton";
 
 const planCards = [
   {
     title: "Starter",
+    plan: "starter" as const,
     price: "£29",
     text: "Sole-trader UK plumber. Enquiry → job card → quote or customer text on your phone.",
   },
   {
     title: "Growth",
+    plan: "growth" as const,
     price: "£49",
     text: "Small 2-van plumbing team. Same core flow with a bit more room to organise jobs and updates.",
   },
@@ -32,16 +35,16 @@ export default function PricingPage() {
       <section className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-20">
         <div className="max-w-4xl">
           <p className="inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-bold text-cyan-100">
-            Pricing for UK plumbers
+            AI POWERED. TRADE FOCUSED.
           </p>
 
           <h1 className="mt-7 text-5xl font-black leading-[0.9] tracking-[-0.055em] md:text-7xl">
-            Plain £29 / £49 — no free founding beta.
+            Plain £29 / £49 for UK plumbers.
           </h1>
 
           <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-            One customer type: sole-trader and 2-van UK plumbers. Stripe Checkout is
-            available for Starter £29 / Growth £49 — or book a demo if you prefer to talk first.
+            One customer type: sole-trader and 2-van UK plumbers. Start Starter or Growth
+            with Stripe Checkout — or book a demo if you prefer to talk first.
           </p>
         </div>
 
@@ -59,6 +62,12 @@ export default function PricingPage() {
               <p className="mt-4 text-sm leading-6 text-slate-400">
                 {card.text}
               </p>
+              <CheckoutButton
+                plan={card.plan}
+                className="mt-6 inline-flex rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950 disabled:opacity-70"
+              >
+                Get started — {card.price}/mo
+              </CheckoutButton>
             </article>
           ))}
         </div>
