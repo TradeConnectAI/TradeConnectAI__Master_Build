@@ -8,13 +8,13 @@ const planCards = [
     title: "Starter",
     plan: "starter" as const,
     price: "£29",
-    text: "Sole-trader UK plumber. Enquiry → job card → quote or customer text on your phone.",
+    text: "The core enquiry → job card → quote or customer-update workflow.",
   },
   {
     title: "Growth",
     plan: "growth" as const,
     price: "£49",
-    text: "Small 2-van plumbing team. Same core flow with a bit more room to organise jobs and updates.",
+    text: "Everything in Starter, plus TradeConnectAI captures and organises the incoming job details for you, reducing the admin you need to do yourself.",
   },
 ];
 

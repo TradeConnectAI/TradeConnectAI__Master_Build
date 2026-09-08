@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
   const offer =
     clean(formData.get("offer")) ||
-    "Plumber plans: £29 / £49 per month (Stripe checkout TODO)";
+    "Plumber plans: £29 / £49 per month (Stripe Checkout)";
 
   const lead: BetaLead = {
     id:

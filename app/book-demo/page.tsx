@@ -101,8 +101,15 @@ export default function BookDemoPage() {
           >
             <h2 className="text-3xl font-black">Request access</h2>
             <p className="mt-3 text-sm leading-6 text-slate-400">
-              Fill this in and it will send through as a lead. Once email is
-              connected, it will also email the enquiry through.
+              Fill this in to send your details to TradeConnectAI. Prefer email? Contact{" "}
+              <span className="font-bold text-white">Steve</span> at{" "}
+              <a
+                href="mailto:steven.neilson@tradeconnectai.co.uk"
+                className="text-cyan-200 underline underline-offset-4 hover:text-cyan-100"
+              >
+                steven.neilson@tradeconnectai.co.uk
+              </a>
+              .
             </p>
 
             <form
@@ -114,7 +121,7 @@ export default function BookDemoPage() {
               <input
                 type="hidden"
                 name="offer"
-                value="Plumber plans: £29 / £49 per month (Stripe checkout TODO)"
+                value="Plumber plans: £29 / £49 per month (Stripe Checkout)"
               />
 
               <div className="grid gap-4 md:grid-cols-2">
@@ -239,4 +246,3 @@ export default function BookDemoPage() {
     </main>
   );
 }
-
