@@ -1,555 +1,334 @@
+import Image from "next/image";
 import Link from "next/link";
-import CheckoutButton from "@/components/CheckoutButton";
-import TradeConnectLogo from "@/components/TradeConnectLogo";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import { APP_SIGNIN_URL, APP_SIGNUP_URL, CONTACT_EMAIL, FEEDBACK_PATH } from "@/lib/site-links";
 
-const heroImage = "/homepage/trade-engineer-tools.svg";
-const cardImageOne = "/homepage/trade-van-worker.svg";
-const cardImageTwo = "/homepage/trade-job-site.svg";
-
-const stats = [
-  ["Missed calls", "Captured"],
-  ["Job cards", "Organised"],
-  ["Customer texts", "Ready to send"],
+const workflow = [
+  ["Customer gets in touch", "A call, text or message comes in. Log it as a new enquiry before it gets lost."],
+  ["Create the job", "Name, address, the issue and how urgent it is — one job, one place."],
+  ["Add photos and measurements", "Snap the job on site and keep the measurements and notes with it."],
+  ["Build the quote", "Labour, materials, call-out and VAT. Your figures, your words."],
+  ["Book it into the calendar", "Pick a slot and keep it with the job and the customer."],
+  ["Keep the customer updated", "Send a clear update without typing the same message again."],
+  ["Complete the job", "Mark it done with the photos and notes kept on the job history."],
 ];
 
-const features = [
-  {
-    title: "Enquiry in",
-    text: "A customer calls or messages while you are on a job. The details are caught so the lead does not disappear.",
-  },
-  {
-    title: "Job card",
-    text: "Name, address, issue and urgency land as a clear job card you can open on your phone.",
-  },
-  {
-    title: "Quote or customer text",
-    text: "Draft a quote or send a short update from the same flow — built for a sole-trader or 2-van plumber day.",
-  },
+const quoteHelp = [
+  ["Job photos", "Photos stay on the job they belong to, not lost in your camera roll."],
+  ["Measurements", "Write dimensions down once and keep them with the job."],
+  ["Notes", "What you saw, what you need, what to check next time."],
+  ["Customer info", "Name, address and contact details ready when you need them."],
+  ["Materials", "List the materials you need for the job and build them into the quote."],
+  ["Quote preparation", "Pull it together into an editable quote you check before it goes out."],
 ];
 
-const plumberFocus = [
-  ["Sole trader / 2-van", "Built for UK plumbers running one or two vans — not a multi-trade platform."],
-  ["Leaks and boilers", "Capture urgent callouts, boiler jobs and follow-ups while you are on the tools."],
-  ["Phone-usable", "Check the job card, send a quote draft or customer text without sitting at a desk."],
+const dailyApp = [
+  ["Today", "Enquiries, quotes to send, callbacks, parts to collect and today’s jobs."],
+  ["Jobs", "Every job with its status, history and next action."],
+  ["Customers", "Contact details and the work you’ve done for them."],
+  ["Quotes", "Draft, check and send — nothing sends itself."],
+  ["Calendar", "Book jobs into slots and see the week ahead."],
+  ["Messages", "Replies and updates to customers, ready to review."],
+  ["Photos", "Site photos kept with the right job."],
+  ["Job notes", "The details you’d normally scribble on a receipt."],
 ];
 
-const steps = [
-  ["1", "Customer calls or messages", "TradeConnectAI catches the enquiry while you are busy."],
-  ["2", "Job card is created", "Name, contact, address, issue, urgency and notes are organised."],
-  ["3", "Quote or customer text", "Send a quote draft or a clear update from your phone."],
-  ["4", "You stay in control", "AI drafts; you check and send. No fake live phone AI claims."],
+const aiHelp = [
+  "Help writing replies to customers",
+  "Organising rough notes into something tidy",
+  "Preparing a first draft of a quote",
+  "Turning photos and measurements into job info",
+  "Cutting down the repetitive admin",
 ];
 
-const activity = [
-  ["09:42", "Missed call captured — leaking tap"],
-  ["09:44", "Job card created"],
-  ["09:46", "Quote draft ready to check"],
-  ["09:48", "Customer text prepared"],
-];
+function BetaBadge({ tone = "dark" }: { tone?: "dark" | "light" }) {
+  return (
+    <span className={`tc-beta ${tone === "light" ? "!text-copper" : ""}`}>
+      <span aria-hidden="true" className="inline-block h-2 w-2 bg-copper" />
+      Beta
+    </span>
+  );
+}
 
-const plans = [
-  [
-    "Starter",
-    "starter",
-    "£29",
-    "The core enquiry → job card → quote or customer-update workflow.",
-  ],
-  [
-    "Growth",
-    "growth",
-    "£49",
-    "Everything in Starter, plus TradeConnectAI captures and organises the incoming job details for you, reducing the admin you need to do yourself.",
-  ],
-] as const;
-
-const trust = [
-  "Built in the UK for sole-trader and 2-van plumbers",
-  "One clear launch flow — not a multi-trade suite",
-  "AI drafts, you stay in control",
-  "Demo shows the workflow; live phone-AI is not claimed here",
-];
-
-export default function HomePage({
+export default async function HomePage({
   searchParams,
 }: {
-  searchParams?: { beta?: string; checkout?: string };
+  searchParams?: Promise<{ checkout?: string }>;
 }) {
-  const leadThanks = searchParams?.beta === "thanks";
-  const checkoutSuccess = searchParams?.checkout === "success";
-  const checkoutCancelled = searchParams?.checkout === "cancelled";
+  const params = (await searchParams) ?? {};
+  const checkoutSuccess = params.checkout === "success";
+  const checkoutCancelled = params.checkout === "cancelled";
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#020817] text-white">
+    <main className="tc-site min-h-screen bg-cream text-ink">
+      <SiteHeader />
+
       {checkoutSuccess ? (
-        <div className="border-b border-emerald-300/30 bg-emerald-300/10 px-5 py-3 text-center text-sm font-bold text-emerald-100 md:px-8">
-          Checkout complete — thanks. We will confirm your plumber plan shortly.
+        <div role="status" className="border-b-2 border-ok bg-surface px-4 py-3 text-center text-base font-semibold text-ok">
+          Checkout complete — thanks. We&apos;ll be in touch to confirm your plan.
         </div>
       ) : null}
       {checkoutCancelled ? (
-        <div className="border-b border-amber-300/30 bg-amber-300/10 px-5 py-3 text-center text-sm font-bold text-amber-100 md:px-8">
-          Checkout cancelled. You can try again below or{" "}
-          <Link href="/book-demo" className="underline">
-            book a demo
-          </Link>
-          .
+        <div role="status" className="border-b-2 border-caution bg-surface px-4 py-3 text-center text-base font-semibold text-ink">
+          Checkout cancelled. No payment was taken.{" "}
+          <Link href="/pricing" className="underline underline-offset-4">Back to pricing</Link>
         </div>
       ) : null}
-      <section className="relative isolate min-h-screen">
-        <div
-          className="absolute inset-0 -z-20 bg-cover bg-center opacity-75"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.30),transparent_34%),linear-gradient(90deg,rgba(2,8,23,0.98),rgba(2,8,23,0.76),rgba(2,8,23,0.95))]" />
 
-        <header className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-5 md:px-8">
-          <TradeConnectLogo variant="nav" />
-
-          <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/10 p-1 text-sm font-semibold text-slate-200 backdrop-blur md:flex">
-            <a href="#how" className="rounded-full px-4 py-2 hover:bg-white/10">How it works</a>
-            <a href="#pricing" className="rounded-full px-4 py-2 hover:bg-white/10">Pricing</a>
-          </nav>
-
-          <Link
-            href="/book-demo"
-            className="rounded-full bg-cyan-300 px-4 py-3 text-xs font-black text-slate-950 shadow-xl shadow-cyan-950/30 sm:px-5 sm:text-sm"
-          >
-            Get started
-          </Link>
-        </header>
-
-        <div className="mx-auto grid max-w-7xl items-start gap-8 px-4 pb-12 pt-6 sm:px-5 md:grid-cols-[1.05fr_0.95fr] md:items-center md:px-8 md:pb-24 md:pt-16">
-          <section>
-            <p className="inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-bold text-cyan-100 backdrop-blur">
-              For sole-trader and 2-van UK plumbers
-            </p>
-
-            <h1 className="mt-6 max-w-5xl text-[3.35rem] font-black leading-[0.88] tracking-[-0.06em] text-white sm:text-6xl md:mt-7 md:text-8xl">
-              Stop missed calls becoming missed jobs.
+      {/* Hero */}
+      <section className="bg-navy text-cream">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-14 pt-10 sm:px-6 md:grid-cols-[1.15fr_0.85fr] md:pb-20 md:pt-16">
+          <div>
+            <div className="flex flex-wrap items-center gap-3">
+              <BetaBadge tone="light" />
+              <span className="tc-eyebrow !text-cream/85">Built for trades · Van Desk</span>
+            </div>
+            <h1 className="mt-5 text-[2.6rem] font-bold leading-[1.02] sm:text-6xl md:text-[4.1rem]">
+              Your jobs. Your quotes. Your customers. <span className="text-copper">One app.</span>
             </h1>
-
-            <p className="mt-6 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg md:mt-7 md:text-xl">
-              TradeConnectAI helps UK plumbers catch enquiries, turn them into
-              job cards, and send a quote or customer text — while you are still
-              on the tools.
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-cream/90 md:text-xl">
+              Manage enquiries, jobs, photos, quotes, appointments and customer updates without
+              spending your evenings catching up on paperwork.
             </p>
+            <p className="mt-4 border-l-4 border-copper pl-3 text-lg font-semibold">More jobs. Less admin.</p>
 
-            <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap">
-              <Link
-                href="#how"
-                className="w-full rounded-full bg-white px-6 py-4 text-center text-sm font-black text-slate-950 shadow-2xl shadow-black/30 sm:w-auto"
-              >
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <a href={APP_SIGNUP_URL} className="tc-btn tc-btn-primary text-lg sm:min-w-[180px]">
+                Try the app
+              </a>
+              <a href="#how-it-works" className="tc-btn tc-btn-ghost-light">
                 See how it works
-              </Link>
-              <Link
-                href="/book-demo"
-                className="w-full rounded-full border border-white/20 bg-white/10 px-6 py-4 text-center text-sm font-black text-white backdrop-blur hover:bg-white/15 sm:w-auto"
-              >
-                Get started — from £29/mo
-              </Link>
-            </div>
-
-            <div className="mt-10 grid gap-3 sm:grid-cols-3">
-              {stats.map(([label, value]) => (
-                <div
-                  key={label}
-                  className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur"
-                >
-                  <p className="text-2xl font-black text-white">{value}</p>
-                  <p className="mt-1 text-sm text-slate-300">{label}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="rounded-[1.5rem] border border-cyan-300/20 bg-cyan-300/10 p-4 shadow-2xl shadow-cyan-950/20 md:hidden">
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
-              Launch flow
-            </p>
-            <h2 className="mt-3 text-2xl font-black text-white">
-              Enquiry → job card → quote or text
-            </h2>
-            <div className="mt-4 grid gap-2">
-              {[
-                "Customer details saved",
-                "Job card created",
-                "Quote draft ready",
-                "Customer text prepared",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-sm text-slate-200"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="relative hidden md:block">
-            <div className="rounded-[2rem] border border-white/15 bg-white/10 p-4 shadow-2xl shadow-cyan-950/40 backdrop-blur">
-              <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950">
-                <img
-                  src={cardImageOne}
-                  alt="Plumber job dashboard"
-                  className="h-72 w-full object-cover opacity-100 md:h-96"
-                />
-
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-sm font-bold uppercase tracking-[0.22em] text-cyan-300">
-                        Job captured
-                      </p>
-                      <h2 className="mt-3 text-3xl font-black">
-                        Emergency call logged
-                      </h2>
-                    </div>
-                    <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-sm font-bold text-emerald-300">
-                      New
-                    </span>
-                  </div>
-
-                  <div className="mt-6 grid gap-3">
-                    {[
-                      "Customer details captured",
-                      "Job card created",
-                      "Quote ready to send",
-                      "Customer text prepared",
-                    ].map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-slate-200"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute -bottom-8 -right-4 hidden w-56 overflow-hidden rounded-3xl border border-white/15 bg-white/10 p-2 shadow-2xl shadow-black/30 backdrop-blur md:block">
-              <img
-                src={cardImageTwo}
-                alt="Customer update on phone"
-                className="h-44 w-full rounded-2xl object-cover"
-              />
-            </div>
-          </section>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="grid gap-5 md:grid-cols-3">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-7 shadow-2xl shadow-slate-950/20"
-            >
-              <h2 className="text-3xl font-black">{feature.title}</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-400">
-                {feature.text}
-              </p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-8">
-          <Link
-            href="#how"
-            className="inline-flex rounded-full bg-cyan-300 px-6 py-4 text-sm font-black text-slate-950"
-          >
-            See how it works
-          </Link>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-              Built for when you are out working
-            </p>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] md:text-6xl">
-              You are on the tools. The office still needs to move.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-400">
-              Most plumbers do not lose work because they are bad at the job.
-              They lose it because the phone rings while they are driving,
-              under a sink, finishing a boiler job or talking to a customer.
-            </p>
-
-            <div className="mt-6 rounded-[2rem] border border-cyan-300/30 bg-cyan-300/10 p-6 text-cyan-100">
-              <p className="text-sm font-black uppercase tracking-[0.2em]">
-                Simple pricing
-              </p>
-              <p className="mt-2 text-lg font-black text-white">
-                £29 or £49 per month — no free founding-beta framing.
-              </p>
-              <p className="mt-2 text-sm leading-6 text-cyan-100/85">
-                Self-serve Stripe checkout for Starter (£29) and Growth (£49). If keys are
-                missing, you can still book a demo.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid gap-4">
-            {[
-              {
-                time: "08:14",
-                title: "Phone rings while driving to first job",
-                text: "Enquiry details are captured: customer name, address, issue and urgency.",
-              },
-              {
-                time: "09:37",
-                title: "Customer asks for an update while you are working",
-                text: "A short customer text is prepared so they know what is happening.",
-              },
-              {
-                time: "11:22",
-                title: "Quote request comes in during a job",
-                text: "Details are organised into a quote draft for you to check later.",
-              },
-              {
-                time: "14:05",
-                title: "Missed call becomes a job card",
-                text: "Instead of a voicemail disappearing, the lead lands ready to follow up.",
-              },
-            ].map((item) => (
-              <div
-                key={item.time}
-                className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-5"
-              >
-                <div className="flex items-start gap-4">
-                  <span className="shrink-0 rounded-full bg-cyan-300/10 px-3 py-1 text-sm font-black text-cyan-200">
-                    {item.time}
-                  </span>
-                  <div>
-                    <h3 className="text-xl font-black text-white">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-400">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="how" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-            How it works
-          </p>
-          <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] md:text-6xl">
-            From missed call to organised job.
-          </h2>
-        </div>
-
-        <div className="mt-10 grid gap-4 md:grid-cols-4">
-          {steps.map(([number, title, text]) => (
-            <div
-              key={title}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-300 text-xl font-black text-slate-950">
-                {number}
-              </div>
-              <h3 className="mt-5 text-2xl font-black">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-400">{text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="plumbers" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-              One customer type
-            </p>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] md:text-6xl">
-              Sole-trader and 2-van UK plumbers.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-400">
-              Launch focus is plumbing only. Multi-trade messaging for builders,
-              landscapers, cleaners and decorators is parked — not the public pitch.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-1">
-            {plumberFocus.map(([title, text]) => (
-              <div
-                key={title}
-                className="rounded-3xl border border-white/10 bg-white/[0.04] p-5"
-              >
-                <h3 className="text-2xl font-black">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-400">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="grid gap-6 lg:grid-cols-[1fr_0.85fr]">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-              Example day (illustrative)
-            </p>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em]">
-              What the flow looks like.
-            </h2>
-
-            <div className="mt-8 space-y-3">
-              {activity.map(([time, text]) => (
-                <div
-                  key={`${time}-${text}`}
-                  className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/30 p-4"
-                >
-                  <span className="rounded-full bg-cyan-300/10 px-3 py-1 text-sm font-black text-cyan-200">
-                    {time}
-                  </span>
-                  <p className="text-sm text-slate-200">{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[2rem] border border-cyan-300/20 bg-cyan-300/10 p-6">
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-200">
-              What you get
-            </p>
-            <div className="mt-8 grid gap-4">
-              {[
-                ["Core flow", "Enquiry → job → quote/text"],
-                ["Built for", "UK plumbers"],
-                ["Demo", "Operations demo"],
-                ["Pricing", "£29 / £49"],
-              ].map(([label, value]) => (
-                <div
-                  key={label}
-                  className="rounded-2xl border border-white/10 bg-black/30 p-4"
-                >
-                  <p className="text-sm text-slate-400">{label}</p>
-                  <p className="mt-1 text-2xl font-black">{value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="pricing" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-            Pricing
-          </p>
-          <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] md:text-6xl">
-            Plain £29 / £49 for plumbers.
-          </h2>
-          <p className="mt-4 text-sm leading-6 text-slate-400">
-            Start Starter or Growth with Stripe Checkout — £29 or £49 a month.
-          </p>
-        </div>
-
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {plans.map(([plan, planKey, price, text]) => (
-            <div
-              key={plan}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-7"
-            >
-              <h3 className="text-2xl font-black">{plan}</h3>
-              <p className="mt-4 text-4xl font-black text-cyan-200">
-                {price}
-                <span className="text-lg font-bold text-slate-400"> / month</span>
-              </p>
-              <p className="mt-4 text-sm leading-6 text-slate-400">{text}</p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <CheckoutButton
-                  plan={planKey}
-                  className="inline-flex rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950 disabled:opacity-70"
-                >
-                  Get started — {price}/mo
-                </CheckoutButton>
-                <Link
-                  href="/book-demo"
-                  className="inline-flex rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-black text-white"
-                >
-                  Book demo
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7">
-          <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-            Trust
-          </p>
-          <div className="mt-6 grid gap-4 md:grid-cols-4">
-            {trust.map((item) => (
-              <div key={item} className="rounded-2xl bg-black/30 p-4 text-sm text-slate-200">
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="get-started" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="grid gap-8 rounded-[2rem] border border-cyan-300/20 bg-cyan-300/10 p-7 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-200">
-              Get started
-            </p>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] md:text-6xl">
-              Running a plumbing van and drowning in missed calls?
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-300">
-              Tell us about your setup. Plans are £29 or £49 per month for
-              sole-trader and 2-van UK plumbers.
-            </p>
-
-            <div className="mt-6 text-sm leading-6 text-slate-300">
-              <p className="font-bold text-white">Steve · TradeConnectAI</p>
-              <a
-                href="mailto:steven.neilson@tradeconnectai.co.uk"
-                className="text-cyan-200 underline underline-offset-4 hover:text-cyan-100"
-              >
-                steven.neilson@tradeconnectai.co.uk
               </a>
             </div>
-
-            {leadThanks ? (
-              <div className="mt-6 rounded-3xl border border-emerald-300/30 bg-emerald-300/10 p-5 text-emerald-100">
-                Thanks. Your request has been captured.
-              </div>
-            ) : null}
+            <p className="mt-4 text-base text-cream/90">
+              <span className="font-bold text-copper">Beta · 14-day free trial</span>{" · "}no card details to sign up{" · "}works in your phone&apos;s browser, nothing to install.
+            </p>
+            <p className="mt-2 text-base text-cream/90">
+              Already using it?{" "}
+              <a href={APP_SIGNIN_URL} className="inline-flex min-h-[44px] items-center font-bold text-cream underline underline-offset-4 hover:text-copper">
+                Sign in
+              </a>
+            </p>
           </div>
 
-          <form
-            action="/api/beta-leads"
-            method="post"
-            className="grid gap-4 rounded-[1.5rem] border border-white/10 bg-slate-950/70 p-5"
-          >
-            <input type="hidden" name="offer" value="Plumber plans: £29 / £49 per month (Stripe Checkout)" />
-            <input name="name" required placeholder="Your name" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
-            <input name="business" required placeholder="Business name" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
-            <input name="trade" required defaultValue="Plumber" placeholder="Trade (plumber)" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
-            <div className="grid gap-4 md:grid-cols-2">
-              <input name="phone" placeholder="Phone" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
-              <input name="email" type="email" required placeholder="Email" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
+          <figure className="mx-auto w-full max-w-[300px] md:max-w-[320px]">
+            <div className="rounded-[22px] border-[3px] border-navy-deep bg-navy-deep p-2.5 shadow-[0_6px_0_#071722]">
+              <div className="mx-auto mb-2 h-1.5 w-16 rounded-full bg-cream/25" aria-hidden="true" />
+              <Image
+                src="/app/app-preview-0.png"
+                alt="The Today’s Board screen in the TradeConnectAI app: new enquiries, quotes to send, needs callback, parts to collect and today’s jobs."
+                width={720}
+                height={1392}
+                priority
+                sizes="(max-width: 768px) 280px, 320px"
+                className="h-auto w-full rounded-[12px]"
+              />
             </div>
-            <textarea name="help" rows={4} placeholder="What do you need help with most?" className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-slate-500" />
-            <button type="submit" className="rounded-full bg-cyan-300 px-6 py-4 text-sm font-black text-slate-950">
-              Get started
-            </button>
-          </form>
+            <figcaption className="mt-3 text-center text-base text-cream/80">Today&apos;s Board, from the app&apos;s own preview.</figcaption>
+          </figure>
         </div>
       </section>
+
+      {/* Workflow */}
+      <section id="how-it-works" className="scroll-mt-20 border-b-2 border-copper">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
+          <p className="tc-eyebrow">How it works</p>
+          <h2 className="mt-2 text-4xl font-bold text-navy md:text-5xl">From first call to finished job.</h2>
+          <p className="mt-3 max-w-2xl text-lg text-ink-muted">
+            The same seven steps you already do. Just without the scraps of paper and the late-night catch-up.
+          </p>
+          <ol className="mt-10 grid gap-0 border-t-2 border-navy md:grid-cols-2 md:gap-x-10 lg:grid-cols-3">
+            {workflow.map(([title, text], i) => (
+              <li key={title} className="flex gap-4 border-b border-line/50 py-5">
+                <span className="tc-display flex h-11 w-11 shrink-0 items-center justify-center bg-navy text-xl font-bold text-cream">
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="text-2xl font-bold text-navy">{title}</h3>
+                  <p className="mt-1 text-base text-ink-muted">{text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Photos & quoting */}
+      <section id="photos-and-quotes" className="bg-sand">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.1fr_0.9fr] md:py-20">
+          <div>
+            <p className="tc-eyebrow">Photos &amp; job quoting</p>
+            <h2 className="mt-2 text-4xl font-bold text-navy md:text-5xl">Take the photos. Write it down once. Build the quote.</h2>
+            <p className="mt-3 max-w-2xl text-lg text-ink-muted">
+              Everything you gather on site stays with the job, so the quote is half done before you&apos;re back in the van.
+            </p>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+              {quoteHelp.map(([title, text]) => (
+                <li key={title} className="border-l-4 border-copper bg-surface px-4 py-3">
+                  <h3 className="text-xl font-bold text-navy">{title}</h3>
+                  <p className="mt-1 text-base text-ink-muted">{text}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 max-w-2xl text-base text-ink">
+              Add materials from the merchants you already use — open Screwfix, Plumbfix or Toolstation from the app and
+              check price and stock yourself before it goes on the quote.
+            </p>
+            <p className="mt-3 max-w-2xl text-base text-ink-muted">
+              Photo suggestions are estimates, not diagnoses. Confirm measurements, parts and prices on site before you send a quote.
+            </p>
+          </div>
+          <div className="grid content-start gap-5">
+            <Image
+              src="/app/app-preview-1.png"
+              alt="Job sheet preview from the app: customer, address, issue and urgency with photos, parts, quote, appointment, reply and next action."
+              width={720}
+              height={636}
+              sizes="(max-width: 768px) 100vw, 420px"
+              className="h-auto w-full"
+            />
+            <Image
+              src="/app/app-preview-2.png"
+              alt="Photo to quote preview from the app: likely work, materials to check and what’s uncertain, marked as an AI estimate to verify on site."
+              width={720}
+              height={636}
+              sizes="(max-width: 768px) 100vw, 420px"
+              className="h-auto w-full"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Daily app */}
+      <section id="the-app" className="border-y-2 border-copper">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
+          <p className="tc-eyebrow">Inside the Van Desk</p>
+          <h2 className="mt-2 text-4xl font-bold text-navy md:text-5xl">A working day in your pocket.</h2>
+          <p className="mt-3 max-w-2xl text-lg text-ink-muted">Simple on purpose. Open it in the morning and the day is laid out.</p>
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {dailyApp.map(([title, text]) => (
+              <li key={title} className="tc-card p-5">
+                <h3 className="text-2xl font-bold text-navy">{title}</h3>
+                <p className="mt-1 text-base text-ink-muted">{text}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex flex-col gap-4 border-l-4 border-navy bg-surface p-5 md:flex-row md:items-center md:justify-between">
+            <p className="text-base text-ink">
+              <strong className="text-navy">Works in your phone&apos;s browser — nothing to install.</strong> Tip: open it in
+              your browser and use &ldquo;Add to Home Screen&rdquo; to keep it one tap away.
+            </p>
+            <a href={APP_SIGNUP_URL} className="tc-btn tc-btn-navy shrink-0">Try the app</a>
+          </div>
+        </div>
+      </section>
+
+      {/* AI */}
+      <section id="extra-help">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-2 md:py-20">
+          <div>
+            <p className="tc-eyebrow">Extra help</p>
+            <h2 className="mt-2 text-4xl font-bold text-navy md:text-5xl">Extra help when you need it.</h2>
+            <p className="mt-3 text-lg text-ink-muted">
+              There&apos;s AI built in for the fiddly bits. It drafts. You decide. You stay in control of every quote and message.
+            </p>
+          </div>
+          <ul className="grid content-start gap-3">
+            {aiHelp.map((item) => (
+              <li key={item} className="flex min-h-[52px] items-center gap-3 border-b border-line/50 text-lg text-ink">
+                <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 bg-copper" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Founder */}
+      <section id="about" className="scroll-mt-20 bg-navy text-cream">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-14 sm:px-6 md:grid-cols-[0.6fr_1.4fr] md:py-20">
+          <Image
+            src="/app/founder-steve.jpg"
+            alt="Steve, founder of TradeConnectAI"
+            width={480}
+            height={640}
+            sizes="(max-width: 768px) 60vw, 320px"
+            className="h-auto w-full max-w-[260px] border-2 border-copper md:max-w-[320px]"
+          />
+          <div>
+            <p className="tc-eyebrow">About</p>
+            <h2 className="mt-2 text-4xl font-bold md:text-5xl">Built around the reality of working in the field.</h2>
+            <div className="mt-5 space-y-4 text-lg text-cream/90">
+              <p>
+                TradeConnectAI is being built to solve the small bits of admin that steal time from people who actually
+                have jobs to get done.
+              </p>
+              <p>We&apos;re working directly with local trade businesses while developing it.</p>
+              <p>If something is useful, annoying or missing, tell us. That feedback helps shape the app.</p>
+            </div>
+            <p className="mt-5 font-semibold">— Steve, TradeConnectAI</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Early access */}
+      <section id="early-access" className="border-b-2 border-copper">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
+          <div className="tc-card p-6 md:p-10">
+            <div className="flex flex-wrap items-center gap-3">
+              <BetaBadge />
+              <p className="tc-eyebrow">Early access</p>
+            </div>
+            <h2 className="mt-3 text-4xl font-bold text-navy md:text-5xl">Make room for more work.</h2>
+            <p className="mt-4 max-w-2xl text-lg text-ink">
+              We&apos;re looking for a small group of tradespeople to use TradeConnectAI properly and tell us what works — and
+              what doesn&apos;t.
+            </p>
+            <p className="mt-3 text-lg font-semibold text-navy">Try it. Use it on real jobs. Tell us what needs improving.</p>
+            <p className="mt-3 max-w-2xl text-base text-ink-muted">
+              The app is in beta, so some things will be rough round the edges. You get a 14-day free trial to use it on real work.
+            </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a href={APP_SIGNUP_URL} className="tc-btn tc-btn-primary text-lg">Try TradeConnectAI</a>
+              <Link href={FEEDBACK_PATH} className="tc-btn tc-btn-outline">Tell us what you think</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feedback */}
+      <section id="feedback" className="bg-sand">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-14 sm:px-6 md:grid-cols-[1.2fr_0.8fr] md:items-center md:py-16">
+          <div>
+            <p className="tc-eyebrow">Honest feedback wanted</p>
+            <h2 className="mt-2 text-4xl font-bold text-navy md:text-5xl">Tell us what you think.</h2>
+            <p className="mt-3 max-w-2xl text-lg text-ink">
+              What helps, what gets in the way, what&apos;s confusing, what&apos;s missing. Criticism is welcome — it&apos;s the most
+              useful thing you can send us while the app is in beta.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3">
+            <Link href={FEEDBACK_PATH} className="tc-btn tc-btn-navy text-lg">Tell us what you think</Link>
+            <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("TradeConnectAI feedback")}`} className="tc-btn tc-btn-outline">
+              Or email Steve directly
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing teaser */}
+      <section id="pricing" aria-labelledby="pricing-teaser">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 id="pricing-teaser" className="text-2xl font-bold text-navy">Straight prices when you&apos;re ready.</h2>
+            <p className="mt-1 text-base text-ink-muted">After your 14-day trial, plans are £29 or £49 a month.</p>
+          </div>
+          <Link href="/pricing" className="tc-btn tc-btn-outline">See pricing</Link>
+        </div>
+      </section>
+
+      <SiteFooter />
     </main>
   );
 }

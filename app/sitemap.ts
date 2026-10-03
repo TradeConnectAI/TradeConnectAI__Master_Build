@@ -3,13 +3,15 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.tradeconnectai.co.uk";
 
-  // Launch surfaces only. Optional demos (/ai-call-demo, /customer-demo) omitted from sitemap.
+  // Public marketing pages. The app itself lives at tradeconnectai-beta.lovable.app.
   const routes = [
     "",
     "/pricing",
-    "/operations-demo",
+    "/feedback",
     "/book-demo",
     "/industries/plumbers",
+    "/industries/electricians",
+    "/industries/hvac",
   ];
 
   return routes.map((route) => ({

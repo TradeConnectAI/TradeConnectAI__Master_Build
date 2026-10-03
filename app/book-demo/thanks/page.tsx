@@ -1,42 +1,24 @@
 import Link from "next/link";
-import TradeConnectLogo from "@/components/TradeConnectLogo";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import { APP_SIGNUP_URL } from "@/lib/site-links";
 
 export default function ThanksPage() {
   return (
-    <main className="min-h-screen bg-[#020817] px-5 py-12 text-white">
-      <section className="mx-auto max-w-3xl rounded-[2rem] border border-cyan-300/20 bg-cyan-300/10 p-8 text-center">
-        <div className="mx-auto flex justify-center">
-          <TradeConnectLogo variant="compact" className="mx-auto" />
-        </div>
-
-        <p className="mt-8 inline-flex rounded-full border border-emerald-300/30 bg-emerald-300/10 px-4 py-2 text-sm font-bold text-emerald-100">
-          Request received
+    <main className="tc-site min-h-screen bg-cream text-ink">
+      <SiteHeader />
+      <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+        <p className="tc-eyebrow">Request received</p>
+        <h1 className="mt-2 text-5xl font-bold text-navy">Thanks. We&apos;ve got your details.</h1>
+        <p className="mt-4 text-lg text-ink">
+          Steve will get back to you. In the meantime you can try the app — it&apos;s in beta with a 14-day free trial.
         </p>
-
-        <h1 className="mt-6 text-5xl font-black tracking-[-0.05em]">
-          Thanks. We&apos;ve got your details.
-        </h1>
-
-        <p className="mt-5 text-lg leading-8 text-slate-300">
-          We&apos;ll review your plumbing setup and contact you about the £29 or £49
-          plan. Prefer self-serve? Start with Stripe Checkout on the homepage pricing anytime.
-        </p>
-
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Link
-            href="/operations-demo"
-            className="rounded-full bg-cyan-300 px-6 py-4 text-sm font-black text-slate-950"
-          >
-            View operations demo
-          </Link>
-          <Link
-            href="/"
-            className="rounded-full border border-white/15 bg-white/10 px-6 py-4 text-sm font-black text-white"
-          >
-            Back to homepage
-          </Link>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href={APP_SIGNUP_URL} className="tc-btn tc-btn-primary">Try the app</a>
+          <Link href="/" className="tc-btn tc-btn-outline">Back to the homepage</Link>
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

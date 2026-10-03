@@ -110,1090 +110,1241 @@ body {
 }
 
 
+
 /* ------------------------------------------------------------
-   TradeConnectAI polish pass - header, logo, hero and mobile
+   TradeConnectAI brand system (matches the Van Desk app)
+   Pages wrapped in .tc-site opt out of the legacy polish rules below.
 ------------------------------------------------------------ */
+@theme {
+  --color-navy: #0f2a3d;
+  --color-navy-deep: #0a1f2e;
+  --color-cream: #f4efe6;
+  --color-surface: #fffcf7;
+  --color-sand: #e9e1d5;
+  --color-ink: #2f3438;
+  --color-ink-muted: #53585a;
+  --color-copper: #b87333;
+  --color-copper-edge: #7e4c1f;
+  --color-steel: #3e6b7a;
+  --color-edge: #cdbfaa;
+  --color-line: #857e73;
+  --color-ok: #28654a;
+  --color-caution: #eac95b;
+  --color-danger: #a23229;
+  --font-body: var(--font-barlow), "Barlow", system-ui, sans-serif;
+  --font-display: var(--font-barlow-condensed), "Barlow Condensed", var(--font-barlow), system-ui, sans-serif;
+}
 
-html {
+html:has(.tc-site) {
+  color-scheme: light;
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
-body {
-  overflow-x: hidden;
+html:has(.tc-site) body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
-header,
-nav {
-  box-sizing: border-box;
+@layer components {
+.tc-site h1,
+.tc-site h2,
+.tc-site h3,
+.tc-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.005em;
+  text-wrap: balance;
 }
 
-.tradeconnect-header,
-.site-header,
-header {
-  min-height: 88px;
+.tc-site :focus-visible {
+  outline: 3px solid var(--color-copper);
+  outline-offset: 2px;
 }
 
-header img,
-nav img {
-  max-height: 76px;
-  width: auto;
+.tc-btn {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.125rem;
+  border: 2px solid transparent;
+  padding: 0.7rem 1.25rem;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  cursor: pointer;
+}
+.tc-btn-primary {
+  background: var(--color-copper);
+  color: var(--color-navy-deep);
+  box-shadow: 0 3px 0 var(--color-copper-edge);
+}
+.tc-btn-primary:hover { background: #c7823f; }
+.tc-btn-navy {
+  background: var(--color-navy);
+  color: var(--color-cream);
+  box-shadow: 0 3px 0 var(--color-navy-deep);
+}
+.tc-btn-navy:hover { background: #163a52; }
+.tc-btn-outline {
+  background: var(--color-surface);
+  color: var(--color-navy);
+  border-color: var(--color-navy);
+  box-shadow: 0 3px 0 var(--color-edge);
+}
+.tc-btn-outline:hover { background: var(--color-sand); }
+.tc-btn-ghost-light {
+  background: transparent;
+  color: var(--color-cream);
+  border-color: rgba(244, 239, 230, 0.55);
+}
+.tc-btn-ghost-light:hover { background: rgba(244, 239, 230, 0.08); }
+
+.tc-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-navy);
+  border-radius: 0.125rem;
+  box-shadow: 0 4px 0 var(--color-edge);
 }
 
-.hero,
-.home-hero,
-.tradeconnect-hero,
-main section:first-of-type {
-  position: relative;
+.tc-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-copper);
 }
 
-@media (min-width: 900px) {
-  .hero,
-  .home-hero,
-  .tradeconnect-hero {
-    min-height: calc(100vh - 96px);
-    display: flex;
-    align-items: center;
+.tc-beta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 2px solid var(--color-copper);
+  border-radius: 0.125rem;
+  padding: 0.15rem 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-copper);
+  background: transparent;
+}
+
+.tc-input {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid var(--color-line);
+  border-radius: 0.125rem;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  padding: 0.65rem 0.8rem;
+  font-size: 16px;
+}
+.tc-input:focus { outline: 3px solid var(--color-copper); outline-offset: 1px; border-color: var(--color-navy); }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.tc-site) { scroll-behavior: auto; }
+}
+
+/* Legacy polish/mobile-rescue rules for older demo and dashboard pages. */
+html:not(:has(.tc-site)) {
+  /* ------------------------------------------------------------
+     TradeConnectAI polish pass - header, logo, hero and mobile
+  ------------------------------------------------------------ */
+
+  html {
+    scroll-behavior: smooth;
   }
 
-  .hero h1,
-  .home-hero h1,
-  .tradeconnect-hero h1,
-  main h1:first-of-type {
-    line-height: 0.92;
-    letter-spacing: -0.055em;
+  body {
+    overflow-x: hidden;
   }
-}
 
-@media (max-width: 899px) {
   header,
   nav {
-    min-height: 72px;
+    box-sizing: border-box;
+  }
+
+  .tradeconnect-header,
+  .site-header,
+  header {
+    min-height: 88px;
   }
 
   header img,
   nav img {
-    max-height: 58px;
-  }
-
-  main h1:first-of-type {
-    font-size: clamp(3rem, 16vw, 5.5rem) !important;
-    line-height: 0.95 !important;
-    letter-spacing: -0.05em;
+    max-height: 76px;
+    width: auto;
   }
 
   .hero,
   .home-hero,
-  .tradeconnect-hero {
-    padding-top: 32px !important;
-    padding-bottom: 48px !important;
-  }
-}
-
-@media (max-width: 640px) {
-  header,
-  nav {
-    overflow-x: clip;
+  .tradeconnect-hero,
+  main section:first-of-type {
+    position: relative;
   }
 
-  main {
+  @media (min-width: 900px) {
+    .hero,
+    .home-hero,
+    .tradeconnect-hero {
+      min-height: calc(100vh - 96px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero h1,
+    .home-hero h1,
+    .tradeconnect-hero h1,
+    main h1:first-of-type {
+      line-height: 0.92;
+      letter-spacing: -0.055em;
+    }
+  }
+
+  @media (max-width: 899px) {
+    header,
+    nav {
+      min-height: 72px;
+    }
+
+    header img,
+    nav img {
+      max-height: 58px;
+    }
+
+    main h1:first-of-type {
+      font-size: clamp(3rem, 16vw, 5.5rem) !important;
+      line-height: 0.95 !important;
+      letter-spacing: -0.05em;
+    }
+
+    .hero,
+    .home-hero,
+    .tradeconnect-hero {
+      padding-top: 32px !important;
+      padding-bottom: 48px !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    header,
+    nav {
+      overflow-x: clip;
+    }
+
+    main {
+      overflow-x: hidden;
+    }
+
+    main h1:first-of-type {
+      font-size: clamp(2.8rem, 18vw, 4.8rem) !important;
+    }
+
+    a,
+    button {
+      touch-action: manipulation;
+    }
+  }
+
+  /* ------------------------------------------------------------
+     TradeConnectAI mobile polish
+     Keeps landing pages, demos and admin pages readable on phones
+  ------------------------------------------------------------ */
+
+  html,
+  body {
+    max-width: 100%;
     overflow-x: hidden;
   }
 
-  main h1:first-of-type {
-    font-size: clamp(2.8rem, 18vw, 4.8rem) !important;
+  * {
+    box-sizing: border-box;
   }
 
+  img,
+  video,
+  svg,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Stop long words, emails, URLs and IDs from breaking mobile width */
+  p,
+  span,
+  a,
+  div,
+  li,
+  td,
+  th,
+  button,
+  input,
+  textarea,
+  select {
+    overflow-wrap: anywhere;
+  }
+
+  /* Better tap targets */
   a,
   button {
     touch-action: manipulation;
   }
-}
-
-/* ------------------------------------------------------------
-   TradeConnectAI mobile polish
-   Keeps landing pages, demos and admin pages readable on phones
------------------------------------------------------------- */
-
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-img,
-video,
-svg,
-canvas {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Stop long words, emails, URLs and IDs from breaking mobile width */
-p,
-span,
-a,
-div,
-li,
-td,
-th,
-button,
-input,
-textarea,
-select {
-  overflow-wrap: anywhere;
-}
-
-/* Better tap targets */
-a,
-button {
-  touch-action: manipulation;
-}
-
-/* Mobile layout rescue */
-@media (max-width: 768px) {
-  body {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  main {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  section,
-  header,
-  footer {
-    max-width: 100%;
-  }
-
-  /* Headings */
-  h1 {
-    font-size: clamp(2.75rem, 14vw, 4.5rem) !important;
-    line-height: 0.92 !important;
-    letter-spacing: -0.055em !important;
-  }
-
-  h2 {
-    font-size: clamp(2rem, 9vw, 3.25rem) !important;
-    line-height: 1 !important;
-  }
-
-  h3 {
-    font-size: clamp(1.25rem, 6vw, 1.75rem) !important;
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  /* Header/nav safety */
-  header {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    gap: 0.75rem !important;
-  }
-
-  header img {
-    max-height: 56px !important;
-    width: auto !important;
-  }
-
-  header nav {
-    display: none !important;
-  }
-
-  header a[href="/book-demo"],
-  header a[href="/operations-demo"],
-  header a[href="/ai-call-demo"] {
-    padding: 0.85rem 1rem !important;
-    font-size: 0.85rem !important;
-    white-space: nowrap;
-  }
-
-  /* Stack all major grids */
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Reduce huge desktop spacing */
-  .px-8 {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-
-  .py-16 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
-  }
-
-  .pt-16 {
-    padding-top: 2.5rem !important;
-  }
-
-  .pb-24 {
-    padding-bottom: 4rem !important;
-  }
-
-  .mt-14 {
-    margin-top: 2.5rem !important;
-  }
-
-  .mt-10 {
-    margin-top: 2rem !important;
-  }
-
-  /* Cards/buttons */
-  .rounded-\[2rem\],
-  .rounded-\[1\.5rem\],
-  .rounded-3xl {
-    border-radius: 1.35rem !important;
-  }
-
-  .p-8,
-  .p-7,
-  .p-6 {
-    padding: 1.15rem !important;
-  }
-
-  .gap-10,
-  .gap-8 {
-    gap: 1.5rem !important;
-  }
-
-  /* Button rows should stack neatly */
-  .flex {
-    min-width: 0;
-  }
-
-  .flex.flex-wrap a,
-  .flex.flex-wrap button {
-    max-width: 100%;
-  }
-
-  main a.rounded-full,
-  main button.rounded-full {
-    text-align: center;
-  }
-
-  /* Forms */
-  input,
-  textarea,
-  select {
-    width: 100% !important;
-    max-width: 100% !important;
-    font-size: 16px !important; /* prevents iPhone zoom */
-  }
-
-  form {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* Demo/admin tables/cards */
-  table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  article,
-  aside {
-    max-width: 100%;
-  }
-
-  /* Hide floating decorative cards that crush mobile */
-  .absolute.-bottom-8,
-  .absolute.-right-4,
-  .absolute.-bottom-6,
-  .absolute.-right-6 {
-    display: none !important;
-  }
-
-  /* Hero image cards on mobile */
-  main img[alt="Trade team dashboard"],
-  main img[alt="Customer update dashboard"],
-  main img[alt="TradeConnectAI"],
-  main img[alt="Engineer working"] {
-    object-fit: contain;
-  }
-
-  /* Prevent giant visual cards overpowering mobile */
-  .h-72,
-  .h-96 {
-    height: auto !important;
-    min-height: 180px;
-  }
-}
-
-/* Very small phones */
-@media (max-width: 420px) {
-  h1 {
-    font-size: clamp(2.35rem, 15vw, 3.6rem) !important;
-  }
-
-  header {
-    align-items: flex-start !important;
-  }
-
-  header img {
-    max-height: 48px !important;
-  }
-
-  .text-6xl,
-  .text-7xl,
-  .text-8xl {
-    font-size: clamp(2.5rem, 15vw, 4rem) !important;
-  }
-
-  .text-5xl {
-    font-size: clamp(2.25rem, 12vw, 3rem) !important;
-  }
-
-  .text-4xl {
-    font-size: clamp(1.9rem, 10vw, 2.6rem) !important;
-  }
-
-  main a.rounded-full,
-  main button.rounded-full {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-/* ------------------------------------------------------------
-   TradeConnectAI mobile compact override v2
-   Makes phone layout tighter, cleaner and less gigantic
------------------------------------------------------------- */
-
-@media (max-width: 768px) {
-  html,
-  body {
-    overflow-x: hidden !important;
-  }
-
-  main {
-    overflow-x: hidden !important;
-  }
-
-  /* Compact page rhythm */
-  section {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-
-  .py-16,
-  .py-12,
-  .py-10 {
-    padding-top: 2.25rem !important;
-    padding-bottom: 2.25rem !important;
-  }
-
-  .pt-16,
-  .pt-12,
-  .pt-10,
-  .pt-8 {
-    padding-top: 1.75rem !important;
-  }
-
-  .pb-24,
-  .pb-16,
-  .pb-12 {
-    padding-bottom: 2.75rem !important;
-  }
-
-  .mt-14,
-  .mt-12,
-  .mt-10,
-  .mt-9,
-  .mt-8 {
-    margin-top: 1.5rem !important;
-  }
-
-  .gap-10,
-  .gap-8,
-  .gap-6,
-  .gap-5 {
-    gap: 1rem !important;
-  }
-
-  /* Much calmer mobile typography */
-  h1,
-  .text-8xl,
-  .text-7xl,
-  .text-6xl,
-  .text-5xl {
-    font-size: clamp(2.35rem, 10vw, 3.15rem) !important;
-    line-height: 0.96 !important;
-    letter-spacing: -0.05em !important;
-  }
-
-  h2,
-  .text-4xl {
-    font-size: clamp(1.85rem, 8vw, 2.45rem) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.04em !important;
-  }
-
-  h3,
-  .text-3xl,
-  .text-2xl {
-    font-size: clamp(1.35rem, 6vw, 1.85rem) !important;
-    line-height: 1.08 !important;
-  }
-
-  p,
-  .text-xl,
-  .text-lg,
-  .text-base {
-    font-size: 0.98rem !important;
-    line-height: 1.55 !important;
-  }
-
-  .text-sm {
-    font-size: 0.88rem !important;
-  }
-
-  /* Letter-spaced labels were too huge */
-  .tracking-\[0\.25em\],
-  .tracking-\[0\.22em\],
-  .tracking-\[0\.18em\] {
-    letter-spacing: 0.16em !important;
-    font-size: 0.78rem !important;
-  }
-
-  /* Compact cards */
-  .rounded-\[2rem\],
-  .rounded-\[1\.5rem\],
-  .rounded-3xl {
-    border-radius: 1.15rem !important;
-  }
-
-  .p-8,
-  .p-7,
-  .p-6,
-  .p-5 {
-    padding: 1rem !important;
-  }
-
-  .px-6,
-  .px-5,
-  .px-4 {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-
-  .py-4,
-  .py-3 {
-    padding-top: 0.85rem !important;
-    padding-bottom: 0.85rem !important;
-  }
-
-  /* Stack grids cleanly */
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Header */
-  header {
-    min-height: auto !important;
-    padding-top: 0.85rem !important;
-    padding-bottom: 0.85rem !important;
-  }
-
-  header nav {
-    display: none !important;
-  }
-
-  header img {
-    max-height: 44px !important;
-    width: auto !important;
-  }
-
-  header a.rounded-full {
-    width: auto !important;
-    padding: 0.75rem 0.95rem !important;
-    font-size: 0.78rem !important;
-    white-space: nowrap !important;
-  }
-
-  /* Buttons */
-  main a.rounded-full,
-  main button.rounded-full {
-    min-height: 44px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  /* Fix time badges wrapping 09:42 into two lines */
-  .rounded-full,
-  span.rounded-full,
-  p.rounded-full {
-    white-space: nowrap !important;
-    overflow-wrap: normal !important;
-    word-break: keep-all !important;
-  }
-
-  /* Activity feed rows */
-  .flex.items-center.gap-4 {
-    align-items: flex-start !important;
-    gap: 0.75rem !important;
-  }
-
-  .flex.items-center.gap-4 span.rounded-full {
-    flex-shrink: 0 !important;
-    min-width: 4.2rem !important;
-    text-align: center !important;
-  }
-
-  /* Stats/cards should not look like huge slabs */
-  .shadow-2xl {
-    box-shadow: none !important;
-  }
-
-  /* Images/visuals */
-  img {
-    max-width: 100% !important;
-  }
-
-  .h-72,
-  .h-96,
-  .h-44 {
-    height: auto !important;
-    min-height: 0 !important;
-  }
-
-  /* Forms */
-  input,
-  textarea,
-  select {
-    min-height: 44px !important;
-    font-size: 16px !important;
-  }
-}
-
-@media (max-width: 430px) {
-  h1,
-  .text-8xl,
-  .text-7xl,
-  .text-6xl,
-  .text-5xl {
-    font-size: clamp(2.15rem, 10.5vw, 2.8rem) !important;
-  }
-
-  h2,
-  .text-4xl {
-    font-size: clamp(1.7rem, 8.5vw, 2.15rem) !important;
-  }
-
-  .p-8,
-  .p-7,
-  .p-6,
-  .p-5 {
-    padding: 0.95rem !important;
-  }
-
-  section {
-    padding-left: 0.9rem !important;
-    padding-right: 0.9rem !important;
-  }
-}
-
-/* ------------------------------------------------------------
-   TradeConnectAI mobile compact override v2
------------------------------------------------------------- */
-
-@media (max-width: 768px) {
-  html,
-  body,
-  main {
-    overflow-x: hidden !important;
-  }
-
-  section {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-
-  .py-16,
-  .py-12,
-  .py-10 {
-    padding-top: 2.25rem !important;
-    padding-bottom: 2.25rem !important;
-  }
-
-  .pt-16,
-  .pt-12,
-  .pt-10,
-  .pt-8 {
-    padding-top: 1.75rem !important;
-  }
-
-  .pb-24,
-  .pb-16,
-  .pb-12 {
-    padding-bottom: 2.75rem !important;
-  }
-
-  .mt-14,
-  .mt-12,
-  .mt-10,
-  .mt-9,
-  .mt-8 {
-    margin-top: 1.5rem !important;
-  }
-
-  .gap-10,
-  .gap-8,
-  .gap-6,
-  .gap-5 {
-    gap: 1rem !important;
-  }
-
-  h1,
-  .text-8xl,
-  .text-7xl,
-  .text-6xl,
-  .text-5xl {
-    font-size: clamp(2.15rem, 10.5vw, 3rem) !important;
-    line-height: 0.96 !important;
-    letter-spacing: -0.05em !important;
-  }
-
-  h2,
-  .text-4xl {
-    font-size: clamp(1.7rem, 8.5vw, 2.25rem) !important;
-    line-height: 1.05 !important;
-    letter-spacing: -0.04em !important;
-  }
-
-  h3,
-  .text-3xl,
-  .text-2xl {
-    font-size: clamp(1.25rem, 6vw, 1.75rem) !important;
-    line-height: 1.1 !important;
-  }
-
-  p,
-  .text-xl,
-  .text-lg,
-  .text-base {
-    font-size: 0.98rem !important;
-    line-height: 1.55 !important;
-  }
-
-  .text-sm {
-    font-size: 0.88rem !important;
-  }
-
-  .tracking-\[0\.25em\],
-  .tracking-\[0\.22em\],
-  .tracking-\[0\.18em\] {
-    letter-spacing: 0.16em !important;
-    font-size: 0.78rem !important;
-  }
-
-  .rounded-\[2rem\],
-  .rounded-\[1\.5rem\],
-  .rounded-3xl {
-    border-radius: 1.15rem !important;
-  }
-
-  .p-8,
-  .p-7,
-  .p-6,
-  .p-5 {
-    padding: 1rem !important;
-  }
-
-  .px-6,
-  .px-5,
-  .px-4 {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-
-  .py-4,
-  .py-3 {
-    padding-top: 0.85rem !important;
-    padding-bottom: 0.85rem !important;
-  }
-
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  header {
-    min-height: auto !important;
-    padding-top: 0.85rem !important;
-    padding-bottom: 0.85rem !important;
-  }
-
-  header nav {
-    display: none !important;
-  }
-
-  header img {
-    max-height: 44px !important;
-    width: auto !important;
-  }
-
-  header a.rounded-full {
-    width: auto !important;
-    padding: 0.75rem 0.95rem !important;
-    font-size: 0.78rem !important;
-    white-space: nowrap !important;
-  }
-
-  main a.rounded-full,
-  main button.rounded-full {
-    min-height: 44px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  .rounded-full,
-  span.rounded-full,
-  p.rounded-full {
-    white-space: nowrap !important;
-    overflow-wrap: normal !important;
-    word-break: keep-all !important;
-  }
-
-  .flex.items-center.gap-4 {
-    align-items: flex-start !important;
-    gap: 0.75rem !important;
-  }
-
-  .flex.items-center.gap-4 span.rounded-full {
-    flex-shrink: 0 !important;
-    min-width: 4.2rem !important;
-    text-align: center !important;
-  }
-
-  .shadow-2xl {
-    box-shadow: none !important;
-  }
-
-  img {
-    max-width: 100% !important;
-  }
-
-  .h-72,
-  .h-96,
-  .h-44 {
-    height: auto !important;
-    min-height: 0 !important;
-  }
-
-  input,
-  textarea,
-  select {
-    min-height: 44px !important;
-    font-size: 16px !important;
-  }
-}
-
-/* ------------------------------------------------------------
-   TradeConnectAI mobile compact override v2
------------------------------------------------------------- */
-
-@media (max-width: 768px) {
-  html,
-  body,
-  main {
-    overflow-x: hidden !important;
-  }
-
-  section {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-
-  .py-16,
-  .py-12,
-  .py-10 {
-    padding-top: 2.25rem !important;
-    padding-bottom: 2.25rem !important;
-  }
-
-  .pt-16,
-  .pt-12,
-  .pt-10,
-  .pt-8 {
-    padding-top: 1.75rem !important;
-  }
-
-  .pb-24,
-  .pb-16,
-  .pb-12 {
-    padding-bottom: 2.75rem !important;
-  }
-
-  .mt-14,
-  .mt-12,
-  .mt-10,
-  .mt-9,
-  .mt-8 {
-    margin-top: 1.5rem !important;
-  }
-
-  .gap-10,
-  .gap-8,
-  .gap-6,
-  .gap-5 {
-    gap: 1rem !important;
-  }
-
-  h1,
-  .text-8xl,
-  .text-7xl,
-  .text-6xl,
-  .text-5xl {
-    font-size: clamp(2.15rem, 10.5vw, 3rem) !important;
-    line-height: 0.96 !important;
-    letter-spacing: -0.05em !important;
-  }
-
-  h2,
-  .text-4xl {
-    font-size: clamp(1.7rem, 8.5vw, 2.25rem) !important;
-    line-height: 1.05 !important;
-    letter-spacing: -0.04em !important;
-  }
-
-  h3,
-  .text-3xl,
-  .text-2xl {
-    font-size: clamp(1.25rem, 6vw, 1.75rem) !important;
-    line-height: 1.1 !important;
-  }
-
-  p,
-  .text-xl,
-  .text-lg,
-  .text-base {
-    font-size: 0.98rem !important;
-    line-height: 1.55 !important;
-  }
-
-  .text-sm {
-    font-size: 0.88rem !important;
-  }
-
-  .tracking-\[0\.25em\],
-  .tracking-\[0\.22em\],
-  .tracking-\[0\.18em\] {
-    letter-spacing: 0.16em !important;
-    font-size: 0.78rem !important;
-  }
-
-  .rounded-\[2rem\],
-  .rounded-\[1\.5rem\],
-  .rounded-3xl {
-    border-radius: 1.15rem !important;
-  }
-
-  .p-8,
-  .p-7,
-  .p-6,
-  .p-5 {
-    padding: 1rem !important;
-  }
-
-  .px-6,
-  .px-5,
-  .px-4 {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-
-  .py-4,
-  .py-3 {
-    padding-top: 0.85rem !important;
-    padding-bottom: 0.85rem !important;
-  }
-
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  header {
-    min-height: auto !important;
-    padding-top: 0.85rem !important;
-    padding-bottom: 0.85rem !important;
-  }
-
-  header nav {
-    display: none !important;
-  }
-
-  header img {
-    max-height: 44px !important;
-    width: auto !important;
-  }
-
-  header a.rounded-full {
-    width: auto !important;
-    padding: 0.75rem 0.95rem !important;
-    font-size: 0.78rem !important;
-    white-space: nowrap !important;
-  }
-
-  main a.rounded-full,
-  main button.rounded-full {
-    min-height: 44px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  .rounded-full,
-  span.rounded-full,
-  p.rounded-full {
-    white-space: nowrap !important;
-    overflow-wrap: normal !important;
-    word-break: keep-all !important;
-  }
-
-  .flex.items-center.gap-4 {
-    align-items: flex-start !important;
-    gap: 0.75rem !important;
-  }
-
-  .flex.items-center.gap-4 span.rounded-full {
-    flex-shrink: 0 !important;
-    min-width: 4.2rem !important;
-    text-align: center !important;
-  }
-
-  .shadow-2xl {
-    box-shadow: none !important;
-  }
-
-  img {
-    max-width: 100% !important;
-  }
-
-  .h-72,
-  .h-96,
-  .h-44 {
-    height: auto !important;
-    min-height: 0 !important;
-  }
-
-  input,
-  textarea,
-  select {
-    min-height: 44px !important;
-    font-size: 16px !important;
-  }
-}
-
-/* ------------------------------------------------------------
-   Final mobile polish: TradeConnectAI
-   Keeps the founding beta funnel tidy on phones
------------------------------------------------------------- */
-
-@media (max-width: 768px) {
-  body {
-    background: #020817;
-  }
-
-  main {
-    max-width: 100vw;
-  }
-
-  header,
-  footer,
-  section {
-    max-width: 100%;
-  }
-
-  header {
-    position: relative;
-    z-index: 20;
-  }
-
-  header nav {
-    display: none !important;
-  }
-
-  header img {
-    max-height: 44px !important;
-  }
-
-  h1,
-  .text-8xl,
-  .text-7xl,
-  .text-6xl,
-  .text-5xl {
-    font-size: clamp(2.15rem, 10vw, 3rem) !important;
-    line-height: 0.94 !important;
-  }
-
-  h2,
-  .text-4xl {
-    font-size: clamp(1.7rem, 8vw, 2.25rem) !important;
-    line-height: 1.04 !important;
-  }
-
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .rounded-\[2rem\],
-  .rounded-3xl {
-    border-radius: 1.15rem !important;
-  }
-
-  .p-8,
-  .p-7,
-  .p-6,
-  .p-5 {
-    padding: 1rem !important;
-  }
-
-  .mt-14,
-  .mt-12,
-  .mt-10,
-  .mt-9,
-  .mt-8 {
-    margin-top: 1.5rem !important;
-  }
-
-  .gap-10,
-  .gap-8,
-  .gap-6,
-  .gap-5 {
-    gap: 1rem !important;
-  }
-
-  a.rounded-full,
-  button.rounded-full {
-    min-height: 44px;
-    text-align: center;
-    justify-content: center;
-  }
-
-  span.rounded-full,
-  p.rounded-full {
-    white-space: nowrap !important;
-  }
 
-  input,
-  textarea,
-  select {
-    font-size: 16px !important;
+  /* Mobile layout rescue */
+  @media (max-width: 768px) {
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    main {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    section,
+    header,
+    footer {
+      max-width: 100%;
+    }
+
+    /* Headings */
+    h1 {
+      font-size: clamp(2.75rem, 14vw, 4.5rem) !important;
+      line-height: 0.92 !important;
+      letter-spacing: -0.055em !important;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 9vw, 3.25rem) !important;
+      line-height: 1 !important;
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 6vw, 1.75rem) !important;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    /* Header/nav safety */
+    header {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      gap: 0.75rem !important;
+    }
+
+    header img {
+      max-height: 56px !important;
+      width: auto !important;
+    }
+
+    header nav {
+      display: none !important;
+    }
+
+    header a[href="/book-demo"],
+    header a[href="/operations-demo"],
+    header a[href="/ai-call-demo"] {
+      padding: 0.85rem 1rem !important;
+      font-size: 0.85rem !important;
+      white-space: nowrap;
+    }
+
+    /* Stack all major grids */
+    .grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Reduce huge desktop spacing */
+    .px-8 {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    .py-16 {
+      padding-top: 3rem !important;
+      padding-bottom: 3rem !important;
+    }
+
+    .pt-16 {
+      padding-top: 2.5rem !important;
+    }
+
+    .pb-24 {
+      padding-bottom: 4rem !important;
+    }
+
+    .mt-14 {
+      margin-top: 2.5rem !important;
+    }
+
+    .mt-10 {
+      margin-top: 2rem !important;
+    }
+
+    /* Cards/buttons */
+    .rounded-\[2rem\],
+    .rounded-\[1\.5rem\],
+    .rounded-3xl {
+      border-radius: 1.35rem !important;
+    }
+
+    .p-8,
+    .p-7,
+    .p-6 {
+      padding: 1.15rem !important;
+    }
+
+    .gap-10,
+    .gap-8 {
+      gap: 1.5rem !important;
+    }
+
+    /* Button rows should stack neatly */
+    .flex {
+      min-width: 0;
+    }
+
+    .flex.flex-wrap a,
+    .flex.flex-wrap button {
+      max-width: 100%;
+    }
+
+    main a.rounded-full,
+    main button.rounded-full {
+      text-align: center;
+    }
+
+    /* Forms */
+    input,
+    textarea,
+    select {
+      width: 100% !important;
+      max-width: 100% !important;
+      font-size: 16px !important; /* prevents iPhone zoom */
+    }
+
+    form {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* Demo/admin tables/cards */
+    table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    article,
+    aside {
+      max-width: 100%;
+    }
+
+    /* Hide floating decorative cards that crush mobile */
+    .absolute.-bottom-8,
+    .absolute.-right-4,
+    .absolute.-bottom-6,
+    .absolute.-right-6 {
+      display: none !important;
+    }
+
+    /* Hero image cards on mobile */
+    main img[alt="Trade team dashboard"],
+    main img[alt="Customer update dashboard"],
+    main img[alt="TradeConnectAI"],
+    main img[alt="Engineer working"] {
+      object-fit: contain;
+    }
+
+    /* Prevent giant visual cards overpowering mobile */
+    .h-72,
+    .h-96 {
+      height: auto !important;
+      min-height: 180px;
+    }
+  }
+
+  /* Very small phones */
+  @media (max-width: 420px) {
+    h1 {
+      font-size: clamp(2.35rem, 15vw, 3.6rem) !important;
+    }
+
+    header {
+      align-items: flex-start !important;
+    }
+
+    header img {
+      max-height: 48px !important;
+    }
+
+    .text-6xl,
+    .text-7xl,
+    .text-8xl {
+      font-size: clamp(2.5rem, 15vw, 4rem) !important;
+    }
+
+    .text-5xl {
+      font-size: clamp(2.25rem, 12vw, 3rem) !important;
+    }
+
+    .text-4xl {
+      font-size: clamp(1.9rem, 10vw, 2.6rem) !important;
+    }
+
+    main a.rounded-full,
+    main button.rounded-full {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* ------------------------------------------------------------
+     TradeConnectAI mobile compact override v2
+     Makes phone layout tighter, cleaner and less gigantic
+  ------------------------------------------------------------ */
+
+  @media (max-width: 768px) {
+    html,
+    body {
+      overflow-x: hidden !important;
+    }
+
+    main {
+      overflow-x: hidden !important;
+    }
+
+    /* Compact page rhythm */
+    section {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    .py-16,
+    .py-12,
+    .py-10 {
+      padding-top: 2.25rem !important;
+      padding-bottom: 2.25rem !important;
+    }
+
+    .pt-16,
+    .pt-12,
+    .pt-10,
+    .pt-8 {
+      padding-top: 1.75rem !important;
+    }
+
+    .pb-24,
+    .pb-16,
+    .pb-12 {
+      padding-bottom: 2.75rem !important;
+    }
+
+    .mt-14,
+    .mt-12,
+    .mt-10,
+    .mt-9,
+    .mt-8 {
+      margin-top: 1.5rem !important;
+    }
+
+    .gap-10,
+    .gap-8,
+    .gap-6,
+    .gap-5 {
+      gap: 1rem !important;
+    }
+
+    /* Much calmer mobile typography */
+    h1,
+    .text-8xl,
+    .text-7xl,
+    .text-6xl,
+    .text-5xl {
+      font-size: clamp(2.35rem, 10vw, 3.15rem) !important;
+      line-height: 0.96 !important;
+      letter-spacing: -0.05em !important;
+    }
+
+    h2,
+    .text-4xl {
+      font-size: clamp(1.85rem, 8vw, 2.45rem) !important;
+      line-height: 1.02 !important;
+      letter-spacing: -0.04em !important;
+    }
+
+    h3,
+    .text-3xl,
+    .text-2xl {
+      font-size: clamp(1.35rem, 6vw, 1.85rem) !important;
+      line-height: 1.08 !important;
+    }
+
+    p,
+    .text-xl,
+    .text-lg,
+    .text-base {
+      font-size: 0.98rem !important;
+      line-height: 1.55 !important;
+    }
+
+    .text-sm {
+      font-size: 0.88rem !important;
+    }
+
+    /* Letter-spaced labels were too huge */
+    .tracking-\[0\.25em\],
+    .tracking-\[0\.22em\],
+    .tracking-\[0\.18em\] {
+      letter-spacing: 0.16em !important;
+      font-size: 0.78rem !important;
+    }
+
+    /* Compact cards */
+    .rounded-\[2rem\],
+    .rounded-\[1\.5rem\],
+    .rounded-3xl {
+      border-radius: 1.15rem !important;
+    }
+
+    .p-8,
+    .p-7,
+    .p-6,
+    .p-5 {
+      padding: 1rem !important;
+    }
+
+    .px-6,
+    .px-5,
+    .px-4 {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    .py-4,
+    .py-3 {
+      padding-top: 0.85rem !important;
+      padding-bottom: 0.85rem !important;
+    }
+
+    /* Stack grids cleanly */
+    .grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Header */
+    header {
+      min-height: auto !important;
+      padding-top: 0.85rem !important;
+      padding-bottom: 0.85rem !important;
+    }
+
+    header nav {
+      display: none !important;
+    }
+
+    header img {
+      max-height: 44px !important;
+      width: auto !important;
+    }
+
+    header a.rounded-full {
+      width: auto !important;
+      padding: 0.75rem 0.95rem !important;
+      font-size: 0.78rem !important;
+      white-space: nowrap !important;
+    }
+
+    /* Buttons */
+    main a.rounded-full,
+    main button.rounded-full {
+      min-height: 44px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+
+    /* Fix time badges wrapping 09:42 into two lines */
+    .rounded-full,
+    span.rounded-full,
+    p.rounded-full {
+      white-space: nowrap !important;
+      overflow-wrap: normal !important;
+      word-break: keep-all !important;
+    }
+
+    /* Activity feed rows */
+    .flex.items-center.gap-4 {
+      align-items: flex-start !important;
+      gap: 0.75rem !important;
+    }
+
+    .flex.items-center.gap-4 span.rounded-full {
+      flex-shrink: 0 !important;
+      min-width: 4.2rem !important;
+      text-align: center !important;
+    }
+
+    /* Stats/cards should not look like huge slabs */
+    .shadow-2xl {
+      box-shadow: none !important;
+    }
+
+    /* Images/visuals */
+    img {
+      max-width: 100% !important;
+    }
+
+    .h-72,
+    .h-96,
+    .h-44 {
+      height: auto !important;
+      min-height: 0 !important;
+    }
+
+    /* Forms */
+    input,
+    textarea,
+    select {
+      min-height: 44px !important;
+      font-size: 16px !important;
+    }
+  }
+
+  @media (max-width: 430px) {
+    h1,
+    .text-8xl,
+    .text-7xl,
+    .text-6xl,
+    .text-5xl {
+      font-size: clamp(2.15rem, 10.5vw, 2.8rem) !important;
+    }
+
+    h2,
+    .text-4xl {
+      font-size: clamp(1.7rem, 8.5vw, 2.15rem) !important;
+    }
+
+    .p-8,
+    .p-7,
+    .p-6,
+    .p-5 {
+      padding: 0.95rem !important;
+    }
+
+    section {
+      padding-left: 0.9rem !important;
+      padding-right: 0.9rem !important;
+    }
+  }
+
+  /* ------------------------------------------------------------
+     TradeConnectAI mobile compact override v2
+  ------------------------------------------------------------ */
+
+  @media (max-width: 768px) {
+    html,
+    body,
+    main {
+      overflow-x: hidden !important;
+    }
+
+    section {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    .py-16,
+    .py-12,
+    .py-10 {
+      padding-top: 2.25rem !important;
+      padding-bottom: 2.25rem !important;
+    }
+
+    .pt-16,
+    .pt-12,
+    .pt-10,
+    .pt-8 {
+      padding-top: 1.75rem !important;
+    }
+
+    .pb-24,
+    .pb-16,
+    .pb-12 {
+      padding-bottom: 2.75rem !important;
+    }
+
+    .mt-14,
+    .mt-12,
+    .mt-10,
+    .mt-9,
+    .mt-8 {
+      margin-top: 1.5rem !important;
+    }
+
+    .gap-10,
+    .gap-8,
+    .gap-6,
+    .gap-5 {
+      gap: 1rem !important;
+    }
+
+    h1,
+    .text-8xl,
+    .text-7xl,
+    .text-6xl,
+    .text-5xl {
+      font-size: clamp(2.15rem, 10.5vw, 3rem) !important;
+      line-height: 0.96 !important;
+      letter-spacing: -0.05em !important;
+    }
+
+    h2,
+    .text-4xl {
+      font-size: clamp(1.7rem, 8.5vw, 2.25rem) !important;
+      line-height: 1.05 !important;
+      letter-spacing: -0.04em !important;
+    }
+
+    h3,
+    .text-3xl,
+    .text-2xl {
+      font-size: clamp(1.25rem, 6vw, 1.75rem) !important;
+      line-height: 1.1 !important;
+    }
+
+    p,
+    .text-xl,
+    .text-lg,
+    .text-base {
+      font-size: 0.98rem !important;
+      line-height: 1.55 !important;
+    }
+
+    .text-sm {
+      font-size: 0.88rem !important;
+    }
+
+    .tracking-\[0\.25em\],
+    .tracking-\[0\.22em\],
+    .tracking-\[0\.18em\] {
+      letter-spacing: 0.16em !important;
+      font-size: 0.78rem !important;
+    }
+
+    .rounded-\[2rem\],
+    .rounded-\[1\.5rem\],
+    .rounded-3xl {
+      border-radius: 1.15rem !important;
+    }
+
+    .p-8,
+    .p-7,
+    .p-6,
+    .p-5 {
+      padding: 1rem !important;
+    }
+
+    .px-6,
+    .px-5,
+    .px-4 {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    .py-4,
+    .py-3 {
+      padding-top: 0.85rem !important;
+      padding-bottom: 0.85rem !important;
+    }
+
+    .grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    header {
+      min-height: auto !important;
+      padding-top: 0.85rem !important;
+      padding-bottom: 0.85rem !important;
+    }
+
+    header nav {
+      display: none !important;
+    }
+
+    header img {
+      max-height: 44px !important;
+      width: auto !important;
+    }
+
+    header a.rounded-full {
+      width: auto !important;
+      padding: 0.75rem 0.95rem !important;
+      font-size: 0.78rem !important;
+      white-space: nowrap !important;
+    }
+
+    main a.rounded-full,
+    main button.rounded-full {
+      min-height: 44px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+
+    .rounded-full,
+    span.rounded-full,
+    p.rounded-full {
+      white-space: nowrap !important;
+      overflow-wrap: normal !important;
+      word-break: keep-all !important;
+    }
+
+    .flex.items-center.gap-4 {
+      align-items: flex-start !important;
+      gap: 0.75rem !important;
+    }
+
+    .flex.items-center.gap-4 span.rounded-full {
+      flex-shrink: 0 !important;
+      min-width: 4.2rem !important;
+      text-align: center !important;
+    }
+
+    .shadow-2xl {
+      box-shadow: none !important;
+    }
+
+    img {
+      max-width: 100% !important;
+    }
+
+    .h-72,
+    .h-96,
+    .h-44 {
+      height: auto !important;
+      min-height: 0 !important;
+    }
+
+    input,
+    textarea,
+    select {
+      min-height: 44px !important;
+      font-size: 16px !important;
+    }
+  }
+
+  /* ------------------------------------------------------------
+     TradeConnectAI mobile compact override v2
+  ------------------------------------------------------------ */
+
+  @media (max-width: 768px) {
+    html,
+    body,
+    main {
+      overflow-x: hidden !important;
+    }
+
+    section {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    .py-16,
+    .py-12,
+    .py-10 {
+      padding-top: 2.25rem !important;
+      padding-bottom: 2.25rem !important;
+    }
+
+    .pt-16,
+    .pt-12,
+    .pt-10,
+    .pt-8 {
+      padding-top: 1.75rem !important;
+    }
+
+    .pb-24,
+    .pb-16,
+    .pb-12 {
+      padding-bottom: 2.75rem !important;
+    }
+
+    .mt-14,
+    .mt-12,
+    .mt-10,
+    .mt-9,
+    .mt-8 {
+      margin-top: 1.5rem !important;
+    }
+
+    .gap-10,
+    .gap-8,
+    .gap-6,
+    .gap-5 {
+      gap: 1rem !important;
+    }
+
+    h1,
+    .text-8xl,
+    .text-7xl,
+    .text-6xl,
+    .text-5xl {
+      font-size: clamp(2.15rem, 10.5vw, 3rem) !important;
+      line-height: 0.96 !important;
+      letter-spacing: -0.05em !important;
+    }
+
+    h2,
+    .text-4xl {
+      font-size: clamp(1.7rem, 8.5vw, 2.25rem) !important;
+      line-height: 1.05 !important;
+      letter-spacing: -0.04em !important;
+    }
+
+    h3,
+    .text-3xl,
+    .text-2xl {
+      font-size: clamp(1.25rem, 6vw, 1.75rem) !important;
+      line-height: 1.1 !important;
+    }
+
+    p,
+    .text-xl,
+    .text-lg,
+    .text-base {
+      font-size: 0.98rem !important;
+      line-height: 1.55 !important;
+    }
+
+    .text-sm {
+      font-size: 0.88rem !important;
+    }
+
+    .tracking-\[0\.25em\],
+    .tracking-\[0\.22em\],
+    .tracking-\[0\.18em\] {
+      letter-spacing: 0.16em !important;
+      font-size: 0.78rem !important;
+    }
+
+    .rounded-\[2rem\],
+    .rounded-\[1\.5rem\],
+    .rounded-3xl {
+      border-radius: 1.15rem !important;
+    }
+
+    .p-8,
+    .p-7,
+    .p-6,
+    .p-5 {
+      padding: 1rem !important;
+    }
+
+    .px-6,
+    .px-5,
+    .px-4 {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    .py-4,
+    .py-3 {
+      padding-top: 0.85rem !important;
+      padding-bottom: 0.85rem !important;
+    }
+
+    .grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    header {
+      min-height: auto !important;
+      padding-top: 0.85rem !important;
+      padding-bottom: 0.85rem !important;
+    }
+
+    header nav {
+      display: none !important;
+    }
+
+    header img {
+      max-height: 44px !important;
+      width: auto !important;
+    }
+
+    header a.rounded-full {
+      width: auto !important;
+      padding: 0.75rem 0.95rem !important;
+      font-size: 0.78rem !important;
+      white-space: nowrap !important;
+    }
+
+    main a.rounded-full,
+    main button.rounded-full {
+      min-height: 44px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+
+    .rounded-full,
+    span.rounded-full,
+    p.rounded-full {
+      white-space: nowrap !important;
+      overflow-wrap: normal !important;
+      word-break: keep-all !important;
+    }
+
+    .flex.items-center.gap-4 {
+      align-items: flex-start !important;
+      gap: 0.75rem !important;
+    }
+
+    .flex.items-center.gap-4 span.rounded-full {
+      flex-shrink: 0 !important;
+      min-width: 4.2rem !important;
+      text-align: center !important;
+    }
+
+    .shadow-2xl {
+      box-shadow: none !important;
+    }
+
+    img {
+      max-width: 100% !important;
+    }
+
+    .h-72,
+    .h-96,
+    .h-44 {
+      height: auto !important;
+      min-height: 0 !important;
+    }
+
+    input,
+    textarea,
+    select {
+      min-height: 44px !important;
+      font-size: 16px !important;
+    }
+  }
+
+  /* ------------------------------------------------------------
+     Final mobile polish: TradeConnectAI
+     Keeps the founding beta funnel tidy on phones
+  ------------------------------------------------------------ */
+
+  @media (max-width: 768px) {
+    body {
+      background: #020817;
+    }
+
+    main {
+      max-width: 100vw;
+    }
+
+    header,
+    footer,
+    section {
+      max-width: 100%;
+    }
+
+    header {
+      position: relative;
+      z-index: 20;
+    }
+
+    header nav {
+      display: none !important;
+    }
+
+    header img {
+      max-height: 44px !important;
+    }
+
+    h1,
+    .text-8xl,
+    .text-7xl,
+    .text-6xl,
+    .text-5xl {
+      font-size: clamp(2.15rem, 10vw, 3rem) !important;
+      line-height: 0.94 !important;
+    }
+
+    h2,
+    .text-4xl {
+      font-size: clamp(1.7rem, 8vw, 2.25rem) !important;
+      line-height: 1.04 !important;
+    }
+
+    .grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .rounded-\[2rem\],
+    .rounded-3xl {
+      border-radius: 1.15rem !important;
+    }
+
+    .p-8,
+    .p-7,
+    .p-6,
+    .p-5 {
+      padding: 1rem !important;
+    }
+
+    .mt-14,
+    .mt-12,
+    .mt-10,
+    .mt-9,
+    .mt-8 {
+      margin-top: 1.5rem !important;
+    }
+
+    .gap-10,
+    .gap-8,
+    .gap-6,
+    .gap-5 {
+      gap: 1rem !important;
+    }
+
+    a.rounded-full,
+    button.rounded-full {
+      min-height: 44px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    span.rounded-full,
+    p.rounded-full {
+      white-space: nowrap !important;
+    }
+
+    input,
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
   }
 }

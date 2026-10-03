@@ -19,7 +19,7 @@ export default function DemoSidebar() {
     <aside className="min-h-screen w-full border-r border-slate-800 bg-slate-950 p-5 text-white md:w-72">
       <Link href="/" className="mb-8 block">
         <div className="text-xl font-black">TradeConnectAI</div>
-        <div className="text-sm text-slate-400">Plumber operations demo</div>
+        <div className="text-sm text-slate-400">Operations demo</div>
       </Link>
 
       <nav className="space-y-2">
@@ -45,7 +45,7 @@ export default function DemoSidebar() {
       <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-4">
         <div className="text-sm font-bold text-white">Demo mode</div>
         <p className="mt-2 text-xs leading-5 text-slate-400">
-          Illustrative jobs and updates for the plumber launch flow. Not live phone-AI.
+          Illustrative jobs and updates. Not live phone-AI.
         </p>
       </div>
     </aside>

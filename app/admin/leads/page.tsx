@@ -65,7 +65,7 @@ export default async function AdminLeadsPage() {
 
             <div className="mt-5 rounded-3xl border border-cyan-300/30 bg-cyan-300/10 p-5 text-cyan-100">
               <p className="text-sm font-black uppercase tracking-[0.2em]">
-                Plumber plans £29 / £49
+                Plans £29 / £49
               </p>
               <p className="mt-2 text-sm leading-6">
                 Public offer is paid only. Stripe self-serve checkout is not wired yet — confirm billing manually.

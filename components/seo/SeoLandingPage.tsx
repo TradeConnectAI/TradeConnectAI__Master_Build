@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import { APP_SIGNUP_URL } from "@/lib/site-links";
 
 type Props = {
   badge: string;
@@ -35,12 +36,12 @@ export default function SeoLandingPage({
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/operations-demo"
+          <a
+            href={APP_SIGNUP_URL}
             className="rounded-2xl bg-blue-500 px-6 py-3 font-bold text-white hover:bg-blue-400"
           >
-            View Live Demo
-          </Link>
+            Try the app
+          </a>
           <Link
             href="/pricing"
             className="rounded-2xl border border-white/15 px-6 py-3 font-bold text-white hover:bg-white/10"
@@ -74,17 +75,24 @@ export default function SeoLandingPage({
         </section>
 
         <section className="mt-16 rounded-3xl bg-blue-500 p-8 text-white">
-          <h2 className="text-3xl font-black">£29 / £49 for UK plumbers</h2>
+          <h2 className="text-3xl font-black">Built for trades. Try the beta.</h2>
           <p className="mt-3 max-w-2xl">
-            Sole-trader and 2-van plumbing teams. Plain paid offer — no free founding-beta framing.
-            Start with Stripe Checkout on the homepage pricing, or request a demo.
+            TradeConnectAI is in beta with a 14-day free trial, then £29 or £49 a month. It works in your phone&apos;s browser.
           </p>
-          <Link
-            href="/pricing"
-            className="mt-6 inline-block rounded-2xl bg-white px-6 py-3 font-black text-slate-950"
-          >
-            See pricing
-          </Link>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href={APP_SIGNUP_URL}
+              className="inline-flex min-h-[44px] items-center rounded-2xl bg-white px-6 py-3 font-black text-slate-950"
+            >
+              Try the app
+            </a>
+            <Link
+              href="/pricing"
+              className="inline-flex min-h-[44px] items-center rounded-2xl border border-white/60 px-6 py-3 font-black text-white"
+            >
+              See pricing
+            </Link>
+          </div>
         </section>
       </section>
     </main>

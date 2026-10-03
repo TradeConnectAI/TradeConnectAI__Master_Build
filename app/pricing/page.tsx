@@ -1,14 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import CheckoutButton from "@/components/CheckoutButton";
+import { APP_SIGNUP_URL, FEEDBACK_PATH } from "@/lib/site-links";
+
+export const metadata: Metadata = {
+  title: "Pricing — TradeConnectAI",
+  description:
+    "Straight prices for tradespeople. Try the TradeConnectAI beta free for 14 days, then £29 or £49 a month.",
+  alternates: { canonical: "/pricing" },
+};
 
 const planCards = [
   {
     title: "Starter",
     plan: "starter" as const,
     price: "£29",
-    text: "The core enquiry → job card → quote or customer-update workflow.",
+    text: "The core enquiry → job → quote and customer-update workflow.",
   },
   {
     title: "Growth",
@@ -19,99 +28,69 @@ const planCards = [
 ];
 
 const included = [
-  "Missed enquiry capture",
-  "Job cards and notes",
-  "Quote draft workflow",
-  "Customer text updates",
-  "Phone-usable operations demo",
-  "Built for plumbers — not multi-trade",
+  "Enquiries and job cards",
+  "Job photos, measurements and notes",
+  "Quotes you check before sending",
+  "Calendar and customer updates",
+  "Works in your phone’s browser",
+  "Built for trades",
 ];
 
 export default function PricingPage() {
   return (
-    <main className="min-h-screen bg-[#020817] text-white">
+    <main className="tc-site min-h-screen bg-cream text-ink">
       <SiteHeader />
 
-      <section className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-20">
-        <div className="max-w-4xl">
-          <p className="inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-bold text-cyan-100">
-            AI POWERED. TRADE FOCUSED.
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
+        <div className="max-w-3xl">
+          <span className="tc-beta">Beta</span>
+          <h1 className="mt-4 text-5xl font-bold text-navy md:text-6xl">Straight prices when you&apos;re ready.</h1>
+          <p className="mt-4 text-lg text-ink">
+            Try the app first — it&apos;s in beta with a 14-day free trial. After your trial, plans are £29 or £49 a month.
           </p>
-
-          <h1 className="mt-7 text-5xl font-black leading-[0.9] tracking-[-0.055em] md:text-7xl">
-            Plain £29 / £49 for UK plumbers.
-          </h1>
-
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-            One customer type: sole-trader and 2-van UK plumbers. Start Starter or Growth
-            with Stripe Checkout — or book a demo if you prefer to talk first.
-          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a href={APP_SIGNUP_URL} className="tc-btn tc-btn-primary text-lg">Try the app</a>
+            <Link href={FEEDBACK_PATH} className="tc-btn tc-btn-outline">Tell us what you think</Link>
+          </div>
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <h2 className="mt-14 text-3xl font-bold text-navy">After your trial</h2>
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
           {planCards.map((card) => (
-            <article
-              key={card.title}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-7"
-            >
-              <h2 className="text-2xl font-black">{card.title}</h2>
-              <p className="mt-4 text-4xl font-black text-cyan-200">
+            <article key={card.title} className="tc-card p-6 md:p-7">
+              <h3 className="text-3xl font-bold text-navy">{card.title}</h3>
+              <p className="tc-display mt-3 text-5xl font-bold text-navy">
                 {card.price}
-                <span className="text-lg font-bold text-slate-400"> / month</span>
+                <span className="text-xl font-semibold text-ink-muted"> / month</span>
               </p>
-              <p className="mt-4 text-sm leading-6 text-slate-400">
-                {card.text}
-              </p>
+              <p className="mt-3 text-base text-ink-muted">{card.text}</p>
               <CheckoutButton
                 plan={card.plan}
-                className="mt-6 inline-flex rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950 disabled:opacity-70"
+                className="tc-btn tc-btn-navy mt-6 w-full disabled:opacity-70 sm:w-auto"
               >
-                Get started — {card.price}/mo
+                Subscribe — {card.price}/month
               </CheckoutButton>
             </article>
           ))}
         </div>
+        <p className="mt-4 max-w-3xl text-base text-ink-muted">
+          The Subscribe buttons take you to secure Stripe checkout and start a paid monthly plan straight away. To try
+          TradeConnectAI before paying, use the free trial in the app.
+        </p>
 
-        <section className="mt-10 grid gap-6 rounded-[2rem] border border-cyan-300/20 bg-cyan-300/10 p-7 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-200">
-              What is included
-            </p>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em]">
-              The one launch flow that matters.
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-slate-300">
-              Enquiry in → job card → quote or customer text. AI Call Demo and Customer
-              Portal routes stay available but are not launch requirements.
-            </p>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-2">
+        <section className="mt-12 border-t-2 border-navy pt-8">
+          <h2 className="text-3xl font-bold text-navy">What you get</h2>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {included.map((item) => (
-              <div
-                key={item}
-                className="rounded-2xl border border-white/10 bg-black/25 p-4 text-sm font-bold text-slate-100"
-              >
+              <li key={item} className="flex min-h-[52px] items-center gap-3 border-l-4 border-copper bg-surface px-4 text-base font-semibold text-ink">
                 {item}
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
+          <p className="mt-6 text-base text-ink-muted">
+            Need a wider team setup or want to talk first? <Link href="/book-demo" className="inline-block py-[11px] font-semibold text-navy underline underline-offset-4">Talk to us</Link>.
+          </p>
         </section>
-
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Link
-            href="/book-demo"
-            className="rounded-full bg-white px-6 py-4 text-sm font-black text-slate-950"
-          >
-            Get started
-          </Link>
-          <Link
-            href="/operations-demo"
-            className="rounded-full border border-white/15 bg-white/10 px-6 py-4 text-sm font-black text-white"
-          >
-            View operations demo
-          </Link>
-        </div>
       </section>
 
       <SiteFooter />

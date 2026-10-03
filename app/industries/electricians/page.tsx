@@ -1,6 +1,11 @@
-import { redirect } from "next/navigation";
+import type { Metadata } from "next";
+import IndustryPage from "@/components/site/IndustryPage";
 
-// Launch shrink: public pitch is plumber-only. Route kept; redirects to plumbers.
-export default function Page() {
-  redirect("/industries/plumbers");
+export const metadata: Metadata = {
+  title: "TradeConnectAI for electricians",
+  description: "The job, quote and customer app built for trades — including electricians.",
+};
+
+export default function ElectriciansPage() {
+  return <IndustryPage trade="electricians" examples="board photos, circuit notes and measurements" />;
 }
