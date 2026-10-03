@@ -49,7 +49,7 @@ export async function POST(request: Request) {
   await saveBetaLead(lead);
 
   const resendApiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.LEAD_TO_EMAIL || "info@tradeconnectai.co.uk";
+  const toEmail = process.env.LEAD_TO_EMAIL || "steven.neilson@tradeconnectai.co.uk";
   const fromEmail =
     process.env.LEAD_FROM_EMAIL ||
     "TradeConnectAI <leads@send.tradeconnectai.co.uk>";
