@@ -8,7 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/pricing",
     "/feedback",
-    "/book-demo",
     "/industries/plumbers",
     "/industries/electricians",
     "/industries/hvac",

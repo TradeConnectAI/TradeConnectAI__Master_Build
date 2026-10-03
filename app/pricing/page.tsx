@@ -54,12 +54,13 @@ export default function PricingPage() {
           </div>
         </div>
 
-        <h2 className="mt-14 text-3xl font-bold text-navy">After your trial</h2>
+        <h2 className="mt-14 text-3xl font-bold text-navy">Plans</h2>
         <div className="mt-5 grid gap-5 md:grid-cols-2">
           {planCards.map((card) => (
             <article key={card.title} className="tc-card p-6 md:p-7">
               <h3 className="text-3xl font-bold text-navy">{card.title}</h3>
-              <p className="tc-display mt-3 text-5xl font-bold text-navy">
+              <p className="mt-3 text-base font-semibold text-copper-edge">14 days free, then</p>
+              <p className="tc-display text-5xl font-bold text-navy">
                 {card.price}
                 <span className="text-xl font-semibold text-ink-muted"> / month</span>
               </p>
@@ -68,14 +69,14 @@ export default function PricingPage() {
                 plan={card.plan}
                 className="tc-btn tc-btn-navy mt-6 w-full disabled:opacity-70 sm:w-auto"
               >
-                Subscribe — {card.price}/month
+                14 days free, then {card.price}/month
               </CheckoutButton>
             </article>
           ))}
         </div>
         <p className="mt-4 max-w-3xl text-base text-ink-muted">
-          The Subscribe buttons take you to secure Stripe checkout and start a paid monthly plan straight away. To try
-          TradeConnectAI before paying, use the free trial in the app.
+          14 days free, then £29/month (Starter) or £49/month (Growth). These buttons take you to secure Stripe
+          checkout, which asks for card details to start the trial. Cancel before the trial ends and you won&apos;t be charged.
         </p>
 
         <section className="mt-12 border-t-2 border-navy pt-8">

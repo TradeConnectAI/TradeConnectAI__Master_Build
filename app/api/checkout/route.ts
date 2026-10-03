@@ -18,6 +18,8 @@ const PLANS = {
 
 type PlanKey = keyof typeof PLANS;
 
+const TRIAL_DAYS = 14;
+
 function resolveBaseUrl(request: Request): string {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL?.trim();
   if (appUrl) return appUrl.replace(/\/$/, "");
@@ -82,6 +84,9 @@ export async function POST(request: Request) {
       mode: "subscription",
       adaptive_pricing: { enabled: false },
       line_items,
+      // 14-day free trial on both Starter and Growth. Stripe Checkout still
+      // collects a card by default and starts billing when the trial ends.
+      subscription_data: { trial_period_days: TRIAL_DAYS },
       success_url: `${baseUrl}/?checkout=success`,
       cancel_url: `${baseUrl}/?checkout=cancelled`,
     });

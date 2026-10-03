@@ -66,7 +66,7 @@ export default async function HomePage({
 
       {checkoutSuccess ? (
         <div role="status" className="border-b-2 border-ok bg-surface px-4 py-3 text-center text-base font-semibold text-ok">
-          Checkout complete — thanks. We&apos;ll be in touch to confirm your plan.
+          Checkout complete — thanks. Your 14-day free trial has started.
         </div>
       ) : null}
       {checkoutCancelled ? (
