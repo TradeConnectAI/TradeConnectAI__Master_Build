@@ -60,7 +60,7 @@ export default function BookDemoPage() {
 
           <form action="/api/beta-leads" method="post" className="mt-6 grid gap-4">
             <input type="hidden" name="source" value="book-demo" />
-            <input type="hidden" name="offer" value="Trades plans: £29 / £49 per month after 14-day trial" />
+            <input type="hidden" name="offer" value="One Van £29 / Two Vans £49 per month after 14-day free trial" />
 
             <div className="grid gap-4 md:grid-cols-2">
               <label className="grid gap-1.5 font-semibold text-navy">

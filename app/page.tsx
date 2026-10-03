@@ -51,30 +51,10 @@ function BetaBadge({ tone = "dark" }: { tone?: "dark" | "light" }) {
   );
 }
 
-export default async function HomePage({
-  searchParams,
-}: {
-  searchParams?: Promise<{ checkout?: string }>;
-}) {
-  const params = (await searchParams) ?? {};
-  const checkoutSuccess = params.checkout === "success";
-  const checkoutCancelled = params.checkout === "cancelled";
-
+export default function HomePage() {
   return (
     <main className="tc-site min-h-screen bg-cream text-ink">
       <SiteHeader />
-
-      {checkoutSuccess ? (
-        <div role="status" className="border-b-2 border-ok bg-surface px-4 py-3 text-center text-base font-semibold text-ok">
-          Checkout complete — thanks. Your 14-day free trial has started.
-        </div>
-      ) : null}
-      {checkoutCancelled ? (
-        <div role="status" className="border-b-2 border-caution bg-surface px-4 py-3 text-center text-base font-semibold text-ink">
-          Checkout cancelled. No payment was taken.{" "}
-          <Link href="/pricing" className="underline underline-offset-4">Back to pricing</Link>
-        </div>
-      ) : null}
 
       {/* Hero */}
       <section className="bg-navy text-cream">
@@ -102,7 +82,7 @@ export default async function HomePage({
               </a>
             </div>
             <p className="mt-4 text-base text-cream/90">
-              <span className="font-bold text-copper">Beta · 14-day free trial</span>{" · "}no card details to sign up{" · "}works in your phone&apos;s browser, nothing to install.
+              <span className="font-bold text-copper">Beta · 14-day free trial</span>{" · "}no card required{" · "}works in your phone&apos;s browser, nothing to install.
             </p>
             <p className="mt-2 text-base text-cream/90">
               Already using it?{" "}
@@ -321,10 +301,15 @@ export default async function HomePage({
       <section id="pricing" aria-labelledby="pricing-teaser">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 id="pricing-teaser" className="text-2xl font-bold text-navy">Straight prices when you&apos;re ready.</h2>
-            <p className="mt-1 text-base text-ink-muted">After your 14-day trial, plans are £29 or £49 a month.</p>
+            <h2 id="pricing-teaser" className="text-2xl font-bold text-navy">One van or two. Straight prices.</h2>
+            <p className="mt-1 text-base text-ink-muted">
+              14-day free trial. No card required. After the free trial: One Van £29/month · Two Vans £49/month.
+            </p>
           </div>
-          <Link href="/pricing" className="tc-btn tc-btn-outline">See pricing</Link>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a href={APP_SIGNUP_URL} className="tc-btn tc-btn-primary">Start 14-day free trial</a>
+            <Link href="/pricing" className="tc-btn tc-btn-outline">See pricing</Link>
+          </div>
         </div>
       </section>
 

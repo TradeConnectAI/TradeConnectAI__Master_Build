@@ -2,38 +2,35 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import CheckoutButton from "@/components/CheckoutButton";
 import { APP_SIGNUP_URL, FEEDBACK_PATH } from "@/lib/site-links";
 
 export const metadata: Metadata = {
   title: "Pricing — TradeConnectAI",
   description:
-    "Straight prices for tradespeople. Try the TradeConnectAI beta free for 14 days, then £29 or £49 a month.",
+    "One van or two. Straight prices. 14-day free trial, no card required. Then One Van £29/month or Two Vans £49/month.",
   alternates: { canonical: "/pricing" },
 };
 
-const planCards = [
+const plans = [
   {
-    title: "Starter",
-    plan: "starter" as const,
+    name: "One Van",
+    who: "One person, one phone.",
     price: "£29",
-    text: "The core enquiry → job → quote and customer-update workflow.",
+    points: [
+      "Every part of the app: enquiries, jobs, photos, quotes, parts links, slots and replies",
+      "Room measure and design",
+      "Photo checks for quotes",
+    ],
   },
   {
-    title: "Growth",
-    plan: "growth" as const,
+    name: "Two Vans",
+    who: "Two people, each with their own sign-in.",
     price: "£49",
-    text: "Everything in Starter, plus TradeConnectAI captures and organises the incoming job details for you, reducing the admin you need to do yourself.",
+    points: [
+      "Everything in One Van, for two people",
+      "Each person keeps their jobs on their own phone — shared team job lists are not built yet",
+    ],
   },
-];
-
-const included = [
-  "Enquiries and job cards",
-  "Job photos, measurements and notes",
-  "Quotes you check before sending",
-  "Calendar and customer updates",
-  "Works in your phone’s browser",
-  "Built for trades",
 ];
 
 export default function PricingPage() {
@@ -43,53 +40,63 @@ export default function PricingPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
         <div className="max-w-3xl">
-          <span className="tc-beta">Beta</span>
-          <h1 className="mt-4 text-5xl font-bold text-navy md:text-6xl">Straight prices when you&apos;re ready.</h1>
-          <p className="mt-4 text-lg text-ink">
-            Try the app first — it&apos;s in beta with a 14-day free trial. After your trial, plans are £29 or £49 a month.
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="tc-beta">Beta</span>
+            <p className="tc-eyebrow">Simple pricing</p>
+          </div>
+          <h1 className="mt-4 text-5xl font-bold text-navy md:text-6xl">One van or two. Straight prices.</h1>
+          <p className="mt-4 text-xl font-semibold text-navy">14-day free trial. No card required.</p>
+          <p className="mt-2 text-lg text-ink">
+            Monthly only. Cancel any time. The app is in beta and works in your phone&apos;s browser — nothing to install.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <a href={APP_SIGNUP_URL} className="tc-btn tc-btn-primary text-lg">Try the app</a>
+            <a href={APP_SIGNUP_URL} className="tc-btn tc-btn-primary text-lg">Start 14-day free trial</a>
             <Link href={FEEDBACK_PATH} className="tc-btn tc-btn-outline">Tell us what you think</Link>
           </div>
         </div>
 
-        <h2 className="mt-14 text-3xl font-bold text-navy">Plans</h2>
-        <div className="mt-5 grid gap-5 md:grid-cols-2">
-          {planCards.map((card) => (
-            <article key={card.title} className="tc-card p-6 md:p-7">
-              <h3 className="text-3xl font-bold text-navy">{card.title}</h3>
-              <p className="mt-3 text-base font-semibold text-copper-edge">14 days free, then</p>
-              <p className="tc-display text-5xl font-bold text-navy">
-                {card.price}
-                <span className="text-xl font-semibold text-ink-muted"> / month</span>
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
+          {plans.map((plan) => (
+            <article key={plan.name} className="tc-card flex flex-col p-6 md:p-7">
+              <h2 className="text-3xl font-bold uppercase tracking-wide text-navy">{plan.name}</h2>
+              <p className="mt-1 text-base text-ink-muted">{plan.who}</p>
+              <p className="tc-display mt-4 text-5xl font-bold text-navy">
+                {plan.price}
+                <span className="text-xl font-semibold text-ink-muted"> /month</span>
               </p>
-              <p className="mt-3 text-base text-ink-muted">{card.text}</p>
-              <CheckoutButton
-                plan={card.plan}
-                className="tc-btn tc-btn-navy mt-6 w-full disabled:opacity-70 sm:w-auto"
-              >
-                14 days free, then {card.price}/month
-              </CheckoutButton>
+              <p className="mt-1 text-base font-semibold text-copper-edge">after the 14-day free trial</p>
+              <ul className="mt-4 grid gap-2">
+                {plan.points.map((point) => (
+                  <li key={point} className="flex gap-3 text-base text-ink">
+                    <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 bg-copper" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <a href={APP_SIGNUP_URL} className="tc-btn tc-btn-navy mt-6 w-full sm:w-auto sm:self-start">
+                Start free trial — {plan.name}
+              </a>
             </article>
           ))}
         </div>
         <p className="mt-4 max-w-3xl text-base text-ink-muted">
-          14 days free, then £29/month (Starter) or £49/month (Growth). These buttons take you to secure Stripe
-          checkout, which asks for card details to start the trial. Cancel before the trial ends and you won&apos;t be charged.
+          Both plans start with the same free trial in the app. No card required to start, and you choose a plan inside the app
+          when you&apos;re ready.
         </p>
 
         <section className="mt-12 border-t-2 border-navy pt-8">
-          <h2 className="text-3xl font-bold text-navy">What you get</h2>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {included.map((item) => (
-              <li key={item} className="flex min-h-[52px] items-center gap-3 border-l-4 border-copper bg-surface px-4 text-base font-semibold text-ink">
-                {item}
-              </li>
-            ))}
-          </ul>
+          <h2 className="text-3xl font-bold text-navy">What it does, plainly</h2>
+          <p className="mt-4 max-w-3xl text-lg text-ink">
+            Log an enquiry, turn it into a job, add photos, draft a quote, check parts through Screwfix or Plumbfix links, offer
+            a slot and draft the customer reply. AI drafts. You decide. Nothing is sent to customers without you, supplier
+            prices are never shown as live, and appointments are not synced to outside calendars.
+          </p>
           <p className="mt-6 text-base text-ink-muted">
-            Need a wider team setup or want to talk first? <Link href="/book-demo" className="inline-block py-[11px] font-semibold text-navy underline underline-offset-4">Talk to us</Link>.
+            Need a wider team setup or want to talk first?{" "}
+            <Link href="/book-demo" className="inline-block py-[11px] font-semibold text-navy underline underline-offset-4">
+              Talk to us
+            </Link>
+            .
           </p>
         </section>
       </section>
