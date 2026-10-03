@@ -3,6 +3,45 @@ import { getStripe, isStripeConfigured } from "@/lib/stripe";
 
 export const dynamic = "force-dynamic";
 
+// Payments switch. OFF unless PAYMENTS_ENABLED is exactly "true" (set in Vercel
+// to re-enable). While off, every method returns 503 before any Stripe client
+// is created or called.
+function paymentsEnabled(): boolean {
+  return process.env.PAYMENTS_ENABLED === "true";
+}
+
+function paymentsDisabledResponse() {
+  return NextResponse.json(
+    {
+      error: "payments_not_enabled",
+      message:
+        "Payments are not enabled yet. Start your free trial in the app: https://tradeconnectai-beta.lovable.app/auth?mode=up",
+    },
+    { status: 503, headers: { "Cache-Control": "no-store" } }
+  );
+}
+
+function methodNotAllowed() {
+  return NextResponse.json(
+    { ok: false, error: "method_not_allowed" },
+    { status: 405, headers: { Allow: "POST" } }
+  );
+}
+
+export async function POST(request: Request) {
+  if (!paymentsEnabled()) return paymentsDisabledResponse();
+  return createCheckoutSession(request);
+}
+
+export async function GET() {
+  if (!paymentsEnabled()) return paymentsDisabledResponse();
+  return methodNotAllowed();
+}
+
+export const PUT = GET;
+export const PATCH = GET;
+export const DELETE = GET;
+
 const PLANS = {
   starter: {
     name: "TradeConnectAI Starter",
@@ -31,7 +70,7 @@ function resolveBaseUrl(request: Request): string {
   return new URL(request.url).origin;
 }
 
-export async function POST(request: Request) {
+async function createCheckoutSession(request: Request) {
   try {
     if (!isStripeConfigured()) {
       return NextResponse.json(
