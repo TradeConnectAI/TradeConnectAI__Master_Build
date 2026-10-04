@@ -14,6 +14,8 @@ const workflow = [
   ["Complete the job", "Mark it done with the photos and notes kept on the job history."],
 ];
 
+const founderFlow = ["Enquiry comes in", "Create the job", "Photos & details", "Build the quote", "Keep the customer updated"];
+
 const quoteHelp = [
   ["Job photos", "Photos stay on the job they belong to, not lost in your camera roll."],
   ["Measurements", "Write dimensions down once and keep them with the job."],
@@ -227,27 +229,42 @@ export default function HomePage() {
 
       {/* Founder */}
       <section id="about" className="scroll-mt-20 bg-navy text-cream">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-14 sm:px-6 md:grid-cols-[0.6fr_1.4fr] md:py-20">
-          <Image
-            src="/app/founder-steve.jpg"
-            alt="Steve, founder of TradeConnectAI"
-            width={480}
-            height={640}
-            sizes="(max-width: 768px) 60vw, 320px"
-            className="h-auto w-full max-w-[260px] border-2 border-copper md:max-w-[320px]"
-          />
+        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-14 sm:px-6 md:grid-cols-[280px_1fr] md:gap-12 md:py-20">
+          <div className="relative aspect-[4/5] w-full max-w-[210px] overflow-hidden rounded-xl border-[3px] border-copper bg-surface md:max-w-[280px]">
+            <Image
+              src="/founder/steve-headshot.webp"
+              alt="Steve, founder of TradeConnectAI"
+              fill
+              sizes="(max-width: 768px) 210px, 280px"
+              className="object-cover object-center"
+            />
+          </div>
           <div>
-            <p className="tc-eyebrow">About</p>
-            <h2 className="mt-2 text-4xl font-bold md:text-5xl">Built around the reality of working in the field.</h2>
-            <div className="mt-5 space-y-4 text-lg text-cream/90">
-              <p>
-                TradeConnectAI is being built to solve the small bits of admin that steal time from people who actually
-                have jobs to get done.
-              </p>
-              <p>We&apos;re inviting local trade businesses to test it while we develop it.</p>
-              <p>If something is useful, annoying or missing, tell us. That feedback helps shape the app.</p>
-            </div>
-            <p className="mt-5 font-semibold">— Steve, TradeConnectAI</p>
+            <p className="tc-eyebrow">Who&apos;s behind TradeConnectAI</p>
+            <h2 className="mt-2 text-4xl font-bold md:text-5xl">Built by Steve, for trades.</h2>
+            <p className="mt-4 border-l-4 border-copper pl-3 text-lg font-semibold">Less admin. More time.</p>
+            <p className="mt-5 max-w-2xl text-lg text-cream/90">
+              I&apos;m Steve. I work in engineering myself, and I built TradeConnectAI to give small trade businesses one place to
+              keep the everyday job admin under control. <strong className="font-bold text-cream">No big AI promises.</strong>
+            </p>
+            <ol aria-label="How a job flows" className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+              {founderFlow.map((step, i) => (
+                <li
+                  key={step}
+                  className="tc-display relative rounded-[2px] border-2 border-cream/60 px-2.5 py-1 text-base font-bold text-cream"
+                >
+                  {step}
+                  {i < founderFlow.length - 1 ? (
+                    <span aria-hidden="true" className="absolute -right-5 top-1/2 -translate-y-1/2 text-lg text-copper">
+                      &rarr;
+                    </span>
+                  ) : null}
+                </li>
+              ))}
+            </ol>
+            <a href={APP_SIGNUP_URL} className="tc-btn tc-btn-primary mt-7 w-full text-lg sm:w-auto">
+              Try TradeConnectAI free
+            </a>
           </div>
         </div>
       </section>
