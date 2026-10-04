@@ -17,6 +17,11 @@ type Booking = {
 };
 
 export async function GET() {
+  // Containment: the voice beta calls API is off until a proper login exists.
+  if (process.env.VOICE_BETA_CALLS_ENABLED !== "true") {
+    return NextResponse.json({ ok: false, error: "Not found" }, { status: 404 });
+  }
+
   const { data, error } = await supabaseAdmin
     .from("tcai_beta_calls")
     .select("*")
@@ -34,6 +39,11 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  // Containment: the voice beta calls API is off until a proper login exists.
+  if (process.env.VOICE_BETA_CALLS_ENABLED !== "true") {
+    return NextResponse.json({ ok: false, error: "Not found" }, { status: 404 });
+  }
+
   try {
     const body = await request.json();
 
