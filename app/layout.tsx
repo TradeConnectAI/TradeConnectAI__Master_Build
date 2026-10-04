@@ -20,7 +20,7 @@ const barlowCondensed = Barlow_Condensed({
 const siteUrl = "https://www.tradeconnectai.co.uk";
 const title = "TradeConnectAI — The job, quote and customer app for tradespeople";
 const description =
-  "TradeConnectAI is the job, quote and customer app built for tradespeople. Keep jobs, photos, quotes, appointments and customer updates together — without spending your evenings doing admin.";
+  "Less admin. More time. TradeConnectAI is the job, quote and customer app built for tradespeople. Keep jobs, photos, quotes, appointments and customer updates together — without spending your evenings doing admin.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

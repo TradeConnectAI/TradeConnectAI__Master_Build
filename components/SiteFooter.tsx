@@ -17,7 +17,7 @@ export default function SiteFooter() {
         <div>
           <Wordmark tone="light" />
           <p className="mt-4 max-w-sm text-base text-cream/85">
-            More jobs. Less admin. TradeConnectAI is in beta and works in your phone&apos;s browser — nothing to install.
+            Less admin. More time. TradeConnectAI is in beta and works in your phone&apos;s browser — nothing to install.
           </p>
           <p className="mt-4 text-base font-semibold">Steve · TradeConnectAI</p>
           <a href={`mailto:${CONTACT_EMAIL}`} className={`${linkClass} break-all`}>

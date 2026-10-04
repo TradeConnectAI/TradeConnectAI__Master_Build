@@ -71,7 +71,7 @@ export default function HomePage() {
               Manage enquiries, jobs, photos, quotes, appointments and customer updates without
               spending your evenings catching up on paperwork.
             </p>
-            <p className="mt-4 border-l-4 border-copper pl-3 text-lg font-semibold">More jobs. Less admin.</p>
+            <p className="mt-4 border-l-4 border-copper pl-3 text-lg font-semibold">Less admin. More time.</p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <a href={APP_SIGNUP_URL} className="tc-btn tc-btn-primary text-lg sm:min-w-[180px]">
@@ -244,7 +244,7 @@ export default function HomePage() {
                 TradeConnectAI is being built to solve the small bits of admin that steal time from people who actually
                 have jobs to get done.
               </p>
-              <p>We&apos;re working directly with local trade businesses while developing it.</p>
+              <p>We&apos;re inviting local trade businesses to test it while we develop it.</p>
               <p>If something is useful, annoying or missing, tell us. That feedback helps shape the app.</p>
             </div>
             <p className="mt-5 font-semibold">— Steve, TradeConnectAI</p>
