@@ -108,6 +108,11 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  // Containment: unauthenticated lead creation is off until a proper login exists.
+  if (process.env.GROWTH_LEADS_POST_ENABLED !== "true") {
+    return NextResponse.json({ ok: false, error: "Not found" }, { status: 404 });
+  }
+
   try {
     const body = (await request.json()) as LeadBody;
 
