@@ -80,6 +80,11 @@ function buildMarketingMessage(body: LeadBody, service: string) {
 }
 
 export async function GET(request: Request) {
+  // Containment: lead listing is not public until a proper login exists.
+  if (process.env.GROWTH_LEADS_LIST_ENABLED !== "true") {
+    return NextResponse.json({ ok: false, error: "Not found" }, { status: 404 });
+  }
+
   const url = new URL(request.url);
   const tenant = url.searchParams.get("tenant");
 

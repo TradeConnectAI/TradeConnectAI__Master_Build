@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import { notFound } from "next/navigation";
 import { getBetaLeads, hasLeadStorage, type BetaLead } from "@/lib/beta-leads";
 
 const fallbackLeads: BetaLead[] = [
@@ -36,6 +37,8 @@ function countByStatus(leads: BetaLead[], status: BetaLead["status"]) {
 export const dynamic = "force-dynamic";
 
 export default async function AdminLeadsPage() {
+  // Containment: not public until a proper login exists.
+  notFound();
   const storageReady = hasLeadStorage();
   const savedLeads = await getBetaLeads();
   const leads = savedLeads.length ? savedLeads : fallbackLeads;

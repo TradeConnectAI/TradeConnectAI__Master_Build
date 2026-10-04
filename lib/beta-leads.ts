@@ -58,8 +58,7 @@ export async function saveBetaLead(lead: BetaLead) {
   });
 
   if (!response.ok) {
-    const text = await response.text();
-    console.error("Failed to save lead to Supabase", response.status, text);
+    console.error("Failed to save lead to Supabase", { id: lead.id, status: response.status });
     return false;
   }
 
@@ -85,8 +84,7 @@ export async function getBetaLeads(): Promise<BetaLead[]> {
   );
 
   if (!response.ok) {
-    const text = await response.text();
-    console.error("Failed to read leads from Supabase", response.status, text);
+    console.error("Failed to read leads from Supabase", { status: response.status });
     return [];
   }
 

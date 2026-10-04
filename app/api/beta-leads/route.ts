@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     createdAt: new Date().toISOString(),
   };
 
-  console.log("TradeConnectAI beta lead", { ...lead, offer });
+  console.log("TradeConnectAI beta lead received", { id: lead.id, source: lead.source });
 
   await saveBetaLead(lead);
 
@@ -97,8 +97,7 @@ export async function POST(request: Request) {
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error("Failed to send beta lead email", errorText);
+      console.error("Failed to send beta lead email", { id: lead.id, status: response.status });
     }
   } else {
     console.warn("RESEND_API_KEY not set. Lead was logged/saved only.");
