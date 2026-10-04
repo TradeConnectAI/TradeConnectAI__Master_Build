@@ -230,14 +230,17 @@ export default function HomePage() {
       {/* Founder */}
       <section id="about" className="scroll-mt-20 bg-navy text-cream">
         <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-14 sm:px-6 md:grid-cols-[280px_1fr] md:gap-12 md:py-20">
-          <div className="relative aspect-[4/5] w-full max-w-[210px] overflow-hidden rounded-xl border-[3px] border-copper bg-surface md:max-w-[280px]">
-            <Image
-              src="/founder/steve-headshot.webp"
-              alt="Steve, founder of TradeConnectAI"
-              fill
-              sizes="(max-width: 768px) 210px, 280px"
-              className="object-cover object-center"
-            />
+          <div className="w-full max-w-[210px] md:max-w-[280px]">
+            <div className="relative aspect-[4/5] w-full max-w-[210px] overflow-hidden rounded-xl border-[3px] border-copper bg-surface md:max-w-[280px]">
+              <Image
+                src="/founder/steve-headshot.webp"
+                alt="Steve, founder of TradeConnectAI"
+                fill
+                sizes="(max-width: 768px) 210px, 280px"
+                className="object-cover object-center"
+              />
+            </div>
+            <p className="tc-display mt-3 text-base font-bold tracking-wide text-copper">Built in South Wales.</p>
           </div>
           <div>
             <p className="tc-eyebrow">Who&apos;s behind TradeConnectAI</p>
