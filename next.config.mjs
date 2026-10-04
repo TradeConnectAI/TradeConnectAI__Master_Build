@@ -37,10 +37,14 @@ const nextConfig = {
     ],
   },
   async redirects() {
-    return retired.flatMap(([source, destination]) => [
-      { source, destination, permanent: true },
-      { source: `${source}/:path*`, destination, permanent: true },
-    ]);
+    return [
+      // Temporary (307) so it is easy to undo: the old /login page now goes to the app's sign-in.
+      { source: "/login", destination: "https://tradeconnectai-beta.lovable.app/auth", permanent: false },
+      ...retired.flatMap(([source, destination]) => [
+        { source, destination, permanent: true },
+        { source: `${source}/:path*`, destination, permanent: true },
+      ]),
+    ];
   },
 };
 

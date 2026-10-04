@@ -5,6 +5,8 @@ import {
   APP_SIGNIN_URL,
   APP_SIGNUP_URL,
   CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_PHONE_TEL,
   FEEDBACK_PATH,
 } from "@/lib/site-links";
 
@@ -22,6 +24,10 @@ export default function SiteFooter() {
           <p className="mt-4 text-base font-semibold">Steve · TradeConnectAI</p>
           <a href={`mailto:${CONTACT_EMAIL}`} className={`${linkClass} break-all`}>
             {CONTACT_EMAIL}
+          </a>
+          <br />
+          <a href={CONTACT_PHONE_TEL} className={linkClass}>
+            {CONTACT_PHONE}
           </a>
         </div>
 

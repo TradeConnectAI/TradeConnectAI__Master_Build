@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import { APP_SIGNIN_URL, APP_SIGNUP_URL, CONTACT_EMAIL, FEEDBACK_PATH } from "@/lib/site-links";
+import { APP_SIGNIN_URL, APP_SIGNUP_URL, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, FEEDBACK_PATH } from "@/lib/site-links";
 
 const workflow = [
   ["Customer gets in touch", "A call, text or message comes in. Log it as a new enquiry before it gets lost."],
@@ -292,6 +292,9 @@ export default function HomePage() {
             <Link href={FEEDBACK_PATH} className="tc-btn tc-btn-navy text-lg">Tell us what you think</Link>
             <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("TradeConnectAI feedback")}`} className="tc-btn tc-btn-outline">
               Or email Steve directly
+            </a>
+            <a href={CONTACT_PHONE_TEL} className="tc-btn tc-btn-outline">
+              Or call Steve on {CONTACT_PHONE}
             </a>
           </div>
         </div>

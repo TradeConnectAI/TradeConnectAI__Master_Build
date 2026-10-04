@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import { APP_SIGNUP_URL, CONTACT_EMAIL, FEEDBACK_PATH } from "@/lib/site-links";
+import { APP_SIGNUP_URL, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, FEEDBACK_PATH } from "@/lib/site-links";
 
 export const metadata: Metadata = {
   title: "Talk to us — TradeConnectAI",
@@ -49,7 +49,9 @@ export default function BookDemoPage() {
           </div>
           <p className="mt-6 text-base text-ink-muted">
             Prefer email? Contact Steve at{" "}
-            <a href={`mailto:${CONTACT_EMAIL}`} className="inline-block py-[11px] font-semibold text-navy underline underline-offset-4 break-all">{CONTACT_EMAIL}</a>.
+            <a href={`mailto:${CONTACT_EMAIL}`} className="inline-block py-[11px] font-semibold text-navy underline underline-offset-4 break-all">{CONTACT_EMAIL}</a>{" "}
+            or call{" "}
+            <a href={CONTACT_PHONE_TEL} className="inline-block py-[11px] font-semibold text-navy underline underline-offset-4">{CONTACT_PHONE}</a>.
             Already tried it? <Link href={FEEDBACK_PATH} className="inline-block py-[11px] font-semibold text-navy underline underline-offset-4">Tell us what you think</Link>.
           </p>
         </div>

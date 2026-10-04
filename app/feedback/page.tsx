@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import FeedbackForm from "@/components/site/FeedbackForm";
-import { APP_SIGNUP_URL, CONTACT_EMAIL } from "@/lib/site-links";
+import { APP_SIGNUP_URL, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/lib/site-links";
 
 export const metadata: Metadata = {
   title: "Tell us what you think — TradeConnectAI",
@@ -26,7 +26,9 @@ export default function FeedbackPage() {
           <FeedbackForm />
         </div>
         <p className="mt-8 text-base text-ink-muted">
-          Prefer to just email? <a href={`mailto:${CONTACT_EMAIL}?subject=TradeConnectAI%20feedback`} className="inline-block py-[11px] font-semibold text-navy underline underline-offset-4 break-all">{CONTACT_EMAIL}</a>.
+          Prefer to just email? <a href={`mailto:${CONTACT_EMAIL}?subject=TradeConnectAI%20feedback`} className="inline-block py-[11px] font-semibold text-navy underline underline-offset-4 break-all">{CONTACT_EMAIL}</a>{" "}
+          or call{" "}
+          <a href={CONTACT_PHONE_TEL} className="inline-block py-[11px] font-semibold text-navy underline underline-offset-4">{CONTACT_PHONE}</a>.
           Haven&apos;t tried it yet?{" "}
           <a href={APP_SIGNUP_URL} className="inline-block py-[11px] font-semibold text-navy underline underline-offset-4">Try the app</a>.
         </p>
